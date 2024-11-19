@@ -1,0 +1,1137 @@
+Date: Wed, 24 Jul 2024 15:40:57 +0300
+Subject: [PATCH] run/cody_20240719
+
+---
+ .../app/controller/CompetitionController.java |  91 ++++++++++++++--
+ .../golf/app/controller/CourseController.java |  15 ++-
+ .../controller/CourseController.java.absract  |  62 +++++++++++
+ .../controller/CourseController.java.concrete |  65 +++++++++++
+ .../ExceptionHandlerController.java           |   9 ++
+ .../app/controller/RoundScoreController.java  |  22 ++--
+ .../app/controller/ScoreCardController.java   |  37 ++++++-
+ .../golf/app/controller/UserController.java   |   3 +-
+ .../exception/CourseNotFoundException.java    |  11 +-
+ .../com/golf/app/repo/MarkerRepository.java   |   9 +-
+ .../golf/app/security/AppSecurityConfig.java  |  15 +--
+ .../com/golf/app/service/MarkerService.java   |  12 +-
+ .../golf/app/service/MarkerServiceImpl.java   |  44 ++++++++
+ .../java/com/golf/app/utils/AppConstant.java  |  43 ++++----
+ .../java/com/golf/app/utils/ScoreUtils.java   |  37 +++++--
+ .../com/golf/app/utils/ValidationUtils.java   |   6 +-
+ src/main/resources/logback-spring.xml         |  11 +-
+ src/test/build.gradle                         |  31 ++++++
+ ...petitionRestControllerIntegrationTest.java | 103 +++++++++++++++++-
+ .../com/golf/app/utils/CourseUtilsTest.java   |  59 +++++++++-
+ src/test/pom.xml                              |   9 +-
+ 21 files changed, 615 insertions(+), 79 deletions(-)
+ create mode 100644 src/main/java/com/golf/app/controller/CourseController.java.absract
+ create mode 100644 src/main/java/com/golf/app/controller/CourseController.java.concrete
+ create mode 100644 src/main/java/com/golf/app/service/MarkerServiceImpl.java
+ create mode 100644 src/test/build.gradle
+
+diff --git a/src/main/java/com/golf/app/controller/CompetitionController.java b/src/main/java/com/golf/app/controller/CompetitionController.java
+index 6362e0e..7b501fe 100644
+--- a/src/main/java/com/golf/app/controller/CompetitionController.java
++++ b/src/main/java/com/golf/app/controller/CompetitionController.java
+@@ -23,6 +23,9 @@ import java.util.Optional;
+ import java.util.stream.Collectors;
+ import java.util.stream.StreamSupport;
+ 
++/**
++ * Controller for handling competition-related requests.
++ */
+ @Controller
+ @RequestMapping("/competition")
+ public class CompetitionController {
+@@ -46,6 +49,15 @@ public class CompetitionController {
+     private final CourseService courseService;
+     private final ModelMapper modelMapper;
+ 
++    /**
++     * Constructs a new CompetitionController with the specified services and model mapper.
++     *
++     * @param competitionService the competition service
++     * @param roundService       the round service
++     * @param playerService      the player service
++     * @param courseService      the course service
++     * @param modelMapper        the model mapper
++     */
+     @Autowired
+     public CompetitionController(CompetitionService competitionService, RoundService roundService,
+                                  PlayerService playerService, CourseService courseService, ModelMapper modelMapper) {
+@@ -56,12 +68,24 @@ public class CompetitionController {
+         this.modelMapper = modelMapper;
+     }
+ 
++    /**
++     * Displays the competition main page.
++     *
++     * @param model the model
++     * @return the competition main page
++     */
+     @GetMapping
+     public String displayCompetitionMainPage(Model model) {
+         model.addAttribute(COMPETITION_ATTRIBUTE, competitionService.getAllCompetition());
+         return COMPETITION_MAIN_PAGE;
+     }
+ 
++    /**
++     * Displays the competition add page.
++     *
++     * @param model the model
++     * @return the competition add page
++     */
+     @GetMapping("/add")
+     public String displayCompetitionAddPage(Model model) {
+         Iterable<Course> courses = courseService.getAllCourses();
+@@ -72,6 +96,13 @@ public class CompetitionController {
+         return COMPETITION_ADD_PAGE;
+     }
+ 
++    /**
++     * Adds a new competition.
++     *
++     * @param competition the competition
++     * @param courseName  the course name
++     * @return the redirect URL to the competition main page
++     */
+     @PostMapping("/add")
+     public String addCompetition(@ModelAttribute Competition competition,
+                                  @RequestParam String courseName) {
+@@ -83,6 +114,13 @@ public class CompetitionController {
+         return REDIRECT_COMPETITION;
+     }
+ 
++    /**
++     * Retrieves a competition by its ID.
++     *
++     * @param id    the competition ID
++     * @param model the model
++     * @return the competition details page
++     */
+     @GetMapping("/{id}")
+     public String getCompetitionById(@PathVariable("id") Long id, Model model) {
+         Competition competition = competitionService.getCompetitionById(id)
+@@ -92,6 +130,13 @@ public class CompetitionController {
+         return COMPETITION_DETAILS_PAGE;
+     }
+ 
++    /**
++     * Displays the competition edit page.
++     *
++     * @param id    the competition ID
++     * @param model the model
++     * @return the competition edit page
++     */
+     @GetMapping("/{id}/edit")
+     public String displayCompetitionEditPage(@PathVariable("id") Long id, Model model) {
+         Competition competition = competitionService.getCompetitionById(id)
+@@ -110,6 +155,16 @@ public class CompetitionController {
+         return COMPETITION_EDIT_PAGE;
+     }
+ 
++    /**
++     * Updates a competition.
++     *
++     * @param id                the competition ID
++     * @param competition       the competition
++     * @param playerSurnameName the player surname and name
++     * @param courseName        the course name
++     * @param model             the model
++     * @return the competition details page
++     */
+     @PostMapping("/{id}/edit")
+     public String updateCompetition(@PathVariable("id") Long id,
+                                     @ModelAttribute Competition competition,
+@@ -154,6 +209,13 @@ public class CompetitionController {
+         return COMPETITION_DETAILS_PAGE;
+     }
+ 
++    /**
++     * Displays the round add page for a competition by its ID.
++     *
++     * @param id    the competition ID
++     * @param model the model
++     * @return the round add page
++     */
+     @GetMapping("/{id}/add-round")
+     public String getCompetitionRoundAddPageForCompetitionById(@PathVariable("id") Long id, Model model) {
+         Competition competition = competitionService.getCompetitionById(id)
+@@ -164,6 +226,13 @@ public class CompetitionController {
+         return ROUND_ADD_PAGE;
+     }
+ 
++    /**
++     * Adds a new round to a competition.
++     *
++     * @param round           the round
++     * @param competitionName the competition name
++     * @return the redirect URL to the competition details page
++     */
+     @PostMapping("/{id}/add-round")
+     public String addCompetition(@ModelAttribute Round round,
+                                  @RequestParam String competitionName) {
+@@ -190,6 +259,13 @@ public class CompetitionController {
+         return REDIRECT_COMPETITION_DETAILS_PAGE;
+     }
+ 
++    /**
++     * Retrieves the rounds of a competition by its ID.
++     *
++     * @param id    the competition ID
++     * @param model the model
++     * @return the list of rounds
++     */
+     @GetMapping("/{id}/rounds")
+     public List<Round> getCompetitionRounds(@PathVariable("id") Long id, Model model) {
+         Competition competition = competitionService.getCompetitionById(id)
+@@ -199,22 +275,21 @@ public class CompetitionController {
+         return rounds;
+     }
+ 
++    /**
++     * Retrieves the rounds of a competition by its ID as RoundDto objects.
++     *
++     * @param id the competition ID
++     * @return the list of RoundDto objects
++     */
+     @GetMapping("data/{id}/round")
+     public List<RoundDto> getCompetitionRounds(@PathVariable("id") Long id) {
+         Competition competition = competitionService.getCompetitionById(id)
+             .orElseThrow(() -> new CompetitionNotFoundException("Competition by ID not found"));
+ 
+         List<RoundDto> roundDtos = competition.getRounds().stream()
+-            .map(this::convertToRoundDto)
++            .map(round -> modelMapper.map(round, RoundDto.class))
+             .collect(Collectors.toList());
+ 
+         return roundDtos;
+     }
+-
+-    protected RoundDto convertToRoundDto(Round round) {
+-        RoundDto roundDto = new RoundDto();
+-        roundDto.setId(round.getId());
+-        roundDto.setRoundName(round.getName());
+-        return roundDto;
+-    }
+ }
+diff --git a/src/main/java/com/golf/app/controller/CourseController.java b/src/main/java/com/golf/app/controller/CourseController.java
+index d12ba37..fc45b3d 100644
+--- a/src/main/java/com/golf/app/controller/CourseController.java
++++ b/src/main/java/com/golf/app/controller/CourseController.java
+@@ -4,15 +4,18 @@ import com.golf.app.dto.CourseDto;
+ import com.golf.app.model.Course;
+ import com.golf.app.service.CourseService;
+ import com.golf.app.utils.CourseUtils;
++import com.golf.app.utils.ValidationUtils;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.stereotype.Controller;
+ import org.springframework.ui.Model;
++import org.springframework.validation.BindingResult;
+ import org.springframework.web.bind.annotation.GetMapping;
+ import org.springframework.web.bind.annotation.ModelAttribute;
+ import org.springframework.web.bind.annotation.PostMapping;
+ import org.springframework.web.bind.annotation.RequestMapping;
+ 
+-import java.util.List;
++import jakarta.validation.Valid;
++import java.util.Map;
+ 
+ @Controller
+ @RequestMapping("/course")
+@@ -22,6 +25,8 @@ public class CourseController {
+     private static final String COURSE_ADD_PAGE = "course/course-add";
+     private static final String COURSES_ATTRIBUTE = "courses";
+     private static final String REDIRECT_COURSE_MAIN_PAGE = "redirect:/course";
++    private static final String ERROR_PAGE = "error/error-page";
++    private static final String ERRORS_ATTRIBUTE = "errors";
+ 
+     private final CourseService courseService;
+ 
+@@ -42,7 +47,13 @@ public class CourseController {
+     }
+ 
+     @PostMapping("/add")
+-    public String addCourse(@ModelAttribute CourseDto courseDto) {
++    public String addCourse(@ModelAttribute @Valid CourseDto courseDto, BindingResult bindingResult, Model model) {
++        if (bindingResult.hasErrors()) {
++            Map<String, String> errors = ValidationUtils.getFieldErrors(bindingResult);
++            model.addAttribute(ERRORS_ATTRIBUTE, errors);
++            return ERROR_PAGE;
++        }
++
+         Course course = new Course();
+         course.setName(courseDto.getName());
+         course.setLocation(courseDto.getLocation());
+diff --git a/src/main/java/com/golf/app/controller/CourseController.java.absract b/src/main/java/com/golf/app/controller/CourseController.java.absract
+new file mode 100644
+index 0000000..136afc1
+--- /dev/null
++++ b/src/main/java/com/golf/app/controller/CourseController.java.absract
+@@ -0,0 +1,62 @@
++package com.golf.app.controller;
++
++import com.golf.app.dto.CourseDto;
++import com.golf.app.model.Course;
++import com.golf.app.service.CourseService;
++import com.golf.app.utils.CourseUtils;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Controller;
++import org.springframework.ui.Model;
++import org.springframework.validation.BindingResult;
++import org.springframework.web.bind.annotation.GetMapping;
++import org.springframework.web.bind.annotation.ModelAttribute;
++import org.springframework.web.bind.annotation.PostMapping;
++import org.springframework.web.bind.annotation.RequestMapping;
++
++import jakarta.validation.Valid;
++import java.util.List;
++
++@Controller
++@RequestMapping("/course")
++public class CourseController {
++
++    private static final String COURSE_MAIN_PAGE = "course/course-main";
++    private static final String COURSE_ADD_PAGE = "course/course-add";
++    private static final String COURSES_ATTRIBUTE = "courses";
++    private static final String REDIRECT_COURSE_MAIN_PAGE = "redirect:/course";
++    private static final String ERROR_PAGE = "error/error-page";
++
++    private final CourseService courseService;
++
++    @Autowired
++    public CourseController(CourseService courseService) {
++        this.courseService = courseService;
++    }
++
++    @GetMapping
++    public String displayCourseMainPage(Model model) {
++        model.addAttribute(COURSES_ATTRIBUTE, courseService.getAllCourses());
++        return COURSE_MAIN_PAGE;
++    }
++
++    @GetMapping("/add")
++    public String displayCourseAddPage() {
++        return COURSE_ADD_PAGE;
++    }
++
++    @PostMapping("/add")
++    public String addCourse(@ModelAttribute @Valid CourseDto courseDto, BindingResult bindingResult, Model model) {
++        if (bindingResult.hasErrors()) {
++            model.addAttribute("errors", bindingResult.getAllErrors());
++            return ERROR_PAGE;
++        }
++
++        Course course = new Course();
++        course.setName(courseDto.getName());
++        course.setLocation(courseDto.getLocation());
++        course.setHoles(CourseUtils.buildHoles(courseDto));
++        courseService.saveCourse(course);
++
++        return REDIRECT_COURSE_MAIN_PAGE;
++    }
++}
+diff --git a/src/main/java/com/golf/app/controller/CourseController.java.concrete b/src/main/java/com/golf/app/controller/CourseController.java.concrete
+new file mode 100644
+index 0000000..fc45b3d
+--- /dev/null
++++ b/src/main/java/com/golf/app/controller/CourseController.java.concrete
+@@ -0,0 +1,65 @@
++package com.golf.app.controller;
++
++import com.golf.app.dto.CourseDto;
++import com.golf.app.model.Course;
++import com.golf.app.service.CourseService;
++import com.golf.app.utils.CourseUtils;
++import com.golf.app.utils.ValidationUtils;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Controller;
++import org.springframework.ui.Model;
++import org.springframework.validation.BindingResult;
++import org.springframework.web.bind.annotation.GetMapping;
++import org.springframework.web.bind.annotation.ModelAttribute;
++import org.springframework.web.bind.annotation.PostMapping;
++import org.springframework.web.bind.annotation.RequestMapping;
++
++import jakarta.validation.Valid;
++import java.util.Map;
++
++@Controller
++@RequestMapping("/course")
++public class CourseController {
++
++    private static final String COURSE_MAIN_PAGE = "course/course-main";
++    private static final String COURSE_ADD_PAGE = "course/course-add";
++    private static final String COURSES_ATTRIBUTE = "courses";
++    private static final String REDIRECT_COURSE_MAIN_PAGE = "redirect:/course";
++    private static final String ERROR_PAGE = "error/error-page";
++    private static final String ERRORS_ATTRIBUTE = "errors";
++
++    private final CourseService courseService;
++
++    @Autowired
++    public CourseController(CourseService courseService) {
++        this.courseService = courseService;
++    }
++
++    @GetMapping
++    public String displayCourseMainPage(Model model) {
++        model.addAttribute(COURSES_ATTRIBUTE, courseService.getAllCourses());
++        return COURSE_MAIN_PAGE;
++    }
++
++    @GetMapping("/add")
++    public String displayCourseAddPage() {
++        return COURSE_ADD_PAGE;
++    }
++
++    @PostMapping("/add")
++    public String addCourse(@ModelAttribute @Valid CourseDto courseDto, BindingResult bindingResult, Model model) {
++        if (bindingResult.hasErrors()) {
++            Map<String, String> errors = ValidationUtils.getFieldErrors(bindingResult);
++            model.addAttribute(ERRORS_ATTRIBUTE, errors);
++            return ERROR_PAGE;
++        }
++
++        Course course = new Course();
++        course.setName(courseDto.getName());
++        course.setLocation(courseDto.getLocation());
++        course.setHoles(CourseUtils.buildHoles(courseDto));
++        courseService.saveCourse(course);
++
++        return REDIRECT_COURSE_MAIN_PAGE;
++    }
++}
+diff --git a/src/main/java/com/golf/app/controller/ExceptionHandlerController.java b/src/main/java/com/golf/app/controller/ExceptionHandlerController.java
+index 7a33893..3a7e74e 100644
+--- a/src/main/java/com/golf/app/controller/ExceptionHandlerController.java
++++ b/src/main/java/com/golf/app/controller/ExceptionHandlerController.java
+@@ -1,10 +1,19 @@
+ package com.golf.app.controller;
+ 
++import com.golf.app.exception.CourseNotFoundException;
+ import org.springframework.web.bind.annotation.ControllerAdvice;
++import org.springframework.web.bind.annotation.ExceptionHandler;
++import org.springframework.web.servlet.ModelAndView;
+ 
+ @ControllerAdvice
+ public class ExceptionHandlerController {
+ 
+     protected static final String ERROR_PAGE = "error/error-page";
+ 
++    @ExceptionHandler(CourseNotFoundException.class)
++    public ModelAndView handleCourseNotFoundException(CourseNotFoundException ex) {
++        ModelAndView modelAndView = new ModelAndView(ERROR_PAGE);
++        modelAndView.addObject("message", ex.getMessage());
++        return modelAndView;
++    }
+ }
+diff --git a/src/main/java/com/golf/app/controller/RoundScoreController.java b/src/main/java/com/golf/app/controller/RoundScoreController.java
+index 180a7cc..4cea155 100644
+--- a/src/main/java/com/golf/app/controller/RoundScoreController.java
++++ b/src/main/java/com/golf/app/controller/RoundScoreController.java
+@@ -56,10 +56,10 @@ public class RoundScoreController {
+         Iterable<Player> players = playerService.getAllPlayers();
+ 
+         List<String> playersSurnameName = StreamSupport.stream(players.spliterator(), false)
+-            .map(player -> player.getSurname() + ", " + player.getName())
+-            .collect(Collectors.toList());
++                .map(player -> player.getSurname() + ", " + player.getName())
++                .collect(Collectors.toList());
+ 
+-        Map<Competition,List<Round>> competitionRounds = new HashMap<>();
++        Map<Competition, List<Round>> competitionRounds = new HashMap<>();
+         Iterable<Competition> competitions = competitionService.getAllCompetition();
+         for (Competition competition : competitions) {
+             List<Round> rounds = (List<Round>) roundService.getAllRoundByCompetitionName(competition.getName());
+@@ -73,16 +73,20 @@ public class RoundScoreController {
+             roundPlayers.put(round, playersByRound);
+         }
+ 
+-        model.addAttribute(ROUND_PLAYERS_ATTRIBUTE, roundPlayers);
+-        model.addAttribute(COMPETITION_ROUNDS_MAP_ATTRIBUTE, competitionRounds);
+-        model.addAttribute(PLAYER_SURNAME_NAME_ATTRIBUTE, playersSurnameName);
+-        model.addAttribute(PLAYERS_ATTRIBUTE, players);
+-        model.addAttribute(COMPETITIONS_ATTRIBUTE, competitions);
+-        model.addAttribute(ROUNDS_ATTRIBUTE, rounds);
++        RoundScoreDto roundScoreDto = new RoundScoreDto();
++        roundScoreDto.setPlayersSurnameName(playersSurnameName);
++        roundScoreDto.setPlayers(players);
++        roundScoreDto.setCompetitions(competitions);
++        roundScoreDto.setRounds(rounds);
++        roundScoreDto.setCompetitionRounds(competitionRounds);
++        roundScoreDto.setRoundPlayers(roundPlayers);
++
++        model.addAttribute(ROUND_SCORE_DTO_ATTRIBUTE, roundScoreDto);
+ 
+         return ROUND_SCORE_INPUT_PAGE;
+     }
+ 
++
+     @PostMapping("/submit")
+     public String addScoreCard(@ModelAttribute RoundScoreDto roundScoreDto) {
+         RoundScore roundScore = new RoundScore();
+diff --git a/src/main/java/com/golf/app/controller/ScoreCardController.java b/src/main/java/com/golf/app/controller/ScoreCardController.java
+index 24f056a..d564b7b 100644
+--- a/src/main/java/com/golf/app/controller/ScoreCardController.java
++++ b/src/main/java/com/golf/app/controller/ScoreCardController.java
+@@ -180,22 +180,42 @@ public class ScoreCardController {
+ 
+     @GetMapping("/{id}")
+     public String displayScoreCardPage(@PathVariable Long id, Model model) {
++        // Retrieve the RoundScore object by its ID
+         Optional<RoundScore> roundScore = roundScoreService.getRoundScoreById(id);
++
++        // Get the list of scores associated with the round
+         List<Score> scores = roundScore.get().getScores();
++
++        // Calculate the player's handicap as an integer
+         Integer playerHcp = Math.toIntExact(Math.round(roundScore.get().getPlayer().getHcp()));
++
++        // Initialize accumulators for various score calculations
+         int sumScore = 0;
+         int sumScoreSubtractPar = 0;
+         int sumScoreSubtractParHcp = 0;
+         int sumStableford = 0;
++
++        // Iterate through each score in the list
+         for (Score score : scores) {
++            // Accumulate the total strokes
+             sumScore = sumScore + score.getStroke();
+             roundScore.get().setSumStroke(sumScore);
+-            score.setScoreSubtractPar(score.getStroke() - roundScore.get().getCompetition().getCourse().getHoles().get(scores.indexOf(score)).getPar());
++
++            // Calculate the score subtracting the par for the hole
++            score.setScoreSubtractPar(score.getStroke()
++                    - roundScore.get().getCompetition().getCourse().getHoles().get(scores.indexOf(score)).getPar());
+             sumScoreSubtractPar = sumScoreSubtractPar + score.getScoreSubtractPar();
+             roundScore.get().setSumScoreSubtractPar(sumScoreSubtractPar);
+-            Integer strokeIndex = roundScore.get().getCompetition().getCourse().getHoles().get(scores.indexOf(score)).getStrokeIndex();
+-            Integer scoreToCorrect = playerHcp % roundScore.get().getCompetition().getCourse().getHoles().size() - strokeIndex;
++
++            // Calculate the stroke index and score correction based on the player's
++            // handicap
++            Integer strokeIndex = roundScore.get().getCompetition().getCourse().getHoles().get(scores.indexOf(score))
++                    .getStrokeIndex();
++            Integer scoreToCorrect = playerHcp % roundScore.get().getCompetition().getCourse().getHoles().size()
++                    - strokeIndex;
+             int par2 = roundScore.get().getCompetition().getCourse().getHoles().get(scores.indexOf(score)).getPar();
++
++            // Adjust the score correction based on the stroke index
+             if (scoreToCorrect >= 0) {
+                 int allHolesCorrection = playerHcp / scores.size();
+                 scoreToCorrect = allHolesCorrection + 1;
+@@ -205,10 +225,15 @@ public class ScoreCardController {
+                 scoreToCorrect = allHolesCorrection;
+                 score.setScoreSubtractParHcp(score.getStroke() - par2 - scoreToCorrect);
+             }
++
++            // Calculate the score subtracting par with handicap and update the round score
+             int scoreSubtractParHcp = score.getScoreSubtractParHcp();
+             boolean playedInPar = scoreSubtractParHcp == 0;
+             sumScoreSubtractParHcp = sumScoreSubtractParHcp + scoreSubtractParHcp;
+             roundScore.get().setSumScoreSubtractParHcp(sumScoreSubtractParHcp);
++
++            // Determine the Stableford points based on the score subtracting par with
++            // handicap
+             if (scoreSubtractParHcp >= 2) {
+                 score.setStableford(0);
+             } else if (scoreSubtractParHcp == 1) {
+@@ -222,17 +247,23 @@ public class ScoreCardController {
+             } else if (scoreSubtractParHcp == -3) {
+                 score.setStableford(5);
+             }
++
++            // Accumulate the total Stableford points
+             sumStableford = sumStableford + score.getStableford();
+             roundScore.get().setSumStableford(sumStableford);
+         }
+ 
++        // Save the updated round score
+         roundScoreService.saveRoundScore(roundScore.get());
+ 
++        // Add attributes to the model to be used in the view
+         model.addAttribute(PLAYER_ATTRIBUTE, roundScore.get().getPlayer());
+         model.addAttribute(PLAYER_SURNAME_NAME_ATTRIBUTE, roundScore.get().getPlayer().getSurname() + " " +
+                 roundScore.get().getPlayer().getName());
+         model.addAttribute(ROUND_SCORE_ATTRIBUTE, roundScore.get());
+ 
++        // Return the name of the view to be rendered
+         return ROUND_SCORE_PAGE;
+     }
++
+ }
+diff --git a/src/main/java/com/golf/app/controller/UserController.java b/src/main/java/com/golf/app/controller/UserController.java
+index 5a4a4d3..f213f00 100644
+--- a/src/main/java/com/golf/app/controller/UserController.java
++++ b/src/main/java/com/golf/app/controller/UserController.java
+@@ -5,6 +5,7 @@ import com.golf.app.service.UserService;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.stereotype.Controller;
+ import org.springframework.web.bind.annotation.GetMapping;
++import org.springframework.web.bind.annotation.ModelAttribute;
+ import org.springframework.web.bind.annotation.PostMapping;
+ import org.springframework.web.bind.annotation.RequestBody;
+ import org.springframework.web.bind.annotation.RequestMapping;
+@@ -28,7 +29,7 @@ public class UserController {
+     }
+ 
+     @PostMapping
+-    public String registerUser(@RequestBody User user) {
++    public String registerUser(@ModelAttribute User user) {
+         userService.registerUser(user);
+         return "redirect:/login";
+     }
+diff --git a/src/main/java/com/golf/app/exception/CourseNotFoundException.java b/src/main/java/com/golf/app/exception/CourseNotFoundException.java
+index b78befe..320e65b 100644
+--- a/src/main/java/com/golf/app/exception/CourseNotFoundException.java
++++ b/src/main/java/com/golf/app/exception/CourseNotFoundException.java
+@@ -1,4 +1,11 @@
+ package com.golf.app.exception;
+ 
+-public class CourseNotFoundException {
+-}
++/**
++ * This class is a custom CourseNotFoundException exception class that extends RuntimeException.
++ */
++public class CourseNotFoundException extends RuntimeException {
++
++    public CourseNotFoundException(String message) {
++        super(message);
++    }
++}
+\ No newline at end of file
+diff --git a/src/main/java/com/golf/app/repo/MarkerRepository.java b/src/main/java/com/golf/app/repo/MarkerRepository.java
+index a37367a..9c4387b 100644
+--- a/src/main/java/com/golf/app/repo/MarkerRepository.java
++++ b/src/main/java/com/golf/app/repo/MarkerRepository.java
+@@ -1,4 +1,9 @@
+ package com.golf.app.repo;
+ 
+-public interface MarkerRepository {
+-}
++import com.golf.app.model.Marker;
++import org.springframework.data.repository.CrudRepository;
++import java.util.Optional;
++
++public interface MarkerRepository extends CrudRepository<Marker, Long> {
++    Optional<Marker> findById(Long id);
++}
+\ No newline at end of file
+diff --git a/src/main/java/com/golf/app/security/AppSecurityConfig.java b/src/main/java/com/golf/app/security/AppSecurityConfig.java
+index 73383ca..16da55a 100644
+--- a/src/main/java/com/golf/app/security/AppSecurityConfig.java
++++ b/src/main/java/com/golf/app/security/AppSecurityConfig.java
+@@ -45,13 +45,14 @@ public class AppSecurityConfig {
+     @Bean
+     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+         http
+-            .csrf().disable()
+-            .authorizeHttpRequests((authorize) -> authorize
+-                .requestMatchers(HttpMethod.POST).permitAll()
+-                .anyRequest().authenticated()
+-            )
+-            .formLogin(withDefaults())
+-            .httpBasic(withDefaults());
++                .csrf().disable()
++                .authorizeHttpRequests((authorize) -> authorize
++                        .requestMatchers(HttpMethod.POST).permitAll()
++                        .requestMatchers("/login").permitAll()
++                        .requestMatchers("/admin/**").hasRole(Role.ADMIN.name())
++                        .anyRequest().authenticated())
++                .formLogin(withDefaults())
++                .httpBasic(withDefaults());
+         return http.build();
+     }
+ 
+diff --git a/src/main/java/com/golf/app/service/MarkerService.java b/src/main/java/com/golf/app/service/MarkerService.java
+index 9d53d12..62327e4 100644
+--- a/src/main/java/com/golf/app/service/MarkerService.java
++++ b/src/main/java/com/golf/app/service/MarkerService.java
+@@ -1,4 +1,12 @@
+ package com.golf.app.service;
+ 
+-public class MarkerService {
+-}
++import com.golf.app.model.Marker;
++import java.util.Optional;
++
++public interface MarkerService {
++    Iterable<Marker> getAllMarkers();
++    Optional<Marker> getMarkerById(Long id);
++    Marker saveMarker(Marker marker);
++    Marker updateMarker(Marker marker);
++    void deleteMarker(Long id);
++}
+\ No newline at end of file
+diff --git a/src/main/java/com/golf/app/service/MarkerServiceImpl.java b/src/main/java/com/golf/app/service/MarkerServiceImpl.java
+new file mode 100644
+index 0000000..a590fb5
+--- /dev/null
++++ b/src/main/java/com/golf/app/service/MarkerServiceImpl.java
+@@ -0,0 +1,44 @@
++package com.golf.app.service;
++
++import com.golf.app.model.Marker;
++import com.golf.app.repo.MarkerRepository;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Service;
++
++import java.util.Optional;
++
++@Service
++public class MarkerServiceImpl implements MarkerService {
++
++    private final MarkerRepository markerRepository;
++
++    @Autowired
++    public MarkerServiceImpl(MarkerRepository markerRepository) {
++        this.markerRepository = markerRepository;
++    }
++
++    @Override
++    public Iterable<Marker> getAllMarkers() {
++        return markerRepository.findAll();
++    }
++
++    @Override
++    public Optional<Marker> getMarkerById(Long id) {
++        return markerRepository.findById(id);
++    }
++
++    @Override
++    public Marker saveMarker(Marker marker) {
++        return markerRepository.save(marker);
++    }
++
++    @Override
++    public Marker updateMarker(Marker marker) {
++        return markerRepository.save(marker);
++    }
++
++    @Override
++    public void deleteMarker(Long id) {
++        markerRepository.deleteById(id);
++    }
++}
+\ No newline at end of file
+diff --git a/src/main/java/com/golf/app/utils/AppConstant.java b/src/main/java/com/golf/app/utils/AppConstant.java
+index e06d5d8..66c7ad9 100644
+--- a/src/main/java/com/golf/app/utils/AppConstant.java
++++ b/src/main/java/com/golf/app/utils/AppConstant.java
+@@ -5,34 +5,35 @@ public final class AppConstant {
+     private AppConstant() {
+     }
+ 
++    public static final String COMPETITION_ATTRIBUTE = "competition";
++    public static final String COMPETITION_ROUNDS_MAP_ATTRIBUTE = "competitionRoundsMap";
++    public static final String ERRORS_ATTRIBUTE = "errors";
++    public static final String PLAYER_ATTRIBUTE = "player";
++    public static final String PLAYER_DETAILS_PAGE = "player/player-details";
++    public static final String PLAYER_EDIT_PAGE = "player/player-edit";
+     public static final String PLAYER_MAIN_PAGE = "player/player-main";
+     public static final String PLAYER_ADD_PAGE = "player/player-add";
+-    public static final String ROUND_MAIN_PAGE = "round/round-main";
++    public static final String PLAYER_PHOTO_DTO_ATTRIBUTE = "playerPhotoDto";
++    public static final String PLAYER_SURNAME_NAME_ATTRIBUTE = "playerSurnameName";
++    public static final String PLAYERS_ATTRIBUTE = "players";
++    public static final String PLAYERS_SURNAME_NAME_LIST_ATTRIBUTE = "playersSurnameNameList";
++    public static final String REDIRECT_COMPETITION_DETAILS_PAGE = "redirect:/competition/{competitionId}";
++    public static final String REDIRECT_ROUND = "redirect:/round";
++    public static final String REDIRECT_ROUND_EDIT_PAGE = "redirect:/round/{id}/edit";
++    public static final String REDIRECT_TO_PLAYER = "redirect:/player";
++    public static final String ROUND_ATTRIBUTE = "round";
+     public static final String ROUND_ADD_PAGE = "round/round-add";
+     public static final String ROUND_ADD_CHOOSE_COMPETITION_PAGE = "round/round-add-choose-competition";
+     public static final String ROUND_DETAILS_PAGE = "round/round-details";
+     public static final String ROUND_EDIT_PAGE = "round/round-edit";
+-    public static final String REDIRECT_ROUND_EDIT_PAGE = "redirect:/round/{id}/edit";
+-    public static final String REDIRECT_ROUND = "redirect:/round";
+-    public static final String ROUND_SCORE_INPUT_PAGE = "round-score/round-score-input-page";
+-    public static final String PLAYER_SURNAME_NAME_ATTRIBUTE = "playerSurnameName";
+-    public static final String PLAYER_ATTRIBUTE = "player";
+-    public static final String PLAYERS_SURNAME_NAME_LIST_ATTRIBUTE = "playersSurnameNameList";
+-    public static final String COMPETITIONS_ATTRIBUTE = "competitions";
++    public static final String ROUND_MAIN_PAGE = "round/round-main";
++    public static final String ROUND_PLAYERS_ATTRIBUTE = "roundPlayersMap";
+     public static final String ROUND_SCORE_ATTRIBUTE = "roundScore";
+-    public static final String PLAYER_DETAILS_PAGE = "player/player-details";
+-    public static final String PLAYER_EDIT_PAGE = "player/player-edit";
+-    public static final String PLAYER_PHOTO_DTO_ATTRIBUTE = "playerPhotoDto";
+-    public static final String PLAYERS_ATTRIBUTE = "players";
+-    public static final String REDIRECT_TO_PLAYER = "redirect:/player";
+-    public static final String ERRORS_ATTRIBUTE = "errors";
+-    public static final String ROUNDS_ATTRIBUTE = "rounds";
+-    public static final String COMPETITION_ROUNDS_MAP_ATTRIBUTE = "competitionRoundsMap";
+     public static final String ROUND_SCORE_DTO_ATTRIBUTE = "roundScoreDto";
+-    public static final String ROUND_PLAYERS_ATTRIBUTE = "roundPlayersMap";
+-    public static final String REDIRECT_COMPETITION_DETAILS_PAGE = "redirect:/competition/{competitionId}";
+-    public static final String ROUND_ATTRIBUTE = "round";
+-    public static final String COMPETITION_ATTRIBUTE = "competition";
+-    public static final String ROUND_SCORE_PAGE = "round-score/round-score-page";
++    public static final String ROUND_SCORE_INPUT_PAGE = "round-score/round-score-input-page";
+     public static final String ROUND_SCORE_MAIN = "round-score/round-score-main";
++    public static final String ROUND_SCORE_PAGE = "round-score/round-score-page";
++    public static final String ROUNDS_ATTRIBUTE = "rounds";
++    public static final String COMPETITIONS_ATTRIBUTE = "competitions";
++
+ }
+diff --git a/src/main/java/com/golf/app/utils/ScoreUtils.java b/src/main/java/com/golf/app/utils/ScoreUtils.java
+index d3cc86b..40b66d4 100644
+--- a/src/main/java/com/golf/app/utils/ScoreUtils.java
++++ b/src/main/java/com/golf/app/utils/ScoreUtils.java
+@@ -88,18 +88,7 @@ public final class ScoreUtils {
+             sumScoreSubtractParHcp = sumScoreSubtractParHcp + scoreSubtractParHcp;
+             roundScore.setSumScoreSubtractParHcp(sumScoreSubtractParHcp);
+ 
+-            if (netScorePar == 1) {
+-                score.setStableford(1);
+-            } else if (netScorePar == 0) {
+-                score.setStableford(2);
+-            } else if (netScorePar == -1) {
+-                score.setStableford(3);
+-            } else if (netScorePar == -2) {
+-                score.setStableford(4);
+-            } else if (netScorePar == -3) {
+-                score.setStableford(5);
+-            }
+-            score.setStableford(0);
++            setStableford(score, netScorePar);
+ 
+             sumStableford = sumStableford + score.getStableford();
+             roundScore.setSumStableford(sumStableford);
+@@ -117,4 +106,28 @@ public final class ScoreUtils {
+                 })
+                 .collect(Collectors.toList());
+     }
++
++    
++    protected static void setStableford(Score score, int netScorePar) {
++        switch (netScorePar) {
++            case 1:
++                score.setStableford(1);
++                break;
++            case 0:
++                score.setStableford(2);
++                break;
++            case -1:
++                score.setStableford(3);
++                break;
++            case -2:
++                score.setStableford(4);
++                break;
++            case -3:
++                score.setStableford(5);
++                break;
++            default:
++                score.setStableford(0);
++                break;
++        }
++    }
+ }
+diff --git a/src/main/java/com/golf/app/utils/ValidationUtils.java b/src/main/java/com/golf/app/utils/ValidationUtils.java
+index 36d610d..7bc1aa9 100644
+--- a/src/main/java/com/golf/app/utils/ValidationUtils.java
++++ b/src/main/java/com/golf/app/utils/ValidationUtils.java
+@@ -12,6 +12,10 @@ public final class ValidationUtils {
+ 
+     public static Map<String, String> getFieldErrors(BindingResult bindingResult) {
+         return bindingResult.getFieldErrors().stream()
+-            .collect(Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage));
++            .collect(Collectors.toMap(
++                FieldError::getField,
++                FieldError::getDefaultMessage,
++                (existingValue, newValue) -> existingValue + "; " + newValue
++            ));
+     }
+ }
+diff --git a/src/main/resources/logback-spring.xml b/src/main/resources/logback-spring.xml
+index 7e5e783..5a5a9dd 100644
+--- a/src/main/resources/logback-spring.xml
++++ b/src/main/resources/logback-spring.xml
+@@ -6,11 +6,18 @@
+         </encoder>
+     </appender>
+ 
+-
++    <!-- File Appender -->
++    <appender name="file" class="ch.qos.logback.core.FileAppender">
++        <file>log/application.log</file>
++        <append>true</append>
++        <encoder>
++            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %X{data} %msg%n</pattern>
++        </encoder>
++    </appender>
+ 
+     <!-- Root Logger -->
+     <root level="info">
+         <appender-ref ref="console"/>
+         <appender-ref ref="file"/>
+     </root>
+-</configuration>
+\ No newline at end of file
++</configuration>
+diff --git a/src/test/build.gradle b/src/test/build.gradle
+new file mode 100644
+index 0000000..8ed0df0
+--- /dev/null
++++ b/src/test/build.gradle
+@@ -0,0 +1,31 @@
++plugins {
++    id 'org.springframework.boot' version '3.2.1'
++    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
++    id 'java'
++}
++
++group = 'com.itproger'
++version = '0.0.1-SNAPSHOT'
++sourceCompatibility = '17'
++
++repositories {
++    mavenCentral()
++}
++
++dependencies {
++    implementation 'org.springframework.boot:spring-boot-starter'
++    implementation 'io.springfox:springfox-swagger2:3.0.0'
++    implementation 'org.apache.commons:commons-lang3:3.14.0'
++    implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
++    implementation 'org.modelmapper:modelmapper:3.2.0'
++    
++    compileOnly 'org.projectlombok:lombok:1.18.20'
++    annotationProcessor 'org.projectlombok:lombok:1.18.20'
++    
++    testImplementation 'org.springframework.security:spring-security-test:6.2.3'
++    testImplementation 'org.mockito:mockito-junit-jupiter:5.10.0'
++}
++
++test {
++    useJUnitPlatform()
++}
+\ No newline at end of file
+diff --git a/src/test/java/com/golf/app/api/CompetitionRestControllerIntegrationTest.java b/src/test/java/com/golf/app/api/CompetitionRestControllerIntegrationTest.java
+index c1aba05..1a6c06f 100644
+--- a/src/test/java/com/golf/app/api/CompetitionRestControllerIntegrationTest.java
++++ b/src/test/java/com/golf/app/api/CompetitionRestControllerIntegrationTest.java
+@@ -1,5 +1,106 @@
+ package com.golf.app.api;
+ 
++import com.golf.app.dto.RoundDto;
++import com.golf.app.exception.CompetitionNotFoundException;
++import com.golf.app.model.Competition;
++import com.golf.app.model.Round;
++import com.golf.app.service.CompetitionService;
++import com.golf.app.mapper.RoundMapper;
++import org.junit.jupiter.api.BeforeEach;
++import org.junit.jupiter.api.Test;
++import org.junit.jupiter.api.extension.ExtendWith;
++import org.mockito.Mockito;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.boot.test.mock.mockito.MockBean;
++import org.springframework.http.MediaType;
++import org.springframework.test.context.junit.jupiter.SpringExtension;
++import org.springframework.test.context.junit4.SpringRunner;
++import org.springframework.test.web.servlet.MockMvc;
++import org.springframework.test.web.servlet.setup.MockMvcBuilders;
++import org.springframework.web.context.WebApplicationContext;
++import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
++import org.springframework.security.test.context.support.WithMockUser;
++
++import java.util.List;
++import java.util.Optional;
++
++import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
++import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
++
++@ExtendWith(SpringExtension.class)
++@WebMvcTest(CompetitionRestController.class)
+ public class CompetitionRestControllerIntegrationTest {
+ 
+-}
++    @Autowired
++    private MockMvc mockMvc;
++
++    @MockBean
++    private CompetitionService competitionService;
++
++    @MockBean
++    private RoundMapper roundMapper;
++
++    @Autowired
++    private WebApplicationContext webApplicationContext;
++
++    @BeforeEach
++    public void setup() {
++        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
++    }
++
++    @Test
++    @WithMockUser(username = "user", roles = {"USER"})
++    public void testGetCompetitionRounds_Success() throws Exception {
++        Long competitionId = 1L;
++        Competition competition = new Competition();
++        List<Round> rounds = List.of(new Round(), new Round());
++        competition.setRounds(rounds);
++
++        Mockito.when(competitionService.getCompetitionById(competitionId)).thenReturn(Optional.of(competition));
++        Mockito.when(roundMapper.roundDto(Mockito.any(Round.class))).thenReturn(new RoundDto());
++
++        mockMvc.perform(get("/data/{id}/rounds", competitionId)
++                .contentType(MediaType.APPLICATION_JSON))
++                .andExpect(status().isOk())
++                .andExpect(jsonPath("$.length()").value(2));
++    }
++
++    @Test
++    @WithMockUser(username = "user", roles = {"USER"})
++    public void testGetCompetitionRounds_CompetitionNotFound() throws Exception {
++        Long competitionId = 1L;
++
++        Mockito.when(competitionService.getCompetitionById(competitionId)).thenReturn(Optional.empty());
++
++        mockMvc.perform(get("/data/{id}/rounds", competitionId)
++                .contentType(MediaType.APPLICATION_JSON))
++                .andExpect(status().isNotFound())
++                .andExpect(jsonPath("$.message").value("Competition by ID not found"));
++    }
++
++    @Test
++    public void testGetCompetitionRounds_Unauthenticated() throws Exception {
++        Long competitionId = 1L;
++
++        mockMvc.perform(get("/data/{id}/rounds", competitionId)
++                .contentType(MediaType.APPLICATION_JSON))
++                .andExpect(status().isUnauthorized());
++    }
++
++    @Test
++    @WithMockUser(username = "admin", roles = {"ADMIN"})
++    public void testGetCompetitionRounds_AdminAccess() throws Exception {
++        Long competitionId = 1L;
++        Competition competition = new Competition();
++        List<Round> rounds = List.of(new Round(), new Round());
++        competition.setRounds(rounds);
++
++        Mockito.when(competitionService.getCompetitionById(competitionId)).thenReturn(Optional.of(competition));
++        Mockito.when(roundMapper.roundDto(Mockito.any(Round.class))).thenReturn(new RoundDto());
++
++        mockMvc.perform(get("/data/{id}/rounds", competitionId)
++                .contentType(MediaType.APPLICATION_JSON))
++                .andExpect(status().isOk())
++                .andExpect(jsonPath("$.length()").value(2));
++    }
++}
+\ No newline at end of file
+diff --git a/src/test/java/com/golf/app/utils/CourseUtilsTest.java b/src/test/java/com/golf/app/utils/CourseUtilsTest.java
+index 72b1135..2c4c0a6 100644
+--- a/src/test/java/com/golf/app/utils/CourseUtilsTest.java
++++ b/src/test/java/com/golf/app/utils/CourseUtilsTest.java
+@@ -1,5 +1,62 @@
+ package com.golf.app.utils;
+ 
++import com.golf.app.dto.CourseDto;
++import com.golf.app.enums.TeeColour;
++import com.golf.app.model.Hole;
++import com.golf.app.model.Tee;
++import org.junit.jupiter.api.Test;
++
++import java.util.Arrays;
++import java.util.List;
++
++import static org.junit.jupiter.api.Assertions.assertEquals;
++import static org.junit.jupiter.api.Assertions.assertNotNull;
++
+ public class CourseUtilsTest {
+ 
+-}
++    @Test
++    public void testBuildHoles() {
++        // Arrange
++        CourseDto courseDto = new CourseDto();
++        courseDto.setParHoles(Arrays.asList(4, 4, 3, 5, 4, 4, 3, 5, 4, 4, 3, 5, 4, 4, 3, 5, 4, 4));
++        courseDto.setStrokeIndexHoles(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18));
++        courseDto.setBlackTeeLengths(Arrays.asList(400, 420, 150, 500, 410, 430, 160, 510, 420, 400, 420, 150, 500, 410, 430, 160, 510, 420));
++        courseDto.setWhiteTeeLengths(Arrays.asList(380, 400, 140, 480, 390, 410, 150, 490, 400, 380, 400, 140, 480, 390, 410, 150, 490, 400));
++        courseDto.setYellowTeeLengths(Arrays.asList(360, 380, 130, 460, 370, 390, 140, 470, 380, 360, 380, 130, 460, 370, 390, 140, 470, 380));
++        courseDto.setBlueTeeLengths(Arrays.asList(340, 360, 120, 440, 350, 370, 130, 450, 360, 340, 360, 120, 440, 350, 370, 130, 450, 360));
++        courseDto.setRedTeeLengths(Arrays.asList(320, 340, 110, 420, 330, 350, 120, 430, 340, 320, 340, 110, 420, 330, 350, 120, 430, 340));
++
++        // Act
++        List<Hole> holes = CourseUtils.buildHoles(courseDto);
++
++        // Assert
++        assertNotNull(holes);
++        assertEquals(18, holes.size());
++
++        for (int i = 0; i < holes.size(); i++) {
++            Hole hole = holes.get(i);
++            assertEquals(i + 1, hole.getHoleNumber());
++            assertEquals(courseDto.getParHoles().get(i), hole.getPar());
++            assertEquals(courseDto.getStrokeIndexHoles().get(i), hole.getStrokeIndex());
++
++            List<Tee> tees = hole.getTees();
++            assertNotNull(tees);
++            assertEquals(5, tees.size());
++
++            assertEquals(TeeColour.BLACK, tees.get(0).getColour());
++            assertEquals(courseDto.getBlackTeeLengths().get(i), tees.get(0).getLength());
++
++            assertEquals(TeeColour.WHITE, tees.get(1).getColour());
++            assertEquals(courseDto.getWhiteTeeLengths().get(i), tees.get(1).getLength());
++
++            assertEquals(TeeColour.YELLOW, tees.get(2).getColour());
++            assertEquals(courseDto.getYellowTeeLengths().get(i), tees.get(2).getLength());
++
++            assertEquals(TeeColour.BLUE, tees.get(3).getColour());
++            assertEquals(courseDto.getBlueTeeLengths().get(i), tees.get(3).getLength());
++
++            assertEquals(TeeColour.RED, tees.get(4).getColour());
++            assertEquals(courseDto.getRedTeeLengths().get(i), tees.get(4).getLength());
++        }
++    }
++}
+\ No newline at end of file
+diff --git a/src/test/pom.xml b/src/test/pom.xml
+index 7020e9c..42018bd 100644
+--- a/src/test/pom.xml
++++ b/src/test/pom.xml
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+@@ -26,13 +25,13 @@
+         <dependency>
+             <groupId>org.projectlombok</groupId>
+             <artifactId>lombok</artifactId>
+-            <version>1.18.20</version>
++            <version>1.18.28</version>
+             <scope>provided</scope>
+         </dependency>
+         <dependency>
+             <groupId>org.mockito</groupId>
+             <artifactId>mockito-junit-jupiter</artifactId>
+-            <version>5.10.0</version>
++            <version>5.5.0</version>
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+@@ -43,7 +42,7 @@
+         <dependency>
+             <groupId>org.apache.commons</groupId>
+             <artifactId>commons-lang3</artifactId>
+-            <version>3.14.0</version>
++            <version>3.13.0</version>
+         </dependency>
+         <dependency>
+             <groupId>org.hibernate.validator</groupId>
+@@ -56,4 +55,4 @@
+             <version>3.2.0</version>
+         </dependency>
+     </dependencies>
+-</project>
+\ No newline at end of file
++</project>
+-- 
+2.45.1
+

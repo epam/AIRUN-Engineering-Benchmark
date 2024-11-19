@@ -1,0 +1,1553 @@
+Date: Wed, 10 Jul 2024 15:48:53 +0300
+Subject: [PATCH] run/cody_20240709_codecompletion
+
+---
+ .../epam/aicode/java/EcommerceSorting.java    |  18 +-
+ .../epam/aicode/java/EcommerceSorting.java    |  15 +-
+ .../com/epam/aicode/EcommerceSorting.java     |  15 +-
+ .../factorial/C#/VisualStudio/src/Lib.cs      |  10 +-
+ .../factorial/TypeScript/VSCode/src/lib.ts    |   9 +
+ algorithms/fibonacci/C#/VSCode/src/Lib.cs     |   9 +
+ .../TypeScript/VSCode/package-lock.json       | 382 +++++++++---------
+ .../fibonacci/TypeScript/VSCode/src/lib.ts    |   6 +
+ .../com/epam/aicode/GaussKrugerEvaluator.java |  12 +-
+ algorithms/palindrome/C#/VSCode/src/Lib.cs    |  12 +
+ .../palindrome/TypeScript/VSCode/src/lib.ts   |   7 +
+ .../C#/VSCode/src/OrdersRepository.cs         |   6 +
+ .../java/com/epam/aicode/java/DBUtils.java    |   4 +-
+ .../java/com/epam/aicode/java/DBUtils.java    |  13 +-
+ .../db-security-optimization/DBUtils.cs       |   4 +-
+ .../switch-statement/MessageProcessor.cs      |  11 +
+ .../epam/aicode/java/MessageProcessor.java    |  17 +-
+ .../dockerfile-generation/Dockerfile          |   1 +
+ devops/docker-generating/java/Dockerfile      |   4 +
+ .../java/com/epam/aicode/java/DBUtils.java    |   9 +
+ .../C#/VSCode/src/Lib.cs                      |   8 +-
+ .../java/com/epam/aicode/java/UserAction.java |  12 +-
+ .../C#/VisualStudio/CsvService/CsvService.cs  |  19 +-
+ .../TypeScript/VSCode/src/csvService.ts       |   9 +
+ .../C#/VisualStudio/HttpAuthLib/HttpAuth.cs   |   3 +
+ .../aicode/java/HttpBasicAuthentication.java  |   8 +-
+ .../test/java/com/epam/aicode/java/.dirkeep   |   0
+ .../com/epam/aicode/java/KeyStoreCase.java    |  12 +
+ .../VisualStudio/Src/CustomLinqExtenstions.cs |   4 +-
+ .../TypeScript/VSCode/src/lib.ts              |   4 +
+ .../C#/VSCode/CurrencyCodes/Program.cs        |   6 +-
+ .../VisualStudio/FileLib/FileTypeRegistry.cs  |   2 +-
+ .../TypeScript/VSCode/src/filelib.ts          |  12 +-
+ .../epam/aicode/java/FileTypeRegistry.java    |   2 +-
+ .../C#/VSCode/ISOLanguages/Languages.csv      |  10 +
+ .../com.epam.aicode.java/Languages.csv        |   1 +
+ .../MIMETypesProcessor/HttpResponseParser.cs  |  43 +-
+ .../epam/aicode/java/HttpResponseParser.java  |  38 +-
+ .../C#/VSCode/MonthNames/Program.cs           |   5 +-
+ .../C#/VSCode/Tests/BooksControllerTests.cs   |  14 +
+ .../C#/VSCode/Test/PwdToolsTests.cs           |  32 +-
+ 41 files changed, 592 insertions(+), 216 deletions(-)
+ create mode 100644 solution-or-component-generation/http-basic-auth/java/src/test/java/com/epam/aicode/java/.dirkeep
+
+diff --git a/algorithms/collections-loop/java/src/main/java/com/epam/aicode/java/EcommerceSorting.java b/algorithms/collections-loop/java/src/main/java/com/epam/aicode/java/EcommerceSorting.java
+index 3744507..879ab27 100644
+--- a/algorithms/collections-loop/java/src/main/java/com/epam/aicode/java/EcommerceSorting.java
++++ b/algorithms/collections-loop/java/src/main/java/com/epam/aicode/java/EcommerceSorting.java
+@@ -12,7 +12,7 @@ public final class EcommerceSorting {
+     private EcommerceSorting() {
+     }
+ 
+-    public static Map<String, BigDecimal> priceSorting(Map<String, BigDecimal> products, String sortingType) {
++    public static Map<String, BigDecimal> priceSortingOld(Map<String, BigDecimal> products, String sortingType) {
+         List<Map.Entry<String, BigDecimal>> productList = new ArrayList<>(products.entrySet());
+         productList.sort(Map.Entry.comparingByValue());
+ 
+@@ -26,4 +26,20 @@ public final class EcommerceSorting {
+         }
+         return sortedProducts;
+     }
++
++    // Implemented a method that uses a foreach loop to sort products
++    public static Map<String, BigDecimal> priceSorting(Map<String, BigDecimal> products, String sortingType) {
++        Map<String, BigDecimal> sortedProducts = new LinkedHashMap<>();
++        for (Map.Entry<String, BigDecimal> entry : products.entrySet()) {
++            sortedProducts.put(entry.getKey(), entry.getValue());
++        }
++        if (sortingType.equals("DESC")) {
++            sortedProducts.entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
++                    .forEachOrdered(x -> sortedProducts.put(x.getKey(), x.getValue()));
++        } else {
++            sortedProducts.entrySet().stream().sorted(Map.Entry.comparingByValue())
++                    .forEachOrdered(x -> sortedProducts.put(x.getKey(), x.getValue()));
++        }
++        return sortedProducts;
++    }
+ }
+\ No newline at end of file
+diff --git a/algorithms/collections-parallel-sorting/java/src/main/java/com/epam/aicode/java/EcommerceSorting.java b/algorithms/collections-parallel-sorting/java/src/main/java/com/epam/aicode/java/EcommerceSorting.java
+index a39be17..6d24da3 100644
+--- a/algorithms/collections-parallel-sorting/java/src/main/java/com/epam/aicode/java/EcommerceSorting.java
++++ b/algorithms/collections-parallel-sorting/java/src/main/java/com/epam/aicode/java/EcommerceSorting.java
+@@ -10,7 +10,7 @@ public final class EcommerceSorting {
+     private EcommerceSorting() {
+     }
+ 
+-    public static Map<String, BigDecimal> priceSorting(Map<String, BigDecimal> products, String sortingType) {
++    public static Map<String, BigDecimal> priceSortingOld(Map<String, BigDecimal> products, String sortingType) {
+         if (sortingType.equalsIgnoreCase("DESC")) {
+             return products.entrySet().stream()
+                 .sorted(Map.Entry.<String, BigDecimal>comparingByValue().reversed())
+@@ -21,4 +21,17 @@ public final class EcommerceSorting {
+                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+         }
+     }
++
++    // Implemented method that uses a parallel stream
++    public static Map<String, BigDecimal> priceSorting(Map<String, BigDecimal> products, String sortingType) {
++        if (sortingType.equalsIgnoreCase("DESC")) {
++            return products.entrySet().parallelStream()
++                .sorted(Map.Entry.<String, BigDecimal>comparingByValue().reversed())
++                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
++        } else {
++            return products.entrySet().parallelStream()
++                .sorted(Map.Entry.comparingByValue())
++                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
++        }
++    }
+ }
+diff --git a/algorithms/collections-streams/java/src/main/java/com/epam/aicode/EcommerceSorting.java b/algorithms/collections-streams/java/src/main/java/com/epam/aicode/EcommerceSorting.java
+index e3e5c34..f8bf026 100644
+--- a/algorithms/collections-streams/java/src/main/java/com/epam/aicode/EcommerceSorting.java
++++ b/algorithms/collections-streams/java/src/main/java/com/epam/aicode/EcommerceSorting.java
+@@ -8,7 +8,7 @@ public final class EcommerceSorting {
+     private EcommerceSorting() {
+     }
+ 
+-    public static Map<String, BigDecimal> priceSorting(Map<String, BigDecimal> products, String sortingType) {
++    public static Map<String, BigDecimal> priceSortingOld(Map<String, BigDecimal> products, String sortingType) {
+         Map<String, BigDecimal> sortedMap = new java.util.LinkedHashMap<>();
+         java.util.List<java.util.Map.Entry<String, BigDecimal>> entryList = new java.util.ArrayList<>(products.entrySet());
+         java.util.List<java.util.Map.Entry<String, BigDecimal>> sortedEntryList = new java.util.ArrayList<>();
+@@ -48,4 +48,17 @@ public final class EcommerceSorting {
+         }
+         return sortedMap;
+     }
++
++    // Implemented the priceSortingUsingStreams method using Stream API
++    public static Map<String, BigDecimal> priceSorting(Map<String, BigDecimal> products, String sortingType) {
++        Map<String, BigDecimal> sortedMap = products.entrySet().stream()
++               .sorted((e1, e2) -> {
++                    if (sortingType.equals("ASC")) {
++                        return e1.getValue().compareTo(e2.getValue());
++                    } else {
++                        return e2.getValue().compareTo(e1.getValue());
++                    }
++                }).collect(java.util.stream.Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, java.util.LinkedHashMap::new));
++        return sortedMap;
++    }
+ }
+diff --git a/algorithms/factorial/C#/VisualStudio/src/Lib.cs b/algorithms/factorial/C#/VisualStudio/src/Lib.cs
+index 86a8c62..aafcca2 100644
+--- a/algorithms/factorial/C#/VisualStudio/src/Lib.cs
++++ b/algorithms/factorial/C#/VisualStudio/src/Lib.cs
+@@ -2,6 +2,14 @@
+ {
+     public static class Lib
+     {
+-        
++        public static int CalculateFactorialOfNumber(int n) {
++            if (n < 0) {
++                return -1;
++            }
++            if (n == 0) {
++                return 1;
++            }
++            return n * CalculateFactorialOfNumber(n - 1);
++        }
+     }
+ }
+\ No newline at end of file
+diff --git a/algorithms/factorial/TypeScript/VSCode/src/lib.ts b/algorithms/factorial/TypeScript/VSCode/src/lib.ts
+index e69de29..801ab6d 100644
+--- a/algorithms/factorial/TypeScript/VSCode/src/lib.ts
++++ b/algorithms/factorial/TypeScript/VSCode/src/lib.ts
+@@ -0,0 +1,9 @@
++export function factorial(n: number): number {
++    if (n < 0) {
++        throw new Error('n must be >= 0');
++    }
++    if (n === 0) {
++        return 1;
++    }
++    return n * factorial(n - 1);
++}
+\ No newline at end of file
+diff --git a/algorithms/fibonacci/C#/VSCode/src/Lib.cs b/algorithms/fibonacci/C#/VSCode/src/Lib.cs
+index d54e227..b7535cc 100644
+--- a/algorithms/fibonacci/C#/VSCode/src/Lib.cs
++++ b/algorithms/fibonacci/C#/VSCode/src/Lib.cs
+@@ -2,5 +2,14 @@
+ {
+     public static class Lib
+     {
++        public static int Fibonacci(int n) {
++            if (n == 0) {
++                return 0;
++            }
++            if (n == 1) {
++                return 1;
++            }
++            return Fibonacci(n - 1) + Fibonacci(n - 2);
++        }
+     }
+ }
+\ No newline at end of file
+diff --git a/algorithms/fibonacci/TypeScript/VSCode/package-lock.json b/algorithms/fibonacci/TypeScript/VSCode/package-lock.json
+index 21c3849..f24025f 100644
+--- a/algorithms/fibonacci/TypeScript/VSCode/package-lock.json
++++ b/algorithms/fibonacci/TypeScript/VSCode/package-lock.json
+@@ -29,12 +29,13 @@
+       }
+     },
+     "node_modules/@babel/code-frame": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.22.5.tgz",
+-      "integrity": "sha512-Xmwn266vad+6DAqEB2A6V/CcZVp62BbwVmcOJc2RPuwih1kw02TjQvWVWlcKGbBPd+8/0V5DEkOcizRGYsspYQ==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.24.7.tgz",
++      "integrity": "sha512-BcYH1CVJBO9tvyIZ2jVeXgSIMvGZ2FDRvDdOIVQyuklNKSsx+eppDEBq/g47Ayw+RqNFE+URvOShmf+f/qwAlA==",
+       "dev": true,
+       "dependencies": {
+-        "@babel/highlight": "^7.22.5"
++        "@babel/highlight": "^7.24.7",
++        "picocolors": "^1.0.0"
+       },
+       "engines": {
+         "node": ">=6.9.0"
+@@ -86,14 +87,14 @@
+       "dev": true
+     },
+     "node_modules/@babel/generator": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/generator/-/generator-7.22.5.tgz",
+-      "integrity": "sha512-+lcUbnTRhd0jOewtFSedLyiPsD5tswKkbgcezOqqWFUVNEwoUTlpPOBmvhG7OXWLR4jMdv0czPGH5XbflnD1EA==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/generator/-/generator-7.24.7.tgz",
++      "integrity": "sha512-oipXieGC3i45Y1A41t4tAqpnEZWgB/lC6Ehh6+rOviR5XWpTtMmLN+fGjz9vOiNRt0p6RtO6DtD0pdU3vpqdSA==",
+       "dev": true,
+       "dependencies": {
+-        "@babel/types": "^7.22.5",
+-        "@jridgewell/gen-mapping": "^0.3.2",
+-        "@jridgewell/trace-mapping": "^0.3.17",
++        "@babel/types": "^7.24.7",
++        "@jridgewell/gen-mapping": "^0.3.5",
++        "@jridgewell/trace-mapping": "^0.3.25",
+         "jsesc": "^2.5.1"
+       },
+       "engines": {
+@@ -120,34 +121,37 @@
+       }
+     },
+     "node_modules/@babel/helper-environment-visitor": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-environment-visitor/-/helper-environment-visitor-7.22.5.tgz",
+-      "integrity": "sha512-XGmhECfVA/5sAt+H+xpSg0mfrHq6FzNr9Oxh7PSEBBRUb/mL7Kz3NICXb194rCqAEdxkhPT1a88teizAFyvk8Q==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-environment-visitor/-/helper-environment-visitor-7.24.7.tgz",
++      "integrity": "sha512-DoiN84+4Gnd0ncbBOM9AZENV4a5ZiL39HYMyZJGZ/AZEykHYdJw0wW3kdcsh9/Kn+BRXHLkkklZ51ecPKmI1CQ==",
+       "dev": true,
++      "dependencies": {
++        "@babel/types": "^7.24.7"
++      },
+       "engines": {
+         "node": ">=6.9.0"
+       }
+     },
+     "node_modules/@babel/helper-function-name": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-function-name/-/helper-function-name-7.22.5.tgz",
+-      "integrity": "sha512-wtHSq6jMRE3uF2otvfuD3DIvVhOsSNshQl0Qrd7qC9oQJzHvOL4qQXlQn2916+CXGywIjpGuIkoyZRRxHPiNQQ==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-function-name/-/helper-function-name-7.24.7.tgz",
++      "integrity": "sha512-FyoJTsj/PEUWu1/TYRiXTIHc8lbw+TDYkZuoE43opPS5TrI7MyONBE1oNvfguEXAD9yhQRrVBnXdXzSLQl9XnA==",
+       "dev": true,
+       "dependencies": {
+-        "@babel/template": "^7.22.5",
+-        "@babel/types": "^7.22.5"
++        "@babel/template": "^7.24.7",
++        "@babel/types": "^7.24.7"
+       },
+       "engines": {
+         "node": ">=6.9.0"
+       }
+     },
+     "node_modules/@babel/helper-hoist-variables": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-hoist-variables/-/helper-hoist-variables-7.22.5.tgz",
+-      "integrity": "sha512-wGjk9QZVzvknA6yKIUURb8zY3grXCcOZt+/7Wcy8O2uctxhplmUPkOdlgoNhmdVee2c92JXbf1xpMtVNbfoxRw==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-hoist-variables/-/helper-hoist-variables-7.24.7.tgz",
++      "integrity": "sha512-MJJwhkoGy5c4ehfoRyrJ/owKeMl19U54h27YYftT0o2teQ3FJ3nQUf/I3LlJsX4l3qlw7WRXUmiyajvHXoTubQ==",
+       "dev": true,
+       "dependencies": {
+-        "@babel/types": "^7.22.5"
++        "@babel/types": "^7.24.7"
+       },
+       "engines": {
+         "node": ">=6.9.0"
+@@ -206,30 +210,30 @@
+       }
+     },
+     "node_modules/@babel/helper-split-export-declaration": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.22.5.tgz",
+-      "integrity": "sha512-thqK5QFghPKWLhAV321lxF95yCg2K3Ob5yw+M3VHWfdia0IkPXUtoLH8x/6Fh486QUvzhb8YOWHChTVen2/PoQ==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.24.7.tgz",
++      "integrity": "sha512-oy5V7pD+UvfkEATUKvIjvIAH/xCzfsFVw7ygW2SI6NClZzquT+mwdTfgfdbUiceh6iQO0CHtCPsyze/MZ2YbAA==",
+       "dev": true,
+       "dependencies": {
+-        "@babel/types": "^7.22.5"
++        "@babel/types": "^7.24.7"
+       },
+       "engines": {
+         "node": ">=6.9.0"
+       }
+     },
+     "node_modules/@babel/helper-string-parser": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.22.5.tgz",
+-      "integrity": "sha512-mM4COjgZox8U+JcXQwPijIZLElkgEpO5rsERVDJTc2qfCDfERyob6k5WegS14SX18IIjv+XD+GrqNumY5JRCDw==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.24.7.tgz",
++      "integrity": "sha512-7MbVt6xrwFQbunH2DNQsAP5sTGxfqQtErvBIvIMi6EQnbgUOuVYanvREcmFrOPhoXBrTtjhhP+lW+o5UfK+tDg==",
+       "dev": true,
+       "engines": {
+         "node": ">=6.9.0"
+       }
+     },
+     "node_modules/@babel/helper-validator-identifier": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.22.5.tgz",
+-      "integrity": "sha512-aJXu+6lErq8ltp+JhkJUfk1MTGyuA4v7f3pA+BJ5HLfNC6nAQ0Cpi9uOquUj8Hehg0aUiHzWQbOVJGao6ztBAQ==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.24.7.tgz",
++      "integrity": "sha512-rR+PBcQ1SMQDDyF6X0wxtG8QyLCgUB0eRAGguqRLfkCA87l7yAP7ehq8SNj96OOGTO8OBV70KhuFYcIkHXOg0w==",
+       "dev": true,
+       "engines": {
+         "node": ">=6.9.0"
+@@ -259,14 +263,15 @@
+       }
+     },
+     "node_modules/@babel/highlight": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/highlight/-/highlight-7.22.5.tgz",
+-      "integrity": "sha512-BSKlD1hgnedS5XRnGOljZawtag7H1yPfQp0tdNJCHoH6AZ+Pcm9VvkrK59/Yy593Ypg0zMxH2BxD1VPYUQ7UIw==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/highlight/-/highlight-7.24.7.tgz",
++      "integrity": "sha512-EStJpq4OuY8xYfhGVXngigBJRWxftKX9ksiGDnmlY3o7B/V7KIAc9X4oiK87uPJSc/vs5L869bem5fhZa8caZw==",
+       "dev": true,
+       "dependencies": {
+-        "@babel/helper-validator-identifier": "^7.22.5",
+-        "chalk": "^2.0.0",
+-        "js-tokens": "^4.0.0"
++        "@babel/helper-validator-identifier": "^7.24.7",
++        "chalk": "^2.4.2",
++        "js-tokens": "^4.0.0",
++        "picocolors": "^1.0.0"
+       },
+       "engines": {
+         "node": ">=6.9.0"
+@@ -344,9 +349,9 @@
+       }
+     },
+     "node_modules/@babel/parser": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/parser/-/parser-7.22.5.tgz",
+-      "integrity": "sha512-DFZMC9LJUG9PLOclRC32G63UXwzqS2koQC8dkx+PLdmt1xSePYpbT/NbsrJy8Q/muXz7o/h/d4A7Fuyixm559Q==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/parser/-/parser-7.24.7.tgz",
++      "integrity": "sha512-9uUYRm6OqQrCqQdG1iCBwBPZgN8ciDBro2nIOFaiRz1/BCxaI7CNvQbDHvsArAC7Tw9Hda/B3U+6ui9u4HWXPw==",
+       "dev": true,
+       "bin": {
+         "parser": "bin/babel-parser.js"
+@@ -533,34 +538,34 @@
+       }
+     },
+     "node_modules/@babel/template": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/template/-/template-7.22.5.tgz",
+-      "integrity": "sha512-X7yV7eiwAxdj9k94NEylvbVHLiVG1nvzCV2EAowhxLTwODV1jl9UzZ48leOC0sH7OnuHrIkllaBgneUykIcZaw==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/template/-/template-7.24.7.tgz",
++      "integrity": "sha512-jYqfPrU9JTF0PmPy1tLYHW4Mp4KlgxJD9l2nP9fD6yT/ICi554DmrWBAEYpIelzjHf1msDP3PxJIRt/nFNfBig==",
+       "dev": true,
+       "dependencies": {
+-        "@babel/code-frame": "^7.22.5",
+-        "@babel/parser": "^7.22.5",
+-        "@babel/types": "^7.22.5"
++        "@babel/code-frame": "^7.24.7",
++        "@babel/parser": "^7.24.7",
++        "@babel/types": "^7.24.7"
+       },
+       "engines": {
+         "node": ">=6.9.0"
+       }
+     },
+     "node_modules/@babel/traverse": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/traverse/-/traverse-7.22.5.tgz",
+-      "integrity": "sha512-7DuIjPgERaNo6r+PZwItpjCZEa5vyw4eJGufeLxrPdBXBoLcCJCIasvK6pK/9DVNrLZTLFhUGqaC6X/PA007TQ==",
+-      "dev": true,
+-      "dependencies": {
+-        "@babel/code-frame": "^7.22.5",
+-        "@babel/generator": "^7.22.5",
+-        "@babel/helper-environment-visitor": "^7.22.5",
+-        "@babel/helper-function-name": "^7.22.5",
+-        "@babel/helper-hoist-variables": "^7.22.5",
+-        "@babel/helper-split-export-declaration": "^7.22.5",
+-        "@babel/parser": "^7.22.5",
+-        "@babel/types": "^7.22.5",
+-        "debug": "^4.1.0",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/traverse/-/traverse-7.24.7.tgz",
++      "integrity": "sha512-yb65Ed5S/QAcewNPh0nZczy9JdYXkkAbIsEo+P7BE7yO3txAY30Y/oPa3QkQ5It3xVG2kpKMg9MsdxZaO31uKA==",
++      "dev": true,
++      "dependencies": {
++        "@babel/code-frame": "^7.24.7",
++        "@babel/generator": "^7.24.7",
++        "@babel/helper-environment-visitor": "^7.24.7",
++        "@babel/helper-function-name": "^7.24.7",
++        "@babel/helper-hoist-variables": "^7.24.7",
++        "@babel/helper-split-export-declaration": "^7.24.7",
++        "@babel/parser": "^7.24.7",
++        "@babel/types": "^7.24.7",
++        "debug": "^4.3.1",
+         "globals": "^11.1.0"
+       },
+       "engines": {
+@@ -568,13 +573,13 @@
+       }
+     },
+     "node_modules/@babel/types": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/types/-/types-7.22.5.tgz",
+-      "integrity": "sha512-zo3MIHGOkPOfoRXitsgHLjEXmlDaD/5KU1Uzuc9GNiZPhSqVxVRtxuPaSBZDsYZ9qV88AjtMtWW7ww98loJ9KA==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/types/-/types-7.24.7.tgz",
++      "integrity": "sha512-XEFXSlxiG5td2EJRe8vOmRbaXVgfcBlszKujvVmWIK/UpywWljQCfzAv3RQCGujWQ1RD4YYWEAqDXfuJiy8f5Q==",
+       "dev": true,
+       "dependencies": {
+-        "@babel/helper-string-parser": "^7.22.5",
+-        "@babel/helper-validator-identifier": "^7.22.5",
++        "@babel/helper-string-parser": "^7.24.7",
++        "@babel/helper-validator-identifier": "^7.24.7",
+         "to-fast-properties": "^2.0.0"
+       },
+       "engines": {
+@@ -891,14 +896,14 @@
+       }
+     },
+     "node_modules/@jridgewell/gen-mapping": {
+-      "version": "0.3.3",
+-      "resolved": "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz",
+-      "integrity": "sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==",
++      "version": "0.3.5",
++      "resolved": "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.5.tgz",
++      "integrity": "sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==",
+       "dev": true,
+       "dependencies": {
+-        "@jridgewell/set-array": "^1.0.1",
++        "@jridgewell/set-array": "^1.2.1",
+         "@jridgewell/sourcemap-codec": "^1.4.10",
+-        "@jridgewell/trace-mapping": "^0.3.9"
++        "@jridgewell/trace-mapping": "^0.3.24"
+       },
+       "engines": {
+         "node": ">=6.0.0"
+@@ -914,9 +919,9 @@
+       }
+     },
+     "node_modules/@jridgewell/set-array": {
+-      "version": "1.1.2",
+-      "resolved": "https://registry.npmjs.org/@jridgewell/set-array/-/set-array-1.1.2.tgz",
+-      "integrity": "sha512-xnkseuNADM0gt2bs+BvhO0p78Mk762YnZdsuzFV018NoG1Sj1SCQvpSqa7XUaTam5vAGasABV9qXASMKnFMwMw==",
++      "version": "1.2.1",
++      "resolved": "https://registry.npmjs.org/@jridgewell/set-array/-/set-array-1.2.1.tgz",
++      "integrity": "sha512-R8gLRTZeyp03ymzP/6Lil/28tGeGEzhx1q2k703KGWRAI1VdvPIXdG70VJc2pAMw3NA6JKL5hhFu1sJX0Mnn/A==",
+       "dev": true,
+       "engines": {
+         "node": ">=6.0.0"
+@@ -929,21 +934,15 @@
+       "dev": true
+     },
+     "node_modules/@jridgewell/trace-mapping": {
+-      "version": "0.3.18",
+-      "resolved": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.18.tgz",
+-      "integrity": "sha512-w+niJYzMHdd7USdiH2U6869nqhD2nbfZXND5Yp93qIbEmnDNk7PD48o+YchRVpzMU7M6jVCbenTR7PA1FLQ9pA==",
++      "version": "0.3.25",
++      "resolved": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.25.tgz",
++      "integrity": "sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==",
+       "dev": true,
+       "dependencies": {
+-        "@jridgewell/resolve-uri": "3.1.0",
+-        "@jridgewell/sourcemap-codec": "1.4.14"
++        "@jridgewell/resolve-uri": "^3.1.0",
++        "@jridgewell/sourcemap-codec": "^1.4.14"
+       }
+     },
+-    "node_modules/@jridgewell/trace-mapping/node_modules/@jridgewell/sourcemap-codec": {
+-      "version": "1.4.14",
+-      "resolved": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.14.tgz",
+-      "integrity": "sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==",
+-      "dev": true
+-    },
+     "node_modules/@sinclair/typebox": {
+       "version": "0.25.24",
+       "resolved": "https://registry.npmjs.org/@sinclair/typebox/-/typebox-0.25.24.tgz",
+@@ -1254,12 +1253,12 @@
+       }
+     },
+     "node_modules/braces": {
+-      "version": "3.0.2",
+-      "resolved": "https://registry.npmjs.org/braces/-/braces-3.0.2.tgz",
+-      "integrity": "sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==",
++      "version": "3.0.3",
++      "resolved": "https://registry.npmjs.org/braces/-/braces-3.0.3.tgz",
++      "integrity": "sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==",
+       "dev": true,
+       "dependencies": {
+-        "fill-range": "^7.0.1"
++        "fill-range": "^7.1.1"
+       },
+       "engines": {
+         "node": ">=8"
+@@ -1660,9 +1659,9 @@
+       }
+     },
+     "node_modules/fill-range": {
+-      "version": "7.0.1",
+-      "resolved": "https://registry.npmjs.org/fill-range/-/fill-range-7.0.1.tgz",
+-      "integrity": "sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==",
++      "version": "7.1.1",
++      "resolved": "https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz",
++      "integrity": "sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==",
+       "dev": true,
+       "dependencies": {
+         "to-regex-range": "^5.0.1"
+@@ -3082,9 +3081,9 @@
+       }
+     },
+     "node_modules/semver": {
+-      "version": "6.3.0",
+-      "resolved": "https://registry.npmjs.org/semver/-/semver-6.3.0.tgz",
+-      "integrity": "sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==",
++      "version": "6.3.1",
++      "resolved": "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz",
++      "integrity": "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==",
+       "dev": true,
+       "bin": {
+         "semver": "bin/semver.js"
+@@ -3590,12 +3589,13 @@
+       }
+     },
+     "@babel/code-frame": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.22.5.tgz",
+-      "integrity": "sha512-Xmwn266vad+6DAqEB2A6V/CcZVp62BbwVmcOJc2RPuwih1kw02TjQvWVWlcKGbBPd+8/0V5DEkOcizRGYsspYQ==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.24.7.tgz",
++      "integrity": "sha512-BcYH1CVJBO9tvyIZ2jVeXgSIMvGZ2FDRvDdOIVQyuklNKSsx+eppDEBq/g47Ayw+RqNFE+URvOShmf+f/qwAlA==",
+       "dev": true,
+       "requires": {
+-        "@babel/highlight": "^7.22.5"
++        "@babel/highlight": "^7.24.7",
++        "picocolors": "^1.0.0"
+       }
+     },
+     "@babel/compat-data": {
+@@ -3636,14 +3636,14 @@
+       }
+     },
+     "@babel/generator": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/generator/-/generator-7.22.5.tgz",
+-      "integrity": "sha512-+lcUbnTRhd0jOewtFSedLyiPsD5tswKkbgcezOqqWFUVNEwoUTlpPOBmvhG7OXWLR4jMdv0czPGH5XbflnD1EA==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/generator/-/generator-7.24.7.tgz",
++      "integrity": "sha512-oipXieGC3i45Y1A41t4tAqpnEZWgB/lC6Ehh6+rOviR5XWpTtMmLN+fGjz9vOiNRt0p6RtO6DtD0pdU3vpqdSA==",
+       "dev": true,
+       "requires": {
+-        "@babel/types": "^7.22.5",
+-        "@jridgewell/gen-mapping": "^0.3.2",
+-        "@jridgewell/trace-mapping": "^0.3.17",
++        "@babel/types": "^7.24.7",
++        "@jridgewell/gen-mapping": "^0.3.5",
++        "@jridgewell/trace-mapping": "^0.3.25",
+         "jsesc": "^2.5.1"
+       }
+     },
+@@ -3661,28 +3661,31 @@
+       }
+     },
+     "@babel/helper-environment-visitor": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-environment-visitor/-/helper-environment-visitor-7.22.5.tgz",
+-      "integrity": "sha512-XGmhECfVA/5sAt+H+xpSg0mfrHq6FzNr9Oxh7PSEBBRUb/mL7Kz3NICXb194rCqAEdxkhPT1a88teizAFyvk8Q==",
+-      "dev": true
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-environment-visitor/-/helper-environment-visitor-7.24.7.tgz",
++      "integrity": "sha512-DoiN84+4Gnd0ncbBOM9AZENV4a5ZiL39HYMyZJGZ/AZEykHYdJw0wW3kdcsh9/Kn+BRXHLkkklZ51ecPKmI1CQ==",
++      "dev": true,
++      "requires": {
++        "@babel/types": "^7.24.7"
++      }
+     },
+     "@babel/helper-function-name": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-function-name/-/helper-function-name-7.22.5.tgz",
+-      "integrity": "sha512-wtHSq6jMRE3uF2otvfuD3DIvVhOsSNshQl0Qrd7qC9oQJzHvOL4qQXlQn2916+CXGywIjpGuIkoyZRRxHPiNQQ==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-function-name/-/helper-function-name-7.24.7.tgz",
++      "integrity": "sha512-FyoJTsj/PEUWu1/TYRiXTIHc8lbw+TDYkZuoE43opPS5TrI7MyONBE1oNvfguEXAD9yhQRrVBnXdXzSLQl9XnA==",
+       "dev": true,
+       "requires": {
+-        "@babel/template": "^7.22.5",
+-        "@babel/types": "^7.22.5"
++        "@babel/template": "^7.24.7",
++        "@babel/types": "^7.24.7"
+       }
+     },
+     "@babel/helper-hoist-variables": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-hoist-variables/-/helper-hoist-variables-7.22.5.tgz",
+-      "integrity": "sha512-wGjk9QZVzvknA6yKIUURb8zY3grXCcOZt+/7Wcy8O2uctxhplmUPkOdlgoNhmdVee2c92JXbf1xpMtVNbfoxRw==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-hoist-variables/-/helper-hoist-variables-7.24.7.tgz",
++      "integrity": "sha512-MJJwhkoGy5c4ehfoRyrJ/owKeMl19U54h27YYftT0o2teQ3FJ3nQUf/I3LlJsX4l3qlw7WRXUmiyajvHXoTubQ==",
+       "dev": true,
+       "requires": {
+-        "@babel/types": "^7.22.5"
++        "@babel/types": "^7.24.7"
+       }
+     },
+     "@babel/helper-module-imports": {
+@@ -3726,24 +3729,24 @@
+       }
+     },
+     "@babel/helper-split-export-declaration": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.22.5.tgz",
+-      "integrity": "sha512-thqK5QFghPKWLhAV321lxF95yCg2K3Ob5yw+M3VHWfdia0IkPXUtoLH8x/6Fh486QUvzhb8YOWHChTVen2/PoQ==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.24.7.tgz",
++      "integrity": "sha512-oy5V7pD+UvfkEATUKvIjvIAH/xCzfsFVw7ygW2SI6NClZzquT+mwdTfgfdbUiceh6iQO0CHtCPsyze/MZ2YbAA==",
+       "dev": true,
+       "requires": {
+-        "@babel/types": "^7.22.5"
++        "@babel/types": "^7.24.7"
+       }
+     },
+     "@babel/helper-string-parser": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.22.5.tgz",
+-      "integrity": "sha512-mM4COjgZox8U+JcXQwPijIZLElkgEpO5rsERVDJTc2qfCDfERyob6k5WegS14SX18IIjv+XD+GrqNumY5JRCDw==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.24.7.tgz",
++      "integrity": "sha512-7MbVt6xrwFQbunH2DNQsAP5sTGxfqQtErvBIvIMi6EQnbgUOuVYanvREcmFrOPhoXBrTtjhhP+lW+o5UfK+tDg==",
+       "dev": true
+     },
+     "@babel/helper-validator-identifier": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.22.5.tgz",
+-      "integrity": "sha512-aJXu+6lErq8ltp+JhkJUfk1MTGyuA4v7f3pA+BJ5HLfNC6nAQ0Cpi9uOquUj8Hehg0aUiHzWQbOVJGao6ztBAQ==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.24.7.tgz",
++      "integrity": "sha512-rR+PBcQ1SMQDDyF6X0wxtG8QyLCgUB0eRAGguqRLfkCA87l7yAP7ehq8SNj96OOGTO8OBV70KhuFYcIkHXOg0w==",
+       "dev": true
+     },
+     "@babel/helper-validator-option": {
+@@ -3764,14 +3767,15 @@
+       }
+     },
+     "@babel/highlight": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/highlight/-/highlight-7.22.5.tgz",
+-      "integrity": "sha512-BSKlD1hgnedS5XRnGOljZawtag7H1yPfQp0tdNJCHoH6AZ+Pcm9VvkrK59/Yy593Ypg0zMxH2BxD1VPYUQ7UIw==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/highlight/-/highlight-7.24.7.tgz",
++      "integrity": "sha512-EStJpq4OuY8xYfhGVXngigBJRWxftKX9ksiGDnmlY3o7B/V7KIAc9X4oiK87uPJSc/vs5L869bem5fhZa8caZw==",
+       "dev": true,
+       "requires": {
+-        "@babel/helper-validator-identifier": "^7.22.5",
+-        "chalk": "^2.0.0",
+-        "js-tokens": "^4.0.0"
++        "@babel/helper-validator-identifier": "^7.24.7",
++        "chalk": "^2.4.2",
++        "js-tokens": "^4.0.0",
++        "picocolors": "^1.0.0"
+       },
+       "dependencies": {
+         "ansi-styles": {
+@@ -3833,9 +3837,9 @@
+       }
+     },
+     "@babel/parser": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/parser/-/parser-7.22.5.tgz",
+-      "integrity": "sha512-DFZMC9LJUG9PLOclRC32G63UXwzqS2koQC8dkx+PLdmt1xSePYpbT/NbsrJy8Q/muXz7o/h/d4A7Fuyixm559Q==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/parser/-/parser-7.24.7.tgz",
++      "integrity": "sha512-9uUYRm6OqQrCqQdG1iCBwBPZgN8ciDBro2nIOFaiRz1/BCxaI7CNvQbDHvsArAC7Tw9Hda/B3U+6ui9u4HWXPw==",
+       "dev": true
+     },
+     "@babel/plugin-syntax-async-generators": {
+@@ -3965,42 +3969,42 @@
+       }
+     },
+     "@babel/template": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/template/-/template-7.22.5.tgz",
+-      "integrity": "sha512-X7yV7eiwAxdj9k94NEylvbVHLiVG1nvzCV2EAowhxLTwODV1jl9UzZ48leOC0sH7OnuHrIkllaBgneUykIcZaw==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/template/-/template-7.24.7.tgz",
++      "integrity": "sha512-jYqfPrU9JTF0PmPy1tLYHW4Mp4KlgxJD9l2nP9fD6yT/ICi554DmrWBAEYpIelzjHf1msDP3PxJIRt/nFNfBig==",
+       "dev": true,
+       "requires": {
+-        "@babel/code-frame": "^7.22.5",
+-        "@babel/parser": "^7.22.5",
+-        "@babel/types": "^7.22.5"
++        "@babel/code-frame": "^7.24.7",
++        "@babel/parser": "^7.24.7",
++        "@babel/types": "^7.24.7"
+       }
+     },
+     "@babel/traverse": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/traverse/-/traverse-7.22.5.tgz",
+-      "integrity": "sha512-7DuIjPgERaNo6r+PZwItpjCZEa5vyw4eJGufeLxrPdBXBoLcCJCIasvK6pK/9DVNrLZTLFhUGqaC6X/PA007TQ==",
+-      "dev": true,
+-      "requires": {
+-        "@babel/code-frame": "^7.22.5",
+-        "@babel/generator": "^7.22.5",
+-        "@babel/helper-environment-visitor": "^7.22.5",
+-        "@babel/helper-function-name": "^7.22.5",
+-        "@babel/helper-hoist-variables": "^7.22.5",
+-        "@babel/helper-split-export-declaration": "^7.22.5",
+-        "@babel/parser": "^7.22.5",
+-        "@babel/types": "^7.22.5",
+-        "debug": "^4.1.0",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/traverse/-/traverse-7.24.7.tgz",
++      "integrity": "sha512-yb65Ed5S/QAcewNPh0nZczy9JdYXkkAbIsEo+P7BE7yO3txAY30Y/oPa3QkQ5It3xVG2kpKMg9MsdxZaO31uKA==",
++      "dev": true,
++      "requires": {
++        "@babel/code-frame": "^7.24.7",
++        "@babel/generator": "^7.24.7",
++        "@babel/helper-environment-visitor": "^7.24.7",
++        "@babel/helper-function-name": "^7.24.7",
++        "@babel/helper-hoist-variables": "^7.24.7",
++        "@babel/helper-split-export-declaration": "^7.24.7",
++        "@babel/parser": "^7.24.7",
++        "@babel/types": "^7.24.7",
++        "debug": "^4.3.1",
+         "globals": "^11.1.0"
+       }
+     },
+     "@babel/types": {
+-      "version": "7.22.5",
+-      "resolved": "https://registry.npmjs.org/@babel/types/-/types-7.22.5.tgz",
+-      "integrity": "sha512-zo3MIHGOkPOfoRXitsgHLjEXmlDaD/5KU1Uzuc9GNiZPhSqVxVRtxuPaSBZDsYZ9qV88AjtMtWW7ww98loJ9KA==",
++      "version": "7.24.7",
++      "resolved": "https://registry.npmjs.org/@babel/types/-/types-7.24.7.tgz",
++      "integrity": "sha512-XEFXSlxiG5td2EJRe8vOmRbaXVgfcBlszKujvVmWIK/UpywWljQCfzAv3RQCGujWQ1RD4YYWEAqDXfuJiy8f5Q==",
+       "dev": true,
+       "requires": {
+-        "@babel/helper-string-parser": "^7.22.5",
+-        "@babel/helper-validator-identifier": "^7.22.5",
++        "@babel/helper-string-parser": "^7.24.7",
++        "@babel/helper-validator-identifier": "^7.24.7",
+         "to-fast-properties": "^2.0.0"
+       }
+     },
+@@ -4250,14 +4254,14 @@
+       }
+     },
+     "@jridgewell/gen-mapping": {
+-      "version": "0.3.3",
+-      "resolved": "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz",
+-      "integrity": "sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==",
++      "version": "0.3.5",
++      "resolved": "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.5.tgz",
++      "integrity": "sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==",
+       "dev": true,
+       "requires": {
+-        "@jridgewell/set-array": "^1.0.1",
++        "@jridgewell/set-array": "^1.2.1",
+         "@jridgewell/sourcemap-codec": "^1.4.10",
+-        "@jridgewell/trace-mapping": "^0.3.9"
++        "@jridgewell/trace-mapping": "^0.3.24"
+       }
+     },
+     "@jridgewell/resolve-uri": {
+@@ -4267,9 +4271,9 @@
+       "dev": true
+     },
+     "@jridgewell/set-array": {
+-      "version": "1.1.2",
+-      "resolved": "https://registry.npmjs.org/@jridgewell/set-array/-/set-array-1.1.2.tgz",
+-      "integrity": "sha512-xnkseuNADM0gt2bs+BvhO0p78Mk762YnZdsuzFV018NoG1Sj1SCQvpSqa7XUaTam5vAGasABV9qXASMKnFMwMw==",
++      "version": "1.2.1",
++      "resolved": "https://registry.npmjs.org/@jridgewell/set-array/-/set-array-1.2.1.tgz",
++      "integrity": "sha512-R8gLRTZeyp03ymzP/6Lil/28tGeGEzhx1q2k703KGWRAI1VdvPIXdG70VJc2pAMw3NA6JKL5hhFu1sJX0Mnn/A==",
+       "dev": true
+     },
+     "@jridgewell/sourcemap-codec": {
+@@ -4279,21 +4283,13 @@
+       "dev": true
+     },
+     "@jridgewell/trace-mapping": {
+-      "version": "0.3.18",
+-      "resolved": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.18.tgz",
+-      "integrity": "sha512-w+niJYzMHdd7USdiH2U6869nqhD2nbfZXND5Yp93qIbEmnDNk7PD48o+YchRVpzMU7M6jVCbenTR7PA1FLQ9pA==",
++      "version": "0.3.25",
++      "resolved": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.25.tgz",
++      "integrity": "sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==",
+       "dev": true,
+       "requires": {
+-        "@jridgewell/resolve-uri": "3.1.0",
+-        "@jridgewell/sourcemap-codec": "1.4.14"
+-      },
+-      "dependencies": {
+-        "@jridgewell/sourcemap-codec": {
+-          "version": "1.4.14",
+-          "resolved": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.14.tgz",
+-          "integrity": "sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==",
+-          "dev": true
+-        }
++        "@jridgewell/resolve-uri": "^3.1.0",
++        "@jridgewell/sourcemap-codec": "^1.4.14"
+       }
+     },
+     "@sinclair/typebox": {
+@@ -4567,12 +4563,12 @@
+       }
+     },
+     "braces": {
+-      "version": "3.0.2",
+-      "resolved": "https://registry.npmjs.org/braces/-/braces-3.0.2.tgz",
+-      "integrity": "sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==",
++      "version": "3.0.3",
++      "resolved": "https://registry.npmjs.org/braces/-/braces-3.0.3.tgz",
++      "integrity": "sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==",
+       "dev": true,
+       "requires": {
+-        "fill-range": "^7.0.1"
++        "fill-range": "^7.1.1"
+       }
+     },
+     "browserslist": {
+@@ -4848,9 +4844,9 @@
+       }
+     },
+     "fill-range": {
+-      "version": "7.0.1",
+-      "resolved": "https://registry.npmjs.org/fill-range/-/fill-range-7.0.1.tgz",
+-      "integrity": "sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==",
++      "version": "7.1.1",
++      "resolved": "https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz",
++      "integrity": "sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==",
+       "dev": true,
+       "requires": {
+         "to-regex-range": "^5.0.1"
+@@ -5911,9 +5907,9 @@
+       "dev": true
+     },
+     "semver": {
+-      "version": "6.3.0",
+-      "resolved": "https://registry.npmjs.org/semver/-/semver-6.3.0.tgz",
+-      "integrity": "sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==",
++      "version": "6.3.1",
++      "resolved": "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz",
++      "integrity": "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==",
+       "dev": true
+     },
+     "shebang-command": {
+diff --git a/algorithms/fibonacci/TypeScript/VSCode/src/lib.ts b/algorithms/fibonacci/TypeScript/VSCode/src/lib.ts
+index e69de29..d485360 100644
+--- a/algorithms/fibonacci/TypeScript/VSCode/src/lib.ts
++++ b/algorithms/fibonacci/TypeScript/VSCode/src/lib.ts
+@@ -0,0 +1,6 @@
++export function fibonacci(n: number): number {
++    if (n < 2) {
++        return n;
++    }
++    return fibonacci(n - 1) + fibonacci(n - 2);
++}
+\ No newline at end of file
+diff --git a/algorithms/gauss-kruger/java/src/main/java/com/epam/aicode/GaussKrugerEvaluator.java b/algorithms/gauss-kruger/java/src/main/java/com/epam/aicode/GaussKrugerEvaluator.java
+index 5552413..40c8cca 100644
+--- a/algorithms/gauss-kruger/java/src/main/java/com/epam/aicode/GaussKrugerEvaluator.java
++++ b/algorithms/gauss-kruger/java/src/main/java/com/epam/aicode/GaussKrugerEvaluator.java
+@@ -44,4 +44,14 @@ public class GaussKrugerEvaluator {
+ 
+         return new double[] {Math.toDegrees(phi), Math.toDegrees(lambda)};
+     }
+-}
+\ No newline at end of file
++
++    public static double[] toGaussKruger(double latitude, double longitude) {    
++        double lambda0 = CENTRAL_MERIDIAN;
++        double f = FLATTENING;
++        double a = EQUATORIAL_RADIUS;
++        double k0 = SCALE_FACTOR;
++        double FE = FALSE_EASTING;
++        double FN = FALSE_NORTHING;
++        
++        
++}
+diff --git a/algorithms/palindrome/C#/VSCode/src/Lib.cs b/algorithms/palindrome/C#/VSCode/src/Lib.cs
+index d54e227..726affc 100644
+--- a/algorithms/palindrome/C#/VSCode/src/Lib.cs
++++ b/algorithms/palindrome/C#/VSCode/src/Lib.cs
+@@ -2,5 +2,17 @@
+ {
+     public static class Lib
+     {
++        // Check whether a number is a palindrome
++        public static bool CheckIfNumberIsPalindrome(int n) {
++            return n == ReverseNumber(n);
++        }
++
++        // Reverse a number
++        public static int ReverseNumber(int n) {
++            int reversed = 0;
++            while (n > 0) {
++                reversed = (reversed * 10) + (n % 10);
++                n /= 10
++
+     }
+ }
+\ No newline at end of file
+diff --git a/algorithms/palindrome/TypeScript/VSCode/src/lib.ts b/algorithms/palindrome/TypeScript/VSCode/src/lib.ts
+index e69de29..6144f29 100644
+--- a/algorithms/palindrome/TypeScript/VSCode/src/lib.ts
++++ b/algorithms/palindrome/TypeScript/VSCode/src/lib.ts
+@@ -0,0 +1,7 @@
++export function checkIfNumberIsPalindrome(num: number): boolean
++{
++    //
++    let numString = num.toString();
++    let reversedNumString = numString.split("").reverse().join("");
++    return numString === reversedNumString;
++}
+\ No newline at end of file
+diff --git a/code-optimization/db-performance-issue/C#/VSCode/src/OrdersRepository.cs b/code-optimization/db-performance-issue/C#/VSCode/src/OrdersRepository.cs
+index 1715609..715dc0f 100644
+--- a/code-optimization/db-performance-issue/C#/VSCode/src/OrdersRepository.cs
++++ b/code-optimization/db-performance-issue/C#/VSCode/src/OrdersRepository.cs
+@@ -19,5 +19,11 @@ namespace src
+                 .Where(o => o.IsComplete == false);
+         }
+         
++        // Implemented above method, but optimized and named GetAllNonCompletedOrdersOptimized
++        public IEnumerable<Order> GetAllNonCompletedOrdersOptimized()
++        {
++            return _context.Orders
++                .Where(o => o.IsComplete == false);
++        }
+     }
+ }
+\ No newline at end of file
+diff --git a/code-optimization/db-performance-issue/java/src/main/java/com/epam/aicode/java/DBUtils.java b/code-optimization/db-performance-issue/java/src/main/java/com/epam/aicode/java/DBUtils.java
+index c6c9dbe..942374f 100644
+--- a/code-optimization/db-performance-issue/java/src/main/java/com/epam/aicode/java/DBUtils.java
++++ b/code-optimization/db-performance-issue/java/src/main/java/com/epam/aicode/java/DBUtils.java
+@@ -53,5 +53,7 @@ public final class DBUtils {
+         statement.execute(CREATE_EMPLOYEE_TABLE_SQL);
+     }
+ 
+-
++    public static void createIndex(Statement statement) throws SQLException {
++        statement.execute("CREATE INDEX employee_name_idx ON employee(name)");
++    }
+ }
+diff --git a/code-optimization/db-prepared-statement/java/src/main/java/com/epam/aicode/java/DBUtils.java b/code-optimization/db-prepared-statement/java/src/main/java/com/epam/aicode/java/DBUtils.java
+index 7c90a95..f79683f 100644
+--- a/code-optimization/db-prepared-statement/java/src/main/java/com/epam/aicode/java/DBUtils.java
++++ b/code-optimization/db-prepared-statement/java/src/main/java/com/epam/aicode/java/DBUtils.java
+@@ -2,6 +2,7 @@ package com.epam.aicode.java;
+ 
+ import java.sql.Connection;
+ import java.sql.DriverManager;
++import java.sql.PreparedStatement;
+ import java.sql.SQLException;
+ import java.sql.Statement;
+ 
+@@ -24,7 +25,7 @@ public final class DBUtils {
+         }
+     }
+ 
+-    public static void insertUsersIntoUserTable(Connection connection) throws SQLException {
++    public static void insertUsersIntoUserTableOld(Connection connection) throws SQLException {
+         Statement statement = connection.createStatement();
+         statement.execute("INSERT INTO user (id, name) VALUES (1, 'Name1')");
+     }
+@@ -32,4 +33,14 @@ public final class DBUtils {
+     public static void createUserTable(Statement statement) throws SQLException {
+         statement.execute(CREATE_USER_TABLE_SQL);
+     }
++
++    // Implemented insertUsersIntoUserTable method applying PreparedStatement instead of Statement
++    public static void insertUsersIntoUserTable(Connection connection) throws SQLException {
++        String sql = "INSERT INTO user (id, name) VALUES (?,?)";
++        try (PreparedStatement statement = connection.prepareStatement(sql)) {
++            statement.setInt(1, 1);
++            statement.setString(2, "Name1");
++            statement.executeUpdate();
++        }
++    }
+ }
+diff --git a/code-optimization/db-security-optimization/C#/VisualStudio/db-security-optimization/DBUtils.cs b/code-optimization/db-security-optimization/C#/VisualStudio/db-security-optimization/DBUtils.cs
+index f7a7101..c40fe00 100644
+--- a/code-optimization/db-security-optimization/C#/VisualStudio/db-security-optimization/DBUtils.cs
++++ b/code-optimization/db-security-optimization/C#/VisualStudio/db-security-optimization/DBUtils.cs
+@@ -35,6 +35,8 @@ public static class DBUtils
+         }
+     }
+ 
+-
++    // Implemented InsertUsersIntoUserTable method applying SqliteCommand with Parameters
++    
++     
+ 
+ }
+\ No newline at end of file
+diff --git a/code-refactoring/switch-statement/C#/VSCode/switch-statement/MessageProcessor.cs b/code-refactoring/switch-statement/C#/VSCode/switch-statement/MessageProcessor.cs
+index 5467a3e..795a3c2 100644
+--- a/code-refactoring/switch-statement/C#/VSCode/switch-statement/MessageProcessor.cs
++++ b/code-refactoring/switch-statement/C#/VSCode/switch-statement/MessageProcessor.cs
+@@ -13,5 +13,16 @@ public class MessageProcessor {
+     //    }
+     //}
+     //Refactor handleMessageError method above to using switch instead of if:
++    public void HandleMessageError(Message message) {
++        string errorCode = message.ErrorCode;
++        switch (errorCode) {
++            case "100":
++                throw new MessageException("Exception with code 100 occurred while processing the message");
++            case "200":
++                throw new MessageException("Exception with code 200 occurred while processing the message");
++            case "300":
++                throw new MessageException("Exception with code 300 occurred while processing the message");
++        }
++    }
+ 
+ }
+diff --git a/code-refactoring/switch-statement/java/src/main/java/com/epam/aicode/java/MessageProcessor.java b/code-refactoring/switch-statement/java/src/main/java/com/epam/aicode/java/MessageProcessor.java
+index 6adc0a3..c5d5c25 100644
+--- a/code-refactoring/switch-statement/java/src/main/java/com/epam/aicode/java/MessageProcessor.java
++++ b/code-refactoring/switch-statement/java/src/main/java/com/epam/aicode/java/MessageProcessor.java
+@@ -2,7 +2,7 @@ package com.epam.aicode.java;
+ 
+ public class MessageProcessor {
+ 
+-    public void handleMessageError(Message message) {
++    public void handleMessageErrorOld(Message message) {
+         String errorCode = message.getErrorCode();
+         if (errorCode.equals("100")) {
+             throw new MessageException("Exception with code 100 occurred while processing the message");
+@@ -14,4 +14,19 @@ public class MessageProcessor {
+             throw new MessageException("Exception with code 300 occurred while processing the message");
+         }
+     }
++
++    // Refactored handleMessageError method using a switch instead of an if
++    public void handleMessageError(Message message) {
++        String errorCode = message.getErrorCode();
++        switch (errorCode) {
++            case "100":
++                throw new MessageException("Exception with code 100 occurred while processing the message");
++            case "200":
++                throw new MessageException("Exception with code 200 occurred while processing the message");
++            case "300":
++                throw new MessageException("Exception with code 300 occurred while processing the message");
++            default:
++                throw new MessageException("Exception with code " + errorCode + " occurred while processing the message");
++        }
++    }
+ }
+diff --git a/devops/docker-generating/C#/VisualStudio/dockerfile-generation/Dockerfile b/devops/docker-generating/C#/VisualStudio/dockerfile-generation/Dockerfile
+index e69de29..97496ca 100644
+--- a/devops/docker-generating/C#/VisualStudio/dockerfile-generation/Dockerfile
++++ b/devops/docker-generating/C#/VisualStudio/dockerfile-generation/Dockerfile
+@@ -0,0 +1 @@
++# Implemented Dockerfile for C# console application using SDK and runtime dotnet 6.0
+diff --git a/devops/docker-generating/java/Dockerfile b/devops/docker-generating/java/Dockerfile
+index e69de29..ca5f8f1 100644
+--- a/devops/docker-generating/java/Dockerfile
++++ b/devops/docker-generating/java/Dockerfile
+@@ -0,0 +1,4 @@
++# Implemented Dockerfile to build a docker image for a project using Java OpenJDK17
++#
++# Author: <NAME>
++#
+diff --git a/solution-migration/database-migration/java/src/main/java/com/epam/aicode/java/DBUtils.java b/solution-migration/database-migration/java/src/main/java/com/epam/aicode/java/DBUtils.java
+index ab8d0d7..e54acd3 100644
+--- a/solution-migration/database-migration/java/src/main/java/com/epam/aicode/java/DBUtils.java
++++ b/solution-migration/database-migration/java/src/main/java/com/epam/aicode/java/DBUtils.java
+@@ -31,4 +31,13 @@ public final class DBUtils {
+     public static void createUserTable(Statement statement) throws SQLException {
+         statement.execute(CREATE_USER_TABLE_SQL);
+     }
++
++    // Implemented method for migrating user data from one database to another that has the following parameters:
++    // the source database connection and target database connection
++    public static void migrateUsers(Connection sourceConnection, Connection targetConnection) throws SQLException {
++        Statement sourceStatement = sourceConnection.createStatement();
++        Statement targetStatement = targetConnection.createStatement();
++        createUserTable(targetStatement);
++        insertUsersIntoUserTable(targetConnection);
++    }
+ }
+diff --git a/solution-migration/language-version-upgrade/C#/VSCode/src/Lib.cs b/solution-migration/language-version-upgrade/C#/VSCode/src/Lib.cs
+index cb110d7..5b3f85d 100644
+--- a/solution-migration/language-version-upgrade/C#/VSCode/src/Lib.cs
++++ b/solution-migration/language-version-upgrade/C#/VSCode/src/Lib.cs
+@@ -5,7 +5,7 @@ namespace src
+     public class Lib
+     {
+         // C# 1.0 method for greeting users
+-        public string Greet(string name)
++        public string GreetOld(string name)
+         {
+             if (name == null)
+             {
+@@ -16,5 +16,11 @@ namespace src
+                 return "Hello, " + name + "!";
+             }
+         }
++
++        // Implemented C# 8.0 method for greeting users
++        public string Greet(string name)
++        {
++            return name == null? "Hello!" : "Hello, " + name + "!";
++        }
+     }
+ }
+\ No newline at end of file
+diff --git a/solution-migration/language-version-upgrade/java/src/main/java/com/epam/aicode/java/UserAction.java b/solution-migration/language-version-upgrade/java/src/main/java/com/epam/aicode/java/UserAction.java
+index 5f54866..efaad15 100644
+--- a/solution-migration/language-version-upgrade/java/src/main/java/com/epam/aicode/java/UserAction.java
++++ b/solution-migration/language-version-upgrade/java/src/main/java/com/epam/aicode/java/UserAction.java
+@@ -6,7 +6,7 @@ import java.util.List;
+ 
+ public class UserAction {
+ 
+-    public String getNormalizedNames(List<String> names) {
++    public String getNormalizedNamesOld(List<String> names) {
+         List<String> normalizedNames = new ArrayList<>();
+ 
+         for (String name : names) {
+@@ -27,4 +27,14 @@ public class UserAction {
+         }
+         return normalizedNameString.toString();
+     }
++
++    // Implemented getNormalizedNames method applying Stream API and Java 8 features
++    public String getNormalizedNames(List<String> names) {
++        return names.stream()
++               .filter(name -> name!= null &&!name.trim().isEmpty())
++               .map(name -> name.trim())
++               .map(name -> name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase())
++               .sorted()
++               .reduce("", (name1, name2) -> name1 + "-" + name2);
++    }
+ }
+diff --git a/solution-or-component-generation/csv-serialization/C#/VisualStudio/CsvService/CsvService.cs b/solution-or-component-generation/csv-serialization/C#/VisualStudio/CsvService/CsvService.cs
+index a27e829..fa4f3d7 100644
+--- a/solution-or-component-generation/csv-serialization/C#/VisualStudio/CsvService/CsvService.cs
++++ b/solution-or-component-generation/csv-serialization/C#/VisualStudio/CsvService/CsvService.cs
+@@ -1,9 +1,26 @@
+-﻿using System.Text;
++﻿using System.Collections.Generic;
++using System.Text;
+ 
+ namespace CsvService
+ {
+     public class CsvService
+     {
++        public static string SerializeToCsv<T>(IEnumerable<T> list, bool hasHeader = true, string delimiter = ",") where T : class
++        {
++            var sb = new StringBuilder();
++            var props = list.First().GetType().GetProperties();
++            if (hasHeader)
++            {
++                sb.Append(string.Join(delimiter, props.Select(p => p.Name)));
++                sb.Append(Environment.NewLine);
++            }
++            foreach (var item in list)
++            {
++                sb.Append(string.Join(delimiter, props.Select(p => p.GetValue(item, null))));
++                sb.Append(Environment.NewLine);
++            }
++            return sb.ToString();
++        }
+         
+     }
+ }
+\ No newline at end of file
+diff --git a/solution-or-component-generation/csv-serialization/TypeScript/VSCode/src/csvService.ts b/solution-or-component-generation/csv-serialization/TypeScript/VSCode/src/csvService.ts
+index e69de29..065139a 100644
+--- a/solution-or-component-generation/csv-serialization/TypeScript/VSCode/src/csvService.ts
++++ b/solution-or-component-generation/csv-serialization/TypeScript/VSCode/src/csvService.ts
+@@ -0,0 +1,9 @@
++export function serializeToCsv(data: any[], hasHeader: boolean = true, delimiter: string = ","): string
++{
++    let csv = "";
++    if (hasHeader)
++        csv += data[0].join(delimiter) + "\n";
++    for (let i = 1; i < data.length; i++)
++        csv += data[i].join(delimiter) + "\n";
++    return csv;
++}
+\ No newline at end of file
+diff --git a/solution-or-component-generation/http-basic-auth/C#/VisualStudio/HttpAuthLib/HttpAuth.cs b/solution-or-component-generation/http-basic-auth/C#/VisualStudio/HttpAuthLib/HttpAuth.cs
+index db6f722..b886b69 100644
+--- a/solution-or-component-generation/http-basic-auth/C#/VisualStudio/HttpAuthLib/HttpAuth.cs
++++ b/solution-or-component-generation/http-basic-auth/C#/VisualStudio/HttpAuthLib/HttpAuth.cs
+@@ -2,5 +2,8 @@
+ {
+     public class HttpAuth
+     {  
++        public string CreateBasicAuthenticationHeader(string username, string password) {
++            return "Basic " + System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(username + ":" + password));
++        }
+     }
+ }
+\ No newline at end of file
+diff --git a/solution-or-component-generation/http-basic-auth/java/src/main/java/com/epam/aicode/java/HttpBasicAuthentication.java b/solution-or-component-generation/http-basic-auth/java/src/main/java/com/epam/aicode/java/HttpBasicAuthentication.java
+index 5ceeb27..7061d84 100644
+--- a/solution-or-component-generation/http-basic-auth/java/src/main/java/com/epam/aicode/java/HttpBasicAuthentication.java
++++ b/solution-or-component-generation/http-basic-auth/java/src/main/java/com/epam/aicode/java/HttpBasicAuthentication.java
+@@ -1,5 +1,11 @@
+ package com.epam.aicode.java;
+ 
+-public class HttpBasicAuthentication {
++import java.util.Base64;
+ 
++public class HttpBasicAuthentication {
++    public String createHttpBasicAuthenticationHeader(String username, String password) {
++        String credentials = username + ":" + password;
++        String encodedCredentials = Base64.getEncoder().encodeToString(credentials.getBytes());
++        return "Basic " + encodedCredentials;
++    }
+ }
+diff --git a/solution-or-component-generation/http-basic-auth/java/src/test/java/com/epam/aicode/java/.dirkeep b/solution-or-component-generation/http-basic-auth/java/src/test/java/com/epam/aicode/java/.dirkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/solution-or-component-generation/keystore/java/src/main/java/com/epam/aicode/java/KeyStoreCase.java b/solution-or-component-generation/keystore/java/src/main/java/com/epam/aicode/java/KeyStoreCase.java
+index 0032a86..ad603d6 100644
+--- a/solution-or-component-generation/keystore/java/src/main/java/com/epam/aicode/java/KeyStoreCase.java
++++ b/solution-or-component-generation/keystore/java/src/main/java/com/epam/aicode/java/KeyStoreCase.java
+@@ -4,4 +4,16 @@ import java.security.KeyStore;
+ 
+ public class KeyStoreCase {
+ 
++    // Implemented method that creates a keystore of JKS type and saves to the file system
++    public KeyStore createKeystoreAndSaveToFile(String filename, String password) {
++        KeyStore keystore = null;
++        try {
++            keystore = KeyStore.getInstance("JKS");
++            keystore.load(null, password.toCharArray());
++            keystore.store(null, password.toCharArray());
++        } catch (Exception e) {
++            e.printStackTrace();
++        }
++        return keystore;
++    }
+ }
+\ No newline at end of file
+diff --git a/solution-or-component-generation/remove-duplicate/C#/VisualStudio/Src/CustomLinqExtenstions.cs b/solution-or-component-generation/remove-duplicate/C#/VisualStudio/Src/CustomLinqExtenstions.cs
+index d773e21..c260c45 100644
+--- a/solution-or-component-generation/remove-duplicate/C#/VisualStudio/Src/CustomLinqExtenstions.cs
++++ b/solution-or-component-generation/remove-duplicate/C#/VisualStudio/Src/CustomLinqExtenstions.cs
+@@ -5,6 +5,8 @@ namespace Src
+ {
+     public static class CustomLinqExtenstions
+     {
+-     
++        public static List<T> RemoveDuplicates<T>(this List<T> list) where T : IEquatable<T> {
++            return list.Distinct().ToList();
++        }
+     }
+ }
+\ No newline at end of file
+diff --git a/solution-or-component-generation/remove-duplicate/TypeScript/VSCode/src/lib.ts b/solution-or-component-generation/remove-duplicate/TypeScript/VSCode/src/lib.ts
+index e69de29..919a6c9 100644
+--- a/solution-or-component-generation/remove-duplicate/TypeScript/VSCode/src/lib.ts
++++ b/solution-or-component-generation/remove-duplicate/TypeScript/VSCode/src/lib.ts
+@@ -0,0 +1,4 @@
++export function removeDuplicates<T>(array: T[]): T[]
++{
++    return array.filter((value, index, self) => self.indexOf(value) === index);
++}
+\ No newline at end of file
+diff --git a/static-data-generation/currency-codes/C#/VSCode/CurrencyCodes/Program.cs b/static-data-generation/currency-codes/C#/VSCode/CurrencyCodes/Program.cs
+index dd8ea30..ee8fd7f 100644
+--- a/static-data-generation/currency-codes/C#/VSCode/CurrencyCodes/Program.cs
++++ b/static-data-generation/currency-codes/C#/VSCode/CurrencyCodes/Program.cs
+@@ -1,2 +1,4 @@
+-﻿//Initialise list of 10 popular world currencies in ISO 4217 format 
+-List<string> top10IsoCurrencyCodes = 
++﻿// Initialise list of 10 popular world currencies in ISO 4217 format
++List<string> top10IsoCurrencyCodes = new List<string>() {
++    "USD", "EUR", "JPY", "GBP", "CAD", "CHF", "AUD", "NZD", "ZAR", "SEK"
++};
+diff --git a/static-data-generation/file-extension-types/C#/VisualStudio/FileLib/FileTypeRegistry.cs b/static-data-generation/file-extension-types/C#/VisualStudio/FileLib/FileTypeRegistry.cs
+index 0f0b289..b3949b6 100644
+--- a/static-data-generation/file-extension-types/C#/VisualStudio/FileLib/FileTypeRegistry.cs
++++ b/static-data-generation/file-extension-types/C#/VisualStudio/FileLib/FileTypeRegistry.cs
+@@ -2,6 +2,6 @@
+ {
+     public class FileTypeRegistry
+     {
+-    
++        public readonly string[] Top10FileExtensionTypes = { ".txt", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".rtf", ".html" };
+     }
+ }
+\ No newline at end of file
+diff --git a/static-data-generation/file-extension-types/TypeScript/VSCode/src/filelib.ts b/static-data-generation/file-extension-types/TypeScript/VSCode/src/filelib.ts
+index 04f6e90..613dc29 100644
+--- a/static-data-generation/file-extension-types/TypeScript/VSCode/src/filelib.ts
++++ b/static-data-generation/file-extension-types/TypeScript/VSCode/src/filelib.ts
+@@ -1,4 +1,14 @@
+-
++const top10FilesExtensionsWithDot: string[] = [
++ '.ts',
++    '.tsx',
++    '.js',
++    '.jsx',
++    '.json',
++    '.css',
++    '.scss',
++    '.html',
++    '.md',
++];
+ 
+ export function getTop10FileExtensionTypesWithDot(): string[] {
+     return top10FilesExtensionsWithDot;
+diff --git a/static-data-generation/file-extension-types/java/src/main/java/com/epam/aicode/java/FileTypeRegistry.java b/static-data-generation/file-extension-types/java/src/main/java/com/epam/aicode/java/FileTypeRegistry.java
+index 8b3f23d..925be84 100644
+--- a/static-data-generation/file-extension-types/java/src/main/java/com/epam/aicode/java/FileTypeRegistry.java
++++ b/static-data-generation/file-extension-types/java/src/main/java/com/epam/aicode/java/FileTypeRegistry.java
+@@ -1,5 +1,5 @@
+ package com.epam.aicode.java;
+ 
+ public class FileTypeRegistry {
+-
++    public final String[] top10FileExtensionTypesWithDot = {".txt", ".java", ".html", ".css", ".js", ".php", ".xml", ".json", ".md"};
+ }
+diff --git a/static-data-generation/iso-languages/C#/VSCode/ISOLanguages/Languages.csv b/static-data-generation/iso-languages/C#/VSCode/ISOLanguages/Languages.csv
+index e69de29..aba510a 100644
+--- a/static-data-generation/iso-languages/C#/VSCode/ISOLanguages/Languages.csv
++++ b/static-data-generation/iso-languages/C#/VSCode/ISOLanguages/Languages.csv
+@@ -0,0 +1,10 @@
++ab, aa, af, ak, sq
++am, ar, an, hy, as
++av, ae, ay, az, ay
++ba, bm, eu, be, bn
++bh, bi, bs, br, bg
++my, ca, ch, ce, zh
++zh, zh, zh, zh, zh
++zh, zh, zh, zh, zh
++zh, zh, zh, zh, zh
++zh, zh, zh,
+diff --git a/static-data-generation/iso-languages/java/src/main/resources/com.epam.aicode.java/Languages.csv b/static-data-generation/iso-languages/java/src/main/resources/com.epam.aicode.java/Languages.csv
+index e69de29..59cbb2f 100644
+--- a/static-data-generation/iso-languages/java/src/main/resources/com.epam.aicode.java/Languages.csv
++++ b/static-data-generation/iso-languages/java/src/main/resources/com.epam.aicode.java/Languages.csv
+@@ -0,0 +1 @@
++ab, aa, af, ak, sq, am, ar, an, hy, as, av, ae, ay, az, bm, ba, eu, be, bn, bh, bi, bs, br, bg, my, ca, ch, ce, ny, zh, cv, kw, co, cr, hr, cs, da, dv, nl, dz, en, eo, et, ee, fo, fj, fi, fr, ff, gl, ka, de, el, gn, gu, ht, ha, he, hz, hi, ho, hu, ig, is, io, ii, iu, ie, ia, id, ik, it, jv, ja, kl, kn, kr, ks, kk, km, ki, rw, ky, kv, kg, ko, kj, ku, kz, la, lb, lg, li, ln, lo, lt, lu, lv, gv, mk, mg, ms, ml, mt, mi, mr, mh, mo, mn, na, nv, nd, ne, ng, nb, nn, no, ii, nr, oc, oj, or, om, os, pa, fa, pi, pl, pt, ps, qu, rm, ro, rn, ru, sg, sa, si, sk, sl, se, sm, sn, sd, so, st, es, sc, sr, ss, su, sw, sv, ty, ta, tt, te, tg, tl, th, bo, ti, to, tn, ts, tk, tr, tw, ug, uk, ur, uz, ve, vi, vo, wa, cy, wo, xh, yi, yo, za, zu, xh, zu, af, ak, sq, am, ar, an, hy, as, av, ae, ay, az, bm, ba, eu, be, bn, bh, bi, bs, br, bg, my, ca, ch, ce, ny, zh, cv, kw, co, cr, hr, cs, da, dv, nl, dz, en, eo, et, ee, fo, fj, fi, fr, ff, gl, ka, de, el, gn, gu, ht, ha, he, hz, hi, ho, hu, ig, is, io, ii, iu, ie, ia, id, ik, it, jv, ja, kl, kn, kr, ks, kk, km, ki, rw, ky, kv, kg, ko, kj, ku, kz, la, lb, lg, li, ln, lo, lt, lu, lv, gv, mk, mg, ms, ml, mt, mi, mr, mh, mo, mn, na, nv, nd, ne, ng, nb, nn, no, ii, nr
+\ No newline at end of file
+diff --git a/static-data-generation/mime-types/C#/VSCode/MIMETypesProcessor/HttpResponseParser.cs b/static-data-generation/mime-types/C#/VSCode/MIMETypesProcessor/HttpResponseParser.cs
+index b723a49..852ac55 100644
+--- a/static-data-generation/mime-types/C#/VSCode/MIMETypesProcessor/HttpResponseParser.cs
++++ b/static-data-generation/mime-types/C#/VSCode/MIMETypesProcessor/HttpResponseParser.cs
+@@ -2,6 +2,47 @@
+ {
+     internal class HttpResponseParser
+     {
+-
++        private String[] MIME_TYPES = {
++            "text/html",
++            "text/plain",
++            "text/css",
++            "text/javascript",
++            "application/json",
++            "application/javascript",
++            "application/xml",
++            "application/xhtml+xml",
++            "image/gif",
++            "image/jpeg",
++            "image/png",
++            "image/svg+xml",
++            "image/x-icon",
++            "image/vnd.microsoft.icon",
++            "image/webp",
++            "video/mp4",
++            "video/mpeg",
++            "video/ogg",
++            "video/webm",
++            "audio/mpeg",
++            "audio/ogg",
++            "audio/wav",
++            "audio/webm",
++            "audio/x-wav",
++            "audio/x-ms-wma",
++            "audio/x-ms-wax",
++            "audio/x-realaudio",
++            "audio/x-pn-realaudio",
++            "audio/x-pn-aiff",
++            "audio/x-flac",
++            "audio/x-m4a",
++            "audio/aac",
++            "audio/midi",
++            "audio/x-midi",
++            "audio/x-mid",
++            "audio/x-midi",
++            "audio/x-mpegurl",
++            "audio/x-scpls",
++            "audio/x-mpegurl",
++            "audio/x-mpegurl",
++        }
+     }
+ }
+diff --git a/static-data-generation/mime-types/java/src/main/java/com/epam/aicode/java/HttpResponseParser.java b/static-data-generation/mime-types/java/src/main/java/com/epam/aicode/java/HttpResponseParser.java
+index e2e6b56..6d5fd10 100644
+--- a/static-data-generation/mime-types/java/src/main/java/com/epam/aicode/java/HttpResponseParser.java
++++ b/static-data-generation/mime-types/java/src/main/java/com/epam/aicode/java/HttpResponseParser.java
+@@ -1,5 +1,41 @@
+ package com.epam.aicode.java;
+ 
+ public class HttpResponseParser {
+-
++    private String[] MIME_TYPES = {
++        "text/html",
++        "text/plain",
++        "text/css",
++        "text/javascript",
++        "application/json",
++        "application/javascript",
++        "application/xml",
++        "image/png",
++        "image/jpeg",
++        "image/gif",
++        "image/svg+xml",
++        "image/webp",
++        "image/x-icon",
++        "image/vnd.microsoft.icon",
++        "image/x-xbitmap",
++        "image/x-xpixmap",
++        "image/x-xwindowdump",
++        "image/x-portable-anymap",
++        "image/x-portable-bitmap",
++        "image/x-portable-graymap",
++        "image/x-portable-pixmap",
++        "image/x-rgb",
++        "image/x-xbitmap",
++        "image/x-xpixmap",
++        "image/x-xwindowdump",
++        "image/x-portable-anymap",
++        "image/x-portable-bitmap",
++        "image/x-portable-graymap",
++        "image/x-portable-pixmap",
++        "image/x-rgb",
++        "image/x-xbitmap",
++        "image/x-xpixmap",
++        "image/x-xwindowdump",
++        "image/x-portable-anymap",
++        "image/x-portable-bitmap",
++    }
+ }
+diff --git a/static-data-generation/month-names/C#/VSCode/MonthNames/Program.cs b/static-data-generation/month-names/C#/VSCode/MonthNames/Program.cs
+index 5f28270..0f9c399 100644
+--- a/static-data-generation/month-names/C#/VSCode/MonthNames/Program.cs
++++ b/static-data-generation/month-names/C#/VSCode/MonthNames/Program.cs
+@@ -1 +1,4 @@
+-﻿
+\ No newline at end of file
++﻿string[] englishMonthNames = new string[] {
++    "January", "February", "March", "April", "May", "June",
++    "July", "August", "September", "October", "November", "December"
++};
+\ No newline at end of file
+diff --git a/tests-creation/api-controller/C#/VSCode/Tests/BooksControllerTests.cs b/tests-creation/api-controller/C#/VSCode/Tests/BooksControllerTests.cs
+index 6cd9ab9..0413450 100644
+--- a/tests-creation/api-controller/C#/VSCode/Tests/BooksControllerTests.cs
++++ b/tests-creation/api-controller/C#/VSCode/Tests/BooksControllerTests.cs
+@@ -8,6 +8,20 @@ namespace Tests
+     [TestFixture]
+     public class BooksControllerTests
+     {
++        [Test]
++        public async Task GetBooks_ReturnsOkResult()
++        {
++            // Arrange
++            var mockBookService = new Mock<IBookService>();
++            var booksController = new BooksController(mockBookService.Object);
++            // Act
++            var result = await booksController.GetBooks();
++            // Assert
++            Assert.IsInstanceOf<OkObjectResult>(result);
++            Assert.AreEqual(200, ((OkObjectResult)result).StatusCode);
++            mockBookService.Verify(service => service.GetBooks(), Times.Once);
++            mockBookService.VerifyNoOtherCalls();
++        }
+ 
+     }
+ }
+\ No newline at end of file
+diff --git a/tests-creation/password-generator/C#/VSCode/Test/PwdToolsTests.cs b/tests-creation/password-generator/C#/VSCode/Test/PwdToolsTests.cs
+index 09ac613..b4e902f 100644
+--- a/tests-creation/password-generator/C#/VSCode/Test/PwdToolsTests.cs
++++ b/tests-creation/password-generator/C#/VSCode/Test/PwdToolsTests.cs
+@@ -4,6 +4,36 @@ namespace Test
+ {
+     public class PwdToolsTests
+     {
+-        
++        [Test]
++        public void GenerateRandomPassword_OnlyLowercaseLetters()
++        {
++            var password = PwdTools.GenerateRandomPassword(10, true, false, false, false);
++            Assert.AreEqual(10, password.Length);
++            Assert.AreEqual(true, password.All(c => c >= 'a' && c <= 'z'));
++        }
++
++        [Test]
++        public void GenerateRandomPassword_OnlyUppercaseLetters()
++        {
++            var password = PwdTools.GenerateRandomPassword(10, false, true, false, false);
++            Assert.AreEqual(10, password.Length);
++            Assert.AreEqual(true, password.All(c => c >= 'A' && c <= 'Z'));
++        }
++
++        [Test]
++        public void GenerateRandomPassword_OnlyDigits()
++        {
++            var password = PwdTools.GenerateRandomPassword(10, false, false, true, false);
++            Assert.AreEqual(10, password.Length);
++            Assert.AreEqual(true, password.All(c => c >= '0' && c <= '9'));
++        }
++
++        [Test]
++        public void GenerateRandomPassword_OnlySpecialCharacters()
++        {
++            var password = PwdTools.GenerateRandomPassword(10, false, false, false, true);
++            Assert.AreEqual(10, password.Length);
++            Assert.AreEqual(true, password.All(c => c >= '!' && c <= '/'));
++        }
+     }
+ }
+\ No newline at end of file
+-- 
+2.45.1
+

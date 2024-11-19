@@ -1,0 +1,209 @@
+code-bugfixing/controller-error
+===============================
+--- Context ---
+src/main/java/com/golf/app/controller/UserController.java
+src/main/java/com/golf/app/model/User.java
+
+--- Prompt 1 ---
+Resolve the error that occurs when calling the UserController registerUser method:
+Content-Type 'application/x-www-form-urlencoded;charset=UTF-8' is not supported.
+	org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/x-www-form-urlencoded;charset=UTF-8' is not supported
+
+--- Prompt 2 ---
+UserController class is src\main\java\com\golf\app\controller\UserController.java.
+User class is src/main/java/com/golf/app/model/User.java.
+
+The class method registerUser method throws error: "Content-Type 'application/x-www-form-urlencoded;charset=UTF-8' is not supported. org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/x-www-form-urlencoded;charset=UTF-8' is not supported Fix the error. Add unit test for UserController.serController class is src\main\java\com\golf\app\controller\UserController.java. The class method registerUser method throws error: Content-Type 'application/x-www-form-urlencoded;charset=UTF-8' is not supported. org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/x-www-form-urlencoded;charset=UTF-8' is not supported."
+
+Fix the error.
+
+
+
+code-bugfixing/validation-error
+=========================================
+--- Context ---
+src/main/java/com/golf/app/utils/ValidationUtils.java
+src/main/java/com/golf/app/model/Player.java
+src/main/java/com/golf/app/model/Round.java
+
+--- Prompt ---
+There is ValidationUtils class.
+Resolve the error in the getFieldErrors method during validation of the player object:
+"java.lang.IllegalStateException: Duplicate key surname (attempted merging values Surname should not be empty and Surname should be between 3 and 50 characters)".
+
+
+code-refactoring/constant-alphabetical-order
+============================================
+--- Context ---
+src/main/java/com/golf/app/utils/AppConstant.java
+
+--- Prompt 1 ---
+There is  AppConstant class. Change the order of constants to alphabetical. Ignore the _ symbol at the constant name
+
+--- Prompt 2 ---
+Change the order of constants in AppConstant class to alphabetical. Ignore underscore symbol while ordering.
+
+
+code-refactoring/dto-encapsulation
+==================================
+--- Context ---
+src/main/java/com/golf/app/controller/RoundScoreController.java
+src/main/java/com/golf/app/model/RoundScore.java
+src/main/java/com/golf/app/dto/RoundScoreDto.java
+
+--- Prompt ---
+There is RoundScoreController class.
+Set all the data from the model attributes in the displayScoreCardInputPage method to a RoundScoreDto object and pass only that object as a single attribute named "roundScoreDto".
+
+
+code-refactoring/library-versions-update
+========================================
+--- Context ---
+src/test/pom.xml
+
+--- Prompt ---
+Update libraries in pom.xml to the latest version using Maven repository
+
+
+code-refactoring/long-method
+============================
+--- Context 1 ---
+src/main/java/com/golf/app/utils/ScoreUtils.java
+src/main/java/com/golf/app/model/Score.java
+
+--- Prompt 1 ---
+There is ScoreUtils class.
+The code fragment contains long if.
+Extract a protected static method to set setStableford and refactor it to use a switch block instead of an if.
+
+--- Context 2 ---
+src/main/java/com/golf/app/utils/ScoreUtils.java
+	+  91-102 fragment
+src/main/java/com/golf/app/model/Score.java
+
+--- Prompt 2 ---
+There is ScoreUtils class.
+Extract from the code fragment a protected static method to set setStableford and refactor it to use a switch block instead of an if.
+
+
+code-refactoring/model-mapper-library
+======================================
+--- Context ---
+src/main/java/com/golf/app/controller/CompetitionController.java
+	+ fragment: getCompetitionRounds(@PathVariable("id") Long id) and convertToRoundDto methods
+org.modelmapper.ModelMapper
+
+--- Prompt ---
+Refactor getCompetitionRounds method to apply ModelMapper
+
+
+solution-documentation/javadoc-generation
+=========================================
+--- Context ---
+src/main/java/com/golf/app/controller/CompetitionController.java
+
+--- Prompt ---
+Add comments to the CompetitionController based on the Javadoc standard
+
+
+solution-documentation/update-properties-for-readme-file
+========================================================
+--- Context ---
+src/main/resources/application.properties
+
+---
+Group the properties in a table format for README.md file
+
+
+solution-or-component-generation/exception-handling
+===================================================
+--- Context ---
+src/main/java/com/golf/app/controller/ExceptionHandlerController.java
+
+--- Prompt ---
+Create the class CourseNotFoundException with custom exception and add this exception to the ExceptionHandlerController and return value as ModelAndView
+
+
+
+solution-or-component-generation/logging
+========================================
+--- Context ---
+ src/main/resources/logback-spring.xml
+
+--- Prompt ---
+Add configuration to the existing logback-spring.xml file to log to the application.log file and save the log file in the log folder
+
+
+solution-or-component-generation/repository-service-generation
+==============================================================
+--- Context ---
+ src/main/java/com/golf/app/model/Marker.java
+
+--- Prompt ---
+Create a Spring CRUD CrudRepository and a Spring service that uses this repository based on the Marker model. Apply java.util.Optional
+
+
+solution-or-component-generation/security-config
+================================================
+--- Context ---
+src/main/java/com/golf/app/security/AppSecurityConfig.java
+	fragment: filterChain method
+
+--- Prompt ---
+Refactor the filterChain method to allow anonymous access on /login and restrict /admin to ADMIN roles
+
+
+solution-or-component-generation/server-side-data-validation-absract
+====================================================================
+--- Context ---
+src/main/java/com/golf/app/controller/CourseController.java
+	fragment: addCourse method
+src/main/java/com/golf/app/dto/CourseDto.java
+
+--- Prompt ---
+Check for validation errors in the addCourse method for CourseDto parameter and return the error page with validation errors
+
+solution-or-component-generation/server-side-data-validation-concrete
+======================================================================
+--- Context ---
+src/main/java/com/golf/app/controller/CourseController.java
+	fragment: addCourse method
+src/main/java/com/golf/app/dto/CourseDto.java
+
+--- Prompt 1 ---
+Check for validation errors in the addCourse method using the BindingResult parameter and return the error page setting the errors in the model attribute
+
+--- Prompt 2 ---
+There is CourseController class.
+Check for validation errors in the addCourse method using the BindingResult parameter and return the error page setting the errors in the model attribute.
+
+
+test-creation/unit-test
+========================
+--- Context ---
+src/main/java/com/golf/app/utils/CourseUtils.java
+src/main/java/com/golf/app/dto/CourseDto.java
+
+--- Prompt ---
+Create unit tests for the buildHoles method. To do this, create an object of the CourseDto class with all the necessary fields.
+
+
+test-creation/integration-test
+===================================
+--- Context ---
+src/main/java/com/golf/app/api/CompetitionRestController.java
+
+--- Prompt ---
+There is CompetitionRestController class.
+Write a set of integration tests for this controller class using Spring MockMvc framework (@WebMvcTest annotation) and Spring Security @WithMockUser annotation to simulate authenticated user.
+Validate the data from response and HTTP status code using MockMvcResultMatchers.
+Try to test as much as possible of positive and negative scenarios.
+
+
+solution-migration/maven-to-gradle-migration
+============================================
+--- Context ---
+src/test/pom.xml
+
+--- Prompt ---
+Convert the Maven POM file to a Gradle build file.
