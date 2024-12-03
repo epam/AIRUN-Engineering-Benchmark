@@ -6,7 +6,7 @@
 
 ## Test Execution Results (GPT 4o LLM)
 
-[GolfAppTestsCopilotNovember2024.xlsx](../../../../reports/GolfAppTestsCopilotGpt4oDecember2024.xlsx)
+[GolfAppTestsCopilotDecember2024.xlsx](../../../../reports/GolfAppTestsCopilotGpt4oDecember2024.xlsx)
 
 ### Overall Results
 

@@ -13,7 +13,7 @@
 - [Configuration](#configuration)
 
 ## Test Execution Results
-[SandboxTestsCopilotNovember2024.xlsx](../../../../reports/SandboxTestsCopilotGpt4oDecember2024.xlsx)
+[SandboxTestsCopilotDecember2024.xlsx](../../../../reports/SandboxTestsCopilotGpt4oDecember2024.xlsx)
 
 ## Overall Score
 **Copilot: 87.93 = 116 / 14**
