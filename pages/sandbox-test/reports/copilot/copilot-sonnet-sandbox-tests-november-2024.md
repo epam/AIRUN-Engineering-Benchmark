@@ -11,6 +11,7 @@
         - [C#](#c-1)
         - [TypeScript](#typescript-1)
 - [Configuration](#configuration)
+- [Summary](#summary)
 
 ## Test Execution Results
 [SandboxTestsCopilotNovember2024.xlsx](../../../../reports/SandboxTestsCopilotClaude3.5SonnetNovember2024.xlsx)
@@ -64,6 +65,12 @@ Copilot version: v0.23.2024102903 (pre-release)
 VSCode version: 1.95.3
 
 ![example-configuration.png](../../../../images/sandbox-test/copilot/copilot-sonnet-config.png)
+
+## Summary
+
+- Inline code suggestions were fast; however, the chat was a bit slower than average
+- A couple of tests failed with a "cannot provide code that matches public code" error
+- Errors appeared in the chat window but disappeared when the request was regenerated
 
 ---
 <p style="text-align: center;">    © 2024 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p> 

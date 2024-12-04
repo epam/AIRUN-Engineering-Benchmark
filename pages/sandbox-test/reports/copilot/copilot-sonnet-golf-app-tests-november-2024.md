@@ -3,6 +3,7 @@
 - [Test Execution Results](#test-execution-results)
     - [Overall Results](#overall-results)
 - [Configuration](#configuration)
+- [Summary](#summary)
 
 ## Test Execution Results ([anthropic.claude-v3-5-sonnet](https://www.anthropic.com/news/claude-3-5-sonnet) LLM)
 
@@ -20,6 +21,10 @@ Copilot version: v0.23.2024102903 (pre-release)
 VSCode version: 1.95.3
 
 ![example-configuration.png](../../../../images/sandbox-test/copilot/copilot-sonnet-config.png)
+
+## Summary
+
+A couple of tests failed with a "cannot provide code that matches public code" error
 
 ---
 <p style="text-align: center;">    © 2024 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
