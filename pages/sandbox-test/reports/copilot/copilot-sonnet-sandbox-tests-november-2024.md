@@ -70,7 +70,7 @@ VSCode version: 1.95.3
 
 - Inline code suggestions were fast; however, the chat was a bit slower than average.
 - A couple of tests failed with a "cannot provide code that matches public code" error.
-- After submitting a request via the chat window, errors appeared instead of a response, which then disappeared after regenerating the request.
+- Chat window sometimes rendered errors which disappered after sending the same question for the second time.
 ![error.png](../../../../images/sandbox-test/copilot/copilot-sonnet-error.png)
 
 ---
