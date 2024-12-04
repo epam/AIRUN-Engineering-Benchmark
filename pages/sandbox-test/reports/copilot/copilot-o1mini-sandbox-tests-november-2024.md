@@ -11,6 +11,7 @@
         - [C#](#c-1)
         - [TypeScript](#typescript-1)
 - [Configuration](#configuration)
+- [Summary](#summary)
 
 ## Test Execution Results
 [SandboxTestsCopilotNovember2024.xlsx](../../../../reports/SandboxTestsCopilotO1miniNovember2024.xlsx)
@@ -61,7 +62,12 @@
 ## Configuration
 
 Copilot version: v0.23.2024102903 (pre-release)
+
 VSCode version: 1.95.3
+
+## Summary
+
+The chat window response generated comprehensive documentation and usage samples
 
 ![example-configuration.png](../../../../images/sandbox-test/copilot/copilot-01mini-config.png)
 

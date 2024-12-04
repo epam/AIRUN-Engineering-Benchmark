@@ -11,11 +11,14 @@
         - [C#](#c-1)
         - [TypeScript](#typescript-1)
 - [Configuration](#configuration)
+- [Summary](#summary)
 
 ## Test Execution Results
+
 [SandboxTestsCopilotDecember2024.xlsx](../../../../reports/SandboxTestsCopilotGpt4oDecember2024.xlsx)
 
 ## Overall Score
+
 **Copilot: 87.93 = 116 / 14**
 
 ### Chat Based Tests (GPT 4o LLM)
@@ -58,10 +61,14 @@
 |---------|--------------|--------------|--------------|
 | Copilot | 100          | 6            | 0            |
 
-
 ## Configuration
+
 - Copilot version: 0.22.4
 - VSCode version: 1.95.3
+
+## Summary
+
+- Responses in the chat window were generated fast
 
 ---
 <p style="text-align: center;">    © 2024 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p> 
