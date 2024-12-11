@@ -35,8 +35,9 @@ For detailed information about our approach and evaluation methodology, please r
 | [GPT-4o (2024-08-06)](/pages/llms/llm-detailed-result/gpt-4o-0806-2024-11-06.md)                   | 2024-11-06     | v1                | 84.7%            | 80.5%           | 76.1%         | 87.5%    | 82.2%         |
 | [Gemini 1.5 Pro (002)](/pages/llms/llm-detailed-result/gemini-15-pro-2024-11-08.md)                | 2024-11-13     | v1                | 84.0%            | 71.3%           | 81.3%         | 87.5%    | 81.0%         |
 | [Grok Beta](/pages/llms/llm-detailed-result/grok-beta-2024-11-15.md)                               | 2024-11-15     | v1                | 77.4%            | 72.4%           | 80.3%         | 81.3%    | 77.8%         |
+| [Amazon Nova Pro](/pages/llms/llm-detailed-result/amazon-nova-pro-2024-12-06.md)                   | 2024-12-06     | v1                | 76.5%            | 67.6%           | 87.4%         | 56.25%   | 71.9%         |
 | [Llama3.1 405B<sup>2</sup>](/pages/llms/llm-reports/low-cost-models-august.md)                     | 2024-08-01     | v1                | 75.8%            | 72.5%           | 67.7%         | 68.8%    | 71.2%         |
-| [GPT-4o-mini](/pages/llms/llm-detailed-result/gpt-4o-mini-0718-2024-11-06.md)                      | 2024-11-06     | v1                | 75.9%            | 69.3%           | 81.6%         | 56.3%    | 70.8%         |
+| [GPT-4o-mini](/pages/llms/llm-detailed-result/gpt-4o-mini-0718-2024-11-06.md)                      | 2024-11-06     | v1                | 75.9%            | 69.3%           | 81.6%         | 56.25%   | 70.8%         |
 | [GPT-3.5 Turbo<sup>2</sup>](/pages/llms/llm-reports/low-cost-models-august.md)                     | 2024-08-05     | v1                | 68.8%            | 52.7%           | 78.4%         | 43.8%    | 60.9%         |
 | [Llama3 70B<sup>2</sup>](/pages/llms/llm-reports/low-cost-models-august.md)                        | 2024-06-13     | v1                | 69.4%            | 72.6%           | 71.8%         | 25.0%    | 59.7%         |
 
@@ -63,6 +64,7 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | GPT4o_0806          | 1.000       | 3.676        | 3.311            | 35.101   | 2206.429  | 62.859            | 0.8470  |
 | Gemini_15_Pro_002   | 1.000       | 3.414        | 3.686            | 69.323   | 2670.571  | 38.523            | 0.8396  |
 | GrokBeta            | 1.000       | 3.193        | 3.150            | 41.902   | 2190.857  | 52.285            | 0.7744  |
+| AmazonNovaPro       | 1.000       | 3.480        | 2.704            | 28.329   | 1703.571  | 60.136            | 0.7646  |
 | GPT4o_mini_0718     | 1.000       | 3.410        | 2.797            | 33.108   | 1645.714  | 49.707            | 0.7589  |
 | Llama31_405B        | 1.000       | 3.694        | 2.479            | 29.339   | 1563.000  | 53.274            | 0.7582  |
 | Llama3_70B          | 1.000       | 3.344        | 2.496            | 121.700  | 1573.571  | 12.930            | 0.6939  |
@@ -87,6 +89,7 @@ _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 | GrokBeta            | 1.000       | 3.516        | 2.324            | 20.738   | 1045.857  | 50.432            | 0.7238  |
 | Gemini_15_Pro_002   | 1.000       | 2.864        | 2.923            | 27.487   | 1189.571  | 43.277            | 0.7129  |
 | GPT4o_mini_0718     | 1.000       | 2.866        | 2.566            | 14.007   | 881.143   | 62.906            | 0.6928  |
+| AmazonNovaPro       | 1.000       | 2.717        | 2.647            | 19.778   | 985.000   | 49.803            | 0.6757  |
 | GPT35_Turbo_0125    | 1.000       | 2.513        | 1.281            | 7.132    | 431.286   | 60.474            | 0.5272  |
 
 _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
@@ -99,6 +102,7 @@ _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 | GPT4o_1120          | 1.000       | 3.774        | 3.809            | 12.471   | 1535.667  | 123.142           | 0.9543  |
 | ChatGPT4o           | 1.000       | 3.762        | 3.624            | 20.633   | 1700.889  | 82.435            | 0.9029  |
 | Qwen25Coder32B      | 1.000       | 3.464        | 3.589            | 11.575   | 1060.889  | 91.657            | 0.8767  |
+| AmazonNovaPro       | 1.000       | 3.517        | 3.741            | 17.757   | 1094.222  | 61.622            | 0.8738  |
 | Claude_Haiku_35     | 1.000       | 3.669        | 3.501            | 14.084   | 860.778   | 61.117            | 0.8646  |
 | OpenAi_o1_0912      | 1.000       | 3.633        | 3.727            | 69.490   | 2395.222  | 34.469            | 0.8629  |
 | Claude_Sonnet_35v2  | 1.000       | 3.674        | 3.464            | 17.195   | 962.556   | 55.977            | 0.8575  |
@@ -127,6 +131,7 @@ _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 | GrokBeta            | 2.5          | 4.0              | 0.8125  |
 | Qwen25Coder32B      | 3.0          | 2.75             | 0.7186  |
 | Llama31_405B        | 2.5          | 3.0              | 0.6875  |
+| AmazonNovaPro       | 2.25         | 2.25             | 0.5625  |
 | GPT4o_mini_0718     | 2.5          | 2.0              | 0.5625  |
 | GPT35_Turbo_0125    | 2.0          | 1.5              | 0.4375  |
 | Llama3_70B          | 1.0          | 1.0              | 0.25    |
