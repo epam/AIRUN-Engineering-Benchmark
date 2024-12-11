@@ -9,33 +9,35 @@ programming languages and datasets. The analysis includes an overview of the exp
 
 The following table summarizes the overall performance of the Amazon Nova Pro model across all experiments:
 
-| Experiment         | Category                        | Language | Dataset           | Complexity | Size  | Input | Reasons | Output | Time  | Accuracy | Completeness |
-|--------------------|---------------------------------|----------|-------------------|------------|-------|-------|---------|--------|-------|----------|--------------|
-| code_translation   | ReactToAngular                  | React    | ToDoApp_ReactJS   | high       | avg   | 3682  | 0       | 1724   | 26.06 | 3.27     | 4            |
-| code_translation   | jQueryToReact                   | jQuery   | ToDoApp_jQuery    | high       | low   | 2622  | 0       | 1769   | 31.97 | 4        | 3            |
-| code_translation   | AngularToReact                  | Angular  | AngularCosmoPage  | avg        | high  | 6135  | 0       | 1701   | 26.05 | 3.94     | 0            |
-| code_translation   | UpdateReact                     | React    | ToDoApp_ReactJS   | high       | avg   | 3670  | 0       | 1759   | 31.30 | 4        | 4            |
-| code_translation   | UpdateAngular                   | Angular  | ToDoApp_AngularJS | avg        | avg_2 | 2457  | 0       | 1829   | 26.02 | 2.97     | 2.97         |
-| code_translation   | ReactToAngular                  | React    | ReactSignUp       | high       | low   | 1335  | 0       | 1326   | 19.05 | 2.18     | 2.04         |
-| code_translation   | VanillaToReact                  | NativeJS | Piano_NativeJS    | high       | low   | 1544  | 0       | 1817   | 37.85 | 4        | 2.92         |
-| code_generation    | ModifyReactApp                  | React    | ReactFetchAPI     | avg        | low   | 392   | 0       | 278    | 9.24  | 3.01     | 2.99         |
-| code_generation    | GenerateBaseComponent           | none     | none              | none       | none  | 188   | 0       | 628    | 9.54  | 3.44     | 3.03         |
-| code_generation    | GenerateReactApp                | none     | none              | none       | none  | 180   | 0       | 266    | 16.16 | 3.01     | 3            |
-| code_generation    | WriteTestsForLegacyCode         | React    | ReactSignUp       | high       | low   | 1288  | 0       | 1044   | 14.97 | 2.27     | 2.99         |
-| code_generation    | WriteTestsForLegacyCode         | React    | ToDoApp_ReactJS   | high       | avg   | 3635  | 0       | 1731   | 24.81 | 2.26     | 1.68         |
-| code_generation    | WriteTestsForLegacyCode         | Angular  | AngularCosmoPage  | avg        | high  | 6109  | 0       | 1783   | 26.32 | 2.03     | 1.85         |
-| code_generation    | WriteTestsForActualCode         | React    | ReactSelect       | extra_high | high  | 16751 | 0       | 1165   | 37.40 | 3        | 2.99         |
-| code_documentation | BusinessFunctionality           | React    | ReactSignUp       | high       | low   | 1281  | 0       | 786    | 10.80 | 4        | 3.12         |
-| code_documentation | BusinessFunctionality           | React    | ToDoApp_ReactJS   | high       | avg   | 3628  | 0       | 748    | 10.46 | 3.22     | 4            |
-| code_documentation | BusinessFunctionality           | Angular  | AngularCosmoPage  | avg        | high  | 6102  | 0       | 815    | 11.76 | 2.98     | 4            |
-| code_documentation | EvaluateCodeQuality             | React    | ReactSignUp       | high       | low   | 1403  | 0       | 1501   | 27.17 | 2.96     | 4            |
-| code_documentation | EvaluateCodeQuality             | React    | ToDoApp_ReactJS   | high       | avg   | 3750  | 0       | 1749   | 27.36 | 3.5      | 3.78         |
-| code_documentation | EvaluateCodeQuality             | Angular  | AngularCosmoPage  | avg        | high  | 6224  | 0       | 1335   | 19.50 | 4        | 4            |
-| code_documentation | DescribeTechnicalImplementation | Angular  | AngularCosmoPage  | avg        | high  | 6182  | 0       | 849    | 12.25 | 4        | 2.78         |
-| code_documentation | DescribeTechnicalImplementation | React    | ReactSignUp       | high       | low   | 1361  | 0       | 994    | 13.80 | 2.99     | 4            |
-| code_documentation | DescribeTechnicalImplementation | React    | ToDoApp_ReactJS   | high       | avg   | 3708  | 0       | 1071   | 26.72 | 4        | 3.99         |
+| Experiment         | Category                        | Language | Dataset           | Complexity | Size  | Input | Reasons | Output | Time  | Accuracy<sup>*</sup> | Completeness<sup>*</sup> |
+|--------------------|---------------------------------|----------|-------------------|------------|-------|-------|---------|--------|-------|----------------------|--------------------------|
+| code_translation   | ReactToAngular                  | React    | ToDoApp_ReactJS   | high       | avg   | 3682  | 0       | 1724   | 26.06 | 3.27                 | 4                        |
+| code_translation   | jQueryToReact                   | jQuery   | ToDoApp_jQuery    | high       | low   | 2622  | 0       | 1769   | 31.97 | 4                    | 3                        |
+| code_translation   | AngularToReact                  | Angular  | AngularCosmoPage  | avg        | high  | 6135  | 0       | 1701   | 26.05 | 3.94                 | 0                        |
+| code_translation   | UpdateReact                     | React    | ToDoApp_ReactJS   | high       | avg   | 3670  | 0       | 1759   | 31.30 | 4                    | 4                        |
+| code_translation   | UpdateAngular                   | Angular  | ToDoApp_AngularJS | avg        | avg_2 | 2457  | 0       | 1829   | 26.02 | 2.97                 | 2.97                     |
+| code_translation   | ReactToAngular                  | React    | ReactSignUp       | high       | low   | 1335  | 0       | 1326   | 19.05 | 2.18                 | 2.04                     |
+| code_translation   | VanillaToReact                  | NativeJS | Piano_NativeJS    | high       | low   | 1544  | 0       | 1817   | 37.85 | 4                    | 2.92                     |
+| code_generation    | ModifyReactApp                  | React    | ReactFetchAPI     | avg        | low   | 392   | 0       | 278    | 9.24  | 3.01                 | 2.99                     |
+| code_generation    | GenerateBaseComponent           | none     | none              | none       | none  | 188   | 0       | 628    | 9.54  | 3.44                 | 3.03                     |
+| code_generation    | GenerateReactApp                | none     | none              | none       | none  | 180   | 0       | 266    | 16.16 | 3.01                 | 3                        |
+| code_generation    | WriteTestsForLegacyCode         | React    | ReactSignUp       | high       | low   | 1288  | 0       | 1044   | 14.97 | 2.27                 | 2.99                     |
+| code_generation    | WriteTestsForLegacyCode         | React    | ToDoApp_ReactJS   | high       | avg   | 3635  | 0       | 1731   | 24.81 | 2.26                 | 1.68                     |
+| code_generation    | WriteTestsForLegacyCode         | Angular  | AngularCosmoPage  | avg        | high  | 6109  | 0       | 1783   | 26.32 | 2.03                 | 1.85                     |
+| code_generation    | WriteTestsForActualCode         | React    | ReactSelect       | extra_high | high  | 16751 | 0       | 1165   | 37.40 | 3                    | 2.99                     |
+| code_documentation | BusinessFunctionality           | React    | ReactSignUp       | high       | low   | 1281  | 0       | 786    | 10.80 | 4                    | 3.12                     |
+| code_documentation | BusinessFunctionality           | React    | ToDoApp_ReactJS   | high       | avg   | 3628  | 0       | 748    | 10.46 | 3.22                 | 4                        |
+| code_documentation | BusinessFunctionality           | Angular  | AngularCosmoPage  | avg        | high  | 6102  | 0       | 815    | 11.76 | 2.98                 | 4                        |
+| code_documentation | EvaluateCodeQuality             | React    | ReactSignUp       | high       | low   | 1403  | 0       | 1501   | 27.17 | 2.96                 | 4                        |
+| code_documentation | EvaluateCodeQuality             | React    | ToDoApp_ReactJS   | high       | avg   | 3750  | 0       | 1749   | 27.36 | 3.5                  | 3.78                     |
+| code_documentation | EvaluateCodeQuality             | Angular  | AngularCosmoPage  | avg        | high  | 6224  | 0       | 1335   | 19.50 | 4                    | 4                        |
+| code_documentation | DescribeTechnicalImplementation | Angular  | AngularCosmoPage  | avg        | high  | 6182  | 0       | 849    | 12.25 | 4                    | 2.78                     |
+| code_documentation | DescribeTechnicalImplementation | React    | ReactSignUp       | high       | low   | 1361  | 0       | 994    | 13.80 | 2.99                 | 4                        |
+| code_documentation | DescribeTechnicalImplementation | React    | ToDoApp_ReactJS   | high       | avg   | 3708  | 0       | 1071   | 26.72 | 4                    | 3.99                     |
 
 _Table 1. Detailed evaluation of the Amazon Nova Pro model's performance across various code-related tasks._
+
+> <sup>*</sup> - Maximum score is 4. To learn more about our methodology for evaluating LLMs and scoring, please read [LLMs Benchmark Approach](../llm-approach.md).
 
 Below is a summary of the overall performance across all experiments:
 
@@ -102,6 +104,6 @@ Amazon Nova Pro demonstrates competitive performance in certain areas while show
 6. Comparative Standing: While Nova Pro doesn't match the performance of top-tier models like GPT-4o or Claude 3.5 Sonnet v2, it outperforms some widely used models like GPT-3.5 Turbo in overall score, suggesting it's a competitive option
    in the mid-range LLM market.
 
-In conclusion, Amazon Nova Pro shows promise as a capable and cost-effective language model, particularly excelling in code documentation tasks. However, to compete with top-tier models, improvements in code generation and large context
-handling are necessary. Its current performance makes it a viable option for organizations seeking a balance between cost and capability, especially for tasks that align with its strengths. As the field of LLMs continues to evolve rapidly,
-it will be interesting to see how Amazon enhances Nova Pro's capabilities in future iterations to close the gap with leading models.
+In conclusion, Amazon Nova Pro shows promise as a capable and cost-effective language model, particularly excelling in code documentation tasks. However, to compete with top-tier models, according to our benchmark, improvements in code
+generation and large context handling are necessary. Its current performance makes it a viable option for organizations seeking a balance between cost and capability, especially for tasks that align with its strengths. As the field of LLMs
+continues to evolve rapidly, it will be interesting to see how Amazon enhances Nova Pro's capabilities in future iterations to close the gap with leading models of our benchmark.
