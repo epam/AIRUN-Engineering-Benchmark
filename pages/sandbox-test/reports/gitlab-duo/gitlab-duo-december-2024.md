@@ -79,7 +79,7 @@ To open GitLab Duo Quick Chat in the editor window press:
 - MacOS: Option + c
 - Windows and Linux: ALT + c
 
-![Image](image-2024-12-12_18-11-56.png)
+![cursor-settings-models.png](../../../../images/sandbox-test/gitlab-duo/quick-chat.png)
 
 #### Code Suggestions
 [Code Suggestions Documentation](https://docs.gitlab.com/ee/user/project/repository/code_suggestions/)
@@ -113,6 +113,7 @@ When preparing to merge your merge request, you can add a merge commit message b
 4. Select **Generate commit message**.
 
 ![cursor-settings-models.png](../../../../images/sandbox-test/gitlab-duo/merge-commit-message-1.png)
+
 ![cursor-settings-models.png](../../../../images/sandbox-test/gitlab-duo/merge-commit-message-2.png)
 
 #### Vulnerability Explanation
@@ -122,6 +123,7 @@ GitLab can help to:
 - Provide a suggested mitigation
 
 ![cursor-settings-models.png](../../../../images/sandbox-test/gitlab-duo/vulnerability-explanation.png)
+
 [More on Vulnerability Explanation](https://docs.gitlab.com/ee/user/application_security/vulnerabilities/index.html#explaining-a-vulnerability)
 
 #### Troubleshoot Failed CI/CD Jobs
