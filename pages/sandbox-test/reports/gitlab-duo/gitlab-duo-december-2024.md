@@ -188,8 +188,8 @@ Overall Score: **84.48** = 116 / 18
 ##### C#:
 
 | AI tool    | Pass Rate, % | Tests, count | Failed tests |
-|------------|--------------|--------------|--------------|
-| GitLab Duo | 72.322       | 18           | 5            |
+|------------|-------------|--------------|--------------|
+| GitLab Duo | 72.22       | 18           | 5            |
 
 ##### TypeScript:
 
@@ -206,7 +206,7 @@ Overall Score: **84.48** = 116 / 18
 
 ## Configuration
 GitLab Workflow version: 5.21.0  
-VSCode version: 1.95.3
+VSCode version: 1.96.0
 
 ## UX Summary
 - The chat window's response generation speed was average compared to other AI tools (3-10 seconds).
