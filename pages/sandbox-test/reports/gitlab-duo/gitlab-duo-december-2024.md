@@ -1,4 +1,4 @@
-# Table of Contents
+# GitLab Duo - December 2024
 1. [Executive Summary](#executive-summary)
 2. [Features and Functionality](#features-and-functionality)
 3. [Performance Observations](#performance-observations)
