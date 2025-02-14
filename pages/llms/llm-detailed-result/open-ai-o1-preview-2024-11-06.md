@@ -39,30 +39,30 @@ Below is a summary of the overall performance across all experiments:
 
 | Total Input | Total Reasons | Output (payload) | Total Output | Total Time (sec) | Token per Second* | Experiment cost ($) | Average Accuracy | Average Completeness |
 |-------------|---------------|------------------|--------------|------------------|-------------------|---------------------|------------------|----------------------|
-| 77409       | 95680         | 57959            | 153639       | 2848.76          | 20.35             | 10.38               | 3.69             | 3.56                 |
+| 77314       | 93632         | 56671            | 150303       | 2803.75          | 53.61             | 10.38               | 3.69             | 3.56                 |
 
 _Table 2. Summary of OpenAI o1-preview experiment in EPAM's LLM's Benchmark._
 
 This summary shows that the OpenAI o1-preview model has an average accuracy of 3.69 and an average completeness of 3.56 across all experiments. The model's performance is consistent across different categories of code manipulation tasks,
-with a token per second rate of 20.35 and an experiment cost of 10.38 USD.
+with a token per second rate of 53.61 and an experiment cost of 10.38 USD.
 
 ## Detailed Analysis
 
 | Experiment         | Average Accuracy | Average Completeness | Average Time    | Average Tokens | Average Tokens/second |
 |--------------------|------------------|----------------------|-----------------|----------------|-----------------------|
-| Code Translation   | 3.993            | 3.460                | 245.472 seconds | 2770.286       | 11.286                |
-| Code Generation    | 3.459            | 3.437                | 65.719 seconds  | 2246.000       | 34.176                |
-| Code Documentation | 3.633            | 3.727                | 69.490 seconds  | 2395.222       | 34.469                |
+| Code Translation   | 3.993            | 3.460                | 245.472 seconds | 9490.286       | 38.661                |
+| Code Generation    | 3.459            | 3.437                | 65.719 seconds  | 5308.857       | 80.781                |
+| Code Documentation | 3.633            | 3.727                | 69.490 seconds  | 5189.889       | 74.686                |
 
 _Table 3. Average performance of OpenAI o1-preview in different categories of code manipulation tasks._
 
 - Code Translation: The model performs well in translating code between different languages, with an average accuracy of 3.993 and an average completeness of 3.460. The average time taken for translation tasks is 245.472 seconds, with an
-  average of 2770.286 tokens processed and a token per second rate of 11.286.
-- Code Generation: The model shows good performance in generating code, with an average accuracy of 3.459 and an average completeness of 3.437. The average time taken for generation tasks is 65.719 seconds, with an average of 2246.000
+  average of 9490.286 tokens processed and a token per second rate of 38.661.
+- Code Generation: The model shows good performance in generating code, with an average accuracy of 3.459 and an average completeness of 3.437. The average time taken for generation tasks is 65.719 seconds, with an average of 5308.857
   tokens
-  processed and a token per second rate of 34.176.
+  processed and a token per second rate of 80.781.
 - Code Documentation: The model performs well in generating code documentation, with an average accuracy of 3.633 and an average completeness of 3.727. The average time taken for documentation tasks is 69.490 seconds, with an average of
-  2395.222 tokens processed and a token per second rate of 34.469.
+  5189.889 tokens processed and a token per second rate of 74.686.
 
 Large Context Instruction Following (LCIF) score: 87.5%
 
@@ -86,22 +86,22 @@ The OpenAI o1-preview model demonstrates strong performance across various code-
 
 1. Overall Performance:
     - The model achieves high average scores in both accuracy (3.69) and completeness (3.56) across all experiments, indicating reliable and thorough code manipulation capabilities.
-    - With an average processing speed of 20.35 tokens per second, o1-preview shows consistent performance across complex tasks, though it's notably slower than some other models like o1-mini.
+    - With an average processing speed of 53.61 tokens per second, o1-preview shows consistent performance across complex tasks, though it's notably slower than some other models like o1-mini.
 
 2. Code Translation:
     - O1-preview excels in code translation tasks, with the highest average accuracy (3.993) among all categories.
     - The model effectively handles translations between various frameworks (React, Angular, jQuery, Vanilla JS), showcasing its versatility.
-    - However, translation tasks take significantly longer on average (245.472 seconds) and have the lowest tokens/second rate (11.286), indicating a trade-off between accuracy and speed in this category.
+    - However, translation tasks take significantly longer on average (245.472 seconds) and have very low tokens/second rate (38.661), indicating a trade-off between accuracy and speed in this category.
 
 3. Code Generation:
     - In code generation tasks, the model performs well with an average accuracy of 3.459 and completeness of 3.437.
     - O1-preview shows strength in generating React components and writing tests for legacy code, though it struggled with some specific tasks (e.g., writing tests for Angular code).
-    - Generation tasks are processed more efficiently than translation tasks, with a higher tokens/second rate (34.176).
+    - Generation tasks are processed more efficiently than translation tasks, with a higher tokens/second rate (80.781).
 
 4. Code Documentation:
     - Documentation tasks see strong performance, with high average accuracy (3.633) and the highest average completeness (3.727) among all categories.
     - The model excels in describing business functionality and evaluating code quality across different frameworks.
-    - Documentation tasks are processed most efficiently, with the highest tokens/second rate (34.469) among all categories.
+    - Documentation tasks are processed most efficiently, with the highest tokens/second rate (74.686) among all categories.
 
 5. Large Context Instruction Following (LCIF):
     - O1-preview achieves a solid LCIF score of 87.5%, demonstrating good capability in handling large, complex code bases.
@@ -111,7 +111,7 @@ The OpenAI o1-preview model demonstrates strong performance across various code-
 6. Areas for Improvement:
     - The model's processing speed, particularly for translation tasks, could be optimized to improve overall efficiency.
     - There's room for improvement in certain specific tasks, such as writing tests for Angular code (accuracy of 1.82 in one instance).
-    - The higher experiment cost ($10.38) compared to some other models might be a consideration for large-scale applications.
+    - The higher experiment cost ($10.18) compared to some other models might be a consideration for large-scale applications.
 
 In conclusion, OpenAI o1-preview demonstrates robust capabilities across various code-related tasks, with particular strengths in code translation accuracy and documentation completeness. Its ability to handle large contexts and maintain
 high accuracy in complex tasks is noteworthy. While the model excels in accuracy and completeness, there's a trade-off with processing speed, especially in translation tasks. The o1-preview model proves to be a powerful tool for developers
