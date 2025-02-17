@@ -13,12 +13,12 @@ Key findings:
 - Claude 3.5 Sonnet v2, Gemini Experimental (0612), OpenAI o3-mini achieved perfect scores (100%) in LCIF
 - Significant performance gaps persist between top-tier commercial models and more accessible options
 
-- Best results by category:
+Best results by category:
 
-Code Translation: OpenAI o3-mini leads with 96.8%
-Code Generation: OpenAI o1-mini ranks first (92.4%)
-Code Documentation: OpenAI o1-mini leads (96.2%)
-LCIF: Three models achieve 100%: OpenAI o3-mini, Claude 3.5 Sonnet v2, and Gemini Experimental
+- Code Translation: OpenAI o3-mini leads with 96.8%
+- Code Generation: OpenAI o1-mini ranks first (92.4%)
+- Code Documentation: OpenAI o1-mini leads (96.2%)
+- LCIF: Three models achieve 100%: OpenAI o3-mini, Claude 3.5 Sonnet v2, and Gemini Experimental
 
 The final conclusion in the [end](#conclusion) of the report.
 

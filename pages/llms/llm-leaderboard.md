@@ -46,7 +46,7 @@ The total score comprises the average score across all categories including LCIF
 | [Gemini 1.5 Pro (002)](llm-detailed-result/gemini-15-pro-2024-11-08.md)                | 16.65            | 87809       | 36669        | 0.29     | 80.4%       |
 | [DeepSeek R1](llm-detailed-result/deepseek-r1-2025-01-28.md)                           | 58.79            | 78065       | 63012        | 1.13     | 79.0%       |
 | [Grok Beta](llm-detailed-result/grok-beta-2024-11-15.md)                               | 10.45            | 75457       | 32444        | 0.86     | 77.1%       |
-| [Amazon Nova Pro](llm-detailed-result/amazon-nova-pro-2024-12-06.md)                   | 8.28             | 83627       | 28668        | 0.07     | 71.1%       |
+| [Amazon Nova Pro](llm-detailed-result/amazon-nova-pro-2024-12-06.md)                   | 8.28             | 83627       | 28668        | 0.29     | 71.1%       |
 | Llama3.1 405B<sup>2</sup>                                                              | 9.56             | 74045       | 27498        | 0.30     | 70.5%       |
 | [GPT-4o-mini (0718)](llm-detailed-result/gpt-4o-mini-0718-2024-11-06.md)               | 7.98             | 75686       | 25987        | 0.03     | 69.9%       |
 | GPT-3.5 Turbo<sup>2</sup>                                                              | 4.48             | 73956       | 17270        | 0.06     | 60.0%       |
