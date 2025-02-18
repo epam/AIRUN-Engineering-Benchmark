@@ -39,29 +39,29 @@ Below is a summary of the overall performance across all experiments:
 
 | Total Input | Total Reasons | Output (payload) | Total Output | Total Time (sec) | Token per Second* | Experiment cost ($) | Average Accuracy | Average Completeness | 
 |-------------|---------------|------------------|--------------|------------------|-------------------|---------------------|------------------|----------------------|
-| 77314       | 33216         | 68827            | 102043       | 674.05           | 102.11            | 1.46                | 3.67             | 3.81                 |
+| 77314       | 33216         | 68827            | 102043       | 674.05           | 151.39            | 1.46                | 3.67             | 3.81                 |
 
 _Table 2. Summary of OpenAI o1-mini experiment in EPAM's LLM's Benchmark._
 
 This summary shows that the OpenAI o1-mini model has an average accuracy of 3.67 and an average completeness of 3.81 across all experiments. The model processed a total of 77,314 input tokens, generating 102,043 total output tokens in
-674.05 seconds, with 33,216 reasoning tokens, resulting in an average speed of 102.11 tokens per second.
+674.05 seconds, with 33,216 reasoning tokens, resulting in an average speed of 151.39 tokens per second.
 
 ## Detailed Analysis
 
 | Experiment         | Average Accuracy | Average Completeness | Average Time   | Average Tokens | Average Tokens/second |
 |--------------------|------------------|----------------------|----------------|----------------|-----------------------|
-| Code Translation   | 3.714            | 3.836                | 44.505 seconds | 3378.286       | 75.909                |
-| Code Generation    | 3.547            | 3.694                | 22.358 seconds | 2676.429       | 119.706               |
-| Code Documentation | 3.734            | 3.890                | 22.890 seconds | 2938.222       | 128.362               |
+| Code Translation   | 3.714            | 3.836                | 44.505 seconds | 6002.286       | 134.869               |
+| Code Generation    | 3.547            | 3.694                | 22.358 seconds | 3874.143       | 173.275               |
+| Code Documentation | 3.734            | 3.890                | 22.890 seconds | 3656.444       | 159.739               |
 
 _Table 3. Detailed analysis of OpenAI o1-mini performance._
 
 - Code Translation: The model performs well in translating code between different languages, with an average accuracy of 3.714 and an average completeness of 3.836. The average time taken for translation tasks is 44.505 seconds, with an
-  average of 3378.286 tokens processed and a token per second rate of 75.909.
-- Code Generation: The model generates code with an average accuracy of 3.547 and an average completeness of 3.694. The average time taken for code generation tasks is 22.358 seconds, with an average of 2676.429 tokens processed and a
-  token per second rate of 119.706.
-- Code Documentation: The model provides documentation for code with an average accuracy of 3.734 and an average completeness of 3.890. The average time taken for documentation tasks is 22.890 seconds, with an average of 2938.222 tokens
-  processed and a token per second rate of 128.362.
+  average of 6002.286 tokens processed and a token per second rate of 134.869.
+- Code Generation: The model generates code with an average accuracy of 3.547 and an average completeness of 3.694. The average time taken for code generation tasks is 22.358 seconds, with an average of 3874.143 tokens processed and a
+  token per second rate of 173.275.
+- Code Documentation: The model provides documentation for code with an average accuracy of 3.734 and an average completeness of 3.890. The average time taken for documentation tasks is 22.890 seconds, with an average of 3656.444 tokens
+  processed and a token per second rate of 159.739.
 
 Large Context Instruction Following (LCIF) score: 87.5%
 
@@ -81,7 +81,7 @@ The OpenAI o1-mini model demonstrates strong performance across various code-rel
 
 1. Overall Performance:
     - The model achieves high average scores in both accuracy (3.67) and completeness (3.81) across all experiments, indicating reliable and thorough code manipulation capabilities.
-    - With an average processing speed of 102.11 tokens per second, o1-mini demonstrates efficient performance, especially considering the complexity of the tasks.
+    - With an average processing speed of 151.39 tokens per second, o1-mini demonstrates efficient performance, especially considering the complexity of the tasks.
 
 2. Code Translation:
     - O1-mini excels in code translation tasks, with an average accuracy of 3.714 and completeness of 3.836.
@@ -91,12 +91,12 @@ The OpenAI o1-mini model demonstrates strong performance across various code-rel
 3. Code Generation:
     - In code generation tasks, the model performs well with an average accuracy of 3.547 and completeness of 3.694.
     - O1-mini shows particular strength in generating React components and writing tests for legacy code.
-    - The faster average time (22.358 seconds) and higher tokens/second rate (119.706) for generation tasks indicate efficient performance in this category.
+    - The faster average time (22.358 seconds) and higher tokens/second rate (173.275) for generation tasks indicate efficient performance in this category.
 
 4. Code Documentation:
     - Documentation tasks see the highest performance, with average accuracy of 3.734 and completeness of 3.890.
     - The model excels in describing business functionality and evaluating code quality across different frameworks.
-    - Documentation tasks are processed most efficiently, with the highest tokens/second rate (128.362) among all categories.
+    - Documentation tasks are processed most efficiently, with the highest tokens/second rate (159.739) among all categories.
 
 5. Large Context Instruction Following (LCIF):
     - O1-mini achieves a solid LCIF score of 87.5%, demonstrating good capability in handling large, complex code bases.
@@ -111,7 +111,7 @@ versatile tool for developers. The model's efficiency in processing complex prog
 performance indicates that it's a robust and reliable option for advanced code manipulation and analysis tasks.
 
 <p style="text-align: center;">
-    © 2024 EPAM Systems, Inc. All Rights Reserved.<br/>
+    © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>
     EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>
     This report is licensed under CC BY-SA 4.0<br/>
 </p>
