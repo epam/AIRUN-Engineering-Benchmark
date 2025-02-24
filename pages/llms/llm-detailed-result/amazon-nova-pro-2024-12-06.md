@@ -43,7 +43,7 @@ Below is a summary of the overall performance across all experiments:
 
 | Total Input | Total Reasons | Total Output | Total Time (sec) | Token per Second | Experiment cost ($) | Average Accuracy | Average Completeness |
 |-------------|---------------|--------------|------------------|------------------|---------------------|------------------|----------------------|
-| 83627       | 0             | 28668        | 496.56           | 57.73            | 0.29                | 3.26             | 3.09                 |
+| 83627       | 0             | 28668        | 496.56           | 57.73            | 0.16                | 3.26             | 3.09                 |
 
 _Table 2. Summary of the Amazon Nova Pro model's overall performance across all experiments._
 
