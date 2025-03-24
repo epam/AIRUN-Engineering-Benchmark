@@ -28,7 +28,7 @@ The current top of Large Language Models based on research, in order of Total Sc
 4. Claude 3.7 Sonnet (Thinking) - 90.9%
 5. Gemini 2.0 Pro Experimental (0205) - 89.8%
 
-You can read [llm-comparison-report.md](llm-comparison-report.md) for a detailed comparison of the models. The report includes all experiment scores, the performance of each model in different
+You can read [llm-comparison-report.md](llm-comparison-report_v1.md) for a detailed comparison of the models. The report includes all experiment scores, the performance of each model in different
 categories, and the final scores.
 
 ## Final scores in EPAM's LLMs Benchmark
@@ -77,7 +77,7 @@ _Table 1. Overview of the experiment results._
 
 > Additional info:  
 > <sup>1</sup> - Evaluation and grading of benchmark results were performed automatically with the help of evaluation tools based on the GPT-4o model.
-> Please refer the page [Automated Evaluation with LLMs](automated-evaluation-with-llms.md) to learn about the evaluation tool.  
+> Please refer the page [Automated Evaluation with LLMs](../automated-evaluation-with-llms.md) to learn about the evaluation tool.  
 > <sup>2</sup> - Evaluation was done more than 3 month ago, results are outdated
 
 
@@ -131,8 +131,8 @@ _Table 2. Description of LLMs, their versions, amount of information to process,
 
 ## Notes
 
-- To learn more about our methodology for evaluating LLMs, please read [LLMs Benchmark Approach](llm-approach.md).
-- To submit your model for evaluation, please refer to the [Large Language Model Benchmark Submission](submissions/llm-benchmark-submission.md) page.
+- To learn more about our methodology for evaluating LLMs, please read [LLMs Benchmark Approach](../llm-approach.md).
+- To submit your model for evaluation, please refer to the [Large Language Model Benchmark Submission](../submissions/llm-benchmark-submission.md) page.
 
 <p align="center">
     © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>

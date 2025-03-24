@@ -65,7 +65,7 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 
 > Additional info:  
 > <sup>1</sup> - For models with "LLM-based" Evaluation Approach, evaluation and grading of benchmark results were performed automatically with the help of evaluation tools based on the GPT-4o model.
-> Please refer the page [Automated Evaluation with LLMs](automated-evaluation-with-llms.md) to learn about the evaluation tool.  
+> Please refer the page [Automated Evaluation with LLMs](../automated-evaluation-with-llms.md) to learn about the evaluation tool.  
 > <sup>2</sup> - Evaluation was done more than 3 month ago, results are outdated
 
 ## Results by categories
