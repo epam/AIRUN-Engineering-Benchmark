@@ -1,4 +1,4 @@
-# LLMs Leaderboard (2025-03-06 Update)
+# LLMs Leaderboard (Benchmark v1, last update 2025-03-06)
 
 ## Introduction
 
@@ -83,12 +83,12 @@ _Table 1. Overview of the experiment results._
 
 We have visualized some of the information for your review.
 
-![llm-rating.png](../../images/llms/llm-rating.png)
-![llm-price.png](../../images/llms/llm-price.png)
-![llm-tokens.png](../../images/llms/llm-tokens.png)
-![llm-cost.png](../../images/llms/llm-cost.png)
-![llm-time.png](../../images/llms/llm-time.png)
-![llm-speed.png](../../images/llms/llm-speed.png)
+![llm-rating.png](/images/llms/benchmark_v1/llm-rating.png)
+![llm-price.png](/images/llms/benchmark_v1/llm-price.png)
+![llm-tokens.png](/images/llms/benchmark_v1/llm-tokens.png)
+![llm-cost.png](/images/llms/benchmark_v1/llm-cost.png)
+![llm-time.png](/images/llms/benchmark_v1/llm-time.png)
+![llm-speed.png](/images/llms/benchmark_v1/llm-speed.png)
 
 ## Models specification
 

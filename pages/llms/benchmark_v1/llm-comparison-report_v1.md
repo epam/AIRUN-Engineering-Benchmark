@@ -29,36 +29,36 @@ The final conclusion in the [end](#conclusion) of the report.
 
 For detailed information about our approach and evaluation methodology, please refer to the following pages:
 
-- [LLMs Benchmark Approach](llm-approach.md)
-- [Automated Evaluation with LLMs](automated-evaluation-with-llms.md)
+- [LLMs Benchmark Approach](../llm-approach.md)
+- [Automated Evaluation with LLMs](../automated-evaluation-with-llms.md)
 
-| Model                                                                                                                     | Execution Date | Benchmark | Code Translation | Code Generation | Code Document | LCIF   | Total Score ↓ |
-|---------------------------------------------------------------------------------------------------------------------------|----------------|-----------|------------------|-----------------|---------------|--------|---------------|
-| Claude 3.7 Sonnet                                                                                                         | 2025-03-05     | v1        | 92.4%            | 88.3%           | 86.7%         | 100.0% | 91.9%         |
-| [OpenAI o3-mini (2025-01-31)](/pages/llms/llm-detailed-result/open-ai-o3-mini-2025-02-03.md)                              | 2025-02-03     | v1        | 94.4%            | 80.1%           | 90.7%         | 100.0% | 91.3%         |
-| [OpenAI o1-mini (2024-09-12)](/pages/llms/llm-detailed-result/open-ai-o1-mini-2024-11-06.md)                              | 2024-11-06     | v1        | 91.1%            | 91.2%           | 95.3%         | 87.5%  | 91.3%         |
-| Claude 3.7 Sonnet (Thinking)                                                                                              | 2025-03-05     | v1        | 89.6%            | 89.7%           | 84.3%         | 100.0% | 90.9%         |
-| [Gemini 2.0 Pro Experimental (0205)](/pages/llms/llm-detailed-result/gemini-20-pro-0205-2025-02-14.md)                    | 2025-02-14     | v1        | 90.8%            | 81.8%           | 89.6%         | 96.9%  | 89.8%         |
-| [OpenAI o1 (1217)](/pages/llms/llm-detailed-result/open-ai-o1-1217-2024-12-19.md)                                         | 2024-12-19     | v1        | 93.7%            | 79.1%           | 85.5%         | 96.9%  | 88.8%         |
-| [Gemini 2.0 Flash Thinking Experimental (0121)](/pages/llms/llm-detailed-result/gemini-20-flash-think-0121-2025-02-14.md) | 2025-02-14     | v1        | 97.5%            | 88.6%           | 87.0%         | 81.3%  | 88.6%         |
-| [Claude 3.5 Sonnet v2](/pages/llms/llm-detailed-result/claude-35-sonnet-2024-11-06.md)                                    | 2024-11-06     | v1        | 89.3%            | 79.5%           | 84.6%         | 100.0% | 88.4%         |
-| [ChatGPT-4o](/pages/llms/llm-detailed-result/chat-gpt-4o-2024-11-06.md)                                                   | 2024-11-06     | v1        | 86.4%            | 81.8%           | 88.5%         | 93.8%  | 87.6%         |
-| [OpenAI o1-preview (2024-09-12)](/pages/llms/llm-detailed-result/open-ai-o1-preview-2024-11-06.md)                        | 2024-11-06     | v1        | 86.1%            | 83.1%           | 87.8%         | 87.5%  | 86.1%         |
-| [GPT-4o (2024-11-20)](/pages/llms/llm-detailed-result/gpt-4o-1120-2024-11-21.md)                                          | 2024-11-21     | v1        | 87.1%            | 76.7%           | 92.8%         | 87.5%  | 86.0%         |
-| [Claude 3.5 Haiku](/pages/llms/llm-detailed-result/claude-35-haiku-2024-11-06.md)                                         | 2024-11-06     | v1        | 83.9%            | 83.8%           | 85.2%         | 87.5%  | 85.1%         |
-| [Gemini Experimental (1206)](/pages/llms/llm-detailed-result/gemini-exp-1206-2024-12-19.md)                               | 2024-12-19     | v1        | 89.0%            | 74.6%           | 74.1%         | 100.0% | 84.4%         |
-| [DeepSeek R1](/pages/llms/llm-detailed-result/deepseek-r1-2025-02-18.md)                                                  | 2025-02-18     | v1        | 86.8%            | 83.9%           | 87.3%         | 78.1%  | 84.0%         |
-| GPT-4.5 preview                                                                                                           | 2025-03-05     | v1        | 80.5%            | 76.5%           | 86.6%         | 90.63% | 83.6%         |
-| [Grok 2 (1212)](/pages/llms/llm-detailed-result/grok-2-1212-2024-12-19.md)                                                | 2024-12-19     | v1        | 87.1%            | 80.0%           | 84.3%         | 81.3%  | 83.2%         |
-| [GPT-4o (2024-08-06)](/pages/llms/llm-detailed-result/gpt-4o-0806-2024-11-06.md)                                          | 2024-11-06     | v1        | 82.5%            | 78.8%           | 75.6%         | 87.5%  | 81.1%         |
-| [Qwen 2.5 Coder 32B](llm-detailed-result/qwen25coder32b-2024-11-25.md)                                                    | 2024-11-25     | v1        | 86.9%            | 77.2%           | 85.7%         | 71.9%  | 80.4%         |
-| [Gemini 1.5 Pro (002)](/pages/llms/llm-detailed-result/gemini-15-pro-2024-11-08.md)                                       | 2024-11-13     | v1        | 82.6%            | 70.1%           | 80.6%         | 87.5%  | 80.2%         |
-| [Grok Beta](/pages/llms/llm-detailed-result/grok-beta-2024-11-15.md)                                                      | 2024-11-15     | v1        | 75.6%            | 71.0%           | 79.2%         | 81.3%  | 76.8%         |
-| [Amazon Nova Pro](/pages/llms/llm-detailed-result/amazon-nova-pro-2024-12-06.md)                                          | 2024-12-06     | v1        | 74.3%            | 66.2%           | 86.1%         | 56.3%  | 70.7%         |
-| [Llama3.1 405B<sup>2</sup>](/pages/llms/llm-reports/low-cost-models-august.md)                                            | 2024-08-01     | v1        | 73.9%            | 71.4%           | 66.5%         | 68.8%  | 70.2%         |
-| [GPT-4o-mini](/pages/llms/llm-detailed-result/gpt-4o-mini-0718-2024-11-06.md)                                             | 2024-11-06     | v1        | 74.1%            | 67.5%           | 80.4%         | 56.3%  | 69.6%         |
-| [GPT-3.5 Turbo<sup>2</sup>](/pages/llms/llm-reports/low-cost-models-august.md)                                            | 2024-08-05     | v1        | 66.3%            | 51.0%           | 77.1%         | 43.8%  | 59.5%         |
-| [Llama3 70B<sup>2</sup>](/pages/llms/llm-reports/low-cost-models-august.md)                                               | 2024-06-13     | v1        | 68.9%            | 72.3%           | 71.5%         | 25.0%  | 59.4%         |
+| Model                                                                                                         | Execution Date | Benchmark | Code Translation | Code Generation | Code Document | LCIF   | Total Score ↓ |
+|---------------------------------------------------------------------------------------------------------------|----------------|-----------|------------------|-----------------|---------------|--------|---------------|
+| Claude 3.7 Sonnet                                                                                             | 2025-03-05     | v1        | 92.4%            | 88.3%           | 86.7%         | 100.0% | 91.9%         |
+| [OpenAI o3-mini (2025-01-31)](llm-detailed-result/open-ai-o3-mini-2025-02-03.md)                              | 2025-02-03     | v1        | 94.4%            | 80.1%           | 90.7%         | 100.0% | 91.3%         |
+| [OpenAI o1-mini (2024-09-12)](llm-detailed-result/open-ai-o1-mini-2024-11-06.md)                              | 2024-11-06     | v1        | 91.1%            | 91.2%           | 95.3%         | 87.5%  | 91.3%         |
+| Claude 3.7 Sonnet (Thinking)                                                                                  | 2025-03-05     | v1        | 89.6%            | 89.7%           | 84.3%         | 100.0% | 90.9%         |
+| [Gemini 2.0 Pro Experimental (0205)](llm-detailed-result/gemini-20-pro-0205-2025-02-14.md)                    | 2025-02-14     | v1        | 90.8%            | 81.8%           | 89.6%         | 96.9%  | 89.8%         |
+| [OpenAI o1 (1217)](llm-detailed-result/open-ai-o1-1217-2024-12-19.md)                                         | 2024-12-19     | v1        | 93.7%            | 79.1%           | 85.5%         | 96.9%  | 88.8%         |
+| [Gemini 2.0 Flash Thinking Experimental (0121)](llm-detailed-result/gemini-20-flash-think-0121-2025-02-14.md) | 2025-02-14     | v1        | 97.5%            | 88.6%           | 87.0%         | 81.3%  | 88.6%         |
+| [Claude 3.5 Sonnet v2](llm-detailed-result/claude-35-sonnet-2024-11-06.md)                                    | 2024-11-06     | v1        | 89.3%            | 79.5%           | 84.6%         | 100.0% | 88.4%         |
+| [ChatGPT-4o](llm-detailed-result/chat-gpt-4o-2024-11-06.md)                                                   | 2024-11-06     | v1        | 86.4%            | 81.8%           | 88.5%         | 93.8%  | 87.6%         |
+| [OpenAI o1-preview (2024-09-12)](llm-detailed-result/open-ai-o1-preview-2024-11-06.md)                        | 2024-11-06     | v1        | 86.1%            | 83.1%           | 87.8%         | 87.5%  | 86.1%         |
+| [GPT-4o (2024-11-20)](llm-detailed-result/gpt-4o-1120-2024-11-21.md)                                          | 2024-11-21     | v1        | 87.1%            | 76.7%           | 92.8%         | 87.5%  | 86.0%         |
+| [Claude 3.5 Haiku](llm-detailed-result/claude-35-haiku-2024-11-06.md)                                         | 2024-11-06     | v1        | 83.9%            | 83.8%           | 85.2%         | 87.5%  | 85.1%         |
+| [Gemini Experimental (1206)](llm-detailed-result/gemini-exp-1206-2024-12-19.md)                               | 2024-12-19     | v1        | 89.0%            | 74.6%           | 74.1%         | 100.0% | 84.4%         |
+| [DeepSeek R1](llm-detailed-result/deepseek-r1-2025-02-18.md)                                                  | 2025-02-18     | v1        | 86.8%            | 83.9%           | 87.3%         | 78.1%  | 84.0%         |
+| GPT-4.5 preview                                                                                               | 2025-03-05     | v1        | 80.5%            | 76.5%           | 86.6%         | 90.63% | 83.6%         |
+| [Grok 2 (1212)](llm-detailed-result/grok-2-1212-2024-12-19.md)                                                | 2024-12-19     | v1        | 87.1%            | 80.0%           | 84.3%         | 81.3%  | 83.2%         |
+| [GPT-4o (2024-08-06)](llm-detailed-result/gpt-4o-0806-2024-11-06.md)                                          | 2024-11-06     | v1        | 82.5%            | 78.8%           | 75.6%         | 87.5%  | 81.1%         |
+| [Qwen 2.5 Coder 32B](llm-detailed-result/qwen25coder32b-2024-11-25.md)                                        | 2024-11-25     | v1        | 86.9%            | 77.2%           | 85.7%         | 71.9%  | 80.4%         |
+| [Gemini 1.5 Pro (002)](llm-detailed-result/gemini-15-pro-2024-11-08.md)                                       | 2024-11-13     | v1        | 82.6%            | 70.1%           | 80.6%         | 87.5%  | 80.2%         |
+| [Grok Beta](llm-detailed-result/grok-beta-2024-11-15.md)                                                      | 2024-11-15     | v1        | 75.6%            | 71.0%           | 79.2%         | 81.3%  | 76.8%         |
+| [Amazon Nova Pro](llm-detailed-result/amazon-nova-pro-2024-12-06.md)                                          | 2024-12-06     | v1        | 74.3%            | 66.2%           | 86.1%         | 56.3%  | 70.7%         |
+| [Llama3.1 405B<sup>2</sup>](llm-reports/low-cost-models-august.md)                                            | 2024-08-01     | v1        | 73.9%            | 71.4%           | 66.5%         | 68.8%  | 70.2%         |
+| [GPT-4o-mini](llm-detailed-result/gpt-4o-mini-0718-2024-11-06.md)                                             | 2024-11-06     | v1        | 74.1%            | 67.5%           | 80.4%         | 56.3%  | 69.6%         |
+| [GPT-3.5 Turbo<sup>2</sup>](llm-reports/low-cost-models-august.md)                                            | 2024-08-05     | v1        | 66.3%            | 51.0%           | 77.1%         | 43.8%  | 59.5%         |
+| [Llama3 70B<sup>2</sup>](llm-reports/low-cost-models-august.md)                                               | 2024-06-13     | v1        | 68.9%            | 72.3%           | 71.5%         | 25.0%  | 59.4%         |
 
 _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 
@@ -240,18 +240,18 @@ overall performance, specific capabilities, deployment flexibility, or cost-effe
 
 ## Outdated Evaluation Reports
 
-- [OpenAI o1 family (end of September 2024)](/pages/llms/llm-reports/o1-family.md)
-- [Claude 3.5 Sonnet, GPT-4o, Gemini 1.5 Pro, ChatGPT-4o (September 2024)](/pages/llms/llm-reports/chat-gpt4o-vs-gpt4o-0806-vs-claude3.5sonnet-vs-gemini1.5pro.md)
-- [GPT-4o mini, Llama3.1 405B, GPT-3.5 Turbo, Llama 3 70B - Compare Low-cost models](/pages/llms/llm-reports/low-cost-models-august.md)
+- [OpenAI o1 family (end of September 2024)](llm-reports/o1-family.md)
+- [Claude 3.5 Sonnet, GPT-4o, Gemini 1.5 Pro, ChatGPT-4o (September 2024)](llm-reports/chat-gpt4o-vs-gpt4o-0806-vs-claude3.5sonnet-vs-gemini1.5pro.md)
+- [GPT-4o mini, Llama3.1 405B, GPT-3.5 Turbo, Llama 3 70B - Compare Low-cost models](llm-reports/low-cost-models-august.md)
 
-| Model                                                                                                               | Execution Date | Benchmark version | Code Translation | Code Generation | Code Document | LCIF  | Total Score |
-|---------------------------------------------------------------------------------------------------------------------|----------------|-------------------|------------------|-----------------|---------------|-------|-------------|
-| [Claude 3.5 Sonnet](/pages/llms/llm-reports/chat-gpt4o-vs-gpt4o-0806-vs-claude3.5sonnet-vs-gemini1.5pro.md)         | 2024-08-13     | v1                | 95.7%            | 80.5%           | 84.0%         | 100%  | 90.1%       |
-| [Gemini 1.5-Pro (0801-exp)](/pages/llms/llm-reports/chat-gpt4o-vs-gpt4o-0806-vs-claude3.5sonnet-vs-gemini1.5pro.md) | 2024-04-25     | v1                | 83.3%            | 78.2%           | 76.7%         | 81.3% | 79.9%       |
-| [GPT-4o (2024-05-13)](/pages/llms/llm-reports/gpt-4o-0513.md)                                                       | 2024-05-20     | v0                | 79.4%            | 78.2%           | 83.7%         | 87.5% | 82.2%       |
-| [Claude 3 Opus](/pages/llms/llm-reports/claude-3-opus-gemini-pro-gpt-4-turbo.md)                                    | 2024-04-25     | v0                | 79.8%            | 78.3%           | 87.4%         | 87.5% | 83.3%       |
-| [Gemini 1.5-Pro (0409)](/pages/llms/llm-reports/claude-3-opus-gemini-pro-gpt-4-turbo.md)                            | 2024-04-25     | v0                | 76.9%            | 66.3%           | 75.7%         | 81.3% | 75.0%       |
-| [GPT-4 Turbo (0409)](/pages/llms/llm-reports/claude-3-opus-gemini-pro-gpt-4-turbo.md)                               | 2024-04-26     | v0                | 68.9%            | 65.0%           | 83.9%         | 81.3% | 74.8%       |
+| Model                                                                                                   | Execution Date | Benchmark version | Code Translation | Code Generation | Code Document | LCIF  | Total Score |
+|---------------------------------------------------------------------------------------------------------|----------------|-------------------|------------------|-----------------|---------------|-------|-------------|
+| [Claude 3.5 Sonnet](llm-reports/chat-gpt4o-vs-gpt4o-0806-vs-claude3.5sonnet-vs-gemini1.5pro.md)         | 2024-08-13     | v1                | 95.7%            | 80.5%           | 84.0%         | 100%  | 90.1%       |
+| [Gemini 1.5-Pro (0801-exp)](llm-reports/chat-gpt4o-vs-gpt4o-0806-vs-claude3.5sonnet-vs-gemini1.5pro.md) | 2024-04-25     | v1                | 83.3%            | 78.2%           | 76.7%         | 81.3% | 79.9%       |
+| [GPT-4o (2024-05-13)](llm-reports/gpt-4o-0513.md)                                                       | 2024-05-20     | v0                | 79.4%            | 78.2%           | 83.7%         | 87.5% | 82.2%       |
+| [Claude 3 Opus](llm-reports/claude-3-opus-gemini-pro-gpt-4-turbo.md)                                    | 2024-04-25     | v0                | 79.8%            | 78.3%           | 87.4%         | 87.5% | 83.3%       |
+| [Gemini 1.5-Pro (0409)](llm-reports/claude-3-opus-gemini-pro-gpt-4-turbo.md)                            | 2024-04-25     | v0                | 76.9%            | 66.3%           | 75.7%         | 81.3% | 75.0%       |
+| [GPT-4 Turbo (0409)](llm-reports/claude-3-opus-gemini-pro-gpt-4-turbo.md)                               | 2024-04-26     | v0                | 68.9%            | 65.0%           | 83.9%         | 81.3% | 74.8%       |
 
 <p align="center">
     © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>
