@@ -1,12 +1,16 @@
-# LLMs Leaderboard (Benchmark v2, last update 2025-03-21)
+# LLMs Leaderboard (Benchmark v2, last update 2025-03-25)
 
 ## Introduction
 
-This page compares the effectiveness of Anthropic, Amazon, Google DeepMind, xAI, OpenAI, and other companies LLMs in executing software engineering tasks, including code translation, code
-generation, documentation generation and large context instruction following (LCIF).
+This page compares the effectiveness of Anthropic, Amazon, Google DeepMind, xAI, OpenAI, and other companies' LLMs in executing software engineering tasks, including code translation, code generation,
+documentation generation, and large context instruction following (LCIF).
 
 Our latest research and evaluations have revealed significant shifts in large language model performance. Leading our rankings is Claude 3.7 Sonnet with an impressive 91.9% total score, followed by
 OpenAI's o3-mini model with 91.8%. These models demonstrate exceptional capabilities in software engineering tasks while maintaining efficient processing times and reasonable costs.
+
+We have also evaluated OpenAI's newest o1-Pro model (released in March 2025). While this model shows promising capabilities, its extremely high cost ($150/$600 per 1M tokens) and extended processing
+times make it impractical for standard benchmarking. Our initial tests revealed good accuracy but did not justify including it in our main leaderboard at this time. For detailed results of our o1-Pro
+evaluation, please see our [dedicated report](llm-detailed-result/o1-pro-2025-03-25.md).
 
 The third position is held by Gemini 2.0 Pro Experimental (0205) at 91.1%, demonstrating strong performance across evaluation categories. Following closely is Claude 3.7 Sonnet (Thinking) with 90.6%,
 showcasing the benefits of Anthropic's thinking mode feature. The fifth place is secured by Gemini 2.0 Flash Thinking Experimental (0121) at 85.6%, which maintains competitive performance due to
@@ -23,16 +27,17 @@ The current top of Large Language Models based on research, in order of Total Sc
 4. Claude 3.7 Sonnet (Thinking) - 90.6%
 5. Gemini 2.0 Flash Thinking Experimental (0121) - 85.6%
 
-We are looking forward to evaluate new models such as OpenAI o1-Pro, Grok 3, Gemma 2 27B and others in the future.
+We are looking forward to evaluating new models such as Grok 3 (API coming soon), Gemma 3 27B (waiting for extended rate limits) and others in the future.
 
 You can read [llm-comparison-report.md](llm-comparison-report.md) for a detailed comparison of the models. The report includes all experiment scores, the performance of each model in different
 categories, and the final scores.
 
+> Previous benchmark v1 results were moved to [llm-leaderboard-v1.md](benchmark_v1/llm-leaderboard_v1.md) for reference.
+
 ## Final scores in EPAM's LLMs Benchmark
 
 All categories, except Large Context Instructions Following (LCIF), are evaluated automatically using the Large Language Model<sup>1</sup>
-You can read detailed reports on concrete model performance and the areas where each model excels
-in [llm-detailed-result](llm-detailed-result).
+You can read detailed reports on concrete model performance and the areas where each model excels in [llm-detailed-result](llm-detailed-result).
 
 The table below provides an overview of the experiment, encompassing three categories. Here, you can review the average accuracy and completeness across all categories, total execution time,
 generation token speed (token per second), the total number of input and output tokens (for OpenAI o-series models, output tokens include reasoning tokens), the cost of the experiment, and finally,
@@ -52,7 +57,7 @@ _Table 1. Overview of the experiment results._
 
 > Additional info:  
 > Evaluation and grading of benchmark results were performed automatically with the help of evaluation tools based on the OpenAI o3-mini and Claude Sonnet 3.7 models.
-> Please refer the page [Automated Evaluation with LLMs](automated-evaluation-with-llms.md) to learn about the evaluation tool.
+> Please refer to the page [Automated Evaluation with LLMs](automated-evaluation-with-llms.md) to learn about the evaluation tool.
 
 
 We have visualized some of the information for your review.
@@ -75,6 +80,7 @@ We have visualized some of the information for your review.
 | [Gemini 2.0 Flash Thinking Experimental (0121)](https://ai.google.dev/gemini-api/docs/models/experimental-models) | Latest (2.0) experimental Fast (Flash) Reasoning (Thinking) model by Google Deepmind<br>API Provider: Google AI Studio                                                                                                                                                                                                                                                                                                 | 1M             | $0.00 / $0.00                  | 64K                | Aug, 2024      |                 
 | [DeepSeek R1](https://fireworks.ai/models/fireworks/deepseek-r1)                                                  | DeepSeek released R1, a reasoning model trained with initial supervised data followed by reinforcement learning. It matches OpenAI-o1's performance on math, code, and reasoning tasks. The models are open-sourced, with their 32B distilled version setting new records by outperforming OpenAI-o1-mini. <br>API Provider: DeepSeek platform (currently unavailable), Fireworks (used in benchmark), other providers | 64K            | $3.00 / $8.00                  | 8K                 | Up to Oct 2023 |
 | [GPT-4.5 Preview](https://openai.com/index/introducing-gpt-4-5/)                                                  | Most expensive OpenAI model to date. "Early testing shows that interacting with GPT‑4.5 feels more natural. Its broader knowledge base, improved ability to follow user intent, and greater "EQ" make it useful for tasks like improving writing, programming, and solving practical problems. We also expect it to hallucinate less"<br>API Provider: OpenAI, Azure                                                   | 128K           | $75.00 / $150.00               | 16K                | Up to Oct 2023 |
+| [OpenAI O1-Pro](https://platform.openai.com/docs/models/o1-pro)                                                   | A version of o1 with more compute for better responses<br>API Provider: OpenAI                                                                                                                                                                                                                                                                                                                                         | 200K           | $150.00 / $600.00              | 100K               | Up to Oct 2023 |
 
 _Table 2. Description of LLMs, their versions, amount of information to process, and the length of the response._
 
