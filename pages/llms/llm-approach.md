@@ -14,8 +14,6 @@
     - [JavaScript Dataset](#javascript-dataset)
         - [Normalization and Categorization](#normalization-and-categorization)
         - [Final set of tests](#final-set-of-tests)
-    - [JAVA Dataset](#java-dataset)
-        - [Normalization and Categorization](#normalization-and-categorization-1)
 6. [Results Evaluation](#results-evaluation)
     - [Quality metrics](#quality-metrics)
     - [Final score formula](#final-score-formula)
