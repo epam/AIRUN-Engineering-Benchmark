@@ -1,9 +1,7 @@
 # Code Assistants Leaderboard as of April 2025
 
-- [Leaderboard as of April 2025](#leaderboard-as-of-dec-2024)
+- [Leaderboard as of April 2025](#leaderboard-as-of-april-2025)
 - [Leaderboard per Developer Task as of April 2025](#leaderboard-per-developer-task-as-of-december-2024)
-- [Detailed Reports](#detailed-reports)
-- [Notes](#notes)
 
 ## Summary
 As of fall 2024 code assistants of Google, Microsoft and Amazon show very similar quality, although they vary in features - Amazon is the only that released its developer agent in public access whereas Microsoft (GitHub) is only piloting a preview of its agentic product Copilot Workspace.
