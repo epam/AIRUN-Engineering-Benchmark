@@ -24,10 +24,8 @@ Other tools according to our research don't represent a significant interest.
 
 ** The LLM specified for the code assistant was used to run tests for the chat window
 
-## Leaderboard per Developer Task as of December 2024
-![code-assistants-performance-dec-2024.png](../../images/sandbox-test/code-assistants-performance-engineering-benchmark-detailed-dec-24.png)
-
-![code-assistants-performance-dec-2024.png](../../images/sandbox-test/code-assistants-performance-engineering-benchmark-dec-24.png)
+## Leaderboard per Developer Task as of April 2025
+![code-assistants-performance-dec-2024.png](../../images/sandbox-test/code-assistants-performance-engineering-benchmark-detailed-apr-25.png)
 
 <div style='text-align: right;'> © EPAM. Distribution and use permitted </div>
 
