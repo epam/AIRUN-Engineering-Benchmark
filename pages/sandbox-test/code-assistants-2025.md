@@ -1,14 +1,7 @@
 # Code Assistants Leaderboard as of April 2025
 
 - [Leaderboard as of April 2025](#leaderboard-as-of-april-2025)
-- [Leaderboard per Developer Task as of April 2025](#leaderboard-per-developer-task-as-of-december-2024)
-
-## Summary
-As of fall 2024 code assistants of Google, Microsoft and Amazon show very similar quality, although they vary in features - Amazon is the only that released its developer agent in public access whereas Microsoft (GitHub) is only piloting a preview of its agentic product Copilot Workspace.
-
-There are two niche players that score much better - Continue and Cursor. The former is an open-source product, and it suffers from stability and configuration issues, although when works properly it scores much higher than major vendors tools. The latter Cursor is a private build of Visual Studio code therefore it suits only developers that work in this IDE (leaving Java, .NET, C++ and some other developers aside) - although being an AI-centric IDE it scores the highest.
-
-Other tools according to our research don't represent a significant interest.
+- [Leaderboard per Developer Task as of April 2025](#leaderboard-per-developer-task-as-of-april-2025)
 
 ## Leaderboard as of April 2025
 
@@ -28,8 +21,6 @@ Other tools according to our research don't represent a significant interest.
 ![code-assistants-performance-dec-2024.png](../../images/sandbox-test/code-assistants-performance-engineering-benchmark-detailed-apr-25.png)
 
 <div style='text-align: right;'> © EPAM. Distribution and use permitted </div>
-
-
 <p style="text-align: center;">    © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
 
 
