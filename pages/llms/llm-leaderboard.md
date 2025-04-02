@@ -1,37 +1,37 @@
-# LLMs Leaderboard (Benchmark v2, last update 2025-03-31)
+# LLMs Leaderboard (Benchmark v2, last update 2025-04-02)
 
 ## Introduction
 
 This page compares the effectiveness of Anthropic, Amazon, Google DeepMind, xAI, OpenAI, and other companies' LLMs in executing software engineering tasks, including code translation, code generation,
 documentation generation, and large context instruction following (LCIF).
 
-Our latest research and evaluations have revealed significant shifts in large language model performance. Leading our rankings is Gemini 2.5 Pro Experimental with an exceptional 93.5% total score,
-showcasing Google's rapid advancement in LLM capabilities. Following closely is Claude 3.7 Sonnet with an impressive 91.6% total score, and OpenAI's o3-mini model with 91.3%. These models demonstrate
+Our latest research and evaluations have revealed significant shifts in large language model performance. Leading our rankings is Gemini 2.5 Pro Experimental with an exceptional 93.4% total score,
+showcasing Google's rapid advancement in LLM capabilities. Following closely is Claude 3.7 Sonnet with an impressive 91.4% total score, and OpenAI's o3-mini model with 90.9%. These models demonstrate
 exceptional capabilities in software engineering tasks while maintaining efficient processing times and reasonable costs.
 
 We have also evaluated OpenAI's newest o1-Pro model (released in March 2025). While this model shows promising capabilities, its extremely high cost ($150/$600 per 1M tokens) and extended processing
 times make it impractical for standard benchmarking. Our initial tests revealed good accuracy but did not justify including it in our main leaderboard at this time. For detailed results of our o1-Pro
 evaluation, please see our [dedicated report](llm-detailed-result/o1-pro-2025-03-25.md).
 
-The fourth position is held by Gemini 2.0 Pro Experimental (0205) at 90.9%, demonstrating strong performance across evaluation categories. Following closely is Claude 3.7 Sonnet (Thinking) with 90.3%,
-showcasing the benefits of Anthropic's thinking mode feature. The sixth place is secured by Gemini 2.0 Flash Thinking Experimental (0121) at 85.1%, which maintains competitive performance due to
-offering very fast execution time.
+The fourth position is held by Gemini 2.0 Pro Experimental (0205) at 90.8%, demonstrating strong performance across evaluation categories. Following closely is Claude 3.7 Sonnet (Thinking) with 90.3%,
+showcasing the benefits of Anthropic's thinking mode feature. The sixth place is secured by ChatGPT-4o at 88.1%, which offers an excellent balance of performance and speed.
 
-DeepSeek's open-source models have shown good capabilities, with the new V3 version (84.1%) outperforming R1 (77.4%). These models are particularly noteworthy as they can be self-hosted within
-organizations seeking privacy, control, and cost optimization. This represents a significant advancement in the open-source LLM space.
+OpenAI o1 (1217) and Gemini 2.0 Flash Thinking Experimental (0121) both achieve 84.6%, with Gemini Flash Thinking offering significantly faster execution time. DeepSeek's open-source models have shown
+good capabilities, with the new V3 version (84.0%) outperforming R1 (77.2%). These models are particularly noteworthy as they can be self-hosted within organizations seeking privacy, control, and cost
+optimization. This represents a significant advancement in the open-source LLM space.
 
-OpenAI's GPT-4.5 preview shows only middle-range results (77.7%). It generates a very small amount of tokens (37,894) while having the highest cost ($75/$150) among all tested models. This makes it
+OpenAI's GPT-4.5 preview shows only middle-range results (77.6%). It generates a very small amount of tokens (37,894) while having the highest cost ($75/$150) among all tested models. This makes it
 currently less efficient than other models in our benchmark.
 
-Amazon Nova Pro, while scoring 62.6%, shows promise for enterprise applications. Given that it's a smaller model, its performance is noteworthy, and we anticipate significant improvements with the
+Amazon Nova Pro, while scoring 62.0%, shows promise for enterprise applications. Given that it's a smaller model, its performance is noteworthy, and we anticipate significant improvements with the
 upcoming Amazon Nova Premier model.
 
 The current top of Large Language Models based on research, in order of Total Score, are:
 
-1. Gemini 2.5 Pro Experimental (0325) - 93.5%
-2. Claude 3.7 Sonnet - 91.6%
-3. OpenAI o3-mini (0131) - 91.3%
-4. Gemini 2.0 Pro Experimental (0205) - 90.9%
+1. Gemini 2.5 Pro Experimental (0325) - 93.4%
+2. Claude 3.7 Sonnet - 91.4%
+3. OpenAI o3-mini (0131) - 90.9%
+4. Gemini 2.0 Pro Experimental (0205) - 90.8%
 5. Claude 3.7 Sonnet (Thinking) - 90.3%
 
 We are looking forward to evaluating new models such as Grok 3 (API coming soon), Gemma 3 27B (waiting for extended rate limits) and others in the future.
@@ -52,16 +52,18 @@ the total score. The total score comprises the average score across all categori
 
 | Model                                          | Accuracy | Completeness | Total Time (min) | Speed (T/S) | Total input | Total output | Cost ($)         | Total Score |
 |------------------------------------------------|----------|--------------|------------------|-------------|-------------|--------------|------------------|-------------|
-| Gemini 2.5 Pro Experimental (03-25)            | 3.894    | 3.892        | 30.26            | 93.91       | 92791       | 170522       | 0.00<sup>1</sup> | 93.5%       |
-| Claude 3.7 Sonnet                              | 3.819    | 3.756        | 24.60            | 76.31       | 100002      | 112605       | 1.99             | 91.6%       |
-| OpenAI o3-mini (01-31)                         | 3.818    | 3.488        | 13.13            | 117.30      | 80551       | 92403        | 0.50             | 91.3%       |
-| Gemini 2.0 Pro Experimental (02-05)            | 3.828    | 3.794        | 30.78            | 64.89       | 92798       | 119842       | 0.00<sup>1</sup> | 90.9%       |
+| Gemini 2.5 Pro Experimental (03-25)            | 3.894    | 3.892        | 30.26            | 93.91       | 92791       | 170522       | 0.00<sup>1</sup> | 93.4%       |
+| Claude 3.7 Sonnet                              | 3.819    | 3.756        | 24.60            | 76.31       | 100002      | 112605       | 1.99             | 91.4%       |
+| OpenAI o3-mini (01-31)                         | 3.818    | 3.488        | 13.13            | 117.30      | 80551       | 92403        | 0.50             | 90.9%       |
+| Gemini 2.0 Pro Experimental (02-05)            | 3.828    | 3.794        | 30.78            | 64.89       | 92798       | 119842       | 0.00<sup>1</sup> | 90.8%       |
 | Claude 3.7 Sonnet (Thinking)                   | 3.778    | 3.683        | 42.16            | 79.27       | 100711      | 200502       | 3.31             | 90.3%       |
-| Gemini 2.0 Flash Thinking Experimental (01-21) | 3.365    | 3.321        | 10.65            | 188.16      | 92785       | 120261       | 0.00<sup>1</sup> | 85.1%       |
-| DeepSeek V3 (03-24)                            | 3.619    | 3.440        | 28.65            | 35.38       | 82977       | 60811        | 0.17             | 84.1%       |
-| GPT-4.5 preview                                | 3.613    | 2.873        | 73.49            | 8.59        | 80575       | 37894        | 11.73            | 77.7%       |
-| DeepSeek R1                                    | 3.473    | 3.041        | 21.32            | 68.63       | 82977       | 87785        | 0.95             | 77.4%       |
-| Amazon Nova Pro                                | 2.998    | 2.165        | 7.77             | 81.32       | 88588       | 37918        | 0.19             | 62.6%       |
+| ChatGPT-4o                                     | 3.647    | 3.290        | 6.53             | 123.85      | 80575       | 48506        | 1.13             | 88.1%       |
+| OpenAI o1 (1217)                               | 3.706    | 3.187        | 27.09            | 54.32       | 80551       | 88289        | 6.51             | 84.6%       |
+| Gemini 2.0 Flash Thinking Experimental (01-21) | 3.365    | 3.321        | 10.65            | 188.16      | 92785       | 120261       | 0.00<sup>1</sup> | 84.6%       |
+| DeepSeek V3 (03-24)                            | 3.619    | 3.440        | 28.65            | 35.38       | 82977       | 60811        | 0.17             | 84.0%       |
+| GPT-4.5 preview                                | 3.613    | 2.873        | 73.49            | 8.59        | 80575       | 37894        | 11.73            | 77.6%       |
+| DeepSeek R1                                    | 3.473    | 3.041        | 21.32            | 68.63       | 82977       | 87785        | 0.95             | 77.2%       |
+| Amazon Nova Pro                                | 2.998    | 2.165        | 7.77             | 81.32       | 88588       | 37918        | 0.19             | 62.0%       |
 
 _Table 1. Overview of the experiment results._
 
@@ -88,6 +90,8 @@ We have visualized some of the information for your review.
 | OpenAI o3-mini                                                                                                                  | OpenAI o3-mini is first OpenAI small reasoning model that supports highly requested developer features including function calling, Structured Outputs, and developer messages, making it production-ready out of the gate.<br>API Provider: OpenAI, Azure                                                                                                                                                                                                                                                                                                                                                                                                       | 200K           | $1.10 / $4.40                  | 100K               | Up to Oct 2023 |
 | [Gemini 2.0 Pro Experimental (0205)](https://ai.google.dev/gemini-api/docs/models/experimental-models)                          | New version of Gemini Pro series model by Google Deepmind<br>API Provider: Google AI Studio                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 2M             | $0.00 / $0.00                  | 8K                 | Aug, 2024      |
 | [Claude 3.7 Sonnet (Thinking mode)](https://www.anthropic.com/news/claude-3-7-sonnet)                                           | Claude 3.7 Sonnet with enabled thinking mode with 20K output tokens and 8K budget for thinking.<br>API Provider: Google Vertex AI, also available on Anthropic Platform and AWS Bedrock                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 200K           | $3.00 / $15.00                 | 64K (128K in beta) | Nov, 2024      |
+| ChatGPT-4o (Latest, 2025-03-26)                                                                                                 | Dynamic model continuously updated to the current version of GPT-4o in ChatGPT. Intended for research and evaluation. We are releasing this model for developers and researchers to explore OpenAI's latest research. For production use, OpenAI recommends using dated GPT models, which are optimized for API usage.<br>Parameters: Unknown<br>API Provider: OpenAI, Azure                                                                                                                                                                                                                                                                                    | 128K           | $5.00 / $15.00                 | 16K                | Up to Oct 2023 |
+| OpenAI o1 (1217)                                                                                                                | OpenAI released stable version of o1 model in the end of 2024. Now it has larger context and larger output token size. The latest o1 model supports tools calling, both text and image inputs, and produces text outputs (including Structured Outputs).                                                                                                                                                                                                                                                                                                                                                                                                        | 200K           | $15.00 / $60.00                | 100K               | Up to Oct 2023 |
 | [Gemini 2.0 Flash Thinking Experimental (0121)](https://ai.google.dev/gemini-api/docs/models/experimental-models)               | Latest (2.0) experimental Fast (Flash) Reasoning (Thinking) model by Google Deepmind<br>API Provider: Google AI Studio                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 1M             | $0.00 / $0.00                  | 64K                | Aug, 2024      |                 
 | [DeepSeek V3 (03-24)](https://api-docs.deepseek.com/news/news250325)                                                            | Updated V3 model by DeepSeek: "Major boost in reasoning performance, stronger front-end development skills, smarter tool-use capabilities"<br>API Provider: [Fireworks AI](https://fireworks.ai/models/fireworks/deepseek-v3-0324)                                                                                                                                                                                                                                                                                                                                                                                                                              | 64K            | $1.20 / $1.20                  | 8K                 | Up to Oct 2023 |
 | [DeepSeek R1](https://fireworks.ai/models/fireworks/deepseek-r1)                                                                | DeepSeek released R1, a reasoning model trained with initial supervised data followed by reinforcement learning. It matches OpenAI-o1's performance on math, code, and reasoning tasks. The models are open-sourced, with their 32B distilled version setting new records by outperforming OpenAI-o1-mini. <br>API Provider: DeepSeek platform (currently unavailable), Fireworks (used in benchmark), other providers                                                                                                                                                                                                                                          | 64K            | $3.00 / $8.00                  | 8K                 | Up to Oct 2023 |
