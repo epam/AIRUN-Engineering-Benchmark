@@ -1,4 +1,4 @@
-# Test Execution Report
+# Cursor (Claude 3.7 Sonnet) AI Code Assistant Golf App Tests - March 2025
 
 ## Table of Contents
 - [Test Execution Results (Claude 3.7 Sonnet LLM)](#test-execution-results-claude-37-sonnet-llm)

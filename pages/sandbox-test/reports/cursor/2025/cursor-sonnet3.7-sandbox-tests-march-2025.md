@@ -1,4 +1,4 @@
-# Test Execution Report
+# Cursor (Claude 3.7 Sonnet) AI Code Assistant Sandbox Tests - March 2025
 
 ## Table of Contents
 - [Test Execution Results](#test-execution-results)

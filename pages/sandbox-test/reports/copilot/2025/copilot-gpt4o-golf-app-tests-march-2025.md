@@ -1,4 +1,4 @@
-# Test Execution Report
+# GitHub Copilot (GPT-4o) AI Code Assistant Golf App Tests - March 2025
 
 ## Table of Contents
 - [Test Execution Results (GPT-4o LLM)](#test-execution-results-gpt-4o-llm)
