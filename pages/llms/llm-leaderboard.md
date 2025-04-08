@@ -1,8 +1,9 @@
-# LLMs Leaderboard (Benchmark v2, last update 2025-04-02)
+# LLMs Leaderboard (Benchmark v2, last update 2025-04-07)
 
 ## Introduction
 
-This page compares the effectiveness of Anthropic, Amazon, Google DeepMind, xAI, OpenAI, and other companies' LLMs in executing software engineering tasks, including code translation, code generation,
+This page compares the effectiveness of Anthropic, Amazon, Google DeepMind, Meta, xAI, OpenAI, and other companies' LLMs in executing software engineering tasks, including code translation, code
+generation,
 documentation generation, and large context instruction following (LCIF).
 
 Our latest research and evaluations have revealed significant shifts in large language model performance. Leading our rankings is Gemini 2.5 Pro Experimental with an exceptional 93.4% total score,
@@ -20,6 +21,10 @@ OpenAI o1 (1217) and Gemini 2.0 Flash Thinking Experimental (0121) both achieve 
 good capabilities, with the new V3 version (84.0%) outperforming R1 (77.2%). These models are particularly noteworthy as they can be self-hosted within organizations seeking privacy, control, and cost
 optimization. This represents a significant advancement in the open-source LLM space.
 
+Our newest addition to the benchmark, Meta's Llama 4 Maverick, achieves a competitive 74.5% total score. This model uses a sophisticated mixture-of-experts architecture with 400B total parameters but
+only 17B active parameters at any given time (using 128 experts). This architecture reduces inference latency while maintaining computational efficiency, allowing it to deliver solid performance with
+exceptional speed (103 tokens/sec) and very low cost ($0.05/$0.22 per MTok) at Fireworks.ai provider. This positions it as one of the most cost-effective options in our benchmark.
+
 OpenAI's GPT-4.5 preview shows only middle-range results (77.6%). It generates a very small amount of tokens (37,894) while having the highest cost ($75/$150) among all tested models. This makes it
 currently less efficient than other models in our benchmark.
 
@@ -34,7 +39,9 @@ The current top of Large Language Models based on research, in order of Total Sc
 4. Gemini 2.0 Pro Experimental (0205) - 90.8%
 5. Claude 3.7 Sonnet (Thinking) - 90.3%
 
-We are looking forward to evaluating new models such as Grok 3 (API coming soon), Gemma 3 27B (waiting for extended rate limits) and others in the future.
+For cost-effective options, Llama 4 Maverick (74.5%) offers exceptional value with its high speed, low cost, and reasonable performance.
+
+We are looking forward to evaluating new models such as Grok 3 (API coming soon), Gemma 3 27B (waiting for extended rate limits), Meta's Llama 4 Behemoth, and others in the future.
 
 You can read [llm-comparison-report.md](llm-comparison-report.md) for a detailed comparison of the models. The report includes all experiment scores, the performance of each model in different
 categories, and the final scores.
@@ -52,18 +59,19 @@ the total score. The total score comprises the average score across all categori
 
 | Model                                          | Accuracy | Completeness | Total Time (min) | Speed (T/S) | Total input | Total output | Cost ($)         | Total Score |
 |------------------------------------------------|----------|--------------|------------------|-------------|-------------|--------------|------------------|-------------|
-| Gemini 2.5 Pro Experimental (03-25)            | 3.894    | 3.892        | 30.26            | 93.91       | 92791       | 170522       | 0.00<sup>1</sup> | 93.4%       |
+| Gemini 2.5 Pro Experimental (03-25)            | 3.894    | 3.892        | 30.26            | 93.91       | 92791       | 170522       | 0.00<sup>1</sup> | 93.3%       |
 | Claude 3.7 Sonnet                              | 3.819    | 3.756        | 24.60            | 76.31       | 100002      | 112605       | 1.99             | 91.4%       |
-| OpenAI o3-mini (01-31)                         | 3.818    | 3.488        | 13.13            | 117.30      | 80551       | 92403        | 0.50             | 90.9%       |
-| Gemini 2.0 Pro Experimental (02-05)            | 3.828    | 3.794        | 30.78            | 64.89       | 92798       | 119842       | 0.00<sup>1</sup> | 90.8%       |
-| Claude 3.7 Sonnet (Thinking)                   | 3.778    | 3.683        | 42.16            | 79.27       | 100711      | 200502       | 3.31             | 90.3%       |
-| ChatGPT-4o                                     | 3.647    | 3.290        | 6.53             | 123.85      | 80575       | 48506        | 1.13             | 88.1%       |
-| OpenAI o1 (1217)                               | 3.706    | 3.187        | 27.09            | 54.32       | 80551       | 88289        | 6.51             | 84.6%       |
-| Gemini 2.0 Flash Thinking Experimental (01-21) | 3.365    | 3.321        | 10.65            | 188.16      | 92785       | 120261       | 0.00<sup>1</sup> | 84.6%       |
-| DeepSeek V3 (03-24)                            | 3.619    | 3.440        | 28.65            | 35.38       | 82977       | 60811        | 0.17             | 84.0%       |
+| OpenAI o3-mini (01-31)                         | 3.818    | 3.488        | 13.13            | 117.30      | 80551       | 92403        | 0.50             | 90.8%       |
+| Gemini 2.0 Pro Experimental (02-05)            | 3.828    | 3.794        | 30.78            | 64.89       | 92798       | 119842       | 0.00<sup>1</sup> | 90.7%       |
+| Claude 3.7 Sonnet (Thinking)                   | 3.778    | 3.683        | 42.16            | 79.27       | 100711      | 200502       | 3.31             | 90.2%       |
+| ChatGPT-4o                                     | 3.647    | 3.290        | 6.53             | 123.85      | 80575       | 48506        | 1.13             | 87.8%       |
+| OpenAI o1 (1217)                               | 3.706    | 3.187        | 27.09            | 54.32       | 80551       | 88289        | 6.51             | 84.5%       |
+| Gemini 2.0 Flash Thinking Experimental (01-21) | 3.365    | 3.321        | 10.65            | 188.16      | 92785       | 120261       | 0.00<sup>1</sup> | 84.4%       |
+| DeepSeek V3 (03-24)                            | 3.619    | 3.440        | 28.65            | 35.38       | 82977       | 60811        | 0.17             | 83.9%       |
 | GPT-4.5 preview                                | 3.613    | 2.873        | 73.49            | 8.59        | 80575       | 37894        | 11.73            | 77.6%       |
-| DeepSeek R1                                    | 3.473    | 3.041        | 21.32            | 68.63       | 82977       | 87785        | 0.95             | 77.2%       |
-| Amazon Nova Pro                                | 2.998    | 2.165        | 7.77             | 81.32       | 88588       | 37918        | 0.19             | 62.0%       |
+| DeepSeek R1                                    | 3.473    | 3.041        | 21.32            | 68.63       | 82977       | 87785        | 0.95             | 77.1%       |
+| Llama 4 Maverick                               | 3.165    | 2.494        | 6.48             | 103.21      | 80493       | 40144        | 0.05             | 74.5%       |
+| Amazon Nova Pro                                | 2.998    | 2.165        | 7.77             | 81.32       | 88588       | 37918        | 0.19             | 61.8%       |
 
 _Table 1. Overview of the experiment results._
 
@@ -97,6 +105,7 @@ We have visualized some of the information for your review.
 | [DeepSeek R1](https://fireworks.ai/models/fireworks/deepseek-r1)                                                                | DeepSeek released R1, a reasoning model trained with initial supervised data followed by reinforcement learning. It matches OpenAI-o1's performance on math, code, and reasoning tasks. The models are open-sourced, with their 32B distilled version setting new records by outperforming OpenAI-o1-mini. <br>API Provider: DeepSeek platform (currently unavailable), Fireworks (used in benchmark), other providers                                                                                                                                                                                                                                          | 64K            | $3.00 / $8.00                  | 8K                 | Up to Oct 2023 |
 | [GPT-4.5 Preview](https://openai.com/index/introducing-gpt-4-5/)                                                                | Most expensive OpenAI model to date. "Early testing shows that interacting with GPT‑4.5 feels more natural. Its broader knowledge base, improved ability to follow user intent, and greater "EQ" make it useful for tasks like improving writing, programming, and solving practical problems. We also expect it to hallucinate less"<br>API Provider: OpenAI, Azure                                                                                                                                                                                                                                                                                            | 128K           | $75.00 / $150.00               | 16K                | Up to Oct 2023 |
 | [OpenAI o1-Pro](https://platform.openai.com/docs/models/o1-pro)                                                                 | A version of o1 with more compute for better responses<br>API Provider: OpenAI                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 200K           | $150.00 / $600.00              | 100K               | Up to Oct 2023 |
+| [Llama 4 Maverick](https://ai.meta.com/blog/llama-4-multimodal-intelligence)                                                    | One of new generation Llama models by Meta: "Llama 4 Maverick, a 17 billion active parameter model with 128 experts, is the best multimodal model in its class, beating GPT-4o and Gemini 2.0 Flash across a broad range of widely reported benchmarks, while achieving comparable results to the new DeepSeek v3 on reasoning and coding—at less than half the active parameters. Llama 4 Maverick offers a best-in-class performance to cost ratio with an experimental chat version scoring ELO of 1417 on LMArena"<br/>Parameters: 400B total (17B active)<br/>API Provider: Fireworks (used in benchmark)                                                  | 1M             | $0.05 / $0.22                  | 131K               | Aug, 2024      |
 | [Amazon Nova Pro](https://aws.amazon.com/ai/generative-ai/nova/)                                                                | Amazon Nova Pro is a highly capable multimodal model with the best combination of accuracy, speed, and cost for a wide range of tasks.  Amazon Nova Pro’s capabilities, coupled with its industry-leading speed and cost efficiency, makes it a compelling model for almost any task, including video summarization, Q&A, mathematical reasoning, software development, and AI agents that can execute multi-step workflows. Amazon Nova Pro excels at instruction following and agentic workflows as measured by Comprehensive RAG Benchmark (CRAG), the Berkeley Function Calling Leaderboard, and Mind2Web.<br/>Parameters: Unknown<br/>API Provider: Amazon | 300K           | $0.80 / $3.20                  | 5K                 | October, 2023  |
 
 _Table 2. Description of LLMs, their versions, amount of information to process, and the length of the response._
