@@ -1,6 +1,6 @@
 # Code Assistant Benchmark Submission
 
-## How to Submit a new Code Assistant to the [Code Assistants Leaderboard](../code-assistants.md)
+## How to Submit a new Code Assistant to the [Code Assistants Leaderboard](../code-assistants-2025.md)
 
 To add your Code Assistant to our benchmark, please provide minimum of 3 licenses for the tool for 1+ months. 
 Additionally, provide the following information into your Markdown file:
