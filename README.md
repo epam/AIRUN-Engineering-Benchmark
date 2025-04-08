@@ -29,7 +29,7 @@ Before we decided to start working on our benchmark our team explored the ones a
 
 Our team runs EPAM AI/RUN<sup>TM</sup> Engineering Benchmark on the most popular Code Assistants and LLMs. The results are updated on the corresponding leaderboards that we update regularly.
 
-View the current rankings and results of LLM's benchmark on our [LLMs Leaderboard](pages/llms/llm-leaderboard.md) and Code Assistants results on [Code Assistants Leaderboard](/pages/sandbox-test/code-assistants.md).
+View the current rankings and results of LLM's benchmark on our [LLMs Leaderboard](pages/llms/llm-leaderboard.md) and Code Assistants results on [Code Assistants Leaderboard](/pages/sandbox-test/code-assistants-2025.md).
 
 ## 🔬 Our Approach
 
