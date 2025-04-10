@@ -1,6 +1,6 @@
 # Code Assistants Leaderboard as of April 2025
 
-- [Leaderboard as of April 2025](#leaderboard-as-of-april-2025)
+- [Leaderboard as of December 2024](code-assistants.md)
 - [Leaderboard per Developer Task as of April 2025](#leaderboard-per-developer-task-as-of-april-2025)
 
 ## Leaderboard as of April 2025
