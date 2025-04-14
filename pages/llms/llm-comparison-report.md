@@ -8,7 +8,7 @@ following (LCIF).
 
 Key findings:
 
-- Gemini 2.5 Pro Experimental takes the lead with an impressive 93.3% total score
+- Gemini 2.5 Pro Preview takes the lead with an impressive 93.3% total score
 - Grok 3 mini beta ranks second with 92.3% total score
 - Claude 3.7 Sonnet follows closely with 91.4% total score
 - OpenAI's o3-mini model demonstrates exceptional performance at 90.8%, confirming its suitability for coding tasks
@@ -45,7 +45,7 @@ For detailed information about our approach and evaluation methodology, please r
 
 | Model                                         | Execution Date | Benchmark | Code Translation | Code Generation | Code Document | LCIF    | Total Score |
 |-----------------------------------------------|----------------|-----------|------------------|-----------------|---------------|---------|-------------|
-| Gemini 2.5 Pro Experimental (0325)            | 2025-03-26     | v2        | 90.86%           | 92.48%          | 89.89%        | 100.00% | 93.31%      |
+| Gemini 2.5 Pro Preview (0325)                 | 2025-03-26     | v2        | 90.86%           | 92.48%          | 89.89%        | 100.00% | 93.31%      |
 | Grok 3 mini beta                              | 2025-04-13     | v2        | 89.38%           | 92.95%          | 90.16%        | 96.88%  | 92.34%      |
 | Claude 3.7 Sonnet                             | 2025-03-20     | v2        | 88.44%           | 90.40%          | 86.65%        | 100.00% | 91.37%      |
 | OpenAI o3-mini (2025-01-31)                   | 2025-03-20     | v2        | 87.60%           | 88.69%          | 86.79%        | 100.00% | 90.77%      |
@@ -159,7 +159,7 @@ _Table 5. LCIF results of LLMs in EPAM's LLMs Benchmark._
 The benchmark results reveal several significant insights about the current state of LLM capabilities:
 
 1. Model Evolution and Leadership:
-    - Google has taken the lead with Gemini 2.5 Pro Experimental achieving the top position at 93.3% total score
+    - Google has taken the lead with Gemini 2.5 Pro Preview achieving the top position at 93.3% total score
     - xAI's Grok 3 mini beta makes a strong debut at 92.3% total score, showing impressive performance particularly in code generation (93.0%) and code documentation (90.2%), though its high scores
       are partially due to its unique token generation approach
     - Anthropic maintains strong market position with Claude 3.7 Sonnet at 91.4% total score
