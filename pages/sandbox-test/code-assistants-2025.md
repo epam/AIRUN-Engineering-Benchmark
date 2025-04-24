@@ -25,5 +25,6 @@
 ![code-assistants-performance-dec-2024.png](../../images/sandbox-test/code-assistants-performance-engineering-benchmark-detailed-apr-25-2.png)
 <div style='text-align: right;'> © EPAM. Distribution and use permitted </div>
 
+## Notes
 <p style="text-align: center;">    © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
 
