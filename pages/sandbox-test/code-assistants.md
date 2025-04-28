@@ -72,7 +72,6 @@ Other tools according to our research don't represent a significant interest.
 ## Notes
 
 - See [the code assistants benchmark approach](code-assistants-benchmark-approach.md)
-- See [the code assistants feature comparison August 2024](code-assistants-feature-comparison/code-assistants-feature-comparison-august-2024.md)
 
 <p style="text-align: center;">    © 2024 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
 
