@@ -49,7 +49,7 @@ For detailed information about our approach and evaluation methodology, please r
 - [Automated Evaluation with LLMs](automated-evaluation-with-llms.md)
 
 | Model                              | Benchmark model ID         | Execution Date | Benchmark | Code Translation | Code Generation | Code Document | LCIF    | Total Score |
-|------------------------------------|----------------------------|----------------|-----------|------------------|-----------------|---------------|---------|-------------|
+| ---------------------------------- | -------------------------- | -------------- | --------- | ---------------- | --------------- | ------------- | ------- | ----------- |
 | Gemini 2.5 Pro Preview (0325)      | Gemini_25_Pro_0325         | 2025-04-14     | v2        | 91.21%           | 93.37%          | 90.09%        | 100.00% | 93.67%      |
 | OpenAI o3 (high) (0416)            | OpenAi_o3_0416             | 2025-04-16     | v2        | 90.02%           | 89.08%          | 92.44%        | 100.00% | 92.89%      |
 | Grok 3 mini beta (high)            | Grok3mini_beta             | 2025-04-13     | v2        | 89.38%           | 92.95%          | 90.16%        | 96.88%  | 92.34%      |
@@ -68,7 +68,11 @@ For detailed information about our approach and evaluation methodology, please r
 | GPT-4.5 preview                    | GPT45_0227                 | 2025-03-20     | v2        | 66.67%           | 78.24%          | 74.85%        | 90.63%  | 77.60%      |
 | DeepSeek R1                        | DeepSeekR1                 | 2025-03-20     | v2        | 74.55%           | 78.33%          | 77.23%        | 78.13%  | 77.06%      |
 | Llama 4 Maverick                   | Llama_4_Maverick           | 2025-04-07     | v2        | 68.94%           | 76.15%          | 68.41%        | 84.38%  | 74.47%      |
-| Amazon Nova Pro                    | AmazonNovaPro              | 2025-03-28     | v2        | 53.90%           | 69.83%          | 67.11%        | 56.25%  | 61.77%      |
+| GPT-4.1 nano (0414)                | GPT41nano_0414             | 2025-04-25     | v2        | 83.41%           | 85.25%          | 76.07%        | 46.88%  | 72.90%      |
+| Amazon Nova Pro                    | AmazonNovaPro              | 2025-03-28     | v2        | 53.90%           | 69.83%          | 67.11%        | 56.25%  | 61.8%       |
+| Gemma 3 12B Q4                     | Gemma_3_12B                | 2025-05-07     | v2        | 52.11%           | 67.41%          | 74.78%        | 0.00%   | 48.57%      |
+| Gemma 3 4B                         | Gemma_3_4B                 | 2025-04-25     | v2        | 27.77%           | 44.31%          | 58.44%        | 37.50%  | 42.01%      |
+| Gemma 3 1B                         | Gemma_3_1B                 | 2025-04-25     | v2        | 19.44%           | 29.16%          | 36.57%        | 0.00%   | 21.29%      |
 
 _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 
@@ -77,7 +81,7 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 ### Code Translation
 
 | Model                      | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
-|----------------------------|--------------|------------------|----------|-----------|-------------------|---------|
+| -------------------------- | ------------ | ---------------- | -------- | --------- | ----------------- | ------- |
 | Gemini_25_Pro_0325         | 3.807        | 3.994            | 100.37   | 10592.14  | 105.53            | 0.9121  |
 | Gemini_20_Pro_0205         | 3.794        | 4.000            | 75.54    | 5072.29   | 67.15             | 0.9053  |
 | OpenAi_o3_0416             | 3.850        | 3.587            | 34.39    | 5222.71   | 151.85            | 0.9002  |
@@ -88,6 +92,7 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | OpenAi_o3_mini_0131        | 3.674        | 3.687            | 47.52    | 5598.00   | 117.80            | 0.8760  |
 | Claude_Sonnet_37_Thinking  | 3.657        | 3.857            | 145.33   | 12453.29  | 85.69             | 0.8722  |
 | ChatGPT4o                  | 3.449        | 3.480            | 19.00    | 2738.00   | 144.11            | 0.8636  |
+| GPT41nano_0414             | 3.347        | 3.179            | 12.00    | 2607.57   | 217.32            | 0.8341  |
 | GPT41_0414                 | 3.780        | 3.666            | 80.39    | 4010.86   | 49.89             | 0.8613  |
 | OpenAi_o4_mini_0416        | 3.853        | 3.510            | 104.89   | 9954.29   | 94.90             | 0.8598  |
 | OpenAi_o1_1217             | 3.670        | 3.559            | 89.62    | 5107.86   | 56.99             | 0.8373  |
@@ -97,13 +102,16 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | Llama_4_Maverick           | 3.116        | 2.420            | 22.70    | 2379.86   | 104.82            | 0.6894  |
 | GPT45_0227                 | 3.364        | 2.496            | 183.17   | 1757.86   | 9.60              | 0.6667  |
 | AmazonNovaPro              | 2.551        | 1.723            | 24.82    | 2084.57   | 83.99             | 0.5390  |
+| Gemma_3_12B                | 2.539        | 2.001            | 109.35   | 2291.86   | 20.96             | 0.5211  |
+| Gemma_3_4B                 | 1.454        | 0.879            | 67.32    | 1868.14   | 27.75             | 0.2777  |
+| Gemma_3_1B                 | 0.524        | 0.793            | 22.52    | 1921.00   | 85.29             | 0.1944  |
 
 _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 
 ### Code Generation
 
 | Model                      | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
-|----------------------------|--------------|------------------|----------|-----------|-------------------|---------|
+| -------------------------- | ------------ | ---------------- | -------- | --------- | ----------------- | ------- |
 | Gemini_25_Pro_0325         | 4.000        | 3.994            | 101.25   | 10532.63  | 104.03            | 0.9337  |
 | Grok3mini_beta             | 4.000        | 3.823            | 62.36    | 9035.00   | 144.88            | 0.9295  |
 | GPT41mini_0414             | 4.000        | 3.873            | 41.27    | 3135.75   | 75.99             | 0.9227  |
@@ -116,6 +124,7 @@ _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 | OpenAi_o3_mini_0131        | 3.938        | 3.438            | 28.29    | 3471.13   | 122.70            | 0.8869  |
 | OpenAi_o4_mini_0416        | 3.874        | 3.633            | 62.88    | 7136.38   | 113.49            | 0.8856  |
 | Grok3_beta                 | 3.861        | 3.520            | 30.55    | 2493.00   | 81.61             | 0.8749  |
+| GPT41nano_0414             | 3.806        | 2.883            | 7.67     | 1752.13   | 228.59            | 0.8525  |
 | ChatGPT4o                  | 3.813        | 3.076            | 15.01    | 1850.50   | 123.33            | 0.8543  |
 | DeepSeekV3_0324            | 3.883        | 3.249            | 63.38    | 2316.63   | 36.55             | 0.8230  |
 | OpenAi_o1_1217             | 4.000        | 3.043            | 61.21    | 3280.38   | 53.59             | 0.8179  |
@@ -123,13 +132,16 @@ _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 | GPT45_0227                 | 4.000        | 2.903            | 184.73   | 1449.38   | 7.85              | 0.7824  |
 | Llama_4_Maverick           | 3.511        | 2.568            | 14.03    | 1470.75   | 104.86            | 0.7615  |
 | AmazonNovaPro              | 3.273        | 2.431            | 19.28    | 1477.38   | 76.63             | 0.6983  |
+| Gemma_3_12B                | 3.426        | 2.490            | 93.15    | 1890.89   | 20.30             | 0.6741  |
+| Gemma_3_4B                 | 2.132        | 1.696            | 59.75    | 1644.22   | 27.52             | 0.4431  |
+| Gemma_3_1B                 | 1.383        | 0.858            | 18.17    | 1530.89   | 84.25             | 0.2916  |
 
 _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 
 ### Code Documentation
 
 | Model                      | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
-|----------------------------|--------------|------------------|----------|-----------|-------------------|---------|
+| -------------------------- | ------------ | ---------------- | -------- | --------- | ----------------- | ------- |
 | OpenAi_o3_0416             | 3.997        | 3.738            | 28.42    | 3088.44   | 108.65            | 0.9244  |
 | Grok3mini_beta             | 3.891        | 3.512            | 31.73    | 5312.89   | 167.45            | 0.9016  |
 | Gemini_25_Pro_0325         | 3.954        | 3.771            | 91.51    | 7828.67   | 85.55             | 0.9009  |
@@ -144,18 +156,22 @@ _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 | DeepSeekV3_0324            | 3.483        | 3.424            | 38.76    | 1295.00   | 33.41             | 0.8036  |
 | GPT41_0414                 | 3.547        | 3.226            | 52.29    | 2180.67   | 41.71             | 0.7864  |
 | DeepSeekR1                 | 3.420        | 3.036            | 25.56    | 1817.11   | 71.09             | 0.7723  |
+| GPT41nano_0414             | 3.301        | 2.572            | 9.45     | 1641.44   | 173.70            | 0.7607  |
 | Gemini_20_Flash_Think_0121 | 3.222        | 3.011            | 33.57    | 5841.11   | 174.02            | 0.7707  |
 | OpenAi_o1_1217             | 3.473        | 3.027            | 56.48    | 2921.22   | 51.73             | 0.7577  |
+| Gemma_3_12B                | 3.436        | 3.113            | 92.50    | 1903.67   | 20.58             | 0.7478  |
 | GPT45_0227                 | 3.461        | 3.139            | 183.29   | 1554.89   | 8.48              | 0.7485  |
 | Llama_4_Maverick           | 2.897        | 2.486            | 13.09    | 1302.11   | 99.47             | 0.6841  |
 | AmazonNovaPro              | 3.101        | 2.273            | 15.37    | 1278.56   | 83.21             | 0.6711  |
+| Gemma_3_4B                 | 2.734        | 2.301            | 47.13    | 1302.33   | 27.63             | 0.5844  |
+| Gemma_3_1B                 | 1.177        | 1.658            | 21.09    | 1791.00   | 84.91             | 0.3657  |
 
 _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 
 ### LCIF (Large Context Instruction Following)
 
 | Model                      | Avg Accuracy | Avg Completeness | Score ↓ |
-|----------------------------|--------------|------------------|---------|
+| -------------------------- | ------------ | ---------------- | ------- |
 | Gemini_25_Pro_0325         | 4            | 4                | 1       |
 | OpenAi_o3_0416             | 4            | 4                | 1       |
 | Claude_Sonnet_37           | 4            | 4                | 1       |
@@ -175,6 +191,10 @@ _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 | Llama_4_Maverick           | 3.5          | 3.25             | 0.84375 |
 | DeepSeekR1                 | 3.5          | 2.75             | 0.78125 |
 | AmazonNovaPro              | 2.25         | 2.25             | 0.5625  |
+| GPT41nano_0414             | 2.5          | 1.25             | 0.46875 |
+| Gemma_3_4B                 | 2.5          | 0.5              | 0.375   |
+| Gemma_3_1B                 | 0            | 0                | 0       |
+| Gemma_3_12B                | 0            | 0                | 0       |
 
 _Table 5. LCIF results of LLMs in EPAM's LLMs Benchmark._
 
