@@ -9,7 +9,8 @@ generation, documentation generation, and large context instruction following (L
 
 Our latest research and evaluations have revealed significant shifts in large language model performance. Leading our rankings is Gemini 2.5 Flash Preview with an exceptional 94.47% total score,
 showcasing Google's continued advancement in LLM capabilities. Gemini 2.5 Pro Preview follows closely in second place with 93.32% total score. OpenAI's newest model o3 (high) makes an impressive debut
-at third place with 92.08% total score, demonstrating particular strength in code documentation (91.80%). xAI's Grok 3 mini beta now sits in fourth place with a strong 91.79% total score.
+at third place with 92.08% total score, demonstrating particular strength in code documentation (91.80%) and LCIF experiment (100%). xAI's Grok 3 mini beta now sits in fourth place with a strong
+91.79% total score.
 
 It's worth noting that Grok 3 mini beta achieves its high ranking largely due to its very fast token generation speed (152.47 tokens/second). In our methodology, we calculate speed by dividing the
 total output tokens (including completion and reasoning tokens) by execution time. While Grok 3 mini generates tokens at a high rate, its total execution time of 24.05 minutes is nearly four times
@@ -59,7 +60,7 @@ The current top of Large Language Models based on research, in order of Total Sc
 5. Claude 3.7 Sonnet - 90.93%
 
 For cost-effective options, Grok 3 mini beta (91.79% at $0.30/$0.50 per MTok) offers exceptional value with high speed, low cost, and strong performance specifically for software development tasks.
-OpenAI's o4-mini (90.56% at $1.10/$4.40 per MTok) and GPT-4.1 mini (88.87% at $0.40/$1.60 per MTok) also provide excellent performance at competitive prices. While Llama 4 Maverick 
+OpenAI's o4-mini (90.56% at $1.10/$4.40 per MTok) and GPT-4.1 mini (88.87% at $0.40/$1.60 per MTok) also provide excellent performance at competitive prices. While Llama 4 Maverick
 (73.04% at $0.05/$0.22 per MTok) has lower costs, its strengths lie more in social networking applications rather than software development tasks.
 
 We are looking forward to evaluating several upcoming models in the near future:
@@ -154,6 +155,7 @@ _Table 2. Description of LLMs, their versions, amount of information to process,
 
 - To learn more about our methodology for evaluating LLMs, please read [LLMs Benchmark Approach](llm-approach.md).
 - To submit your model for evaluation, please refer to the [Large Language Model Benchmark Submission](submissions/llm-benchmark-submission.md) page.
+- Previous charts with ratings and other scores can be found in the [LLMs Charts archive](/images/llms/llm-charts-archive).
 
 <p align="center">
     © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>
