@@ -10,9 +10,12 @@ Key findings:
 
 - Gemini 2.5 Flash Preview (05-20) takes the lead with an exceptional 96.06% total score
 - Gemini 2.5 Pro Preview (05-06) follows with an impressive 92.46% total score
-- OpenAI o3 (high) (04-16) ranks third with a strong 91.53% total score, showing particular strength in code documentation
-- Grok 3 mini beta (high) comes in fourth with 91.07% total score
-- Claude 3.7 Sonnet follows closely with 90.61% total score
+- Claude 4 Sonnet secures third place with a strong 91.84% total score, demonstrating excellent coding capabilities
+- OpenAI o3 (high) (04-16) ranks fourth with 91.53% total score, showing particular strength in code documentation
+- Grok 3 mini beta (high) comes in fifth with 91.07% total score
+- Claude 4 Sonnet (Thinking) achieves 91.01% total score
+- Claude 4 Opus (Thinking) demonstrates strong performance at 90.68% total score
+- Claude 3.7 Sonnet follows with 90.61% total score
 - OpenAI o4-mini (high) (04-16) demonstrates excellent performance at 90.07%, offering strong capabilities at a more accessible price point
 - Claude 3.7 Sonnet (Thinking) shows strong results at 89.56%
 - OpenAI's o3-mini (medium) (01-31) model continues to perform well at 89.45%, confirming its suitability for coding tasks
@@ -34,17 +37,15 @@ Performance metrics highlights:
 - Shortest execution time: GPT-4.1 nano (3.84 minutes), followed by Llama 4 Maverick (6.48 minutes) and ChatGPT-4o (6.53 minutes)
 - Most tokens generated: Gemini 2.5 Flash Preview (05-20) (399,309 tokens), followed by Grok 3 mini beta (220,054 tokens), Claude 3.7 Sonnet (Thinking) (200,502 tokens) and Gemini 2.5 Pro Preview (
   05-06) (164,779 tokens)
-- Most cost-effective high performers: Grok 3 mini beta (91.07% score at $0.30/$0.50 per MTok), OpenAI o4-mini (90.07% score at $1.10/$4.40 per MTok), and GPT-4.1 mini (88.59% score at $0.40/$1.60 per
-  MTok)
+- Most cost-effective high performers: Grok 3 mini beta (91.07% score at $0.30/$0.50 per MTok), Claude 4 Sonnet (91.84% score at $3.00/$15.00 per MTok), OpenAI o4-mini (90.07% score at $1.10/$4.40 per
+  MTok), and GPT-4.1 mini (88.59% score at $0.40/$1.60 per MTok)
 
 Best results by category:
 
-- Code Translation: Gemini 2.5 Flash Preview (05-20) leads with 95.35%, followed by Gemini 2.5 Pro Preview (05-06) at 89.40% and GPT-4.1 mini (04-14) at 89.35%
-- Code Generation: Gemini 2.5 Flash Preview (05-20) ranks first (95.07%), followed by Grok 3 mini beta (high) (91.09%) and GPT-4.1 mini (04-14) (90.79%)
+- Code Translation: Gemini 2.5 Flash Preview (05-20) leads with 95.35%, followed by Claude 4 Sonnet at 90.52% and Gemini 2.5 Pro Preview (05-06) at 89.40%
+- Code Generation: Gemini 2.5 Flash Preview (05-20) ranks first (95.07%), followed by Claude 4 Sonnet (92.25%) and Claude 4 Opus (Thinking) (92.09%)
 - Code Documentation: Gemini 2.5 Flash Preview (05-20) leads impressively with 93.80%, followed by OpenAI o3 (high) (04-16) (90.72%) and Gemini 2.5 Pro Preview (05-06) (90.25%)
-- LCIF: Nine models achieve perfect 100% scores: Gemini 2.5 Flash Preview (05-20), Gemini 2.5 Pro Preview (05-06), OpenAI o3 (high) (04-16), Claude 3.7 Sonnet, OpenAI o4-mini (high) (04-16), Claude
-  3.7
-  Sonnet (Thinking), GPT-4.1 (04-14), Grok 3 Beta, and OpenAI o3-mini (medium) (01-31)
+- LCIF: Models from companies Google DeepMind, xAI, Anthropic, OpenAI achieved 100% in this experiment
 
 The final conclusion in the [end](#conclusion) of the report.
 
@@ -59,8 +60,11 @@ For detailed information about our approach and evaluation methodology, please r
 |----------------------------------|---------------------------|----------------|-----------|------------------|-----------------|---------------|---------|-------------|
 | Gemini 2.5 Flash Preview (05-20) | Gemini_25_Flash_0520      | 2025-05-22     | v2        | 95.35%           | 95.07%          | 93.80%        | 100.00% | 96.06%      |
 | Gemini 2.5 Pro Preview (05-06)   | Gemini_25_Pro_0506        | 2025-05-14     | v2        | 89.40%           | 90.17%          | 90.25%        | 100.00% | 92.46%      |
+| Claude 4 Sonnet                  | Claude_Sonnet_4           | 2025-05-23     | v2        | 90.52%           | 92.25%          | 84.59%        | 100.00% | 91.84%      |
 | OpenAI o3 (high) (04-16)         | OpenAi_o3_0416            | 2025-04-16     | v2        | 88.39%           | 87.02%          | 90.72%        | 100.00% | 91.53%      |
 | Grok 3 mini beta (high)          | Grok3mini_beta            | 2025-04-13     | v2        | 88.39%           | 91.09%          | 87.93%        | 96.88%  | 91.07%      |
+| Claude 4 Sonnet (Thinking)       | Claude_Sonnet_4_Thinking  | 2025-05-23     | v2        | 86.94%           | 91.27%          | 85.82%        | 100.00% | 91.01%      |
+| Claude 4 Opus (Thinking)         | Claude_Opus_4_Thinking    | 2025-05-26     | v2        | 89.28%           | 92.09%          | 81.37%        | 100.00% | 90.68%      |
 | Claude 3.7 Sonnet                | Claude_Sonnet_37          | 2025-03-20     | v2        | 87.62%           | 89.19%          | 85.63%        | 100.00% | 90.61%      |
 | OpenAI o4-mini (high) (04-16)    | OpenAi_o4_mini_0416       | 2025-04-16     | v2        | 85.27%           | 86.99%          | 88.01%        | 100.00% | 90.07%      |
 | Claude 3.7 Sonnet (Thinking)     | Claude_Sonnet_37_Thinking | 2025-03-20     | v2        | 86.63%           | 90.38%          | 81.24%        | 100.00% | 89.56%      |
@@ -90,12 +94,15 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | Model                     | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
 |---------------------------|--------------|------------------|----------|-----------|-------------------|---------|
 | Gemini_25_Flash_0520      | 3.956        | 4.000            | 70.52    | 17974.00  | 254.89            | 0.9535  |
+| Claude_Sonnet_4           | 3.780        | 4.000            | 62.45    | 6487.43   | 103.88            | 0.9052  |
 | Gemini_25_Pro_0506        | 3.839        | 3.984            | 149.38   | 7568.00   | 50.66             | 0.8940  |
 | GPT41mini_0414            | 4.000        | 3.780            | 79.04    | 4289.14   | 54.27             | 0.8935  |
+| Claude_Opus_4_Thinking    | 3.747        | 3.929            | 62.26    | 6234.14   | 100.13            | 0.8928  |
 | OpenAi_o3_0416            | 3.850        | 3.587            | 34.39    | 5222.71   | 151.85            | 0.8839  |
 | Grok3mini_beta            | 3.767        | 3.769            | 94.12    | 14279.71  | 151.72            | 0.8839  |
 | Claude_Sonnet_37          | 3.781        | 3.786            | 73.37    | 6240.14   | 85.05             | 0.8762  |
 | Grok3_beta                | 3.829        | 3.666            | 41.70    | 3807.71   | 91.30             | 0.8754  |
+| Claude_Sonnet_4_Thinking  | 3.804        | 3.691            | 77.92    | 7311.00   | 93.83             | 0.8694  |
 | Claude_Sonnet_37_Thinking | 3.657        | 3.857            | 145.33   | 12453.29  | 85.69             | 0.8663  |
 | OpenAi_o3_mini_0131       | 3.674        | 3.687            | 47.52    | 5598.00   | 117.80            | 0.8639  |
 | GPT41_0414                | 3.780        | 3.666            | 80.39    | 4010.86   | 49.89             | 0.8549  |
@@ -120,6 +127,9 @@ _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 | Model                     | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
 |---------------------------|--------------|------------------|----------|-----------|-------------------|---------|
 | Gemini_25_Flash_0520      | 4.000        | 3.951            | 61.85    | 18129.50  | 293.14            | 0.9507  |
+| Claude_Sonnet_4           | 4.000        | 3.999            | 74.60    | 7666.38   | 102.77            | 0.9225  |
+| Claude_Opus_4_Thinking    | 4.000        | 3.998            | 83.54    | 8146.50   | 97.51             | 0.9209  |
+| Claude_Sonnet_4_Thinking  | 4.000        | 3.938            | 95.05    | 8769.75   | 92.27             | 0.9127  |
 | Grok3mini_beta            | 4.000        | 3.823            | 62.36    | 9035.00   | 144.88            | 0.9109  |
 | GPT41mini_0414            | 4.000        | 3.873            | 41.27    | 3135.75   | 75.99             | 0.9079  |
 | Claude_Sonnet_37_Thinking | 3.944        | 3.939            | 125.64   | 10304.25  | 82.01             | 0.9038  |
@@ -154,9 +164,12 @@ _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 | Gemini_25_Pro_0506        | 3.999        | 3.891            | 110.88   | 6231.89   | 56.20             | 0.9025  |
 | OpenAi_o4_mini_0416       | 3.931        | 3.586            | 34.76    | 3856.33   | 110.93            | 0.8801  |
 | Grok3mini_beta            | 3.891        | 3.512            | 31.73    | 5312.89   | 167.45            | 0.8793  |
+| Claude_Sonnet_4_Thinking  | 3.919        | 3.506            | 44.74    | 2940.56   | 65.72             | 0.8582  |
 | Claude_Sonnet_37          | 3.788        | 3.629            | 47.84    | 3062.89   | 64.03             | 0.8563  |
 | OpenAi_o3_mini_0131       | 3.824        | 3.378            | 25.42    | 2827.56   | 111.21            | 0.8498  |
+| Claude_Sonnet_4           | 3.873        | 3.394            | 32.49    | 2363.22   | 72.74             | 0.8459  |
 | ChatGPT4o                 | 3.653        | 3.332            | 15.40    | 1615.11   | 104.86            | 0.8363  |
+| Claude_Opus_4_Thinking    | 3.572        | 3.458            | 44.15    | 2832.22   | 64.15             | 0.8137  |
 | Claude_Sonnet_37_Thinking | 3.724        | 3.320            | 56.33    | 3432.78   | 60.94             | 0.8124  |
 | GPT41mini_0414            | 3.810        | 3.143            | 40.93    | 2371.33   | 57.94             | 0.8047  |
 | Grok3_beta                | 3.626        | 3.236            | 32.77    | 2325.89   | 70.98             | 0.7997  |
@@ -181,6 +194,9 @@ _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 |----------------------------|--------------|------------------|---------|
 | Gemini_25_Flash_0520       | 4            | 4                | 1       |
 | Gemini_25_Pro_0506         | 4            | 4                | 1       |
+| Claude_Sonnet_4            | 4            | 4                | 1       |
+| Claude_Sonnet_4_Thinking   | 4            | 4                | 1       |
+| Claude_Opus_4_Thinking     | 4            | 4                | 1       |
 | OpenAi_o3_0416             | 4            | 4                | 1       |
 | Claude_Sonnet_37           | 4            | 4                | 1       |
 | OpenAi_o4_mini_0416        | 4            | 4                | 1       |
@@ -214,9 +230,10 @@ The benchmark results reveal several significant insights about the current stat
 1. Model Evolution and Leadership:
     - Google has consolidated its lead with Gemini 2.5 Flash Preview (05-20) achieving the top position at 96.06% total score
     - Gemini 2.5 Pro Preview (05-06) follows closely in second place at 92.46% total score
-    - OpenAI has made significant strides with its o3 model ranking third at 91.53% total score, showing exceptional strength in code documentation (90.72%)
-    - xAI's Grok 3 mini beta sits in fourth place at 91.07% total score, demonstrating impressive performance particularly in code generation (91.09%) and code documentation (87.93%)
-    - Anthropic maintains strong market position with Claude 3.7 Sonnet at 90.61% total score
+    - Claude 4 Sonnet secures third place at 91.84% total score, showing strong performance across categories
+    - OpenAI's o3 model ranks fourth at 91.53% total score, showing exceptional strength in code documentation (90.72%)
+    - xAI's Grok 3 mini beta sits in fifth place at 91.07% total score, demonstrating impressive performance particularly in code generation (91.09%) and code documentation (87.93%)
+    - The top tier continues with Claude 4 Sonnet (Thinking) at 91.01%, Claude 4 Opus (Thinking) at 90.68%, and Claude 3.7 Sonnet at 90.61% total score
     - OpenAI's o4-mini model debuts strongly at 90.07% total score, offering excellent performance at a more accessible price point
     - Claude 3.7 Sonnet Thinking (89.56%) maintains a strong position
     - OpenAI continues to show competitive performance with o3-mini at 89.45% total score
@@ -224,22 +241,23 @@ The benchmark results reveal several significant insights about the current stat
     - Grok 3 beta demonstrates solid capabilities at 88.30% total score
     - ChatGPT-4o demonstrates strong performance at 85.87%, making it a viable option for many use cases
     - OpenAI o1 (12-17) shows solid capabilities at 83.92%
-    - Nine models achieving perfect LCIF scores demonstrates advancement in handling complex instructions
+    - Twelve models achieving perfect LCIF scores demonstrates advancement in handling complex instructions across multiple providers
     - DeepSeek's open-source models (V3 at 83.38% and R1 at 76.24%) represent significant achievements in the open-source space, allowing for self-hosting within organizations
     - Meta's Llama 4 Maverick (72.57%) shows notable performance with only 17B active parameters despite having 400B total parameters, demonstrating efficient scaling with its mixture-of-experts
       architecture (128 experts)
 
 2. Performance Patterns:
     - Specialized strengths emerge across different categories:
-        * Code Translation: Gemini 2.5 Flash Preview (05-20) leads with 95.35%, followed by Gemini 2.5 Pro Preview (05-06) at 89.40% and GPT-4.1 mini (04-14) at 89.35%
-        * Code Generation: Gemini 2.5 Flash Preview (05-20) ranks first (95.07%), followed by Grok 3 mini beta (high) (91.09%) and GPT-4.1 mini (04-14) (90.79%)
+        * Code Translation: Gemini 2.5 Flash Preview (05-20) leads with 95.35%, followed by Claude 4 Sonnet at 90.52% and Gemini 2.5 Pro Preview (05-06) at 89.40%
+        * Code Generation: Gemini 2.5 Flash Preview (05-20) ranks first (95.07%), followed by Claude 4 Sonnet (92.25%) and Claude 4 Opus (Thinking) (92.09%)
         * Code Documentation: Gemini 2.5 Flash Preview (05-20) leads impressively with 93.80%, followed by OpenAI o3 (high) (04-16) (90.72%) and Gemini 2.5 Pro Preview (05-06) at 90.25%
-        * LCIF: Nine models (Gemini 2.5 Flash Preview (05-20), Gemini 2.5 Pro Preview (05-06), OpenAI o3 (high) (04-16), Claude 3.7 Sonnet, OpenAI o4-mini (high) (04-16), Claude 3.7 Sonnet (Thinking),
-          GPT-4.1 (04-14), Grok 3 Beta, and OpenAI o3-mini (medium) (01-31)) achieve perfect scores
+        * LCIF: Twelve models achieve perfect scores
     - Top-tier models consistently achieve >90% scores across most categories
+    - Performance characteristics vary significantly across models, with different optimization trade-offs for speed, quality, and efficiency
     - Gemini 2.5 Flash Preview demonstrates the fastest token generation at 271.27 tokens per second with a total execution time of 24.53 minutes and impressive output of 399,309 tokens
     - GPT-4.1 nano shows impressive speed at 204.22 tokens per second with very short execution time (3.84 minutes)
     - OpenAI o3 shows exceptional processing efficiency with fast token generation (128.14 tokens/sec) and short execution time (13.06 minutes)
+    - Token generation varies widely across models, from compact outputs to comprehensive responses exceeding 300,000 tokens
     - Grok 3 mini beta demonstrates exceptional token generation speed at 152.47 tokens per second, with substantial output (220,054 tokens), though its total execution time (24.05 minutes) indicates
       it generates significantly more reasoning tokens during its processing
     - OpenAI o4-mini shows strong balance between speed (104.17 tokens/sec) and total output (161,478 tokens)
@@ -253,6 +271,10 @@ The benchmark results reveal several significant insights about the current stat
     - Google's Gemini models dominate the top positions:
         * Gemini 2.5 Flash Preview (05-20) achieves exceptional performance at 96.06% total score with reasonable pricing ($0.15/$3.50 per MTok)
         * Gemini 2.5 Pro Preview (05-06) follows at 92.46% total score but at a higher price point ($1.25/$10.00 per MTok up to 200K; $2.50/$15.00 per MTok beyond)
+    - Anthropic's latest models show strong performance across multiple variants:
+        * Claude 4 Sonnet (91.84%) at competitive pricing ($3.00/$15.00 per MTok)
+        * Claude 4 Sonnet (Thinking) (91.01%) with enhanced reasoning capabilities
+        * Claude 4 Opus (Thinking) (90.68%) at premium pricing ($15.00/$75.00 per MTok)
     - OpenAI's new models show significant improvements across the board:
         * o3 (high) (04-16) demonstrates exceptional capability at 91.53% total score, though at a higher price point ($10.00/$40.00 per MTok)
         * o4-mini (high) (04-16) offers excellent value with 90.07% performance at a more accessible price ($1.10/$4.40 per MTok)
@@ -275,10 +297,18 @@ The benchmark results reveal several significant insights about the current stat
     - Open-source models like Gemma 3 series show significant capabilities but still require improvement for large context handling, as shown by their 0% scores in LCIF
 
 These findings indicate a rapidly evolving market with increasing sophistication in model capabilities. The strong performance of newer models (Gemini 2.5 Flash Preview (05-20), Gemini 2.5 Pro
-Preview (05-06), OpenAI o3, Grok 3 mini beta, Claude 3.7 Sonnet, OpenAI o4-mini) suggests a trend toward both higher performance and greater efficiency. Google's Gemini 2.5 series models demonstrate
-exceptional capabilities across all categories, particularly in code generation and translation. OpenAI's expanded lineup (o3, o4-mini, GPT-4.1, GPT-4.1 mini) provides excellent options at different
-price points, allowing organizations to choose models that balance performance and cost according to their specific needs. Organizations now have more options than ever before, whether prioritizing
-overall performance, specific capabilities, deployment flexibility, or cost-effectiveness, including self-hosting options with open-source models like DeepSeek.
+Preview (05-06), Claude 4 family, OpenAI o3, Grok 3 mini beta, OpenAI o4-mini) suggests a trend toward both higher performance and greater efficiency. Google's Gemini 2.5 series models demonstrate
+exceptional capabilities across all categories, particularly in code generation and translation.
+
+Anthropic's Claude 4 release marks a significant milestone in the AI development landscape. The Claude 4 family introduces unique capabilities such as extended thinking with tool use, parallel tool
+execution, and improved memory management that sets them apart from competitors. Claude 4 Sonnet's positioning as a significant upgrade from Claude 3.7 with superior coding and reasoning while
+responding more precisely to instructions makes it particularly valuable for software development teams. The availability across multiple platforms (Anthropic API, Amazon Bedrock, Google Cloud's
+Vertex AI) ensures broad accessibility, while the inclusion in Pro, Max, Team, and Enterprise plans demonstrates Anthropic's commitment to making advanced AI accessible across different user segments.
+
+OpenAI's expanded lineup (o3, o4-mini, GPT-4.1, GPT-4.1 mini) provides excellent options at different price points, allowing organizations to choose models that balance performance and cost according
+to their specific needs. Organizations now have more options than ever before, whether prioritizing overall performance, specific capabilities, deployment flexibility, or cost-effectiveness, including
+self-hosting options with open-source models like DeepSeek. The introduction of Claude 4 models provides exceptionally strong competition in the high-performance coding segment, challenging the
+dominance of established players and raising the bar for what organizations can expect from AI-powered development tools.
 
 <p align="center">
     © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>
