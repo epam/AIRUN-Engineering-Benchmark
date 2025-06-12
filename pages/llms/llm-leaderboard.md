@@ -2,20 +2,61 @@
 
 ![llm-rating.png](/images/llms/llm-rating.png)
 
-## Introduction
+## Introduction to EPAM AI/RUN LLMs Engineering Benchmark
 
-This page presents benchmark results including a leaderboard that compares the effectiveness of Anthropic, Amazon, Google DeepMind, Meta, xAI, OpenAI, and other companies' LLMs (Large Language Models)
-and SMLs (Small Language Models) in executing software engineering tasks, including code translation, code generation, documentation generation, and large context instruction following (LCIF).
+This page presents the results of LLMs engineering benchmark including a leaderboard that compares the effectiveness of Anthropic, Amazon, Google DeepMind, Meta, xAI, OpenAI, and other companies'
+LLMs (Large Language Models)and SMLs (Small Language Models) in executing software engineering tasks, including code translation, code generation, documentation generation, and large context
+instruction following (LCIF).
 
 This leaderboard will be updated regularly to reflect the latest developments in the field of large language models.
 
-You can read [llm-comparison-report.md](llm-comparison-report.md) for a detailed comparison of the models. The report includes all experiment scores, the performance of each model in different
-categories, and the final scores.
-
 > Previous benchmark v1 results were moved to [llm-leaderboard-v1.md](benchmark_v1/llm-leaderboard_v1.md) for reference.
 
-## Experiment Overview
+## Benchmark Key Findings
 
+General insights:
+
+- Gemini 2.5 Flash Preview (05-20) dominates with 95.99% total score, fastest token generation (208.25 tokens/sec), and cost-effective performance ($1.09 total cost)
+- Codex Mini Latest (specialized OpenAI coding model) achieves 93.48% with the highest accuracy (3.993) but shows refusal behaviors in some scenarios, often declining to execute tasks with responses
+  like "I'm sorry I can't answer that" or claiming lack of necessary tools despite having repository access
+- Gemini 2.5 Pro Preview models show interesting performance variation: 05-06 version reaches 92.75% but at higher cost ($3.46), while newer 06-05 version scores lower (91.17%) with reduced token
+  generation, suggesting Google's optimization for cost over raw performance
+- Claude 4 Sonnet leads Anthropic models at 92.19%, notably outperforming its Thinking mode variant (91.32%)
+- Anthropic Claude 4 models has the most recent [knowledge cutoff date](#models-specification) - March 2025
+- OpenAI o3 (high) achieves 92.02% with exceptional speed (128.14 tokens/sec) and short execution time (13.06 min)
+- Grok 3 mini beta demonstrates excellent value at 91.68% score for just $0.13 total cost
+- GPT-4.1 nano shows remarkable speed with the fastest execution time (3.84 min) and 204.22 tokens/sec generation
+- Open-source alternatives show promise: Gemma 3 family (27B leads at 55.87%) and Phi-4 (47.83%) provide self-hosted options
+
+Performance metrics highlights:
+
+- **Fastest token generation**: Gemini 2.5 Flash Preview (05-20) (208.25 tokens/sec), GPT-4.1 nano (204.22 tokens/sec), Grok 3 mini beta (152.47 tokens/sec)
+- **Shortest execution time**: GPT-4.1 nano (3.84 min), Llama 4 Maverick (6.48 min), ChatGPT-4o (6.53 min)
+- **Most tokens generated**: Gemini 2.5 Flash Preview (05-20) (306,543 tokens), Gemini 2.5 Pro Preview (05-06) (334,178 tokens), Grok 3 mini beta (220,054 tokens)
+- **Best cost-effectiveness**: Grok 3 mini beta (91.68% score, $0.13 total), GPT-4.1 nano (72.79% score, $0.02 total), Llama 4 Maverick (72.97% score, $0.05 total)
+
+Best results by category:
+
+- **Code Translation**: Gemini 2.5 Flash Preview (05-20) (95.09%), Claude 4 Sonnet (90.88%), Claude 4 Opus Thinking (89.62%)
+- **Code Generation**: Gemini 2.5 Flash Preview (05-20) (95.05%), Claude 4 Sonnet (92.75%), Claude 4 Opus Thinking (92.56%)
+- **Code Documentation**: Gemini 2.5 Flash Preview (05-20) (93.80%), OpenAI o3 high (91.53%), Codex Mini Latest (91.05%)
+- **LCIF**: 14 models achieved perfect 100% scores including all major providers
+
+## Additional Views
+
+![llm-type.png](/images/llms/llm-type.png)
+![llm-price.png](/images/llms/llm-price.png)
+![llm-tokens.png](/images/llms/llm-tokens.png)
+![llm-cost.png](/images/llms/llm-cost.png)
+![llm-time.png](/images/llms/llm-time.png)
+![llm-speed.png](/images/llms/llm-speed.png)
+
+<details>
+<summary>Details</summary>
+
+### Observations
+
+The benchmark results presented here are based on the latest LLMs engineering benchmark conducted by EPAM AI/RUN. The benchmark evaluates the performance of various LLMs in executing software
 When examining the benchmark results, it's recommended to focus not only on the scores but also on metrics such as token generation speed, experiment execution time, the number of generated tokens,
 and the final cost of the experiment.
 
@@ -46,14 +87,15 @@ Recently, new open-source models have been added to our leaderboard, which are s
 3 1B. These models are particularly noteworthy as they can be self-hosted within organizations seeking privacy, control, and cost optimization. This represents a significant advancement in the
 open-source LLM space.
 
-## Current Leaderboard
+### Detailed Results
 
 All categories, except Large Context Instructions Following (LCIF), are evaluated automatically using the Large Language Model<sup>1</sup>.
-You can read detailed reports on concrete model performance and the areas where each model excels in [llm-detailed-result](llm-detailed-result).
+You can read [llm-comparison-report.md](llm-comparison-report.md) for a detailed comparison of the models. The report includes all experiment scores, the performance of each model in different
+categories, and the final scores.
 
 The table below provides an overview of the experiment, encompassing three categories. Here, you can review the average accuracy and completeness across all categories, total execution time,
-generation token speed (token per second), the total number of input and output tokens (for OpenAI o-series models, output tokens include reasoning tokens), the cost of the experiment, and finally,
-the total score. The total score comprises the average score across all categories **including** LCIF experiment score.
+generation token speed (token per second), the total number of input and output tokens, the cost of the experiment, and finally, the total score. The total score comprises the average score across all
+categories **including** LCIF experiment score.
 
 | Name                             | Reasoning    | Accuracy | Completeness | Total Time (min) | Speed (T/S) | Total input | Total output | Cost $ | Total Score |
 |----------------------------------|--------------|----------|--------------|------------------|-------------|-------------|--------------|--------|-------------|
@@ -95,47 +137,40 @@ _Table 1. Overview of the experiment results._
 > Evaluation and grading of benchmark results were performed automatically with the help of evaluation tools based on the OpenAI o3-mini and Claude Sonnet 3.7 models.
 > Please refer to the page [Automated Evaluation with LLMs](automated-evaluation-with-llms.md) to learn about the evaluation tool.
 
-We have visualized some of the information for your review.
-
-![llm-type.png](/images/llms/llm-type.png)
-![llm-price.png](/images/llms/llm-price.png)
-![llm-tokens.png](/images/llms/llm-tokens.png)
-![llm-cost.png](/images/llms/llm-cost.png)
-![llm-time.png](/images/llms/llm-time.png)
-![llm-speed.png](/images/llms/llm-speed.png)
+</details>
 
 ## Models specification
 
-| LLM Name                                                                                                                                                 | API Provider used in benchmark                                                           | Context Window                       | Cost (Input / Output per MTok)                  | Max Output         | Training Data  |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------------------------------------|-------------------------------------------------|--------------------|----------------|
-| [Gemini 2.5 Flash Preview (05-20)](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-preview)                                                | Google AI Studio                                                                         | 1M                                   | $0.15 / $3.50                                   | 65K                | Jan, 2025      |
-| [Codex Mini Latest (o4-mini)](https://platform.openai.com/docs/models/codex-mini-latest)                                                                 | OpenAI                                                                                   | 200K                                 | $1.50 / $6.00                                   | 100K               | Jun 01, 2024   |
-| [Gemini 2.5 Pro Preview (05-06)](https://blog.google/products/gemini/gemini-2-5-pro-updates/)                                                            | Google AI Studio                                                                         | 1M                                   | $1.25 / $10.00 <= 200k<br>$2.50 / $15.00 > 200k | 65K                | Jan, 2025      |
-| [Gemini 2.5 Pro Preview (06-05)](https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/)                                                     | Google AI Studio                                                                         | 1M                                   | $1.25 / $10.00 <= 200k<br>$2.50 / $15.00 > 200k | 65K                | Jan, 2025      |
-| [Claude 4 Sonnet](https://www.anthropic.com/news/claude-4)                                                                                               | Google Vertex AI                                                                         | 200K                                 | $3.00 / $15.00                                  | 64K                | Mar, 2025      |
-| [OpenAI o3 (04-16)](https://platform.openai.com/docs/models/o3)                                                                                          | OpenAI                                                                                   | 200K                                 | $10.00 / $40.00                                 | 100K               | Jun 01, 2024   |
-| [Grok 3 mini beta](https://docs.x.ai/docs/models)                                                                                                        | xAI Console                                                                              | 131K                                 | $0.30 / $0.50                                   | 131K               | 17th Nov, 2024 |
-| [Claude 4 Opus](https://www.anthropic.com/news/claude-4)                                                                                                 | Google Vertex AI                                                                         | 200K                                 | $15.00 / $75.00                                 | 32K                | Mar, 2025      |
-| [Claude 3.7 Sonnet](https://www.anthropic.com/news/claude-3-7-sonnet)                                                                                    | Google Vertex AI                                                                         | 200K                                 | $3.00 / $15.00                                  | 8K                 | Nov, 2024      |
-| [OpenAI o4-mini (04-16)](https://platform.openai.com/docs/models/o4-mini)                                                                                | OpenAI                                                                                   | 200K                                 | $1.10 / $4.40                                   | 100K               | Jun 01, 2024   |
-| [OpenAI o3-mini (01-31)](https://platform.openai.com/docs/models/o3-mini)                                                                                | OpenAI                                                                                   | 200K                                 | $1.10 / $4.40                                   | 100K               | Up to Oct 2023 |
-| [Claude 3.7 Sonnet (Thinking mode)](https://www.anthropic.com/news/claude-3-7-sonnet)                                                                    | Google Vertex AI                                                                         | 200K                                 | $3.00 / $15.00                                  | 64K (128K in beta) | Nov, 2024      |
-| [GPT-4.1 mini (04-14)](https://platform.openai.com/docs/models/gpt-4.1-mini)                                                                             | OpenAI                                                                                   | 1M                                   | $0.40 / $1.60                                   | 32K                | Jun 01, 2024   |
-| [Grok 3 beta](https://docs.x.ai/docs/models)                                                                                                             | xAI Console                                                                              | 131K                                 | $3.00 / $15.00                                  | 131K               | 17th Nov, 2024 |
-| [GPT-4.1 (04-14)](https://platform.openai.com/docs/models/gpt-4.1)                                                                                       | OpenAI                                                                                   | 1M                                   | $2.00 / $8.00                                   | 32K                | Jun 01, 2024   |
-| [ChatGPT-4o Latest (2025-03-26)](https://platform.openai.com/docs/models/chatgpt-4o-latest)                                                              | OpenAI                                                                                   | 128K                                 | $5.00 / $15.00                                  | 16K                | Up to Oct 2023 |
-| [DeepSeek R1 (05-28)](https://api-docs.deepseek.com/news/news250528)                                                                                     | [Fireworks AI](https://fireworks.ai/models/fireworks/deepseek-r1-0528)                   | 160K                                 | $3.00 / $8.00                                   | 16K                | April, 2024    |
-| [OpenAI o1 (12-17)](https://platform.openai.com/docs/models/o1)                                                                                          | OpenAI                                                                                   | 200K                                 | $15.00 / $60.00                                 | 100K               | Up to Oct 2023 |
-| [DeepSeek V3 (03-24)](https://api-docs.deepseek.com/news/news250325)                                                                                     | [Fireworks AI](https://fireworks.ai/models/fireworks/deepseek-v3-0324)                   | 64K                                  | $1.20 / $1.20                                   | 8K                 | Up to Oct 2023 |
-| [DeepSeek R1](https://fireworks.ai/models/fireworks/deepseek-r1)                                                                                         | [Fireworks AI](https://fireworks.ai/models/fireworks/deepseek-r1)                        | 64K                                  | $3.00 / $8.00                                   | 8K                 | Up to Oct 2023 |
-| [GPT-4.5 Preview](https://openai.com/index/introducing-gpt-4-5/)                                                                                         | OpenAI                                                                                   | 128K                                 | $75.00 / $150.00                                | 16K                | Up to Oct 2023 |
-| [OpenAI o1-Pro](https://platform.openai.com/docs/models/o1-pro)                                                                                          | OpenAI                                                                                   | 200K                                 | $150.00 / $600.00                               | 100K               | Up to Oct 2023 |
-| [Llama 4 Maverick](https://ai.meta.com/blog/llama-4-multimodal-intelligence)                                                                             | [Fireworks AI](https://app.fireworks.ai/models/fireworks/llama4-maverick-instruct-basic) | 1M                                   | $0.05 / $0.22                                   | 131K               | Aug, 2024      |
-| [GPT-4.1 nano](https://openai.com/index/gpt-4-1/)                                                                                                        | OpenAI                                                                                   | 1M                                   | $0.025 / $0.4                                   | 32K                | June, 2024     |
-| [Amazon Nova Premier](https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/) | AWS Bedrock                                                                              | 1M                                   | $2.5 / $12.5                                    | 10K                | N/A            |
-| [Amazon Nova Pro](https://aws.amazon.com/ai/generative-ai/nova/)                                                                                         | AWS Bedrock                                                                              | 300K                                 | $0.80 / $3.20                                   | 10K                | October, 2023  |
-| [Gemma 3 (1B, 4B, 12B, 27B)](https://ai.google.dev/gemma)                                                                                                | Locally hosted                                                                           | 128K max, 32K used during evaluation | $0.00 / $0.00                                   | N/A                | August, 2024   |
-| [Phi 4 14.7B](https://huggingface.co/microsoft/phi-4)                                                                                                    | Locally hosted                                                                           | 16K                                  | $0.00 / $0.00                                   | N/A                | June, 2024     |
+| LLM Name                                                                                                                                                 | API Provider used in benchmark                                                           | Context Window                       | Cost (Input / Output per MTok)                  | Max Output         | Knowledge Cutoff |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------------------------------------|-------------------------------------------------|--------------------|------------------|
+| [Gemini 2.5 Flash Preview (05-20)](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-preview)                                                | Google AI Studio                                                                         | 1M                                   | $0.15 / $3.50                                   | 65K                | Jan, 2025        |
+| [Codex Mini Latest (o4-mini)](https://platform.openai.com/docs/models/codex-mini-latest)                                                                 | OpenAI                                                                                   | 200K                                 | $1.50 / $6.00                                   | 100K               | Jun 01, 2024     |
+| [Gemini 2.5 Pro Preview (05-06)](https://blog.google/products/gemini/gemini-2-5-pro-updates/)                                                            | Google AI Studio                                                                         | 1M                                   | $1.25 / $10.00 <= 200k<br>$2.50 / $15.00 > 200k | 65K                | Jan, 2025        |
+| [Gemini 2.5 Pro Preview (06-05)](https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/)                                                     | Google AI Studio                                                                         | 1M                                   | $1.25 / $10.00 <= 200k<br>$2.50 / $15.00 > 200k | 65K                | Jan, 2025        |
+| [Claude 4 Sonnet](https://www.anthropic.com/news/claude-4)                                                                                               | Google Vertex AI                                                                         | 200K                                 | $3.00 / $15.00                                  | 64K                | Mar, 2025        |
+| [OpenAI o3 (04-16)](https://platform.openai.com/docs/models/o3)                                                                                          | OpenAI                                                                                   | 200K                                 | $10.00 / $40.00                                 | 100K               | Jun 01, 2024     |
+| [Grok 3 mini beta](https://docs.x.ai/docs/models)                                                                                                        | xAI Console                                                                              | 131K                                 | $0.30 / $0.50                                   | 131K               | 17th Nov, 2024   |
+| [Claude 4 Opus](https://www.anthropic.com/news/claude-4)                                                                                                 | Google Vertex AI                                                                         | 200K                                 | $15.00 / $75.00                                 | 32K                | Mar, 2025        |
+| [Claude 3.7 Sonnet](https://www.anthropic.com/news/claude-3-7-sonnet)                                                                                    | Google Vertex AI                                                                         | 200K                                 | $3.00 / $15.00                                  | 8K                 | Nov, 2024        |
+| [OpenAI o4-mini (04-16)](https://platform.openai.com/docs/models/o4-mini)                                                                                | OpenAI                                                                                   | 200K                                 | $1.10 / $4.40                                   | 100K               | Jun 01, 2024     |
+| [OpenAI o3-mini (01-31)](https://platform.openai.com/docs/models/o3-mini)                                                                                | OpenAI                                                                                   | 200K                                 | $1.10 / $4.40                                   | 100K               | Up to Oct 2023   |
+| [Claude 3.7 Sonnet (Thinking mode)](https://www.anthropic.com/news/claude-3-7-sonnet)                                                                    | Google Vertex AI                                                                         | 200K                                 | $3.00 / $15.00                                  | 64K (128K in beta) | Nov, 2024        |
+| [GPT-4.1 mini (04-14)](https://platform.openai.com/docs/models/gpt-4.1-mini)                                                                             | OpenAI                                                                                   | 1M                                   | $0.40 / $1.60                                   | 32K                | Jun 01, 2024     |
+| [Grok 3 beta](https://docs.x.ai/docs/models)                                                                                                             | xAI Console                                                                              | 131K                                 | $3.00 / $15.00                                  | 131K               | 17th Nov, 2024   |
+| [GPT-4.1 (04-14)](https://platform.openai.com/docs/models/gpt-4.1)                                                                                       | OpenAI                                                                                   | 1M                                   | $2.00 / $8.00                                   | 32K                | Jun 01, 2024     |
+| [ChatGPT-4o Latest (2025-03-26)](https://platform.openai.com/docs/models/chatgpt-4o-latest)                                                              | OpenAI                                                                                   | 128K                                 | $5.00 / $15.00                                  | 16K                | Up to Oct 2023   |
+| [DeepSeek R1 (05-28)](https://api-docs.deepseek.com/news/news250528)                                                                                     | [Fireworks AI](https://fireworks.ai/models/fireworks/deepseek-r1-0528)                   | 160K                                 | $3.00 / $8.00                                   | 16K                | April, 2024      |
+| [OpenAI o1 (12-17)](https://platform.openai.com/docs/models/o1)                                                                                          | OpenAI                                                                                   | 200K                                 | $15.00 / $60.00                                 | 100K               | Up to Oct 2023   |
+| [DeepSeek V3 (03-24)](https://api-docs.deepseek.com/news/news250325)                                                                                     | [Fireworks AI](https://fireworks.ai/models/fireworks/deepseek-v3-0324)                   | 64K                                  | $1.20 / $1.20                                   | 8K                 | Up to Oct 2023   |
+| [DeepSeek R1](https://fireworks.ai/models/fireworks/deepseek-r1)                                                                                         | [Fireworks AI](https://fireworks.ai/models/fireworks/deepseek-r1)                        | 64K                                  | $3.00 / $8.00                                   | 8K                 | Up to Oct 2023   |
+| [GPT-4.5 Preview](https://openai.com/index/introducing-gpt-4-5/)                                                                                         | OpenAI                                                                                   | 128K                                 | $75.00 / $150.00                                | 16K                | Up to Oct 2023   |
+| [OpenAI o1-Pro](https://platform.openai.com/docs/models/o1-pro)                                                                                          | OpenAI                                                                                   | 200K                                 | $150.00 / $600.00                               | 100K               | Up to Oct 2023   |
+| [Llama 4 Maverick](https://ai.meta.com/blog/llama-4-multimodal-intelligence)                                                                             | [Fireworks AI](https://app.fireworks.ai/models/fireworks/llama4-maverick-instruct-basic) | 1M                                   | $0.05 / $0.22                                   | 131K               | Aug, 2024        |
+| [GPT-4.1 nano](https://openai.com/index/gpt-4-1/)                                                                                                        | OpenAI                                                                                   | 1M                                   | $0.025 / $0.4                                   | 32K                | June, 2024       |
+| [Amazon Nova Premier](https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/) | AWS Bedrock                                                                              | 1M                                   | $2.5 / $12.5                                    | 10K                | N/A              |
+| [Amazon Nova Pro](https://aws.amazon.com/ai/generative-ai/nova/)                                                                                         | AWS Bedrock                                                                              | 300K                                 | $0.80 / $3.20                                   | 10K                | October, 2023    |
+| [Gemma 3 (1B, 4B, 12B, 27B)](https://ai.google.dev/gemma)                                                                                                | Locally hosted                                                                           | 128K max, 32K used during evaluation | $0.00 / $0.00                                   | N/A                | August, 2024     |
+| [Phi 4 14.7B](https://huggingface.co/microsoft/phi-4)                                                                                                    | Locally hosted                                                                           | 16K                                  | $0.00 / $0.00                                   | N/A                | June, 2024       |
 
 _Table 2. Description of LLMs, their versions, amount of information to process, and the length of the response._
 
