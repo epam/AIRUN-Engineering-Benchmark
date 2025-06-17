@@ -1,4 +1,4 @@
-# LLMs Leaderboard (Benchmark v2, last update 2025-06-12)
+# LLMs Leaderboard (Benchmark v2, last update 2025-06-17)
 
 ![llm-rating.png](/images/llms/llm-rating.png)
 
@@ -24,6 +24,8 @@ General insights:
 - Claude 4 Sonnet leads Anthropic models at 92.19%, notably outperforming its Thinking mode variant (91.32%)
 - Anthropic Claude 4 models has the most recent [knowledge cutoff date](#models-specification) - March 2025
 - OpenAI o3 (high) achieves 92.02% with exceptional speed (128.14 tokens/sec) and short execution time (13.06 min)
+- OpenAI o3-pro (high) shows good capabilities (89.07%) but at significant cost trade-offs: extremely slow generation (13.90 tokens/sec), very long execution time (110.34 min), and high cost ($8.97),
+  making it impractical for coding workflows despite its strong capabilities
 - Grok 3 mini beta demonstrates excellent value at 91.68% score for just $0.13 total cost
 - GPT-4.1 nano shows remarkable speed with the fastest execution time (3.84 min) and 204.22 tokens/sec generation
 - Open-source alternatives show promise: Gemma 3 family (27B leads at 55.87%) and Phi-4 (47.83%) provide self-hosted options
@@ -40,7 +42,7 @@ Best results by category:
 - **Code Translation**: Gemini 2.5 Flash Preview (05-20) (95.09%), Claude 4 Sonnet (90.88%), Claude 4 Opus Thinking (89.62%)
 - **Code Generation**: Gemini 2.5 Flash Preview (05-20) (95.05%), Claude 4 Sonnet (92.75%), Claude 4 Opus Thinking (92.56%)
 - **Code Documentation**: Gemini 2.5 Flash Preview (05-20) (93.80%), OpenAI o3 high (91.53%), Codex Mini Latest (91.05%)
-- **LCIF**: 14 models achieved perfect 100% scores including all major providers
+- **LCIF**: 15 models achieved perfect 100% scores including all major providers
 
 ## Additional Views
 
@@ -112,6 +114,7 @@ categories **including** LCIF experiment score.
 | OpenAI o4-mini (high) (04-16)    | Yes (high)   | 3.889    | 3.579        | 25.84            | 104.17      | 80551       | 161478       | 0.80   | 90.49%      |
 | OpenAI o3-mini (medium) (01-31)  | Yes (medium) | 3.818    | 3.488        | 13.13            | 117.30      | 80551       | 92403        | 0.50   | 89.90%      |
 | Claude 3.7 Sonnet (Thinking)     | Yes          | 3.778    | 3.683        | 42.16            | 79.27       | 100711      | 200502       | 3.31   | 89.85%      |
+| OpenAI o3-pro (high) (06-10)     | Yes (high)   | 3.934    | 3.612        | 110.34           | 13.90       | 80551       | 92049        | 8.97   | 89.07%      |
 | GPT-4.1 mini (04-14)             | No           | 3.929    | 3.572        | 20.86            | 61.08       | 80575       | 76452        | 0.15   | 88.83%      |
 | Grok 3 Beta                      | No           | 3.763    | 3.456        | 13.85            | 81.24       | 80076       | 67531        | 1.25   | 88.61%      |
 | GPT-4.1 (04-14)                  | No           | 3.766    | 3.514        | 24.40            | 48.17       | 80575       | 70541        | 0.73   | 88.10%      |

@@ -28,6 +28,7 @@ For detailed information about our approach and evaluation methodology, please r
 | OpenAI o4-mini (high) (04-16)    | OpenAi_o4_mini_0416       | 2025-04-16     | v2        | 85.59%           | 87.54%          | 88.83%        | 100.00% | 90.49%      |
 | OpenAI o3-mini (medium) (01-31)  | OpenAi_o3_mini_0131       | 2025-03-20     | v2        | 86.79%           | 87.01%          | 85.80%        | 100.00% | 89.90%      |
 | Claude 3.7 Sonnet (Thinking)     | Claude_Sonnet_37_Thinking | 2025-03-20     | v2        | 86.92%           | 90.78%          | 81.69%        | 100.00% | 89.85%      |
+| OpenAI o3-pro (high) (06-10)     | OpenAi_o3_pro_0610        | 2025-06-16     | v2        | 85.84%           | 85.40%          | 85.04%        | 100.00% | 89.07%      |
 | GPT-4.1 mini (04-14)             | GPT41mini_0414            | 2025-04-15     | v2        | 89.53%           | 91.16%          | 80.90%        | 93.75%  | 88.83%      |
 | Grok 3 Beta                      | Grok3_beta                | 2025-04-11     | v2        | 87.85%           | 86.08%          | 80.49%        | 100.00% | 88.61%      |
 | GPT-4.1 (04-14)                  | GPT41_0414                | 2025-04-15     | v2        | 85.66%           | 88.57%          | 78.19%        | 100.00% | 88.10%      |
@@ -69,6 +70,7 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | Claude_Sonnet_4_Thinking  | 3.804        | 3.691            | 77.92    | 7311.00   | 93.83             | 0.8726  |
 | Claude_Sonnet_37_Thinking | 3.657        | 3.857            | 145.33   | 12453.29  | 85.69             | 0.8692  |
 | OpenAi_o3_mini_0131       | 3.674        | 3.687            | 47.52    | 5598.00   | 117.80            | 0.8679  |
+| OpenAi_o3_pro_0610        | 3.930        | 3.651            | 318.91   | 4996.14   | 15.67             | 0.8584  |
 | GPT41_0414                | 3.780        | 3.666            | 80.39    | 4010.86   | 49.89             | 0.8566  |
 | OpenAi_o4_mini_0416       | 3.853        | 3.510            | 104.89   | 9954.29   | 94.90             | 0.8559  |
 | ChatGPT4o                 | 3.449        | 3.480            | 19.00    | 2738.00   | 144.11            | 0.8442  |
@@ -110,6 +112,7 @@ _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 | OpenAi_o4_mini_0416       | 3.874        | 3.633            | 62.88    | 7136.38   | 113.49            | 0.8754  |
 | OpenAi_o3_mini_0131       | 3.938        | 3.438            | 28.29    | 3471.13   | 122.70            | 0.8701  |
 | Grok3_beta                | 3.861        | 3.520            | 30.55    | 2493.00   | 81.61             | 0.8608  |
+| OpenAi_o3_pro_0610        | 3.985        | 3.568            | 291.89   | 4044.00   | 13.85             | 0.8540  |
 | GPT41nano_0414            | 3.806        | 2.883            | 7.67     | 1752.13   | 228.59            | 0.8525  |
 | ChatGPT4o                 | 3.813        | 3.076            | 15.01    | 1850.50   | 123.33            | 0.8275  |
 | DeepSeekV3_0324           | 3.883        | 3.249            | 63.38    | 2316.63   | 36.55             | 0.8163  |
@@ -129,39 +132,40 @@ _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 
 ### Code Documentation
 
-| Model                     | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score  |
-|---------------------------|--------------|------------------|----------|-----------|-------------------|--------|
-| Gemini_25_Flash_0520      | 3.920        | 3.896            | 53.74    | 10235.89  | 190.48            | 0.9380 |
-| OpenAi_o3_0416            | 3.997        | 3.738            | 28.42    | 3088.44   | 108.65            | 0.9153 |
-| Codex_Mini_Latest         | 3.982        | 3.623            | 27.95    | 4037.11   | 144.46            | 0.9105 |
-| Gemini_25_Pro_0506        | 3.988        | 3.693            | 96.79    | 8700.89   | 89.90             | 0.8926 |
-| Grok3mini_beta            | 3.891        | 3.512            | 31.73    | 5312.89   | 167.45            | 0.8917 |
-| OpenAi_o4_mini_0416       | 3.931        | 3.586            | 34.76    | 3856.33   | 110.93            | 0.8883 |
-| Gemini_25_Pro_0605        | 3.929        | 3.489            | 68.36    | 5983.67   | 87.53             | 0.8644 |
-| Claude_Sonnet_4_Thinking  | 3.919        | 3.506            | 44.74    | 2940.56   | 65.72             | 0.8631 |
-| Claude_Sonnet_37          | 3.788        | 3.629            | 47.84    | 3062.89   | 64.03             | 0.8611 |
-| OpenAi_o3_mini_0131       | 3.824        | 3.378            | 25.42    | 2827.56   | 111.21            | 0.8580 |
-| Claude_Sonnet_4           | 3.873        | 3.394            | 32.49    | 2363.22   | 72.74             | 0.8513 |
-| ChatGPT4o                 | 3.653        | 3.332            | 15.40    | 1615.11   | 104.86            | 0.8441 |
-| Claude_Opus_4_Thinking    | 3.572        | 3.458            | 44.15    | 2832.22   | 64.15             | 0.8184 |
-| Claude_Sonnet_37_Thinking | 3.724        | 3.320            | 56.33    | 3432.78   | 60.94             | 0.8169 |
-| DeepSeekR1_0528           | 3.693        | 3.279            | 51.27    | 4393.11   | 85.69             | 0.8161 |
-| GPT41mini_0414            | 3.810        | 3.143            | 40.93    | 2371.33   | 57.94             | 0.8090 |
-| Grok3_beta                | 3.626        | 3.236            | 32.77    | 2325.89   | 70.98             | 0.8049 |
-| DeepSeekV3_0324           | 3.483        | 3.424            | 38.76    | 1295.00   | 33.41             | 0.7981 |
-| GPT41_0414                | 3.547        | 3.226            | 52.29    | 2180.67   | 41.71             | 0.7819 |
-| DeepSeekR1                | 3.420        | 3.036            | 25.56    | 1817.11   | 71.09             | 0.7634 |
-| GPT41nano_0414            | 3.301        | 2.572            | 9.45     | 1641.44   | 173.70            | 0.7563 |
-| OpenAi_o1_1217            | 3.473        | 3.027            | 56.48    | 2921.22   | 51.73             | 0.7532 |
-| GPT45_0227                | 3.461        | 3.139            | 183.29   | 1554.89   | 8.48              | 0.7473 |
-| Gemma_3_12B               | 3.436        | 3.113            | 92.50    | 1903.67   | 20.58             | 0.7473 |
-| Phi_4                     | 3.292        | 2.483            | 14.98    | 1195.11   | 79.78             | 0.7022 |
-| AmazonNovaPremier         | 3.198        | 2.589            | 20.33    | 925.22    | 45.51             | 0.6862 |
-| Llama_4_Maverick          | 2.897        | 2.486            | 13.09    | 1302.11   | 99.47             | 0.6677 |
-| AmazonNovaPro             | 3.101        | 2.273            | 15.37    | 1278.56   | 83.21             | 0.6572 |
-| Gemma_3_27B               | 2.942        | 2.194            | 46.78    | 1603.00   | 34.26             | 0.5970 |
-| Gemma_3_4B                | 2.734        | 2.301            | 47.13    | 1302.33   | 27.63             | 0.5837 |
-| Gemma_3_1B                | 1.177        | 1.658            | 21.09    | 1791.00   | 84.91             | 0.3636 |
+| Model                     | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
+|---------------------------|--------------|------------------|----------|-----------|-------------------|---------|
+| Gemini_25_Flash_0520      | 3.920        | 3.896            | 53.74    | 10235.89  | 190.48            | 0.9380  |
+| OpenAi_o3_0416            | 3.997        | 3.738            | 28.42    | 3088.44   | 108.65            | 0.9153  |
+| Codex_Mini_Latest         | 3.982        | 3.623            | 27.95    | 4037.11   | 144.46            | 0.9105  |
+| Gemini_25_Pro_0506        | 3.988        | 3.693            | 96.79    | 8700.89   | 89.90             | 0.8926  |
+| Grok3mini_beta            | 3.891        | 3.512            | 31.73    | 5312.89   | 167.45            | 0.8917  |
+| OpenAi_o4_mini_0416       | 3.931        | 3.586            | 34.76    | 3856.33   | 110.93            | 0.8883  |
+| Gemini_25_Pro_0605        | 3.929        | 3.489            | 68.36    | 5983.67   | 87.53             | 0.8644  |
+| Claude_Sonnet_4_Thinking  | 3.919        | 3.506            | 44.74    | 2940.56   | 65.72             | 0.8631  |
+| Claude_Sonnet_37          | 3.788        | 3.629            | 47.84    | 3062.89   | 64.03             | 0.8611  |
+| OpenAi_o3_mini_0131       | 3.824        | 3.378            | 25.42    | 2827.56   | 111.21            | 0.8580  |
+| Claude_Sonnet_4           | 3.873        | 3.394            | 32.49    | 2363.22   | 72.74             | 0.8513  |
+| OpenAi_o3_pro_0610        | 3.891        | 3.621            | 228.07   | 2747.11   | 12.04             | 0.8504  |
+| ChatGPT4o                 | 3.653        | 3.332            | 15.40    | 1615.11   | 104.86            | 0.8441  |
+| Claude_Opus_4_Thinking    | 3.572        | 3.458            | 44.15    | 2832.22   | 64.15             | 0.8184  |
+| Claude_Sonnet_37_Thinking | 3.724        | 3.320            | 56.33    | 3432.78   | 60.94             | 0.8169  |
+| DeepSeekR1_0528           | 3.693        | 3.279            | 51.27    | 4393.11   | 85.69             | 0.8161  |
+| GPT41mini_0414            | 3.810        | 3.143            | 40.93    | 2371.33   | 57.94             | 0.8090  |
+| Grok3_beta                | 3.626        | 3.236            | 32.77    | 2325.89   | 70.98             | 0.8049  |
+| DeepSeekV3_0324           | 3.483        | 3.424            | 38.76    | 1295.00   | 33.41             | 0.7981  |
+| GPT41_0414                | 3.547        | 3.226            | 52.29    | 2180.67   | 41.71             | 0.7819  |
+| DeepSeekR1                | 3.420        | 3.036            | 25.56    | 1817.11   | 71.09             | 0.7634  |
+| GPT41nano_0414            | 3.301        | 2.572            | 9.45     | 1641.44   | 173.70            | 0.7563  |
+| OpenAi_o1_1217            | 3.473        | 3.027            | 56.48    | 2921.22   | 51.73             | 0.7532  |
+| GPT45_0227                | 3.461        | 3.139            | 183.29   | 1554.89   | 8.48              | 0.7473  |
+| Gemma_3_12B               | 3.436        | 3.113            | 92.50    | 1903.67   | 20.58             | 0.7473  |
+| Phi_4                     | 3.292        | 2.483            | 14.98    | 1195.11   | 79.78             | 0.7022  |
+| AmazonNovaPremier         | 3.198        | 2.589            | 20.33    | 925.22    | 45.51             | 0.6862  |
+| Llama_4_Maverick          | 2.897        | 2.486            | 13.09    | 1302.11   | 99.47             | 0.6677  |
+| AmazonNovaPro             | 3.101        | 2.273            | 15.37    | 1278.56   | 83.21             | 0.6572  |
+| Gemma_3_27B               | 2.942        | 2.194            | 46.78    | 1603.00   | 34.26             | 0.5970  |
+| Gemma_3_4B                | 2.734        | 2.301            | 47.13    | 1302.33   | 27.63             | 0.5837  |
+| Gemma_3_1B                | 1.177        | 1.658            | 21.09    | 1791.00   | 84.91             | 0.3636  |
 
 _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 
@@ -176,6 +180,7 @@ _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 | Claude_Sonnet_4           | 4            | 4                | 1       |
 | Claude_Sonnet_4_Thinking  | 4            | 4                | 1       |
 | Claude_Opus_4_Thinking    | 4            | 4                | 1       |
+| OpenAi_o3_pro_0610        | 4            | 4                | 1       |
 | OpenAi_o3_0416            | 4            | 4                | 1       |
 | Claude_Sonnet_37          | 4            | 4                | 1       |
 | OpenAi_o4_mini_0416       | 4            | 4                | 1       |
@@ -219,6 +224,8 @@ The benchmark results reveal significant insights about current LLM capabilities
 - **Category leaders**: Gemini 2.5 Flash Preview (05-20) dominates code translation (95.09%), generation (95.05%), and documentation (93.80%)
 - **Cost-effectiveness winners**: Grok 3 mini beta (91.68% for $0.13), GPT-4.1 nano ($0.02)
 - **Perfect LCIF scores**: 14 models achieve 100% in large context instruction following, showing maturity in handling complex tasks
+- **Speed vs capability trade-offs**: OpenAI o3-pro (89.07%) demonstrates strong capabilities but at impractical speeds (13.90 tokens/sec, 110.34 min execution) and high cost ($8.97), similar to
+  GPT-4.5's performance profile, making it unsuitable for interactive coding workflows despite its technical merits
 - **Open-source landscape**: Microsoft's Phi-4 (47.83%) shows competitive mid-range performance, while Google's Gemma 3 family offers scalable options from 1B (21.24%) to 27B (55.87%) parameters.
   However, all open-source models struggle with LCIF tasks, indicating limitations in complex instruction following
 
