@@ -1,4 +1,4 @@
-# GitHub Copilot (Gemini 2.5 Pro Preview) Code Assistant Sandbox Tests - June 2025
+# GitHub Copilot (Gemini 2.5 Pro Preview) AI Code Assistant Sandbox Tests - June 2025
 
 ## Table of Contents
 
