@@ -9,7 +9,6 @@
 - [Code Completion Tests](#code-completion-tests)
 - [Configuration](#configuration)
 - [UX Summary](#ux-summary)
-- [Links](#links)
 
 ## Summary
 
@@ -75,10 +74,5 @@ Overall, the pass rate decreased from **82.99%** to **65.81%** compared to the r
 ## UX Summary
 
 - Gemini Code Assist code completion is noticeably slower than Copilot, Amazon Q, and Cursor.
-
-## Links
-
-- [Gemini AI Code Assistant Sandbox Tests - April 2025](gemini-sandbox-tests-april-2025.md)
-- [AI Code Assistants Leaderboard as of April 2025](../../../code-assistants-2025.md)
 
 <p style="text-align: center;">    © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>

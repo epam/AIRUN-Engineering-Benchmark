@@ -17,8 +17,4 @@ Out of a total of 22 chat-based Java tests executed in VS Code, the pass rate wa
 - **Gemini Code Assist version:** 2.37.0
 - **IDE:** VS Code
 
-## Links
-
-- [Gemini AI Code Assistant Golf App Tests - April 2025](gemini-golf-app-tests-april-2025.md)
-
 <p style="text-align: center;">    © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>

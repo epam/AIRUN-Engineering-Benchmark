@@ -8,7 +8,6 @@
 - [Code Completion Tests](#code-completion-tests)
 - [Configuration](#configuration)
 - [UX Summary](#ux-summary)
-- [Links](#links)
 
 ## Summary
 
@@ -76,10 +75,5 @@ As a result of the higher percentage of failed code completion tests, the overal
 ## UX Summary
 
 Code completion is slower compared to Copilot—at least twice as slow. In some tests, no suggestions were generated at all.
-
-## Links
-
-- [Amazon Q AI Code Assistant Sandbox Tests - April 2025](amazon-q-sandbox-tests-april-2025.md)
-- [AI Code Assistants Leaderboard as of April 2025](../../../code-assistants-2025.md)
 
 <p style="text-align: center;">    © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
