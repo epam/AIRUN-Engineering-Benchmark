@@ -22,6 +22,7 @@ For detailed information about our approach and evaluation methodology, please r
 | OpenAI o3 (high) (04-16)         | OpenAi_o3_0416            | 2025-04-16     | v2        | 88.91%           | 87.63%          | 91.53%        | 100.00% | 92.02%      |
 | Grok 3 mini beta (high)          | Grok3mini_beta            | 2025-04-13     | v2        | 88.90%           | 91.79%          | 89.17%        | 96.88%  | 91.68%      |
 | Claude 4 Sonnet (Thinking)       | Claude_Sonnet_4_Thinking  | 2025-05-23     | v2        | 87.26%           | 91.72%          | 86.31%        | 100.00% | 91.32%      |
+| Grok 4 (07-09)                   | Grok4_0709                | 2025-07-11     | v2        | 88.27%           | 88.55%          | 88.15%        | 100.00% | 91.24%      |
 | Gemini 2.5 Pro Preview (06-05)   | Gemini_25_Pro_0605        | 2025-06-09     | v2        | 90.06%           | 88.20%          | 86.44%        | 100.00% | 91.17%      |
 | Claude 4 Opus (Thinking)         | Claude_Opus_4_Thinking    | 2025-05-26     | v2        | 89.62%           | 92.56%          | 81.84%        | 100.00% | 91.01%      |    
 | Claude 3.7 Sonnet                | Claude_Sonnet_37          | 2025-03-20     | v2        | 87.90%           | 89.56%          | 86.11%        | 100.00% | 90.89%      |
@@ -65,6 +66,7 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | GPT41mini_0414            | 4.000        | 3.780            | 79.04    | 4289.14   | 54.27             | 0.8953  |
 | OpenAi_o3_0416            | 3.850        | 3.587            | 34.39    | 5222.71   | 151.85            | 0.8891  |
 | Grok3mini_beta            | 3.767        | 3.769            | 94.12    | 14279.71  | 151.72            | 0.8890  |
+| Grok4_0709                | 3.736        | 4.000            | 210.23   | 8793.29   | 41.83             | 0.8827  |
 | Claude_Sonnet_37          | 3.781        | 3.786            | 73.37    | 6240.14   | 85.05             | 0.8790  |
 | Grok3_beta                | 3.829        | 3.666            | 41.70    | 3807.71   | 91.30             | 0.8785  |
 | Claude_Sonnet_4_Thinking  | 3.804        | 3.691            | 77.92    | 7311.00   | 93.83             | 0.8726  |
@@ -106,6 +108,7 @@ _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 | Claude_Sonnet_37          | 3.886        | 3.873            | 66.44    | 5169.75   | 77.81             | 0.8956  |
 | Codex_Mini_Latest         | 4.000        | 3.564            | 35.93    | 5345.88   | 148.77            | 0.8941  |
 | GPT41_0414                | 4.000        | 3.706            | 53.87    | 2854.88   | 53.00             | 0.8857  |
+| Grok4_0709                | 4.000        | 3.760            | 100.87   | 4025.00   | 39.90             | 0.8855  |
 | Gemini_25_Pro_0605        | 3.880        | 3.723            | 72.91    | 7154.38   | 98.12             | 0.8820  |
 | DeepSeekR1_0528           | 4.000        | 3.433            | 26.29    | 3114.50   | 118.47            | 0.8766  |
 | OpenAi_o3_0416            | 4.000        | 3.450            | 35.84    | 4502.13   | 125.61            | 0.8763  |
@@ -140,6 +143,7 @@ _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 | Gemini_25_Pro_0506        | 3.988        | 3.693            | 96.79    | 8700.89   | 89.90             | 0.8926  |
 | Grok3mini_beta            | 3.891        | 3.512            | 31.73    | 5312.89   | 167.45            | 0.8917  |
 | OpenAi_o4_mini_0416       | 3.931        | 3.586            | 34.76    | 3856.33   | 110.93            | 0.8883  |
+| Grok4_0709                | 3.987        | 3.682            | 68.95    | 3121.89   | 45.28             | 0.8815  |
 | Gemini_25_Pro_0605        | 3.929        | 3.489            | 68.36    | 5983.67   | 87.53             | 0.8644  |
 | Claude_Sonnet_4_Thinking  | 3.919        | 3.506            | 44.74    | 2940.56   | 65.72             | 0.8631  |
 | Claude_Sonnet_37          | 3.788        | 3.629            | 47.84    | 3062.89   | 64.03             | 0.8611  |
@@ -186,6 +190,7 @@ _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 | OpenAi_o4_mini_0416       | 4            | 4                | 1       |
 | Claude_Sonnet_37_Thinking | 4            | 4                | 1       |
 | GPT41_0414                | 4            | 4                | 1       |
+| Grok4_0709                | 4            | 4                | 1       |
 | Grok3_beta                | 4            | 4                | 1       |
 | OpenAi_o3_mini_0131       | 4            | 4                | 1       |
 | OpenAi_o1_1217            | 4            | 3.75             | 0.96875 |
@@ -217,6 +222,7 @@ The benchmark results reveal significant insights about current LLM capabilities
 - **Google dominates** with Gemini 2.5 Flash Preview (05-20) (95.99%) leading in all categories while maintaining excellent speed (208.25 tokens/sec) and cost-effectiveness ($1.09 total)
 - **Specialized coding models excel**: Codex Mini Latest (93.48%) shows highest accuracy but has refusal behaviors; newer Gemini 2.5 Pro versions show performance regression
 - **Claude 4 Sonnet outperforms Thinking mode** (92.19% vs 91.32%), suggesting reasoning mode doesn't always improve coding tasks
+- **xAI's Grok 4 shows balanced mid-tier performance** (91.24%) with consistent capabilities across all categories but slower generation speed (42.03 tokens/sec) limits interactive development use
 - **Speed champions**: GPT-4.1 nano achieves fastest execution (3.84 min), while ChatGPT-4o offers the best efficiency balance
 
 **Key Performance Insights:**
