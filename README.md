@@ -65,20 +65,13 @@ the following page  [Code Assistants](pages/sandbox-test/code-assistants-benchma
 For more detailed information about our benchmark methodology, please refer to
 the following page [LLMs](pages/llms/llm-approach.md).
 
-## 🛠 Technologies
-
-- VS Code: Primary IDE for AI Assistants testing
-- Python/Langchain: Script automation for executing LLMs Benchmark tests and processing results
-- The evaluation of results is performed using a Large Language Model (LLM). The GPT-4o model was used to evaluate all results for the current benchmark version.
-- Grading can be done with any model that supports log probabilities, and GPT-4o was utilised for this task.
-
 ## 🗂 Repositories Structure
 
 ### LLM Benchmarking
 
 - [AIRUN LLM Benchmark](https://github.com/epam/AIRUN-LLM-Benchmark): This repository contains scenarios with instructions for LLMs on how to execute different software engineering tasks, evaluation criteria, and utility scripts for automated benchmark execution and evaluation.
 
-- [AIRUN LLM Benchmark Results](https://github.com/epam/AIRUN-LLM-Benchmark-Results): This repository holds all LLM benchmark run results and reports of LLM evaluations.
+- AIRUN LLM Benchmark Results: This repository holds all LLM benchmark run results, criteria for evaluation and reports of LLM evaluations. If you want to see the results of the benchmark, please refer to our team [email address](mailto:SpecialEPM-AIRDAIRUNEngineering@epam.com) 
 
 ### LLM Evaluation Framework
 

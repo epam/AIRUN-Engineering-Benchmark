@@ -257,7 +257,6 @@ In conclusion, while the o1 series introduces innovative approaches to AI reason
 ### Useful links
 
 Our benchmark approach and evaluation - [LLMs Benchmark Approach](../llm-approach.md)  
-Our benchmark results - [AIRUN LLM Benchmark Results](https://github.com/epam/AIRUN-LLM-Benchmark-Results)
 
 <p style="text-align: center;">
     © 2024 EPAM Systems, Inc. All Rights Reserved.<br/>
