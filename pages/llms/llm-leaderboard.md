@@ -1,4 +1,4 @@
-# LLMs Leaderboard (Benchmark v2, last update 2025-08-12)
+# LLMs Leaderboard (Benchmark v2, last update 2025-08-22)
 
 ![llm-rating.png](/images/llms/llm-rating.png)
 
@@ -40,6 +40,8 @@ General insights:
   achieving 95.81% score at ultra-low cost ($0.09)
 - Grok 3 mini beta demonstrates excellent value at 95.35% score for just $0.13 total cost
 - GPT-4.1 nano shows remarkable speed with the fastest execution time (3.84 min) and 204.22 tokens/sec generation, though scoring 71.37%
+- gpt-oss-20b achieves a remarkable 88.35% score as the first open-source model under 30B parameters to exceed 85%, demonstrating that smaller models can deliver competitive performance for local
+  deployment
 - Small open-source alternatives show promise: Gemma 3 family (27B leads at 58.99%) and Phi-4 (49.08%) provide self-hosted options
 
 Performance metrics highlights:
@@ -107,6 +109,11 @@ A remarkable breakthrough came with gpt-oss-120b, the new open-source OpenAI mod
 times faster than typical model speeds. This model completed ALL benchmark tasks in just 1.5 minutes, while other models typically take 20-30 minutes. Moreover, this is the first open-source model to
 achieve a score above 95% (95.81%).
 
+Another significant milestone is the addition of gpt-oss-20b, marking a breakthrough in small open-source model performance. Scoring 88.35%, this is the first open-source model under 30B parameters to
+exceed the 85% threshold. The model was benchmarked locally on a MacBook Pro with M4 Pro processor, achieving an average generation speed of 21.95 tokens/second during the benchmark (with peak speeds
+of 55 tokens/second for shorter queries). This demonstrates remarkable accessibility for local deployment, offering organizations a high-performing solution that can run entirely within their
+infrastructure for enhanced privacy and control.
+
 Recently, new open-source models have been added to our leaderboard, which are self-hosted and can be used in production. These models include Gemma 3 27B, Gemma 3 12B Q4, Phi 4, Gemma 3 4B, and Gemma
 3 1B. These models are particularly noteworthy as they can be self-hosted within organizations seeking privacy, control, and cost optimization. This represents a significant advancement in the
 open-source LLM space.
@@ -123,7 +130,7 @@ categories **including** LCIF experiment score.
 
 | Name                             | Reasoning    | Accuracy | Completeness | Total Time (min) | Speed (T/S) | Total input | Total output | Cost $ | Total Score |
 |----------------------------------|--------------|----------|--------------|------------------|-------------|-------------|--------------|--------|-------------|
-| GPT-5 (08-07)                    | Yes (low)    | 4.000    | 3.938        | 50.78            | 41.28       | 80575       | 125778       | 1.36   | 99.46%      |
+| GPT-5 (08-07)                    | Yes (Low)    | 4.000    | 3.938        | 50.78            | 41.28       | 80575       | 125778       | 1.36   | 99.46%      |
 | Gemini 2.5 Flash Preview (05-20) | Yes          | 3.957    | 3.945        | 24.53            | 208.25      | 92766       | 306543       | 1.09   | 99.13%      |
 | Gemini 2.5 Pro Preview (05-06)   | Yes          | 3.941    | 3.851        | 58.05            | 95.95       | 92745       | 334178       | 3.46   | 98.10%      |
 | Grok 4 (07-09)                   | Yes          | 3.918    | 3.801        | 48.32            | 42.03       | 80121       | 121850       | 2.07   | 97.39%      |
@@ -147,6 +154,7 @@ categories **including** LCIF experiment score.
 | OpenAI o1 (medium) (12-17)       | Yes (medium) | 3.706    | 3.187        | 27.09            | 54.32       | 80551       | 88289        | 6.51   | 89.13%      |
 | DeepSeek V3 (03-24)              | No           | 3.619    | 3.440        | 28.65            | 35.38       | 82977       | 60811        | 0.17   | 88.94%      |
 | ChatGPT-4o                       | No           | 3.647    | 3.290        | 6.53             | 123.85      | 80575       | 48506        | 1.13   | 88.45%      |
+| gpt-oss-20b                      | Yes (low)    | 3.919    | 3.357        | 52.46            | 21.95       | 82111       | 69085        | 0.00   | 88.35%      |
 | DeepSeek R1 (05-28)              | Yes          | 3.633    | 3.349        | 19.91            | 110.39      | 82977       | 131840       | 0.64   | 87.92%      |
 | GPT-4.5 preview                  | No           | 3.613    | 2.873        | 73.49            | 8.59        | 80575       | 37894        | 11.73  | 83.16%      |
 | DeepSeek R1                      | Yes          | 3.473    | 3.041        | 21.32            | 68.63       | 82977       | 87785        | 0.95   | 80.55%      |
@@ -193,6 +201,7 @@ _Table 1. Overview of the experiment results._
 | [Grok 3 beta](https://docs.x.ai/docs/models/grok-3)                                                                                                      | xAI Console                                                                              | 131K                                 | $3.00 / $15.00                                   | 131K               | 17th Nov, 2024   |
 | [GPT-4.1 (04-14)](https://platform.openai.com/docs/models/gpt-4.1)                                                                                       | OpenAI                                                                                   | 1M                                   | $2.00 / $8.00                                    | 32K                | Jun 01, 2024     |
 | [ChatGPT-4o Latest (2025-03-26)](https://platform.openai.com/docs/models/chatgpt-4o-latest)                                                              | OpenAI                                                                                   | 128K                                 | $5.00 / $15.00                                   | 16K                | Up to Oct 2023   |
+| [gpt-oss-20b](https://platform.openai.com/docs/models/gpt-oss-20b)                                                                                       | Locally hosted (MBP Pro on M4 Pro)                                                       | 128K                                 | $0.00 / $0.00                                    | 131K               | Jun 01, 2024     |
 | [DeepSeek R1 (05-28)](https://api-docs.deepseek.com/news/news250528)                                                                                     | [Fireworks AI](https://fireworks.ai/models/fireworks/deepseek-r1-0528)                   | 160K                                 | $3.00 / $8.00                                    | 16K                | April, 2024      |
 | [OpenAI o1 (12-17)](https://platform.openai.com/docs/models/o1)                                                                                          | OpenAI                                                                                   | 200K                                 | $15.00 / $60.00                                  | 100K               | Up to Oct 2023   |
 | [DeepSeek V3 (03-24)](https://api-docs.deepseek.com/news/news250325)                                                                                     | [Fireworks AI](https://fireworks.ai/models/fireworks/deepseek-v3-0324)                   | 64K                                  | $1.20 / $1.20                                    | 8K                 | Up to Oct 2023   |

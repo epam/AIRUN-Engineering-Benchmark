@@ -38,6 +38,7 @@ For detailed information about our approach and evaluation methodology, please r
 | Grok 3 Beta                      | Grok3_beta                | 2025-04-11     | v2        | 93.68%           | 92.27%          | 85.76%        | 100.00% | 92.93%      |
 | OpenAI o1 (medium) (12-17)       | OpenAi_o1_1217            | 2025-03-20     | v2        | 90.36%           | 88.03%          | 81.25%        | 96.88%  | 89.13%      |
 | DeepSeek V3 (03-24)              | DeepSeekV3_0324           | 2025-03-27     | v2        | 89.64%           | 89.14%          | 86.35%        | 90.63%  | 88.94%      |
+| gpt-oss-20b                      | GPT_OSS_20B               | 2025-08-21     | v2        | 86.71%           | 93.31%          | 92.14%        | 81.25%  | 88.35%      |
 | ChatGPT-4o                       | ChatGPT4o                 | 2025-03-20     | v2        | 86.61%           | 86.11%          | 87.32%        | 93.75%  | 88.45%      |
 | DeepSeek R1 (05-28)              | DeepSeekR1_0528           | 2025-05-30     | v2        | 81.00%           | 92.91%          | 87.15%        | 90.63%  | 87.92%      |
 | GPT-4.5 preview                  | GPT45_0227                | 2025-03-20     | v2        | 73.25%           | 86.28%          | 82.50%        | 90.63%  | 83.16%      |
@@ -83,6 +84,7 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | OpenAi_o3_mini_0131       | 3.674        | 3.687            | 47.52    | 5598.00   | 117.80            | 0.9202  |
 | OpenAi_o1_1217            | 3.670        | 3.559            | 89.62    | 5107.86   | 56.99             | 0.9036  |
 | DeepSeekV3_0324           | 3.491        | 3.680            | 123.30   | 4374.71   | 35.48             | 0.8964  |
+| GPT_OSS_20B               | 3.891        | 3.046            | 165.05   | 3838.14   | 23.25             | 0.8671  |
 | ChatGPT4o                 | 3.449        | 3.480            | 19.00    | 2738.00   | 144.11            | 0.8661  |
 | GPT41nano_0414            | 3.347        | 3.179            | 12.00    | 2607.57   | 217.32            | 0.8157  |
 | DeepSeekR1_0528           | 3.137        | 3.343            | 74.66    | 9626.57   | 128.94            | 0.8100  |
@@ -121,6 +123,7 @@ _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 | Codex_Mini_Latest         | 4.000        | 3.564            | 35.93    | 5345.88   | 148.77            | 0.9455  |
 | OpenAi_o3_pro_0610        | 3.985        | 3.568            | 291.89   | 4044.00   | 13.85             | 0.9441  |
 | OpenAi_o4_mini_0416       | 3.874        | 3.633            | 62.88    | 7136.38   | 113.49            | 0.9383  |
+| GPT_OSS_20B               | 4.000        | 3.465            | 142.89   | 2735.00   | 19.14             | 0.9331  |
 | OpenAi_o3_0416            | 4.000        | 3.450            | 35.84    | 4502.13   | 125.61            | 0.9313  |
 | DeepSeekR1_0528           | 4.000        | 3.433            | 26.29    | 3114.50   | 118.47            | 0.9291  |
 | Grok3_beta                | 3.861        | 3.520            | 30.55    | 2493.00   | 81.61             | 0.9227  |
@@ -160,6 +163,7 @@ _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 | Gemini_25_Pro_0605        | 3.929        | 3.489            | 68.36    | 5983.67   | 87.53             | 0.9272  |
 | Claude_Sonnet_37          | 3.788        | 3.629            | 47.84    | 3062.89   | 64.03             | 0.9271  |
 | Grok3mini_beta            | 3.891        | 3.512            | 31.73    | 5312.89   | 167.45            | 0.9254  |
+| GPT_OSS_20B               | 3.869        | 3.502            | 94.35    | 2259.78   | 23.95             | 0.9214  |
 | Claude_Sonnet_4           | 3.873        | 3.394            | 32.49    | 2363.22   | 72.74             | 0.9085  |
 | OpenAi_o3_mini_0131       | 3.824        | 3.378            | 25.42    | 2827.56   | 111.21            | 0.9003  |
 | Claude_Sonnet_37_Thinking | 3.724        | 3.320            | 56.33    | 3432.78   | 60.94             | 0.8806  |
@@ -216,6 +220,7 @@ _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 | GPT45_0227                | 3.5          | 3.75             | 0.90625 |
 | DeepSeekV3_0324           | 3.5          | 3.75             | 0.90625 |
 | Llama_4_Maverick          | 3.5          | 3.25             | 0.84375 |
+| GPT_OSS_20B               | 3.5          | 3.0              | 0.8125  |
 | DeepSeekR1                | 3.5          | 2.75             | 0.78125 |
 | AmazonNovaPremier         | 2.5          | 2.75             | 0.65625 |
 | AmazonNovaPro             | 2.25         | 2.25             | 0.5625  |
@@ -248,8 +253,10 @@ The benchmark results reveal significant insights about current LLM capabilities
 - **Perfect LCIF scores**: 14 models achieve 100% in large context instruction following, showing maturity in handling complex tasks
 - **Speed vs capability trade-offs**: OpenAI o3-pro (89.07%) demonstrates strong capabilities but at impractical speeds (13.90 tokens/sec, 110.34 min execution) and high cost ($8.97), similar to
   GPT-4.5's performance profile, making it unsuitable for interactive coding workflows despite its technical merits
+- **Open-source breakthrough**: gpt-oss-20b (88.35%) represents a significant milestone as the first open-source model under 30B parameters to exceed 85%, demonstrating that smaller models can deliver
+  competitive performance for local deployment while maintaining cost efficiency and privacy benefits
 - **Open-source landscape**: Microsoft's Phi-4 (47.83%) shows competitive mid-range performance, while Google's Gemma 3 family offers scalable options from 1B (21.24%) to 27B (55.87%) parameters.
-  However, all open-source models struggle with LCIF tasks, indicating limitations in complex instruction following
+  However, most open-source models struggle with LCIF tasks, indicating limitations in complex instruction following
 
 **Market Implications:**
 
@@ -259,7 +266,12 @@ The benchmark results reveal significant insights about current LLM capabilities
 - **Enterprise options expand**: From ultra-low-cost Llama 4 Maverick to premium Claude 4 Opus, organizations have diverse deployment choices including self-hosted open-source alternatives
 
 The rapid evolution demonstrates that model selection should prioritize specific use cases rather than assuming latest means best—with clear winners emerging in speed (gpt-oss-120b), value (Grok 3
-mini beta), overall performance (GPT-5), and specialized coding (Codex Mini Latest).
+mini beta), overall performance (GPT-5), specialized coding (Codex Mini Latest), and **local deployment breakthrough** (gpt-oss-20b).
+
+**Notable Achievement: gpt-oss-20b** stands out as a landmark achievement in the open-source landscape, being the first model under 30B parameters to cross the 85% threshold with its 88.35% score. Its
+balanced performance across categories (86.71% code translation, 93.31% code generation, 92.14% code documentation) demonstrates remarkable capability for a model of its size. Tested locally on a
+MacBook Pro M4 Pro, it achieved practical speeds (21.95 tokens/sec average, 55 tokens/sec peak), proving that high-quality software engineering assistance can be deployed entirely within
+organizational infrastructure—offering unprecedented privacy, control, and cost optimization for enterprises seeking to maintain sensitive code and data on-premises.
 
 <p align="center">
     © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>
