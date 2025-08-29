@@ -1,4 +1,4 @@
-# LLMs Leaderboard (Benchmark v2, last update 2025-08-22)
+# LLMs Leaderboard (Benchmark v2, last update 2025-08-29)
 
 ![llm-rating.png](/images/llms/llm-rating.png)
 
@@ -28,6 +28,7 @@ General insights:
 
 - GPT-5 (08-07) leads the benchmark with 99.46% total score, achieving perfect 100% in code translation and excellent performance across all categories ($1.36 total cost)
 - Gemini 2.5 Flash Preview (05-20) follows closely at 99.13% with very fast token generation (208.25 tokens/sec) and cost-effective performance ($1.09 total cost)
+- Grok Code Fast achieves third place with 98.14% score, delivering exceptional speed (203.78 tokens/sec) comparable to Gemini 2.5 Flash and outstanding cost efficiency at just $0.17 total cost
 - Gemini 2.5 Pro Preview models show interesting performance variation: 05-06 version reaches 98.10% but at higher cost ($3.46), while newer 06-05 version scores lower (96.12%) with reduced token
   generation, suggesting Google's optimization for cost over raw performance
 - Grok 4 (07-09) achieves strong performance at 97.39% with balanced capabilities across all categories, but suffers from slow generation speed (42.03 tokens/sec) that makes it less
@@ -39,17 +40,17 @@ General insights:
 - gpt-oss-120b open-weight model demonstrates exceptional speed with 1,144.30 tokens/sec generation with [Cerebras](https://www.cerebras.ai/) provider and completes all tasks in just **1.53 min**,
   achieving 95.81% score at ultra-low cost ($0.09)
 - Grok 3 mini beta demonstrates excellent value at 95.35% score for just $0.13 total cost
-- GPT-4.1 nano shows remarkable speed with the fastest execution time (3.84 min) and 204.22 tokens/sec generation, though scoring 71.37%
+- GPT-4.1 nano shows remarkable speed with very fast execution time (3.84 min) and 204.22 tokens/sec generation, though scoring 71.37%
 - gpt-oss-20b achieves a remarkable 88.35% score as the first open-source model under 30B parameters to exceed 85%, demonstrating that smaller models can deliver competitive performance for local
   deployment
 - Small open-source alternatives show promise: Gemma 3 family (27B leads at 58.99%) and Phi-4 (49.08%) provide self-hosted options
 
 Performance metrics highlights:
 
-- **Fastest token generation**: gpt-oss-120b (1,144.30 tokens/sec), Gemini 2.5 Flash Preview (05-20) (208.25 tokens/sec), GPT-4.1 nano (204.22 tokens/sec)
-- **Shortest execution time**: gpt-oss-120b (1.53 min), GPT-4.1 nano (3.84 min), Llama 4 Maverick (6.48 min)
+- **Fastest token generation**: gpt-oss-120b (1,144.30 tokens/sec), Gemini 2.5 Flash Preview (05-20) (208.25 tokens/sec), GPT-4.1 nano (204.22 tokens/sec), Grok Code Fast (203.78 tokens/sec)
+- **Shortest execution time**: gpt-oss-120b (1.53 min), GPT-4.1 nano (3.84 min), Llama 4 Maverick (6.48 min), Grok Code Fast (8.59 min)
 - **Most tokens generated**: Gemini 2.5 Pro Preview (05-06) (334,178 tokens), Gemini 2.5 Flash Preview (05-20) (306,543 tokens), Grok 3 mini beta (220,054 tokens)
-- **Best cost-effectiveness**: gpt-oss-120b (95.81% score, $0.09 total), Llama 4 Maverick (74.21% score, $0.05 total), GPT-4.1 nano (71.37% score, $0.02 total)
+- **Best cost-effectiveness**: gpt-oss-120b (95.81% score, $0.09 total), Grok Code Fast (98.14% score, $0.17 total), Llama 4 Maverick (74.21% score, $0.05 total)
 
 Best results by category:
 
@@ -86,11 +87,19 @@ Second place is held by Gemini 2.5 Flash Preview (05-20), a thinking model by Go
 of 208.25 tokens/second. The experiment cost $1.09, which is relatively inexpensive considering the 300,000 generated tokens. This combination of high performance, speed, and cost-effectiveness makes
 it an excellent choice for high-volume engineering tasks.
 
-Third place is occupied by Gemini 2.5 Pro Preview (05-06), the earlier version of Google's Pro model, achieving 98.10%. While more expensive ($3.46) and slower (95.95 tokens/second), this version
+Third place is achieved by Grok Code Fast from xAI, scoring 98.14% with remarkable efficiency. This model demonstrates exceptional generation speed (203.78 tokens/second) that closely matches Gemini
+2.5 Flash, completing all benchmark tasks in just 8.59 minutes at an outstanding cost of only $0.17. The model excels in most engineering categories but exhibits some limitations in tool use scenarios
+during LCIF experiments, where it may occasionally enter infinite loops with repeated function calls. Despite these edge cases, Grok Code Fast represents excellent value for organizations seeking
+high-performance coding assistance with minimal cost overhead.
+
+Fourth place is occupied by Gemini 2.5 Pro Preview (05-06), the earlier version of Google's Pro model, achieving 98.10%. While more expensive ($3.46) and slower (95.95 tokens/second), this version
 generated the most tokens overall (334,178) and maintains high quality. Interestingly, the newer 06-05 version scored lower (96.12%) despite generating fewer tokens (176,493) at similar speed,
 suggesting Google optimized for cost efficiency over raw performance in the update.
 
-Fifth place is held by Codex Mini Latest, an OpenAI model that is a fine-tuned version of o4-mini specifically designed for use in Codex CLI. It achieved the highest accuracy score (3.993) among all
+Fifth place is achieved by Grok 4 (07-09) from xAI, scoring 97.39% with balanced capabilities across all categories. While it demonstrates solid performance, the model suffers from slow generation speed 
+(42.03 tokens/second) that makes it less suitable for interactive development workflows, despite reasonable cost efficiency at $2.07 for the complete benchmark.
+
+Next place is held by Codex Mini Latest, an OpenAI model that is a fine-tuned version of o4-mini specifically designed for use in Codex CLI. It achieved the highest accuracy score (3.993) among all
 models. However, some benchmark scenarios had to be rerun, as the model would respond to tasks with answers like: "I'm sorry I can't answer that" or "I'm sorry, but I can't proceed without access to
 the repository's files."
 
@@ -132,6 +141,7 @@ categories **including** LCIF experiment score.
 |----------------------------------|--------------|----------|--------------|------------------|-------------|-------------|--------------|--------|-------------|
 | GPT-5 (08-07)                    | Yes (Low)    | 4.000    | 3.938        | 50.78            | 41.28       | 80575       | 125778       | 1.36   | 99.46%      |
 | Gemini 2.5 Flash Preview (05-20) | Yes          | 3.957    | 3.945        | 24.53            | 208.25      | 92766       | 306543       | 1.09   | 99.13%      |
+| Grok Code Fast                   | Yes          | 3.926    | 3.873        | 8.59             | 203.78      | 84753       | 105021       | 0.17   | 98.14%      |
 | Gemini 2.5 Pro Preview (05-06)   | Yes          | 3.941    | 3.851        | 58.05            | 95.95       | 92745       | 334178       | 3.46   | 98.10%      |
 | Grok 4 (07-09)                   | Yes          | 3.918    | 3.801        | 48.32            | 42.03       | 80121       | 121850       | 2.07   | 97.39%      |
 | Codex Mini Latest                | Yes (high)   | 3.993    | 3.708        | 20.28            | 138.98      | 80551       | 169109       | 1.14   | 97.34%      |
@@ -182,6 +192,7 @@ _Table 1. Overview of the experiment results._
 |----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------------------------------------|--------------------------------------------------|--------------------|------------------|
 | [GPT-5 (08-07)](https://platform.openai.com/docs/models/gpt-5)                                                                                           | OpenAI                                                                                   | 400K                                 | $1.25 / $10.00                                   | 128K               | Sep 30, 2024     |
 | [Gemini 2.5 Flash Preview (05-20)](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-preview)                                                | Google AI Studio                                                                         | 1M                                   | $0.15 / $3.50                                    | 65K                | Jan, 2025        |
+| [Grok Code Fast](https://x.ai/news/grok-code-fast-1)                                                                                                     | xAI                                                                                      | 256K                                 | $0.20 / $1.50                                    | N/A                | N/A              |
 | [Codex Mini Latest (o4-mini)](https://platform.openai.com/docs/models/codex-mini-latest)                                                                 | OpenAI                                                                                   | 200K                                 | $1.50 / $6.00                                    | 100K               | Jun 01, 2024     |
 | [Gemini 2.5 Pro Preview (05-06)](https://blog.google/products/gemini/gemini-2-5-pro-updates/)                                                            | Google AI Studio                                                                         | 1M                                   | $1.25 / $10.00 <= 200K<br>$2.50 / $15.00 > 200K  | 65K                | Jan, 2025        |
 | [Gemini 2.5 Pro Preview (06-05)](https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/)                                                     | Google AI Studio                                                                         | 1M                                   | $1.25 / $10.00 <= 200K<br>$2.50 / $15.00 > 200K  | 65K                | Jan, 2025        |

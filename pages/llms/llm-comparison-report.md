@@ -17,6 +17,7 @@ For detailed information about our approach and evaluation methodology, please r
 |----------------------------------|---------------------------|----------------|-----------|------------------|-----------------|---------------|---------|-------------|
 | GPT-5 (08-07)                    | GPT5_0807                 | 2025-08-11     | v2        | 100.00%          | 99.22%          | 98.61%        | 100.00% | 99.46%      |
 | Gemini 2.5 Flash Preview (05-20) | Gemini_25_Flash_0520      | 2025-05-22     | v2        | 99.45%           | 99.39%          | 97.69%        | 100.00% | 99.13%      |
+| Grok_Code_0825                   | Grok Code Fast            | 2025-08-28     | v2        | 97.45%           | 98.55%          | 96.57%        | 100.00% | 98.14%      |
 | Gemini 2.5 Pro Preview (05-06)   | Gemini_25_Pro_0506        | 2025-05-14     | v2        | 97.66%           | 98.73%          | 96.01%        | 100.00% | 98.10%      |
 | Grok 4 (07-09)                   | Grok4_0709                | 2025-07-11     | v2        | 96.70%           | 97.00%          | 95.86%        | 100.00% | 97.39%      |
 | Codex Mini Latest                | Codex_Mini_Latest         | 2025-06-09     | v2        | 99.75%           | 94.55%          | 95.07%        | 100.00% | 97.34%      |
@@ -65,6 +66,7 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | Codex_Mini_Latest         | 4.000        | 3.980            | 96.83    | 12858.29  | 132.80            | 0.9975  |
 | Gemini_25_Flash_0520      | 3.956        | 4.000            | 70.52    | 14528.43  | 206.03            | 0.9945  |
 | Gemini_25_Pro_0506        | 3.813        | 4.000            | 178.93   | 17993.14  | 100.56            | 0.9766  |
+| Grok_Code_0825            | 3.827        | 3.969            | 30.26    | 6956.86   | 229.87            | 0.9745  |
 | Claude_Sonnet_4           | 3.780        | 4.000            | 62.45    | 6487.43   | 103.88            | 0.9725  |
 | GPT41mini_0414            | 4.000        | 3.780            | 79.04    | 4289.14   | 54.27             | 0.9725  |
 | Gemini_25_Pro_0605        | 3.877        | 3.860            | 91.17    | 9343.57   | 102.49            | 0.9671  |
@@ -112,6 +114,7 @@ _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 | Claude_Sonnet_4_Thinking  | 4.000        | 3.938            | 95.05    | 8769.75   | 92.27             | 0.9922  |
 | GPT5_0807                 | 4.000        | 3.938            | 146.57   | 5349.50   | 36.50             | 0.9922  |
 | Gemini_25_Pro_0506        | 4.000        | 3.899            | 169.92   | 16239.75  | 95.58             | 0.9873  |
+| Grok_Code_0825            | 4.000        | 3.884            | 15.56    | 3464.13   | 222.65            | 0.9855  |
 | Claude_Sonnet_37_Thinking | 3.944        | 3.939            | 125.64   | 10304.25  | 82.01             | 0.9853  |
 | GPT41mini_0414            | 4.000        | 3.873            | 41.27    | 3135.75   | 75.99             | 0.9841  |
 | Grok3mini_beta            | 4.000        | 3.823            | 62.36    | 9035.00   | 144.88            | 0.9778  |
@@ -153,6 +156,7 @@ _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 | Gemini_25_Flash_0520      | 3.920        | 3.896            | 53.74    | 10235.89  | 190.48            | 0.9769  |
 | GPT_OSS_120B              | 4.000        | 3.752            | 3.78     | 3966.33   | 1049.60           | 0.9690  |
 | OpenAi_o3_0416            | 3.997        | 3.738            | 28.42    | 3088.44   | 108.65            | 0.9668  |
+| Grok_Code_0825            | 3.938        | 3.788            | 19.89    | 3178.89   | 159.80            | 0.9657  |
 | Gemini_25_Pro_0506        | 3.988        | 3.693            | 96.79    | 8700.89   | 89.90             | 0.9601  |
 | Grok4_0709                | 3.987        | 3.682            | 68.95    | 3121.89   | 45.28             | 0.9586  |
 | Codex_Mini_Latest         | 3.982        | 3.623            | 27.95    | 4037.11   | 144.46            | 0.9507  |
@@ -195,6 +199,7 @@ _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 |---------------------------|--------------|------------------|---------|
 | GPT5_0807                 | 4            | 4                | 1       |
 | Gemini_25_Flash_0520      | 4            | 4                | 1       |
+| Grok_Code_0825            | 4            | 4                | 1       |
 | Codex_Mini_Latest         | 4            | 4                | 1       |
 | Gemini_25_Pro_0506        | 4            | 4                | 1       |
 | Gemini_25_Pro_0605        | 4            | 4                | 1       |
@@ -241,7 +246,8 @@ The benchmark results reveal significant insights about current LLM capabilities
 
 - **OpenAI dominates** with GPT-5 (08-07) (99.46%) leading the benchmark with perfect 100% code translation score and excellent overall performance ($1.36 total cost)
 - **Google maintains strong second position** with Gemini 2.5 Flash Preview (05-20) (99.13%) offering exceptional speed (208.25 tokens/sec) and cost-effectiveness ($1.09 total)
-- **xAI's Grok 4 achieves top-tier performance** (97.39%) with balanced capabilities across all categories, though slower generation speed (42.03 tokens/sec) limits interactive development use
+- **xAI demonstrates strong model portfolio** with Grok Code Fast achieving third place (98.14%) through exceptional speed (203.78 tokens/sec) and outstanding cost efficiency ($0.17), while Grok 4
+  provides higher-end performance (97.39%) with balanced capabilities though slower generation speed (42.03 tokens/sec) limits interactive use
 - **Specialized coding models excel**: Codex Mini Latest (97.34%) shows highest accuracy (3.993) but has refusal behaviors; newer Gemini 2.5 Pro versions show performance regression
 - **Claude 4 Sonnet outperforms Thinking mode** (97.02% vs 96.43%), suggesting reasoning mode doesn't always improve coding tasks
 - **Speed champions**: gpt-oss-120b achieves fastest generation (1,144.30 tokens/sec) and execution (1.53 min)
@@ -249,13 +255,13 @@ The benchmark results reveal significant insights about current LLM capabilities
 **Key Performance Insights:**
 
 - **Category leaders**: GPT-5 (08-07) leads code translation (100.00%) and documentation (98.61%), Claude 4 Sonnet dominates generation (99.98%)
-- **Cost-effectiveness winners**: Grok 3 mini beta (95.35% for $0.13), GPT-4.1 nano (71.37% for $0.02)
+- **Cost-effectiveness winners**: Grok Code Fast (98.14% for $0.17), Grok 3 mini beta (95.35% for $0.13), GPT-4.1 nano (71.37% for $0.02)
 - **Perfect LCIF scores**: 14 models achieve 100% in large context instruction following, showing maturity in handling complex tasks
-- **Speed vs capability trade-offs**: OpenAI o3-pro (89.07%) demonstrates strong capabilities but at impractical speeds (13.90 tokens/sec, 110.34 min execution) and high cost ($8.97), similar to
+- **Speed vs capability trade-offs**: OpenAI o3-pro (95.77%) demonstrates strong capabilities but at impractical speeds (13.90 tokens/sec, 110.34 min execution) and high cost ($8.97), similar to
   GPT-4.5's performance profile, making it unsuitable for interactive coding workflows despite its technical merits
 - **Open-source breakthrough**: gpt-oss-20b (88.35%) represents a significant milestone as the first open-source model under 30B parameters to exceed 85%, demonstrating that smaller models can deliver
   competitive performance for local deployment while maintaining cost efficiency and privacy benefits
-- **Open-source landscape**: Microsoft's Phi-4 (47.83%) shows competitive mid-range performance, while Google's Gemma 3 family offers scalable options from 1B (21.24%) to 27B (55.87%) parameters.
+- **Open-source landscape**: Microsoft's Phi-4 (49.08%) shows competitive mid-range performance, while Google's Gemma 3 family offers scalable options from 1B (19.98%) to 27B (58.99%) parameters.
   However, most open-source models struggle with LCIF tasks, indicating limitations in complex instruction following
 
 **Market Implications:**
