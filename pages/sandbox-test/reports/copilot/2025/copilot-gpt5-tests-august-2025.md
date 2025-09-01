@@ -39,9 +39,9 @@
 
 | Language   | Pass Rate (%) | Total Tests | Failed Tests |
 |------------|--------------:|------------:|-------------:|
-| Java       | 47.50         | 40          | 21           |
-| C#         | 90.00         | 20          | 2            |
-| TypeScript | 100.00        | 8           | 8            |
+| Java       | 47.50         | 40          |           21 |
+| C#         | 90.00         | 20          |            2 |
+| TypeScript | 100.00        | 8           |            0 |
 
 ## Configuration
 
