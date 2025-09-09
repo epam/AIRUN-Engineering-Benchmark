@@ -1,8 +1,5 @@
 # AI Code Assistants vs Agents Leaderboard as of August 2025
 
-- [AI Code Assistants Leaderboard as of August 2025](code-assistants-2025.md)
-- [AI Code Assistants Benchmark Approach](code-assistants-benchmark-approach.md)
-
 | Category                                                                                                                                                                                                                                          | Test Details                                                                                                                                                                                                       | Agentic Tests | Chat Based Tests (109 tests)  | Code Completion Tests (68 tests) |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|-------------------------------|-------------------------------|
 | [Zencoder](https://docs.zencoder.ai/get-started/introduction) (mix of models for Agent, [Claude 3.7 Sonnet](https://www.anthropic.com/claude/sonnet) for Chat)                                                                                    | [Sandbox Tests - July 2025](reports/zencoder/2025/zencoder-sonnet3.7-sandbox-tests-july-2025.md) <br> [Golf App Tests - July 2025](reports/zencoder/2025/zencoder-sonnet3.7-golf-app-tests-july-2025.md)           | **73%**       | 87%                           | 24%                           |
@@ -26,6 +23,11 @@
 <div style='text-align: right;'> © EPAM. Distribution and use permitted </div>
 
 Notes: * Applied the default model; there is no option to select a specific LLM.
+
+## Reference Links
+- [AI Code Assistants Leaderboard as of August 2025](code-assistants-2025.md)
+- [AI Coding Agent Testing Methodology](coding-agent-testing-methodology.md)
+
 
 <p style="text-align: center;">  © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
 
