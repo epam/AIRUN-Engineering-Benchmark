@@ -1,4 +1,4 @@
-# Coding Testing Methodology
+# Coding Agent Testing Methodology
 
 # Table of Contents
 
