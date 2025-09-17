@@ -154,7 +154,7 @@ Refer to the benchmark results provided in Appendix 1 for more information.
 
 ## Detailed Report
 
-[Gemini 1.5 Pro vs GPT-4 Turbo vs Claude 3 Opus.pdf](../../../docs/Gemini-1.5-Pro-GPT-4-Turbo-Claude-3-Opus-report.pdf)
+[Gemini 1.5 Pro vs GPT-4 Turbo vs Claude 3 Opus.pdf](/files/Gemini-1.5-Pro-GPT-4-Turbo-Claude-3-Opus-report.pdf)
 
 <p style="text-align: center;">
     © 2024 EPAM Systems, Inc. All Rights Reserved.<br/>
