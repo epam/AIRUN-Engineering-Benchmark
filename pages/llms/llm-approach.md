@@ -74,42 +74,35 @@ Our main repository: https://github.com/epam/AIRUN-LLM-Benchmark
 
 - **Dataset**: Used to store repositories that are used in tests
 - **Utils**: Contain all the necessary scripts for automation
-- **Config**: Contains test configuration for LLMs
-- **Scenarios**: Contains all scenarios and templates for running tests, and also contains evaluation criteria
+- **Scenarios**: Contains all scenarios and templates for running tests
+
+In our internal research repository, we store comprehensive evaluation results organized by LLM, criteria files for result evaluation, and final evaluation outcomes for detailed analysis.
 
 ## Experiment Categories and Scenarios
 
 ### Code Generation
 
-Generate code snippets, functions, or entire modules based on provided specifications, requirements, or natural language
-descriptions.
+Generate code snippets, functions, or entire modules based on provided specifications, requirements, or natural language descriptions.
 
-1. Unit testing for legacy code
-2. Unit testing for modern code
-3. Create a React business logic component
-4. Modify React component with new business logic
-5. Create a common React component
-6. Create a configuration for the front-end project
-7. Create unit tests
-8. Modify existing application (add functionality)
-9. Generate entire application based on req.
-10. Generate service layer based on DTO
-11. Create logging aspect based on requirements
+1. Generate React base components and applications
+2. Modify existing React applications
+3. Create collaborative editors and data visualization dashboards
+4. Generate form builder components
+5. Write unit tests for both legacy and modern code
+6. Create project configurations and templates
+7. Generate enterprise application templates
+8. Create monorepo templates
 
 ### Code Translation
 
 Translate code between programming languages or paradigms.
 
-1. Upgrade the React app to the actual version
-2. Upgrade the AngularJS app to the newest Angular version
-3. Translate code from JavaScript and HTML to React
-4. Translate jQuery code to React
-5. Translate code from AngularJS to React
-6. Translate code from React to Angular App
-7. Translate application from EJB 3.0 into SpringBoot
-8. Translate JSF application into SpringBoot application
-9. Translate Spring XML based application onto regular SpringBoot application
-10. Translate legacy Spring application onto SpringBoot application
+1. Update React applications to newer versions
+2. Update AngularJS applications to newer Angular versions
+3. Translate AngularJS code to React
+4. Translate React code to Angular
+5. Translate vanilla JavaScript to React
+6. Translate jQuery code to React
 
 ### Code Documentation Generation
 
@@ -126,8 +119,19 @@ This experiment evaluates the model's capability to run continuous dialog to per
 steps. The model must rely on and efficiently use all provided and generated data during the conversation to produce
 final results.
 
+This is a critical experiment that demonstrates how models work in multi-step scenarios with large context and how correctly they invoke tools. The experiment uses 5 specialized tools:
+
+1. **list_files** - List all files in the legacy directory
+2. **read_file** - Read the content of files from the legacy application
+3. **file_structure** - Return the new file structure of the translated application
+4. **write_file** - Write converted code to files in the new application
+5. **end_task** - End the translation task when complete
+
+Scenarios:
+
 1. Upgrade the React application to the newest version
 2. Migrate AngularJS to React application
+3. Upgrade Extended React application to React 19
 
 > Note: Experiment categories 1-3 utilize a single-shot approach for interaction with the models. However, the 4th
 > experiment category involves a dialogue with the models.
@@ -171,24 +175,27 @@ components and applications, ranging from simple UI elements to more complex int
 
 Link to dataset in Repository - https://github.com/epam/AIRUN-LLM-Benchmark/tree/main/Dataset/JS
 
-| Name              | Description                                                                                                                                                      | CI  | LoC  | GCI    |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|------|--------|
-| ReactSelect       | The code is written in a recent version of React, it is a Select component with the ability to multi-select and search for values and has accessibility support. | 439 | 2246 | 0.1955 |
-| ToDoApp_ReactJS   | The code is written using class components on an outdated version of React, аn interaction with local storage is used.                                           | 83  | 473  | 0.1755 |
-| ReactSignUp       | The code is written using class components on an outdated version of React, has form validations, and connects with redux.                                       | 31  | 177  | 0.1751 |
-| AngularCalendar   | Demo project of using FullCalendar library in AngularJS                                                                                                          | 119 | 696  | 0.1710 |
-| ToDoApp_jQuery    | The code is written on jQuery; it has the CRUD functionality of todos, and todos are stored inside the app.                                                      | 44  | 263  | 0.1673 |
-| ReactFetchAPI     | The code is written on the recent React version, it fetches data and shows it in a list                                                                          | 6   | 39   | 0.1538 |
-| AngularCosmoPage  | Part of the Cosmo CMS system responsible for building pages                                                                                                      | 82  | 570  | 0.1439 |
-| ReactPodcastItem  | The code is written using class components on an outdated version of React, has form validations, and connects with redux.                                       | 29  | 200  | 0.1422 |
-| AngularCosmoMenu  | Part of the Cosmo CMS system responsible for creating menu                                                                                                       | 38  | 276  | 0.1377 |
-| ToDoApp_AngularJS | The code is written using outdated version of AngularJS, using local storage to store data                                                                       | 37  | 277  | 0.1336 |
-| Piano_NativeJS    | The code is written using Native JS. User can play on piano via clicking by mouse or using keyboard                                                              | 15  | 135  | 0.1111 |
-| ReactBookmarks    | The code is written using class components on an outdated version of React, has redux and functionality to bookmark podcasts                                     | 57  | 515  | 0.1107 |
-| AngularCosmoAdmin | Part of the Cosmo CMS system responsible for managing pages                                                                                                      | 17  | 205  | 0.0829 |
-| ReactNavbar       | The code is written using class components on an outdated version of React                                                                                       | 8   | 150  | 0.0533 |
+| Name                     | Description                                                                                                                                                      | CI  | LoC  | GCI    |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|------|--------|
+| ReactAlgorithmVisualizer | The code is written in a slightly outdated version of React, implementing dashboard with visual representation of different algorithms.                          | 631 | 3055 | 0.21   |
+| ReactSelect              | The code is written in a recent version of React, it is a Select component with the ability to multi-select and search for values and has accessibility support. | 439 | 2246 | 0.1955 |
+| AngularMeteo             | The code is written in a recent version of Angular, rendering dashboard with historical weather data.                                                            | 113 | 624  | 0.18   |
+| ToDoApp_ReactJS          | The code is written using class components on an outdated version of React, an interaction with local storage is used.                                           | 83  | 473  | 0.1755 |
+| ReactSignUp              | The code is written using class components on an outdated version of React, has form validations, and connects with redux.                                       | 31  | 177  | 0.1751 |
+| AngularCalendar          | Demo project of using FullCalendar library in AngularJS                                                                                                          | 119 | 696  | 0.1710 |
+| ToDoApp_jQuery           | The code is written in jQuery; it has the CRUD functionality of todos, and todos are stored inside the app.                                                      | 44  | 263  | 0.1673 |
+| ReactFetchAPI            | The code is written in a recent React version, it fetches data and shows it in a list                                                                          | 6   | 39   | 0.1538 |
+| AngularCosmoPage         | Part of the Cosmo CMS system responsible for building pages                                                                                                      | 82  | 570  | 0.1439 |
+| ReactPodcastItem         | The code is written using class components on an outdated version of React, has form validations, and connects with redux.                                       | 29  | 200  | 0.1422 |
+| AngularCosmoMenu         | Part of the Cosmo CMS system responsible for creating menu                                                                                                       | 38  | 276  | 0.1377 |
+| ToDoApp_AngularJS        | The code is written using outdated version of AngularJS, using local storage to store data                                                                       | 37  | 277  | 0.1336 |
+| ReactSearchJob           | Code is written in an outdated version of React that uses an API to get vacancies from aggregator, has 3 routes (main page, list of vacancies and vacancy detail)    | 137 | 992  | 0.14   |
+| Piano_NativeJS           | The code is written using Native JS. User can play on piano via clicking by mouse or using keyboard                                                              | 15  | 135  | 0.1111 |
+| ReactBookmarks           | The code is written using class components on an outdated version of React, has redux and functionality to bookmark podcasts                                     | 57  | 515  | 0.1107 |
+| AngularCosmoAdmin        | Part of the Cosmo CMS system responsible for managing pages                                                                                                      | 17  | 205  | 0.0829 |
+| ReactNavbar              | The code is written using class components on an outdated version of React                                                                                       | 8   | 150  | 0.0533 |
 
-Sources of applications:
+Sources of some applications:
 
 - https://github.com/CosmoCMS/Cosmo
 - https://github.com/danjac/podbaby
@@ -205,11 +212,11 @@ complexity was defined as fewer than 200 lines, average complexity as more than 
 complexity as more than 500 lines. Cyclomatic Complexity was categorized as low for values up to 0.11, average for
 values greater than 0.11 but less than 0.17, and high for values exceeding 0.17.
 
-| Complexity/Size | Low                                                                                | Avg                                                        | High          |
-|-----------------|------------------------------------------------------------------------------------|------------------------------------------------------------|---------------|
-| Low             | • ReactNavbar<br>• Piano_NativeJS<br>• AngularCosmoAdmin                           | • ReactBookmarks                                           |               |
-| Avg             | • ReactPodcastItem<br>• ReactFetchAPI<br>• AngularCosmoMenu<br>• ToDoApp_AngularJS | • AngularCosmoPage                                         |               |
-| High            | • ReactSignUp                                                                      | • ToDoApp_ReactJS<br>• ToDoApp_jQuery<br>• AngularCalendar | • ReactSelect |
+| Complexity/Size | Low                                                                                                    | Avg                                                                          | High                                        |
+|-----------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|---------------------------------------------|
+| Low             | • ReactNavbar<br>• Piano_NativeJS<br>• AngularCosmoAdmin                                               | • ReactBookmarks                                                             |                                             |
+| Avg             | • ReactPodcastItem<br>• ReactFetchAPI<br>• AngularCosmoMenu<br>• ToDoApp_AngularJS<br>• ReactSearchJob | • AngularCosmoPage                                                           |                                             |
+| High            | • ReactSignUp                                                                                          | • ToDoApp_ReactJS<br>• ToDoApp_jQuery<br>• AngularCalendar<br>• AngularMeteo | • ReactSelect<br>• ReactAlgorithmVisualizer |
 
 #### Final set of tests
 
@@ -224,23 +231,35 @@ translation, and documentation tasks.
 
 Our final test suite was curated as follows:
 
-| Category                     | Scenario                          | Datasets                                       |
-|------------------------------|-----------------------------------|------------------------------------------------|
-| component generation         | Generate Base Component           | Not needed                                     |
-|                              | Generate React App                | Not needed                                     |
-|                              | Modify React App                  | ReactFetchAPI                                  |
-| test generation              | Write Tests For Actual Code       | ReactSelect                                    |
-|                              | Write Tests For Legacy Code       | AngularCosmoPage, ReactSignUp, ToDoApp_ReactJS |
-| code explanation             | Describe Technical Implementation | AngularCosmoPage, ReactSignUp, ToDoApp_ReactJS |
-| solution documentation       | Business Functionality            | AngularCosmoPage, ReactSignUp, ToDoApp_ReactJS |
-| code analysis                | Evaluate Code Quality             | AngularCosmoPage, ReactSignUp, ToDoApp_ReactJS |
-| solution migration           | Update Angular                    | ToDoApp_AngularJS                              |
-|                              | React To Angular                  | ToDoApp_ReactJS, ReactSignUp                   |
-|                              | Update React                      | ToDoApp_ReactJS                                |
-|                              | Angular To React                  | AngularCosmoPage                               |
-|                              | Vanilla To React                  | Piano_NativeJS                                 |
-|                              | jQuery To React                   | ToDoApp_jQuery                                 |
-| solution template generation | Generate Project Configuration    | Not needed                                     |
+| Category                                 | Scenario                                 | Datasets                                                                                               |
+|------------------------------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| **Code Generation**                      |                                          |                                                                                                        |
+| component generation                     | Generate Base Component                  | Not needed                                                                                             |
+|                                          | Generate React App                       | Not needed                                                                                             |
+|                                          | Generate Collaborative Editor            | Not needed                                                                                             |
+|                                          | Generate Data Visualization Dashboard    | Not needed                                                                                             |
+|                                          | Generate Form Builder Component          | Not needed                                                                                             |
+|                                          | Modify React App                         | ReactFetchAPI                                                                                          |
+| test generation                          | Write Tests For Actual Code              | ReactSelect                                                                                            |
+|                                          | Write Tests For Legacy Code              | AngularCosmoPage, ReactSignUp, ToDoApp_ReactJS                                                         |
+| solution template generation             | Generate Project Configuration           | Not needed                                                                                             |
+|                                          | Generate Enterprise Application Template | Not needed                                                                                             |
+|                                          | Generate Monorepo Template               | Not needed                                                                                             |
+| **Code Translation**                     |                                          |                                                                                                        |
+| solution migration                       | Update Angular                           | ToDoApp_AngularJS                                                                                      |
+|                                          | React To Angular                         | ToDoApp_ReactJS, ReactSignUp, ReactAlgorithmVisualizer, ReactSearchJob                                 |
+|                                          | Update React                             | ToDoApp_ReactJS, ReactAlgorithmVisualizer, ReactSearchJob                                              |
+|                                          | Angular To React                         | AngularCosmoPage, AngularMeteo                                                                         |
+|                                          | Vanilla To React                         | Piano_NativeJS                                                                                         |
+|                                          | jQuery To React                          | ToDoApp_jQuery                                                                                         |
+| **Code Documentation**                   |                                          |                                                                                                        |
+| code explanation                         | Describe Technical Implementation        | AngularCosmoPage, ReactSignUp, ToDoApp_ReactJS, AngularMeteo, ReactAlgorithmVisualizer, ReactSearchJob |
+| solution documentation                   | Business Functionality                   | AngularCosmoPage, ReactSignUp, ToDoApp_ReactJS, AngularMeteo, ReactAlgorithmVisualizer, ReactSearchJob |
+| code analysis                            | Evaluate Code Quality                    | AngularCosmoPage, ReactSignUp, ToDoApp_ReactJS, AngularMeteo, ReactAlgorithmVisualizer, ReactSearchJob |
+| **Large Context Instructions Following** |                                          |                                                                                                        |
+| contextual experiment                    | Upgrade React Application                | ToDoApp_ReactJS                                                                                        |
+|                                          | Migrate AngularJS to React               | ToDoApp_AngularJS                                                                                      |
+|                                          | Upgrade Extended React to React 19       | Extended React Application                                                                             |
 
 ## Results Evaluation
 
@@ -254,6 +273,44 @@ complexity. This methodological framework underpins our analysis, enabling a str
 in the context of software engineering efficiency optimization.
 
 ### Quality metrics
+
+Our evaluation approach uses two distinct methodologies:
+
+**LLM-as-a-Judge Evaluation (Primary Method)**
+For code generation, translation, and documentation scenarios, we employ an automated evaluation system using three state-of-the-art models as judges: GPT-5, Claude 4 Sonnet, and Gemini 2.5 Pro. Each
+judge evaluates model outputs against predefined criteria files containing specific accuracy and completeness requirements.
+
+The evaluation process works as follows:
+
+1. Each scenario has a corresponding YAML criteria file with weighted evaluation steps
+2. Judges assess how well the model output satisfies each criterion
+3. Results are converted to percentages (e.g., 9 out of 10 criteria met = 90%)
+4. Three judge scores are averaged for final accuracy and completeness metrics
+
+**Human Evaluation (LCIF Only)**
+For Large Context Instructions Following scenarios, human evaluators assess results on a 0-4 scale for both accuracy and completeness due to the complex, multi-step nature of these tasks.
+
+The LCIF evaluation uses weighted scoring based on task complexity:
+- Tasks 1 and 2 each carry 20% weight (40% combined)
+- Task 3 carries 60% weight due to higher complexity
+
+Weighted calculation:
+```
+LCIF_Accuracy = ((Task1_Accuracy + Task2_Accuracy) / 2) × 0.4 + Task3_Accuracy × 0.6
+LCIF_Completeness = ((Task1_Completeness + Task2_Completeness) / 2) × 0.4 + Task3_Completeness × 0.6
+```
+
+**Final Score Calculation**
+The overall benchmark score combines results from all four experiment categories:
+
+```
+Final Score = ((translate_accuracy + translate_completeness) / 2 +
+               (generate_accuracy + generate_completeness) / 2 +
+               (document_accuracy + document_completeness) / 2 +
+               (LCIF_accuracy / 4 + LCIF_completeness / 4) / 2) / 4
+```
+
+Note: Generation rate and attempt number metrics are no longer used in the final evaluation.
 
 For evaluating the correctness of code generation, documentation, and translation performed by Large Language Models (
 LLMs) from one programming language to another, the scale must account for syntax correctness, semantic integrity, and
@@ -295,28 +352,25 @@ Below is a numeric representation of completeness:
 - Completely (4): The code fully addresses the problem manifested for a specific task or scenario, covering all aspects
   and requirements.
 
-3. **Generation Rate**
-
-This metric captures the number of tokens the model produces in a unit of time and calculated as Response size/Execution
-Time (tokens/second).
-
-4. **Attempt Number**
-
-This metric, based on a series of 3 attempts, is used to determine whether the model produces its best result on the
-first try or if it requires multiple iterations to achieve optimal performance.
+Note: Generation rate and attempt number metrics were used in previous versions but are no longer part of the evaluation methodology.
 
 ### Final score formula
 
 We calculated the total score for each experiment category for each model.
 
-Score = 0.4 * Normalized_Accuracy + 0.4 * Normalized_Completeness + 0.1 * Normalized_Generation Rate + 0.1 *
-Normalized_Attempt
+Score calculation varies by evaluation method:
 
-- Normalized_Accuracy = Average\<Accuracy\>/4, where 4 is the maximum possible value for Accuracy
-- Normalized_Completeness = Average\<Completeness\>/4, where 4 is the maximum possible value for Completeness
-- Normalized_Generation Rate = Average\<Generation Rate\>/Max_Generation_Rate, where Max_Generation_Rate is the maximum
-  generate rate across all models.
-- Normalized_Attempt = Average(3 - \<Attempt number\>)/2, where 3 is the total number of runs.
+**LLM-as-a-Judge Scenarios (Generation, Translation, Documentation):**
+
+- Accuracy and Completeness scores are calculated as percentages based on criteria satisfaction
+- Category Score = (Accuracy + Completeness) / 2
+
+**LCIF Scenarios:**
+
+- Human evaluators score on 0-4 scale
+- Normalized_Accuracy = Average<Accuracy>/4
+- Normalized_Completeness = Average<Completeness>/4
+- LCIF Score = (Normalized_Accuracy + Normalized_Completeness) / 2
 
 ### On Completeness and Accuracy
 
@@ -340,14 +394,29 @@ functions. This would result in high accuracy but low completeness.
 ### Automatic Evaluation
 
 Our recent reports introduce a new approach to evaluating test results - an automated method that doesn't rely on
-existing evaluation frameworks. This custom approach involves two key stages: evaluation and grading.
+existing evaluation frameworks. This custom approach involves two key stages: evaluation and scoring.
 
 1. **Evaluation Stage**: We use pre-established criteria to analyze test results and generate a detailed evaluation
    report. This stage focuses on assessing two main metrics: Accuracy and Completeness.
 
-2. **Grading Stage**: Based on the evaluation report, a separate LLM instance is tasked with assigning a weighted
-   average score and a probability distribution. Importantly, the Grader does not review the original answer or task but
-   relies solely on the Evaluator
+2. **Scoring Stage**: The evaluation results are converted to percentages by dividing the number of satisfied criteria by the total number of criteria. For example, if 9 out of 10 criteria are met,
+   the score is 90%. This percentage-based approach provides clear, objective scoring without subjective grading.
+
+**Example Criteria Structure:**
+
+```yaml
+evaluation_steps:
+  accuracy:
+    - criteria: Verify package.json contains React 18+ dependencies
+      weight: 1.0
+    - criteria: Confirm TypeScript interface exists for sound mapping
+      weight: 1.0
+  completeness:
+    - criteria: Verify JSX renders an h1 element containing "Virtual Piano"
+      weight: 1.0
+    - criteria: Confirm JSX includes "Notes" and "Letters" toggle buttons
+      weight: 1.0
+```
 
 Read more about automatic evaluation with LLMs on
 our [Automated Evaluation with LLMs](automated-evaluation-with-llms.md) page.
