@@ -1,3 +1,5 @@
+# Tabnine (Gemini 2.5 Pro) Code Assistant Test Execution Results - August 2025
+
 ## Table of Contents
 - [Final Score - Chat-Based Tests (Golf App + Sandbox Tests)](#final-score---chat-based-tests-golf-app--sandbox-tests)
 - [Sandbox Test Execution Results](#sandbox-test-execution-results)
@@ -13,7 +15,7 @@
 
 ## Sandbox Test Execution Results
 Report file:  
-[SandboxTestsTabnineGemini2.0ProSeptember2025.xlsx](../../../../reports/2025/SandboxTestsTabnineGemini2.0ProSeptember2025.xlsx)
+[SandboxTestsTabnineGemini2.5ProSeptember2025.xlsx](../../../../reports/2025/SandboxTestsTabnineGemini2.5ProSeptember2025.xlsx)
 
 ### Summary Scores
 - Chat-Based Tests Pass Rate: 93.10% (6 failed out of 87 tests)
@@ -26,7 +28,7 @@ Report file:
 | C#         | 94.29          | 35          | 2            |
 | TypeScript | 87.50          | 8           | 1            |
 
-Note: The tests for the chat window were conducted using the GPT-5 (Preview) model. Code completion used [Tabnine’s proprietary AI model](https://docs.tabnine.com/main/welcome/readme/ai-models).
+Note: The tests for the chat window were conducted using the Gemini 2.5 Pro model. Code completion used [Tabnine’s proprietary AI model](https://docs.tabnine.com/main/welcome/readme/ai-models).
 
 ### Code Completion Tests Results
 | Language   | Pass Rate (%) | Total Tests | Failed Tests |
@@ -38,14 +40,14 @@ Note: The tests for the chat window were conducted using the GPT-5 (Preview) mod
 ## Golf App Test Execution Results
 Report file:
 
-[GolfAppTestsTabnineGemini2.0ProSeptember2025.xlsx](../../../../reports/2025/GolfAppTestsTabnineGemini2.0ProSeptember2025.xlsx)
+[GolfAppTestsTabnineGemini2.5ProSeptember2025.xlsx](../../../../reports/2025/GolfAppTestsTabnineGemini2.5ProSeptember2025.xlsx)
 
 ### Chat-Based Tests Results
 | Language | Pass Rate (%) | Total Tests | Failed Tests |
 |----------|----------------|-------------|--------------|
 | Java     | 77.27          | 22          | 5            |
 
-Note: The tests were conducted using the Gemini 2.0 Pro model.
+Note: The tests were conducted using the Gemini 2.5 Pro model.
 
 ### Configuration
 - VS Code version: 1.104.1
