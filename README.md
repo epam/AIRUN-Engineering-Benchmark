@@ -8,7 +8,6 @@ Evaluation of AI-powered solutions in enterprise software development.
 - [What We Solve](#-what-we-solve)
 - [Leaderboards](#-leaderboards)
 - [Our Approach](#-our-approach)
-- [Technologies](#-technologies)
 - [Repositories Structure](#-repositories-structure)
 - [Contributing](#-contributing)
 - [Submission](#-submission)
@@ -29,7 +28,7 @@ Before we decided to start working on our benchmark our team explored the ones a
 
 Our team runs EPAM AI/RUN<sup>TM</sup> Engineering Benchmark on the most popular Code Assistants and LLMs. The results are updated on the corresponding leaderboards that we update regularly.
 
-View the current rankings and results of LLM's benchmark on our [LLMs Leaderboard](https://epam.github.io/AIRUN-Engineering-Benchmark), and see the results of Code Assistants and Agents on the [Code Assistants vs Agents Leaderboard](pages/sandbox-test/code-assistants-agents-leaderboard-2025.md).
+View the current rankings and results of LLM's benchmark on our [LLMs Leaderboard](https://epam.github.io/AIRUN-Engineering-Benchmark/llm), and see the results of Code Assistants and Agents on the [Code Assistants vs Agents Leaderboard](https://epam.github.io/AIRUN-Engineering-Benchmark/assistant).
 
 ## 🔬 Our Approach
 
@@ -51,7 +50,7 @@ We've developed a multi-faceted approach to assess capabilities and performance 
     - DevOps
     - Solution Migration
 - Utilizes both code completion and chat-based scenarios
-- In 2025 we added agentic tests recognizing importance and popularity of this modality
+- In 2025, we added agentic tests recognizing importance and popularity of this modality
 
 For more detailed information about our Code Assistants benchmark methodology, please refer to
 the following page  [Code Assistants](pages/sandbox-test/code-assistants-benchmark-approach.md).
@@ -129,7 +128,7 @@ Our tests use third-party opensource repositories (licensed under MIT, BSD 3-Cla
 ---
 
 <p align="center">
-    © 2024 EPAM Systems, Inc.  All Rights Reserved.<br/>
+    © 2025 EPAM Systems, Inc.  All Rights Reserved.<br/>
     EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>
     All reports in this repository are licensed under CC BY-SA 4.0
 </p>
