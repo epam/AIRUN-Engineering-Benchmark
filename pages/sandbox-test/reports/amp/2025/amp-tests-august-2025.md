@@ -60,7 +60,7 @@
 ## Golf App Test Execution Results
 
 **Report file:**  
-[SandboxTestsAmazonQApril2025.xlsx](../../../../../reports/2025/GolfAppTestsAmpJuly2025.xlsx)
+[GolfAppTestsAmazonQApril2025.xlsx](../../../../../reports/2025/GolfAppTestsAmpJuly2025.xlsx)
 
 ### Chat-Based Tests Results
 
