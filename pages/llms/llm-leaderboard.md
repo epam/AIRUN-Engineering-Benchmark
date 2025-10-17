@@ -1,4 +1,4 @@
-# LLMs Leaderboard (Benchmark v3, last update 2025-09-30)
+# LLMs Leaderboard (Benchmark v3, last update 2025-10-17)
 
 > 📊 **Interactive Leaderboard**: View live results with charts at Our [LLM Leaderboard](https://epam.github.io/AIRUN-Engineering-Benchmark/llm)
 
@@ -28,9 +28,11 @@ General insights:
 
 **Coding Benchmark Leaders:**
 
-- Claude 4.5 Sonnet achieves top position with 82.19% total score, demonstrating exceptional balanced performance across all coding categories without requiring reasoning mode
+- Claude Sonnet 4.5 achieves top position with 82.19% total score, demonstrating exceptional balanced performance across all coding categories without requiring reasoning mode
 - GPT-5 (08-07) follows closely at 82.13%, achieving the best code translation performance (84.79%) and strong code generation (78.92%)
-- Grok 4 Fast secures third place with 79.45% score, delivering excellent performance with exceptional cost-efficiency ($0.22)
+- Claude Haiku 4.5 secures third place with 81.83% score, representing Anthropic's upgraded smaller model with significantly improved performance, exceptional speed (180.66 tokens/sec), and support
+  for extended output (64K tokens)
+- Grok 4 Fast achieves 79.45% score, delivering excellent performance with exceptional cost-efficiency ($0.22)
 - GPT-5 Codex achieves 77.25% score as a specialized agentic coding model, optimized for complex software engineering tasks with dynamic thinking time adjustment and enhanced iterative capabilities
 - Claude 4 Sonnet scores 75.68%, outperforming its Thinking mode variant (73.73%), demonstrating that reasoning modes don't always improve coding performance
 - Grok 4 (07-09) achieves 73.33% score with balanced capabilities, while Grok Code Fast delivers 71.74% with exceptional speed (165.54 tokens/sec) and outstanding cost efficiency ($0.33)
@@ -45,6 +47,8 @@ General insights:
 - Gemini 2.5 Pro scores 78.83% with strong performance and reasonable cost ($1.85), showing Google's strength in multimodal reasoning
 - GPT-5 Codex delivers 73.06% score in multimodal tasks, showing strong cross-domain capabilities with enhanced visual inspection and front-end development strengths
 - Gemini 2.5 Flash Preview (0925) achieves 72.97% score with enhanced multimodal capabilities and improved instruction adherence
+- Claude Haiku 4.5 achieves 61.13% score in multimodal tasks with ultrafast execution time (4.64 min) and excellent cost-efficiency ($0.91), though significantly behind its strong coding performance (
+  81.83%)
 - Claude 4 Sonnet (Thinking) improves to 60.69% vs. 56.68% for base model, showing reasoning mode benefits in multimodal contexts
 - Grok 4 Fast scores 50.74% in multimodal tasks compared to its strong 79.45% coding performance, while Grok 4 significantly underperforms (43.78% vs. 73.33% in coding), indicating xAI's
   specialization in text-based programming tasks
@@ -53,25 +57,26 @@ Performance metrics highlights:
 
 **Coding Benchmark:**
 
-- **Fastest token generation**: gpt-oss-120b (555.99 T/S), Gemini 2.5 Flash Preview (200.57 T/S), Grok Code Fast (165.54 T/S), Gemini 2.5 Flash (166.51 T/S)
-- **Shortest execution time**: gpt-oss-120b (6.71 min), Grok Code Fast (17.66 min)
-- **Most tokens generated**: Gemini 2.5 Flash (698,984 tokens), Gemini 2.5 Flash Preview (502,395 tokens), Claude 4.5 Sonnet (496,983 tokens), Gemini 2.5 Pro (410,997 tokens)
-- **Best cost-effectiveness**: Grok 4 Fast ($0.22), gpt-oss-120b ($0.23), Grok Code Fast ($0.33), Amazon Nova Premier ($1.12), Gemini 2.5 Flash Preview ($1.37), GPT-5 (08-07) ($3.39)
+- **Fastest token generation**: gpt-oss-120b (555.99 T/S), Gemini 2.5 Flash Preview (200.57 T/S), Claude Haiku 4.5 (180.66 T/S), Gemini 2.5 Flash (166.51 T/S), Grok Code Fast (165.54 T/S)
+- **Shortest execution time**: gpt-oss-120b (6.71 min), Grok Code Fast (17.66 min), Claude Haiku 4.5 (59.27 min)
+- **Most tokens generated**: Gemini 2.5 Flash (698,984 tokens), Claude Haiku 4.5 (642,436 tokens), Gemini 2.5 Flash Preview (502,395 tokens), Claude Sonnet 4.5 (496,983 tokens)
+- **Best cost-effectiveness**: Grok 4 Fast ($0.22), gpt-oss-120b ($0.23), Grok Code Fast ($0.33), Amazon Nova Premier ($1.12), Gemini 2.5 Flash Preview ($1.37), GPT-5 (08-07) ($3.39), Claude Haiku
+  4.5 ($3.61)
 
 **Multimodal Benchmark:**
 
-- **Fastest token generation**: Gemini 2.5 Flash Preview (155.63 T/S), Gemini 2.5 Flash (127.87 T/S), Grok 4 Fast (91.42 T/S), Gemini 2.5 Pro (77.01 T/S)
-- **Shortest execution time**: Claude 4.5 Sonnet (8.46 min), Gemini 2.5 Flash Preview (9.71 min), Claude 4 Sonnet (10.83 min), Gemini 2.5 Flash (11.51 min), GPT-5 Codex (11.67 min)
-- **Best cost-effectiveness**: Gemini 2.5 Flash ($0.42), Gemini 2.5 Flash Preview ($0.44), GPT-5 Codex ($1.11), GPT-5 ($1.19)
+- **Fastest token generation**: Gemini 2.5 Flash Preview (155.63 T/S), Gemini 2.5 Flash (127.87 T/S), Grok 4 Fast (91.42 T/S), Gemini 2.5 Pro (77.01 T/S), Claude Haiku 4.5 (74.89 T/S)
+- **Shortest execution time**: Claude Haiku 4.5 (4.64 min), Claude Sonnet 4.5 (8.46 min), Gemini 2.5 Flash Preview (9.71 min), Claude Sonnet 4 (10.83 min), Gemini 2.5 Flash (11.51 min)
+- **Best cost-effectiveness**: Gemini 2.5 Flash ($0.42), Gemini 2.5 Flash Preview ($0.44), Claude Haiku 4.5 ($0.91), GPT-5 Codex ($1.11), GPT-5 ($1.19)
 
 Best results by category:
 
 **Coding Benchmark:**
 
-- **Code Translation**: GPT-5 (08-07) (84.79%), GPT-5 Codex (81.67%), Claude 4 Sonnet (79.08%), Gemini 2.5 Pro (78.38%), Grok 4 Fast (77.79%), Claude 4.5 Sonnet (77.04%)
-- **Code Generation**: GPT-5 Codex (81.42%), Grok 4 Fast (80.38%), GPT-5 (08-07) (78.92%), Claude 4.5 Sonnet (75.92%), Claude 4 Sonnet (74.65%)
-- **Code Documentation**: GPT-5 (08-07) (79.81%), Claude 4.5 Sonnet (79.53%), Grok 4 Fast (78.39%), gpt-oss-120b (67.86%), Grok 4 (64.94%)
-- **LCIF**: Grok Code Fast (98.50%), Claude 4/4.5 models (96.25%), Grok 4 (92.50%), GPT-5 Codex (86.25%), GPT-5 & Gemini 2.5 Flash Preview (85.00%)
+- **Code Translation**: GPT-5 (08-07) (84.79%), Claude Haiku 4.5 (82.63%), GPT-5 Codex (81.67%), Claude Sonnet 4 (79.08%), Gemini 2.5 Pro (78.38%), Grok 4 Fast (77.79%)
+- **Code Generation**: GPT-5 Codex (81.42%), Grok 4 Fast (80.38%), GPT-5 (08-07) (78.92%), Claude Sonnet 4.5 (75.92%), Claude Sonnet 4 (74.65%), Claude Haiku 4.5 (74.04%)
+- **Code Documentation**: Claude Haiku 4.5 (80.64%), GPT-5 (08-07) (79.81%), Claude Sonnet 4.5 (79.53%), Grok 4 Fast (78.39%), gpt-oss-120b (67.86%)
+- **LCIF**: Grok Code Fast (98.50%), Claude Sonnet 4/4.5 (96.25%), Grok 4 (92.50%), Claude Haiku 4.5 (90.00%), GPT-5 Codex (86.25%)
 
 **Multimodal Benchmark:**
 
@@ -124,13 +129,20 @@ multimodal tasks, showing improvements in agentic reasoning capabilities and fas
 coding, 155.63 T/S in multimodal).
 
 **Anthropic's Latest Achievement and Reasoning Mode Paradox**
-Claude 4.5 Sonnet achieves breakthrough performance, claiming the top spot in coding benchmark with 82.19% score, marginally surpassing GPT-5 (82.13%). This latest model demonstrates exceptional
+Claude Sonnet 4.5 achieves breakthrough performance, claiming the top spot in coding benchmark with 82.19% score, marginally surpassing GPT-5 (82.13%). This latest model demonstrates exceptional
 balanced capabilities across all coding categories without requiring reasoning mode, achieving second place in code documentation (79.53%) and solid performance in code generation (75.92%). However,
-Claude 4.5 Sonnet shows significant regression in multimodal tasks (54.76%), performing worse than both Claude 4 base (56.68%) and Claude 4 Thinking (60.69%), though it delivers the fastest multimodal
+Claude Sonnet 4.5 shows significant regression in multimodal tasks (54.76%), performing worse than both Claude 4 base (56.68%) and Claude 4 Thinking (60.69%), though it delivers the fastest multimodal
 execution time (8.46 min).
 
+Claude Haiku 4.5 emerges as a remarkable smaller model, securing third place in coding benchmark with 81.83% score and achieving first place in code documentation (80.64%). This represents a
+significant upgrade from Haiku 3.5, with the new model supporting extended output (64K tokens, up from 8K), reasoning capabilities (though not utilized in these tests to avoid performance
+degradation), and improved knowledge cutoff (July 2025). The model exhibits Sonnet-like behavior and quality while maintaining exceptional speed (180.66 T/S in coding, 74.89 T/S in multimodal) and
+competitive cost ($3.61 coding, $0.91 multimodal). Claude Haiku 4.5 excels in code translation (82.63%, second only to GPT-5) and achieves ultrafast multimodal execution (4.64 min), though its
+multimodal performance (61.13%) lags significantly behind its coding capabilities, mirroring the pattern seen across the Claude family. The model supports multiple tool calling, making it suitable for
+complex agentic workflows.
+
 The Claude model family reveals an interesting pattern: reasoning mode consistently hurts coding performance (Claude 4 base: 75.68% vs. thinking: 73.73%) but improves multimodal capabilities (base:
-56.68% vs. thinking: 60.69%). This suggests reasoning mode benefits complex visual understanding but may overcomplicate straightforward coding tasks. Claude 4.5 Sonnet's strong coding performance
+56.68% vs. thinking: 60.69%). This suggests reasoning mode benefits complex visual understanding but may overcomplicate straightforward coding tasks. Claude Sonnet 4.5's strong coding performance
 without reasoning mode confirms that Anthropic has successfully integrated advanced reasoning directly into the base model architecture.
 
 **xAI's Domain Specialization and Efficiency Breakthrough**
@@ -146,11 +158,10 @@ assistance. However, this model wasn't evaluated in multimodal tasks, limiting i
 **Enterprise Deployment Considerations**
 For organizations choosing models, domain requirements significantly impact optimal selection:
 
-- **Pure Coding Tasks**: Claude 4.5 Sonnet for top overall performance, GPT-5 for best code translation quality, GPT-5 Codex for specialized agentic software engineering, Grok 4 Fast for excellent
-  performance with cost efficiency, gpt-oss-120b for open-source
-- **Multimodal Applications**: Gemini 2.5 Flash for balanced performance, GPT-5 for high quality, Gemini 2.5 Flash Preview for enhanced agentic reasoning
-- **Mixed Workloads**: GPT-5 offers the best cross-domain consistency (82.13% coding, 81.59% multimodal), while Claude 4.5 Sonnet excels in coding but underperforms in multimodal scenarios
-- **Cost-Optimized Solutions**: Grok 4 Fast leads in cost-efficiency ($0.22) with excellent coding performance, Gemini 2.5 Flash Preview offers improved token efficiency for multimodal tasks
+- **Pure Coding Tasks**: Claude Sonnet 4.5 for top overall performance, Claude Haiku 4.5 for high-performance budget option with exceptional speed, GPT-5 for best code translation quality, GPT-5 Codex for specialized agentic software engineering, Grok 4 Fast for excellent performance with cost efficiency, gpt-oss-120b for open-source
+- **Multimodal Applications**: Gemini 2.5 Flash for balanced performance, GPT-5 for high quality, Gemini 2.5 Flash Preview for enhanced agentic reasoning, Claude Haiku 4.5 for ultrafast execution
+- **Mixed Workloads**: GPT-5 offers the best cross-domain consistency (82.13% coding, 81.59% multimodal), while Claude Sonnet 4.5 excels in coding but underperforms in multimodal scenarios
+- **Cost-Optimized Solutions**: Grok 4 Fast leads in cost-efficiency ($0.22) with excellent coding performance, Claude Haiku 4.5 offers premium performance at mid-tier pricing, Gemini 2.5 Flash Preview offers improved token efficiency for multimodal tasks
 
 ### Detailed Results
 
@@ -170,12 +181,13 @@ multimodal instruction following capabilities.
 
 | Name                            | Reasoning | Accuracy | Completeness | Total Time (min) | Speed (T/S) | Total input | Total Thinking | Total output | Cost $ | Total Score |
 |---------------------------------|-----------|----------|--------------|------------------|-------------|-------------|----------------|--------------|--------|-------------|
-| Claude 4.5 Sonnet               | No        | 0.773    | 0.782        | 101.75           | 81.41       | 399735      | -              | 496983       | 8.65   | 82.19%      |
+| Claude Sonnet 4.5               | No        | 0.773    | 0.782        | 101.75           | 81.41       | 399735      | -              | 496983       | 8.65   | 82.19%      |
 | GPT-5 (08-07)                   | Yes (low) | 0.800    | 0.818        | 92.53            | 53.94       | 314949      | 28800          | 299430       | 3.39   | 82.13%      |
+| Claude Haiku 4.5                | No        | 0.777    | 0.807        | 59.27            | 180.66      | 399778      | 0              | 642436       | 3.61   | 81.83%      |
 | Grok 4 Fast                     | Yes       | 0.767    | 0.810        | 41.22            | 125.84      | 315508      | 65852          | 311224       | 0.22   | 79.45%      |
 | GPT-5 Codex                     | Yes (low) | 0.696    | 0.751        | 69.49            | 63.39       | 314149      | 61760          | 264293       | 3.04   | 77.25%      |
-| Claude 4 Sonnet                 | No        | 0.652    | 0.683        | 64.24            | 85.92       | 399848      | -              | 331188       | 6.17   | 75.68%      |
-| Claude 4 Sonnet (Thinking)      | Yes       | 0.638    | 0.654        | 64.01            | 82.58       | 401095      | N/A            | 317158       | 5.96   | 73.73%      |
+| Claude Sonnet 4                 | No        | 0.652    | 0.683        | 64.24            | 85.92       | 399848      | -              | 331188       | 6.17   | 75.68%      |
+| Claude Sonnet 4 (Thinking)      | Yes       | 0.638    | 0.654        | 64.01            | 82.58       | 401095      | N/A            | 317158       | 5.96   | 73.73%      |
 | Grok 4 (07-09)                  | Yes       | 0.680    | 0.652        | 80.75            | 46.27       | 339997      | 57357          | 224156       | 4.38   | 73.33%      |
 | Grok Code Fast                  | Yes       | 0.645    | 0.603        | 17.66            | 165.54      | 319314      | 16584          | 175420       | 0.33   | 71.74%      |
 | Gemini 2.5 Flash Preview (0925) | Yes       | 0.633    | 0.642        | 41.75            | 200.57      | 374616      | 281794         | 502395       | 1.37   | 69.37%      |
@@ -195,6 +207,7 @@ _Table 1. Overview of the coding benchmark results._
 | Gemini 2.5 Pro                  | Yes       | 0.769    | 0.962        | 20.49            | 77.01       | 718866      | 69631          | 94691        | 1.85   | 78.83%      |
 | GPT-5 Codex                     | Yes (low) | 0.704    | 0.970        | 11.67            | 49.14       | 610301      | 23232          | 34411        | 1.11   | 73.06%      |
 | Gemini 2.5 Flash Preview (0925) | Yes       | 0.707    | 0.934        | 9.71             | 155.63      | 718866      | 68793          | 90663        | 0.44   | 72.97%      |
+| Claude Haiku 4.5                | No        | 0.571    | 0.971        | 4.64             | 74.89       | 801240      | -              | 20831        | 0.91   | 61.13%      |
 | Claude 4 Sonnet (Thinking)      | Yes       | 0.567    | 0.966        | 18.60            | 43.96       | 802110      | N/A            | 49062        | 3.14   | 60.66%      |
 | Claude 4 Sonnet                 | No        | 0.523    | 0.961        | 10.83            | 28.56       | 801240      | -              | 18563        | 2.68   | 56.68%      |
 | Claude 4.5 Sonnet               | No        | 0.503    | 0.949        | 8.46             | 37.12       | 801210      | -              | 18843        | 2.69   | 54.76%      |
@@ -216,6 +229,7 @@ _Table 2. Overview of the multimodal benchmark results._
 |----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|----------------|--------------------------------------------------|------------|------------------|
 | [Claude 4.5 Sonnet](https://www.anthropic.com/news/claude-sonnet-4-5)                                                                                    | Google Vertex AI                                                                      | 200K           | $3.00 / $15.00                                   | 64K        | July, 2025       |
 | [GPT-5 (08-07)](https://platform.openai.com/docs/models/gpt-5)                                                                                           | OpenAI                                                                                | 400K           | $1.25 / $10.00                                   | 128K       | Sep 30, 2024     |
+| [Claude Haiku 4.5](https://www.anthropic.com/news/claude-haiku-4-5)                                                                                      | Google Vertex AI                                                                      | 200K           | $1.00 / $5.00                                    | 64K        | July, 2025       |
 | [Grok 4 Fast Reasoning](https://docs.x.ai/docs/models/grok-4-fast-reasoning)                                                                             | xAI                                                                                   | 2M             | $0.20 / $0.50                                    | N/A        | N/A              |
 | [GPT-5-codex](https://platform.openai.com/docs/models/gpt-5-codex)                                                                                       | OpenAI                                                                                | 400K           | $1.25 / $10.00                                   | 128K       | Sep 30, 2024     |
 | [Claude 4 Sonnet](https://www.anthropic.com/news/claude-4)                                                                                               | Google Vertex AI                                                                      | 200K           | $3.00 / $15.00                                   | 64K        | Mar, 2025        |
