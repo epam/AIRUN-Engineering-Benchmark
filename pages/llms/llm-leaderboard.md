@@ -1,4 +1,4 @@
-# LLMs Leaderboard (Benchmark v3, last update 2025-10-17)
+# LLMs Leaderboard (Benchmark v3, last update 2025-10-28)
 
 > 📊 **Interactive Leaderboard**: View live results with charts at Our [LLM Leaderboard](https://epam.github.io/AIRUN-Engineering-Benchmark/llm)
 
@@ -34,6 +34,8 @@ General insights:
   for extended output (64K tokens)
 - Grok 4 Fast achieves 79.45% score, delivering excellent performance with exceptional cost-efficiency ($0.22)
 - GPT-5 Codex achieves 77.25% score as a specialized agentic coding model, optimized for complex software engineering tasks with dynamic thinking time adjustment and enhanced iterative capabilities
+- GPT-5 Mini achieves 71.28% in coding but excels in multimodal tasks (79.21%, 3rd place), strong code translation (80.92%, 4th) and documentation (78.64%, 4th) despite weak LCIF performance (55%)
+- GPT-5 Nano scores 58.61% in coding with exceptional cost-efficiency ($0.33 coding, $0.13 multimodal), generating the most tokens of any model but struggling with LCIF (42.50%)
 - Claude 4 Sonnet scores 75.68%, outperforming its Thinking mode variant (73.73%), demonstrating that reasoning modes don't always improve coding performance
 - Grok 4 (07-09) achieves 73.33% score with balanced capabilities, while Grok Code Fast delivers 71.74% with exceptional speed (165.54 tokens/sec) and outstanding cost efficiency ($0.33)
 - Gemini 2.5 Flash Preview (0925) scores 69.37% with improved agentic reasoning and 15% performance leap in long-horizon tasks, plus enhanced cost-efficiency through higher-quality outputs
@@ -44,6 +46,7 @@ General insights:
 
 - GPT-5 (08-07) maintains leadership with 81.56% score, demonstrating consistent excellence across both coding and multimodal domains
 - Gemini 2.5 Flash achieves 80.50% score with impressive speed (127.87 tokens/sec) and cost efficiency ($0.42), making it the top choice for multimodal tasks
+- GPT-5 Mini achieves 79.21% score, significantly outperforming its coding results (71.28%), with excellent cost-efficiency ($0.48) and strong balanced performance
 - Gemini 2.5 Pro scores 78.83% with strong performance and reasonable cost ($1.85), showing Google's strength in multimodal reasoning
 - GPT-5 Codex delivers 73.06% score in multimodal tasks, showing strong cross-domain capabilities with enhanced visual inspection and front-end development strengths
 - Gemini 2.5 Flash Preview (0925) achieves 72.97% score with enhanced multimodal capabilities and improved instruction adherence
@@ -158,10 +161,14 @@ assistance. However, this model wasn't evaluated in multimodal tasks, limiting i
 **Enterprise Deployment Considerations**
 For organizations choosing models, domain requirements significantly impact optimal selection:
 
-- **Pure Coding Tasks**: Claude Sonnet 4.5 for top overall performance, Claude Haiku 4.5 for high-performance budget option with exceptional speed, GPT-5 for best code translation quality, GPT-5 Codex for specialized agentic software engineering, Grok 4 Fast for excellent performance with cost efficiency, gpt-oss-120b for open-source
-- **Multimodal Applications**: Gemini 2.5 Flash for balanced performance, GPT-5 for high quality, Gemini 2.5 Flash Preview for enhanced agentic reasoning, Claude Haiku 4.5 for ultrafast execution
-- **Mixed Workloads**: GPT-5 offers the best cross-domain consistency (82.13% coding, 81.59% multimodal), while Claude Sonnet 4.5 excels in coding but underperforms in multimodal scenarios
-- **Cost-Optimized Solutions**: Grok 4 Fast leads in cost-efficiency ($0.22) with excellent coding performance, Claude Haiku 4.5 offers premium performance at mid-tier pricing, Gemini 2.5 Flash Preview offers improved token efficiency for multimodal tasks
+- **Pure Coding Tasks**: Claude Sonnet 4.5 for top overall performance, Claude Haiku 4.5 for high-performance budget option with exceptional speed, GPT-5 for best code translation quality, GPT-5 Codex
+  for specialized agentic software engineering, Grok 4 Fast for excellent performance with cost efficiency, gpt-oss-120b for open-source
+- **Multimodal Applications**: Gemini 2.5 Flash for balanced performance, GPT-5 for high quality, GPT-5 Mini for cost-effective excellence ($0.48), Gemini 2.5 Flash Preview for enhanced agentic
+  reasoning, Claude Haiku 4.5 for ultrafast execution
+- **Mixed Workloads**: GPT-5 offers the best cross-domain consistency (82.13% coding, 81.59% multimodal), GPT-5 Mini delivers strong multimodal (79.21%) with solid coding (71.28%), while Claude Sonnet
+  4.5 excels in coding but underperforms in multimodal scenarios
+- **Cost-Optimized Solutions**: Grok 4 Fast leads in cost-efficiency ($0.22) with excellent coding performance, GPT-5 Nano for ultra-low-cost operations ($0.13 multimodal, $0.33 coding), Claude Haiku
+  4.5 offers premium performance at mid-tier pricing, Gemini 2.5 Flash Preview offers improved token efficiency for multimodal tasks
 
 ### Detailed Results
 
@@ -179,41 +186,45 @@ multimodal instruction following capabilities.
 
 ### Coding Benchmark Results
 
-| Name                            | Reasoning | Accuracy | Completeness | Total Time (min) | Speed (T/S) | Total input | Total Thinking | Total output | Cost $ | Total Score |
-|---------------------------------|-----------|----------|--------------|------------------|-------------|-------------|----------------|--------------|--------|-------------|
-| Claude Sonnet 4.5               | No        | 0.773    | 0.782        | 101.75           | 81.41       | 399735      | -              | 496983       | 8.65   | 82.19%      |
-| GPT-5 (08-07)                   | Yes (low) | 0.800    | 0.818        | 92.53            | 53.94       | 314949      | 28800          | 299430       | 3.39   | 82.13%      |
-| Claude Haiku 4.5                | No        | 0.777    | 0.807        | 59.27            | 180.66      | 399778      | 0              | 642436       | 3.61   | 81.83%      |
-| Grok 4 Fast                     | Yes       | 0.767    | 0.810        | 41.22            | 125.84      | 315508      | 65852          | 311224       | 0.22   | 79.45%      |
-| GPT-5 Codex                     | Yes (low) | 0.696    | 0.751        | 69.49            | 63.39       | 314149      | 61760          | 264293       | 3.04   | 77.25%      |
-| Claude Sonnet 4                 | No        | 0.652    | 0.683        | 64.24            | 85.92       | 399848      | -              | 331188       | 6.17   | 75.68%      |
-| Claude Sonnet 4 (Thinking)      | Yes       | 0.638    | 0.654        | 64.01            | 82.58       | 401095      | N/A            | 317158       | 5.96   | 73.73%      |
-| Grok 4 (07-09)                  | Yes       | 0.680    | 0.652        | 80.75            | 46.27       | 339997      | 57357          | 224156       | 4.38   | 73.33%      |
-| Grok Code Fast                  | Yes       | 0.645    | 0.603        | 17.66            | 165.54      | 319314      | 16584          | 175420       | 0.33   | 71.74%      |
-| Gemini 2.5 Flash Preview (0925) | Yes       | 0.633    | 0.642        | 41.75            | 200.57      | 374616      | 281794         | 502395       | 1.37   | 69.37%      |
-| Gemini 2.5 Pro                  | Yes       | 0.594    | 0.609        | 63.77            | 107.42      | 374686      | 144617         | 410997       | 4.58   | 65.67%      |
-| gpt-oss-120b                    | Yes (low) | 0.709    | 0.720        | 6.71             | 555.99      | 316966      | N/A            | 223941       | 0.23   | 62.19%      |
-| Gemini 2.5 Flash                | Yes       | 0.633    | 0.675        | 69.96            | 166.51      | 339193      | 204426         | 698984       | 2.50   | 60.46%      |
-| Amazon Nova Premier             | No        | 0.282    | 0.205        | 15.88            | 46.56       | 224223      | -              | 44360        | 1.12   | 26.89%      |
+| Name                            | Reasoning  | Accuracy | Completeness | Total Time (min) | Speed (T/S) | Total input | Total Thinking | Total output | Cost $ | Total Score |
+|---------------------------------|------------|----------|--------------|------------------|-------------|-------------|----------------|--------------|--------|-------------|
+| Claude Sonnet 4.5               | No         | 0.773    | 0.782        | 101.75           | 81.41       | 399735      | -              | 496983       | 8.65   | 82.19%      |
+| GPT-5 (08-07)                   | Yes (low)  | 0.800    | 0.818        | 92.53            | 53.94       | 314949      | 28800          | 299430       | 3.39   | 82.13%      |
+| Claude Haiku 4.5                | No         | 0.777    | 0.807        | 59.27            | 180.66      | 399778      | -              | 642436       | 3.61   | 81.83%      |
+| Grok 4 Fast                     | Yes        | 0.767    | 0.810        | 41.22            | 125.84      | 315508      | 65852          | 311224       | 0.22   | 79.45%      |
+| GPT-5 Codex                     | Yes (low)  | 0.696    | 0.751        | 69.49            | 63.39       | 314149      | 61760          | 264293       | 3.04   | 77.25%      |
+| Claude Sonnet 4                 | No         | 0.652    | 0.683        | 64.24            | 85.92       | 399848      | -              | 331188       | 6.17   | 75.68%      |
+| Claude Sonnet 4 (Thinking)      | Yes        | 0.638    | 0.654        | 64.01            | 82.58       | 401095      | N/A            | 317158       | 5.96   | 73.73%      |
+| Grok 4 (07-09)                  | Yes        | 0.680    | 0.652        | 80.75            | 46.27       | 339997      | 57357          | 224156       | 4.38   | 73.33%      |
+| Grok Code Fast                  | Yes        | 0.645    | 0.603        | 17.66            | 165.54      | 319314      | 16584          | 175420       | 0.33   | 71.74%      |
+| GPT-5 Mini                      | Yes (high) | 0.751    | 0.785        | 191.62           | 56.51       | 314149      | 339968         | 649773       | 1.38   | 71.28%      |
+| Gemini 2.5 Flash Preview (0925) | Yes        | 0.633    | 0.642        | 41.75            | 200.57      | 374616      | 281794         | 502395       | 1.37   | 69.37%      |
+| Gemini 2.5 Pro                  | Yes        | 0.594    | 0.609        | 63.77            | 107.42      | 374686      | 144617         | 410997       | 4.58   | 65.67%      |
+| gpt-oss-120b                    | Yes (low)  | 0.709    | 0.720        | 6.71             | 555.99      | 316966      | N/A            | 223941       | 0.23   | 62.19%      |
+| Gemini 2.5 Flash                | Yes        | 0.633    | 0.675        | 69.96            | 166.51      | 339193      | 204426         | 698984       | 2.50   | 60.46%      |
+| GPT-5 Nano                      | Yes (high) | 0.652    | 0.630        | 150.27           | 86.83       | 314149      | 541824         | 782832       | 0.33   | 58.61%      |
+| Amazon Nova Premier             | No         | 0.282    | 0.205        | 15.88            | 46.56       | 224223      | 0              | 44360        | 1.12   | 26.89%      |
 
 _Table 1. Overview of the coding benchmark results._
 
 ### Multimodal Benchmark Results
 
-| Name                            | Reasoning | Accuracy | Completeness | Total Time (min) | Speed (T/S) | Total input | Total Thinking | Total output | Cost $ | Total Score |
-|---------------------------------|-----------|----------|--------------|------------------|-------------|-------------|----------------|--------------|--------|-------------|
-| GPT-5 (08-07)                   | Yes (low) | 0.796    | 0.992        | 17.31            | 41.09       | 613046      | 21952          | 42680        | 1.19   | 81.59%      |
-| Gemini 2.5 Flash                | Yes       | 0.790    | 0.940        | 11.51            | 127.87      | 718866      | 61545          | 88295        | 0.42   | 80.50%      |
-| Gemini 2.5 Pro                  | Yes       | 0.769    | 0.962        | 20.49            | 77.01       | 718866      | 69631          | 94691        | 1.85   | 78.83%      |
-| GPT-5 Codex                     | Yes (low) | 0.704    | 0.970        | 11.67            | 49.14       | 610301      | 23232          | 34411        | 1.11   | 73.06%      |
-| Gemini 2.5 Flash Preview (0925) | Yes       | 0.707    | 0.934        | 9.71             | 155.63      | 718866      | 68793          | 90663        | 0.44   | 72.97%      |
-| Claude Haiku 4.5                | No        | 0.571    | 0.971        | 4.64             | 74.89       | 801240      | -              | 20831        | 0.91   | 61.13%      |
-| Claude 4 Sonnet (Thinking)      | Yes       | 0.567    | 0.966        | 18.60            | 43.96       | 802110      | N/A            | 49062        | 3.14   | 60.66%      |
-| Claude 4 Sonnet                 | No        | 0.523    | 0.961        | 10.83            | 28.56       | 801240      | -              | 18563        | 2.68   | 56.68%      |
-| Claude 4.5 Sonnet               | No        | 0.503    | 0.949        | 8.46             | 37.12       | 801210      | -              | 18843        | 2.69   | 54.76%      |
-| Amazon Nova Premier             | No        | 0.489    | 0.928        | 14.85            | 16.78       | 767489      | -              | 14954        | 2.11   | 53.26%      |
-| Grok 4 Fast                     | Yes       | 0.455    | 0.982        | 14.22            | 91.42       | 586517      | 32902          | 77976        | 0.16   | 50.74%      |
-| Grok 4 (07-09)                  | Yes       | 0.380    | 0.958        | 66.46            | 42.72       | 606242      | 138102         | 170368       | 4.37   | 43.75%      |
+| Name                            | Reasoning  | Accuracy | Completeness | Total Time (min) | Speed (T/S) | Total input | Total Thinking | Total output | Cost $ | Total Score |
+|---------------------------------|------------|----------|--------------|------------------|-------------|-------------|----------------|--------------|--------|-------------|
+| GPT-5 (08-07)                   | Yes (low)  | 0.796    | 0.992        | 17.31            | 41.09       | 613046      | 21952          | 42680        | 1.19   | 81.59%      |
+| Gemini 2.5 Flash                | Yes        | 0.790    | 0.940        | 11.51            | 127.87      | 718866      | 61545          | 88295        | 0.42   | 80.50%      |
+| GPT-5 Mini                      | Yes (high) | 0.769    | 0.997        | 51.23            | 52.28       | 636192      | 124352         | 160700       | 0.48   | 79.21%      |
+| Gemini 2.5 Pro                  | Yes        | 0.769    | 0.962        | 20.49            | 77.01       | 718866      | 69631          | 94691        | 1.85   | 78.83%      |
+| GPT-5 Codex                     | Yes (low)  | 0.704    | 0.970        | 11.67            | 49.14       | 610301      | 23232          | 34411        | 1.11   | 73.06%      |
+| Gemini 2.5 Flash Preview (0925) | Yes        | 0.707    | 0.934        | 9.71             | 155.63      | 718866      | 68793          | 90663        | 0.44   | 72.97%      |
+| GPT-5 Nano                      | Yes (high) | 0.627    | 0.994        | 46.74            | 86.49       | 649510      | 208768         | 242562       | 0.13   | 66.34%      |
+| Claude Haiku 4.5                | No         | 0.571    | 0.971        | 4.64             | 74.89       | 801240      | -              | 20831        | 0.91   | 61.13%      |
+| Claude 4 Sonnet (Thinking)      | Yes        | 0.567    | 0.966        | 18.60            | 43.96       | 802110      | N/A            | 49062        | 3.14   | 60.66%      |
+| Claude 4 Sonnet                 | No         | 0.523    | 0.961        | 10.83            | 28.56       | 801240      | -              | 18563        | 2.68   | 56.68%      |
+| Claude 4.5 Sonnet               | No         | 0.503    | 0.949        | 8.46             | 37.12       | 801210      | -              | 18843        | 2.69   | 54.76%      |
+| Amazon Nova Premier             | No         | 0.489    | 0.928        | 14.85            | 16.78       | 767489      | -              | 14954        | 2.11   | 53.26%      |
+| Grok 4 Fast                     | Yes        | 0.455    | 0.982        | 14.22            | 91.42       | 586517      | 32902          | 77976        | 0.16   | 50.74%      |
+| Grok 4 (07-09)                  | Yes        | 0.380    | 0.958        | 66.46            | 42.72       | 606242      | 138102         | 170368       | 4.37   | 43.75%      |
 
 _Table 2. Overview of the multimodal benchmark results._
 
@@ -235,10 +246,12 @@ _Table 2. Overview of the multimodal benchmark results._
 | [Claude 4 Sonnet](https://www.anthropic.com/news/claude-4)                                                                                               | Google Vertex AI                                                                      | 200K           | $3.00 / $15.00                                   | 64K        | Mar, 2025        |
 | [Grok 4 (07-09)](https://docs.x.ai/docs/models/grok-4-0709)                                                                                              | xAI Console                                                                           | 256K           | $3.00 / $15.00 <= 128K and $6.00 / $30.00 > 128K | N/A        | N/A              |
 | [Grok Code Fast](https://x.ai/news/grok-code-fast-1)                                                                                                     | xAI                                                                                   | 256K           | $0.20 / $1.50                                    | N/A        | N/A              |
+| [GPT-5 Mini (08-07)](https://platform.openai.com/docs/models/gpt-5-mini)                                                                                 | OpenAI                                                                                | 400K           | $0.25 / $2.00                                    | 128K       | May 31, 2024     |
 | [Gemini 2.5 Flash Preview (0925)](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-preview)                                                 | Google AI Studio                                                                      | 1M             | $0.30 / $2.50                                    | 65K        | Jan, 2025        |
 | [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-pro)                                                                            | Google AI Studio                                                                      | 1M             | $1.25 / $10.00 <= 200K<br>$2.50 / $15.00 > 200K  | 65K        | Jan, 2025        |
 | [gpt-oss-120b](https://platform.openai.com/docs/models/gpt-oss-120b)                                                                                     | [Cerebras](https://www.cerebras.ai/blog/openai-gpt-oss-120b-runs-fastest-on-cerebras) | 131K           | $0.25 / $0.69                                    | 33K        | Jun 01, 2024     |
 | [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash)                                                                        | Google AI Studio                                                                      | 1M             | $0.15 / $3.50                                    | 65K        | Jan, 2025        |
+| [GPT-5 Nano (08-07)](https://platform.openai.com/docs/models/gpt-5-nano)                                                                                 | OpenAI                                                                                | 400K           | $0.05 / $0.40                                    | 128K       | May 31, 2024     |
 | [Amazon Nova Premier](https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/) | AWS Bedrock                                                                           | 1M             | $2.5 / $12.5                                     | 10K        | N/A              |
 
 _Table 3. Description of LLMs, their versions, amount of information to process, and the length of the response._
