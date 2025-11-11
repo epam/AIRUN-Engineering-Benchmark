@@ -1,4 +1,4 @@
-# Cursor (Gemini  2.5 Flash) AI Code Assistant Golf App Tests - June 2025
+# Cursor (Gemini  2.5 Flash) Golf App Tests - June 2025
 
 ## Summary
 
