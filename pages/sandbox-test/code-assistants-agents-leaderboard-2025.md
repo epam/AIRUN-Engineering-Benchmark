@@ -35,4 +35,3 @@ Notes: * Applied the default model; there is no option to select a specific LLM.
 - [AI Coding Agent Testing Methodology](coding-agent-testing-methodology.md)
 
 <p style="text-align: center;">  © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
-
