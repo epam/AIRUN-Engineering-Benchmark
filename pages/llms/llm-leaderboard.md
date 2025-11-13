@@ -1,4 +1,4 @@
-# LLMs Leaderboard (Benchmark v3, last update 2025-10-28)
+# LLMs Leaderboard (Benchmark v3, last update 2025-11-13)
 
 > 📊 **Interactive Leaderboard**: View live results with charts at Our [LLM Leaderboard](https://epam.github.io/AIRUN-Engineering-Benchmark/llm)
 
@@ -35,6 +35,9 @@ General insights:
 - Grok 4 Fast achieves 79.45% score, delivering excellent performance with exceptional cost-efficiency ($0.22)
 - GPT-5 Codex achieves 77.25% score as a specialized agentic coding model, optimized for complex software engineering tasks with dynamic thinking time adjustment and enhanced iterative capabilities
 - GPT-5 Mini achieves 71.28% in coding but excels in multimodal tasks (79.21%, 3rd place), strong code translation (80.92%, 4th) and documentation (78.64%, 4th) despite weak LCIF performance (55%)
+- MiniMax M2 achieves 71.14% as the top-performing open-source model, excelling in code translation (81.63%, 4th place) and agentic tasks with active tool usage, though it struggles with LCIF (
+  61.25%) and large content generation, with observed issues of generating repetitive content until token limits during testing, while having slower execution (172.20 min, 31.67 T/S) but reasonable
+  cost ($0.49)
 - GPT-5 Nano scores 58.61% in coding with exceptional cost-efficiency ($0.33 coding, $0.13 multimodal), generating the most tokens of any model but struggling with LCIF (42.50%)
 - Claude 4 Sonnet scores 75.68%, outperforming its Thinking mode variant (73.73%), demonstrating that reasoning modes don't always improve coding performance
 - Grok 4 (07-09) achieves 73.33% score with balanced capabilities, while Grok Code Fast delivers 71.74% with exceptional speed (165.54 tokens/sec) and outstanding cost efficiency ($0.33)
@@ -198,6 +201,7 @@ multimodal instruction following capabilities.
 | Grok 4 (07-09)                  | Yes        | 0.680    | 0.652        | 80.75            | 46.27       | 339997      | 57357          | 224156       | 4.38   | 73.33%      |
 | Grok Code Fast                  | Yes        | 0.645    | 0.603        | 17.66            | 165.54      | 319314      | 16584          | 175420       | 0.33   | 71.74%      |
 | GPT-5 Mini                      | Yes (high) | 0.751    | 0.785        | 191.62           | 56.51       | 314149      | 339968         | 649773       | 1.38   | 71.28%      |
+| MiniMax M2                      | Yes        | 0.714    | 0.756        | 172.20           | 31.67       | 320258      | N/A            | 327231       | 0.49   | 71.14%      |
 | Gemini 2.5 Flash Preview (0925) | Yes        | 0.633    | 0.642        | 41.75            | 200.57      | 374616      | 281794         | 502395       | 1.37   | 69.37%      |
 | Gemini 2.5 Pro                  | Yes        | 0.594    | 0.609        | 63.77            | 107.42      | 374686      | 144617         | 410997       | 4.58   | 65.67%      |
 | gpt-oss-120b                    | Yes (low)  | 0.709    | 0.720        | 6.71             | 555.99      | 316966      | N/A            | 223941       | 0.23   | 62.19%      |
@@ -247,6 +251,7 @@ _Table 2. Overview of the multimodal benchmark results._
 | [Grok 4 (07-09)](https://docs.x.ai/docs/models/grok-4-0709)                                                                                              | xAI Console                                                                           | 256K           | $3.00 / $15.00 <= 128K and $6.00 / $30.00 > 128K | N/A        | N/A              |
 | [Grok Code Fast](https://x.ai/news/grok-code-fast-1)                                                                                                     | xAI                                                                                   | 256K           | $0.20 / $1.50                                    | N/A        | N/A              |
 | [GPT-5 Mini (08-07)](https://platform.openai.com/docs/models/gpt-5-mini)                                                                                 | OpenAI                                                                                | 400K           | $0.25 / $2.00                                    | 128K       | May 31, 2024     |
+| [MiniMax M2](https://github.com/MiniMax-AI/MiniMax-M2)                                                                                                   | [Fireworks.ai](https://fireworks.ai/models/fireworks/minimax-m2)                      | 200K           | $0.30 / $1.20                                    | 131K       | N/A              |
 | [Gemini 2.5 Flash Preview (0925)](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-preview)                                                 | Google AI Studio                                                                      | 1M             | $0.30 / $2.50                                    | 65K        | Jan, 2025        |
 | [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-pro)                                                                            | Google AI Studio                                                                      | 1M             | $1.25 / $10.00 <= 200K<br>$2.50 / $15.00 > 200K  | 65K        | Jan, 2025        |
 | [gpt-oss-120b](https://platform.openai.com/docs/models/gpt-oss-120b)                                                                                     | [Cerebras](https://www.cerebras.ai/blog/openai-gpt-oss-120b-runs-fastest-on-cerebras) | 131K           | $0.25 / $0.69                                    | 33K        | Jun 01, 2024     |

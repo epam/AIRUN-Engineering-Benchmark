@@ -25,6 +25,7 @@ For detailed information about our approach and evaluation methodology, please r
 | Grok4_0709               | Grok 4 (07-09)                  | 2025-09-11     | 70.63%           | 65.23%          | 64.94%        | 92.50% | 73.33%      |
 | Grok_Code_0825           | Grok Code Fast                  | 2025-09-11     | 71.13%           | 56.50%          | 60.83%        | 98.50% | 71.74%      |
 | GPT5_Mini_high           | GPT-5 Mini                      | 2025-10-24     | 80.92%           | 70.58%          | 78.64%        | 55.00% | 71.28%      |
+| MiniMaxM2                | MiniMax M2                      | 2025-11-05     | 81.63%           | 73.92%          | 67.78%        | 61.25% | 71.14%      |
 | Gemini_25_Flash_0925     | Gemini 2.5 Flash Preview (0925) | 2025-09-26     | 74.71%           | 55.00%          | 62.78%        | 85.00% | 69.37%      |
 | Gemini_25_Pro            | Gemini 2.5 Pro                  | 2025-09-11     | 78.38%           | 55.15%          | 51.67%        | 77.50% | 65.67%      |
 | GPT_OSS_120B             | gpt-oss-120b                    | 2025-09-11     | 76.88%           | 71.54%          | 67.86%        | 32.50% | 62.19%      |
@@ -43,6 +44,7 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | GPT5_0807                | 0.828        | 0.868            | 178.40   | 8836.92   | 49.53             | 0.8479  |
 | Claude_Haiku_45          | 0.811        | 0.842            | 70.16    | 14007.83  | 199.65            | 0.8263  |
 | GPT5_Codex               | 0.778        | 0.856            | 161.51   | 10175.17  | 63.00             | 0.8167  |
+| MiniMaxM2                | 0.803        | 0.829            | 183.60   | 10530.50  | 57.36             | 0.8163  |
 | GPT5_Mini_high           | 0.772        | 0.847            | 262.90   | 16592.33  | 63.11             | 0.8092  |
 | Claude_Sonnet_4          | 0.771        | 0.811            | 103.56   | 9547.42   | 92.19             | 0.7908  |
 | Gemini_25_Pro            | 0.737        | 0.831            | 135.12   | 15917.25  | 117.80            | 0.7838  |
@@ -69,6 +71,7 @@ _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 | Claude_Sonnet_45         | 0.758        | 0.760            | 173.16   | 16989.00  | 98.11             | 0.7592  |
 | Claude_Sonnet_4          | 0.728        | 0.765            | 130.09   | 12419.15  | 95.46             | 0.7465  |
 | Claude_Haiku_45          | 0.718        | 0.762            | 88.17    | 18798.62  | 213.22            | 0.7404  |
+| MiniMaxM2                | 0.732        | 0.747            | 432.02   | 9330.92   | 21.60             | 0.7392  |
 | Claude_Sonnet_4_Thinking | 0.742        | 0.715            | 129.55   | 12058.62  | 93.08             | 0.7281  |
 | GPT_OSS_120B             | 0.723        | 0.708            | 8.89     | 4849.08   | 545.55            | 0.7154  |
 | Gemini_25_Flash          | 0.722        | 0.695            | 88.52    | 16725.69  | 188.95            | 0.7081  |
@@ -92,6 +95,7 @@ _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 | GPT5_Mini_high           | 0.752        | 0.821            | 254.90   | 13588.78  | 53.31             | 0.7864  |
 | Grok4FastReasoning       | 0.742        | 0.826            | 47.47    | 5420.00   | 114.18            | 0.7839  |
 | GPT_OSS_120B             | 0.671        | 0.687            | 9.53     | 4538.89   | 476.33            | 0.6786  |
+| MiniMaxM2                | 0.642        | 0.714            | 139.60   | 4420.17   | 31.66             | 0.6778  |
 | GPT5_Nano_high           | 0.646        | 0.693            | 179.79   | 13767.06  | 76.57             | 0.6692  |
 | Grok4_0709               | 0.671        | 0.628            | 83.55    | 3292.06   | 39.40             | 0.6494  |
 | Gemini_25_Flash_0925     | 0.631        | 0.624            | 39.77    | 6480.56   | 162.97            | 0.6278  |
@@ -120,6 +124,7 @@ _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 | Gemini_25_Flash_0925     | 3             | 3                 | 4              | 4                  | 0.85    |
 | Grok4FastReasoning       | 2.5           | 3                 | 4              | 4                  | 0.8125  |
 | Gemini_25_Pro            | 3             | 2                 | 4              | 4                  | 0.775   |
+| MiniMaxM2                | 2             | 1.5               | 3.5            | 3.5                | 0.6125  |
 | GPT5_Mini_high           | 1             | 1                 | 4              | 4                  | 0.55    |
 | GPT5_Nano_high           | 0             | 1                 | 3.5            | 3.5                | 0.425   |
 | Gemini_25_Flash          | 0             | 0                 | 4              | 4                  | 0.4     |
@@ -169,16 +174,20 @@ despite impressive speed (166.51 tokens/sec). The new Gemini 2.5 Flash Preview (
 time (41.75 min) and impressive token generation speed (200.57 T/S). The preview version achieves better cost-efficiency ($1.37) compared to higher-tier models, though Google's models continue to
 demonstrate stronger capabilities in multimodal tasks than pure coding scenarios.
 
-**Open-Source Breakthrough**
-gpt-oss-120b represents a significant milestone for open-source models, achieving 62.19% score with extraordinary speed (555.99 tokens/sec) and ultra-low cost ($0.23). The model completes all tasks in
-just 6.71 minutes, demonstrating that open-source alternatives can deliver competitive performance for organizations seeking cost-effective solutions.
+**Open-Source Models**
+MiniMax M2 achieves 71.14% as the top-performing open-source model, utilizing an efficient MoE architecture (230B total parameters with 10B active) that excels in code translation (81.63%, 4th place
+overall) and agentic tasks with active tool usage. While it demonstrates strong performance in structured coding tasks, the model struggles with LCIF (61.25%) and large content generation, operating
+with slower execution (172.20 min, 31.67 T/S) but reasonable cost ($0.49).
+
+gpt-oss-120b achieves 62.19% score with extraordinary speed (555.99 tokens/sec) and ultra-low cost ($0.23), completing all tasks in just 6.71 minutes. While MiniMax M2 offers better quality (+14.4%),
+gpt-oss-120b provides faster execution and lower costs, demonstrating that open-source alternatives can deliver competitive performance for organizations seeking cost-effective solutions.
 
 **Key Performance Insights**
 
 - **Speed Champions**: gpt-oss-120b (555.99 T/S), Gemini 2.5 Flash Preview (200.57 T/S), Claude Haiku 4.5 (180.66 T/S), Grok Code Fast (165.54 T/S), Gemini 2.5 Flash (166.51 T/S)
 - **Cost-Effectiveness Leaders**: Grok 4 Fast ($0.22), gpt-oss-120b ($0.23), GPT-5 Nano ($0.33), Grok Code Fast ($0.33), Amazon Nova Premier ($1.12), Gemini 2.5 Flash Preview ($1.37)
 - **LCIF Excellence**: Grok Code Fast (98.5%), Claude Sonnet models (96.25%), Claude Haiku 4.5 (90.0%), Grok 4 (92.5%), GPT-5 Codex (86.25%)
-- **Code Translation Leaders**: GPT-5 (84.79%), Claude Haiku 4.5 (82.63%), GPT-5 Codex (81.67%), GPT-5 Mini (80.92%), Claude Sonnet 4 (79.08%), Gemini 2.5 Pro (78.38%)
+- **Code Translation Leaders**: GPT-5 (84.79%), Claude Haiku 4.5 (82.63%), GPT-5 Codex (81.67%), MiniMax M2 (81.63%), GPT-5 Mini (80.92%), Claude Sonnet 4 (79.08%)
 - **Code Generation Leaders**: GPT-5 Codex (81.42%), Grok 4 Fast (80.38%), GPT-5 (78.92%), Claude Sonnet 4.5 (75.92%), Claude Sonnet 4 (74.65%), Claude Haiku 4.5 (74.04%)
 - **Code Documentation Leaders**: Claude Haiku 4.5 (80.64%), GPT-5 (79.81%), Claude Sonnet 4.5 (79.53%), GPT-5 Mini (78.64%), Grok 4 Fast (78.39%)
 
@@ -189,7 +198,7 @@ just 6.71 minutes, demonstrating that open-source alternatives can deliver compe
 - **Balanced Performance**: Claude Sonnet 4.5 offers the best balance of quality and capability across all coding categories
 - **Cost-Effective Excellence**: Grok 4 Fast for outstanding performance with exceptional cost efficiency ($0.22), GPT-5 Mini ($1.38) for mid-tier cost-effective
 - **Speed & Budget**: Grok Code Fast for rapid development cycles with minimal expenses, Gemini 2.5 Flash Preview for improved agentic reasoning, Claude Haiku 4.5 for speed with quality
-- **Open-Source**: gpt-oss-120b for local deployment and privacy-focused organizations
+- **Open-Source**: MiniMax M2 for quality-focused applications (71.14%, strong code translation and agentic tasks), gpt-oss-120b for speed-critical and budget-constrained deployments
 - **Specialized Coding**: GPT-5 Codex for complex software engineering tasks requiring iterative problem-solving and dynamic thinking adjustment
 
 <p align="center">
