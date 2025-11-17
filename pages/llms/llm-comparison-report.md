@@ -15,6 +15,8 @@ For detailed information about our approach and evaluation methodology, please r
 
 | Model                    | Benchmark model ID              | Execution Date | Code Translation | Code Generation | Code Document | LCIF   | Total Score |
 |--------------------------|---------------------------------|----------------|------------------|-----------------|---------------|--------|-------------|
+| GPT51_1113_high          | GPT-5.1 (11-13) (high)          | 2025-11-14     | 84.71%           | 78.96%          | 80.92%        | 91.25% | 83.96%      |
+| GPT51_1113               | GPT-5.1 (11-13)                 | 2025-11-14     | 84.17%           | 77.65%          | 80.39%        | 91.25% | 83.36%      |
 | Claude_Sonnet_45         | Claude Sonnet 4.5               | 2025-09-30     | 77.04%           | 75.92%          | 79.53%        | 96.25% | 82.19%      |
 | GPT5_0807                | GPT-5 (08-07)                   | 2025-09-05     | 84.79%           | 78.92%          | 79.81%        | 85.00% | 82.13%      |
 | Claude_Haiku_45          | Claude Haiku 4.5                | 2025-10-16     | 82.63%           | 74.04%          | 80.64%        | 90.00% | 81.83%      |
@@ -30,7 +32,7 @@ For detailed information about our approach and evaluation methodology, please r
 | Gemini_25_Pro            | Gemini 2.5 Pro                  | 2025-09-11     | 78.38%           | 55.15%          | 51.67%        | 77.50% | 65.67%      |
 | GPT_OSS_120B             | gpt-oss-120b                    | 2025-09-11     | 76.88%           | 71.54%          | 67.86%        | 32.50% | 62.19%      |
 | Gemini_25_Flash          | Gemini 2.5 Flash                | 2025-09-11     | 77.96%           | 70.81%          | 53.06%        | 40.00% | 60.46%      |
-| GPT5_Nano_high           | GPT-5 Mini                      | 2025-10-24     | 72.08%           | 52.92%          | 66.92%        | 42.50% | 58.61       |
+| GPT5_Nano_high           | GPT-5 Nano                      | 2025-10-24     | 72.08%           | 52.92%          | 66.92%        | 42.50% | 58.61%      |
 | AmazonNovaPremier        | Amazon Nova Premier             | 2025-09-11     | 24.54%           | 26.88%          | 22.39%        | 33.75% | 26.89%      |
 
 _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
@@ -42,6 +44,8 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | Model                    | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
 |--------------------------|--------------|------------------|----------|-----------|-------------------|---------|
 | GPT5_0807                | 0.828        | 0.868            | 178.40   | 8836.92   | 49.53             | 0.8479  |
+| GPT51_1113_high          | 0.810        | 0.884            | 310.50   | 24514.67  | 78.95             | 0.8471  |
+| GPT51_1113               | 0.808        | 0.876            | 100.42   | 8736.00   | 87.00             | 0.8417  |
 | Claude_Haiku_45          | 0.811        | 0.842            | 70.16    | 14007.83  | 199.65            | 0.8263  |
 | GPT5_Codex               | 0.778        | 0.856            | 161.51   | 10175.17  | 63.00             | 0.8167  |
 | MiniMaxM2                | 0.803        | 0.829            | 183.60   | 10530.50  | 57.36             | 0.8163  |
@@ -67,7 +71,9 @@ _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 |--------------------------|--------------|------------------|----------|-----------|-------------------|---------|
 | GPT5_Codex               | 0.819        | 0.809            | 106.15   | 7123.23   | 67.11             | 0.8142  |
 | Grok4FastReasoning       | 0.812        | 0.796            | 53.90    | 7660.62   | 142.13            | 0.8038  |
+| GPT51_1113_high          | 0.789        | 0.790            | 272.64   | 18210.62  | 66.79             | 0.7896  |
 | GPT5_0807                | 0.840        | 0.738            | 115.78   | 7745.23   | 66.90             | 0.7892  |
+| GPT51_1113               | 0.779        | 0.774            | 90.13    | 7352.23   | 81.58             | 0.7765  |
 | Claude_Sonnet_45         | 0.758        | 0.760            | 173.16   | 16989.00  | 98.11             | 0.7592  |
 | Claude_Sonnet_4          | 0.728        | 0.765            | 130.09   | 12419.15  | 95.46             | 0.7465  |
 | Claude_Haiku_45          | 0.718        | 0.762            | 88.17    | 18798.62  | 213.22            | 0.7404  |
@@ -89,7 +95,9 @@ _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 
 | Model                    | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
 |--------------------------|--------------|------------------|----------|-----------|-------------------|---------|
+| GPT51_1113_high          | 0.792        | 0.827            | 167.69   | 12038.94  | 71.79             | 0.8092  |
 | Claude_Haiku_45          | 0.797        | 0.816            | 87.10    | 12775.56  | 146.67            | 0.8064  |
+| GPT51_1113               | 0.798        | 0.810            | 96.18    | 6880.94   | 71.54             | 0.8039  |
 | GPT5_0807                | 0.754        | 0.842            | 105.88   | 5149.94   | 48.64             | 0.7981  |
 | Claude_Sonnet_45         | 0.789        | 0.801            | 144.31   | 8927.11   | 61.86             | 0.7953  |
 | GPT5_Mini_high           | 0.752        | 0.821            | 254.90   | 13588.78  | 53.31             | 0.7864  |
@@ -118,6 +126,8 @@ _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 | Claude_Sonnet_4_Thinking | 3.5           | 4                 | 4              | 4                  | 0.9625  |
 | Claude_Sonnet_45         | 3.5           | 4                 | 4              | 4                  | 0.9625  |
 | Grok4_0709               | 3             | 4                 | 4              | 4                  | 0.925   |
+| GPT51_1113_high          | 3             | 4                 | 4              | 3.75               | 0.9125  |
+| GPT51_1113               | 3             | 4                 | 4              | 3.75               | 0.9125  |
 | Claude_Haiku_45          | 3             | 4                 | 3.5            | 4                  | 0.9     |
 | GPT5_Codex               | 3             | 3.5               | 3.75           | 3.75               | 0.8625  |
 | GPT5_0807                | 3             | 3                 | 4              | 4                  | 0.85    |
@@ -138,20 +148,26 @@ _Table 5. LCIF results of LLMs in EPAM's LLMs Benchmark._
 The benchmark results reveal significant insights about current LLM capabilities for software engineering tasks:
 
 **Market Leadership**
-Claude Sonnet 4.5 achieves a breakthrough by claiming the top position in coding benchmark v3 with 82.19% total score, marginally surpassing GPT-5's 82.13%. This represents Anthropic's first coding
-benchmark leadership, demonstrating exceptional balanced performance across all categories without requiring reasoning mode. Claude Sonnet 4.5 achieves second place in code documentation (79.53%),
-strong code generation (75.92%), and maintains excellent LCIF performance (96.25%).
+GPT-5.1 (11-13) establishes a new benchmark record with 83.96% total score (high reasoning variant) and 83.36% (regular variant), surpassing all previous models. The high reasoning variant achieves
+balanced performance across all categories (code translation: 84.71%, code generation: 78.96%, documentation: 80.92%, LCIF: 91.25%), claiming first place in code documentation. The regular variant
+delivers nearly identical performance with significantly better efficiency (68.46 min execution vs. 171.48 min, 78.94 tokens/sec vs. 72.66 tokens/sec, $3.64 cost vs. $7.87), demonstrating that
+extended reasoning provides minimal improvement in coding tasks (0.6 percentage points) while substantially increasing cost and execution time. Both variants show solid LCIF performance (91.25%),
+though reasoning mode impacts agent-focused tasks negatively compared to other categories.
 
-Claude Haiku 4.5 emerges as a remarkable achievement, securing third place with 81.83% total score while representing Anthropic's smaller, cost-effective model tier. The model achieves first place in
-code documentation (80.64%), strong code translation (82.63%, second only to GPT-5), and solid code generation (74.04%). With exceptional speed (180.66 T/S) and competitive pricing ($1/$5 per MTok),
-Claude Haiku 4.5 offers premium performance at mid-tier cost, making it an excellent choice for high-volume coding applications.
+Claude Sonnet 4.5 achieves 82.19% total score in third position, demonstrating exceptional balanced performance across all categories without requiring reasoning mode. Claude Sonnet 4.5 achieves
+second place in code documentation (79.53%), strong code generation (75.92%), and maintains excellent LCIF performance (96.25%).
 
-OpenAI maintains strong presence across multiple model tiers. GPT-5 achieves the best code translation performance (84.79%) and strong code generation (78.92%), while GPT-5 Codex (77.25% total score)
-serves as a specialized agentic coding model that excels in code generation (81.42%) and code translation (81.67%). GPT-5 Mini (71.28%) demonstrates strong code translation (80.92%) and
-documentation (78.64%) despite weak LCIF performance (55%), while GPT-5 Nano (58.61%) offers ultra-low-cost operations ($0.33) but with significant performance limitations. GPT-5 Nano's LCIF failure (
-42.50%) reveals a unique pathology: the model dedicates ~95% of output tokens to reasoning rather than actual output (e.g., 55,000 reasoning tokens out of 57,000 total), a behavior unique to Nano that
-demonstrates reasoning inefficiency rather than capability. These models demonstrate OpenAI's comprehensive approach to software engineering AI, with GPT-5 providing category-leading excellence, GPT-5
-Codex offering specialized capabilities, GPT-5 Mini providing mid-tier cost-effective performance, and GPT-5 Nano serving budget-conscious deployments with limited LCIF capability.
+Claude Haiku 4.5 emerges as a remarkable achievement, securing fifth place with 81.83% total score while representing Anthropic's smaller, cost-effective model tier. The model achieves second place in
+code documentation (80.64%), strong code translation (82.63%), and solid code generation (74.04%). With exceptional speed (180.66 T/S) and competitive pricing ($1/$5 per MTok), Claude Haiku 4.5 offers
+premium performance at mid-tier cost, making it an excellent choice for high-volume coding applications.
+
+OpenAI maintains strong presence across multiple model tiers. GPT-5.1 provides new benchmark-leading performance, GPT-5 (08-07) achieves the best code translation performance (84.79%) and strong code
+generation (78.92%), while GPT-5 Codex (77.25% total score) serves as a specialized agentic coding model that excels in code generation (81.42%) and code translation (81.67%). GPT-5 Mini (71.28%)
+demonstrates strong code translation (80.92%) and documentation (78.64%) despite weak LCIF performance (55%), while GPT-5 Nano (58.61%) offers ultra-low-cost operations ($0.33) but with significant
+performance limitations. GPT-5 Nano's LCIF failure (42.50%) reveals a unique pathology: the model dedicates ~95% of output tokens to reasoning rather than actual output (e.g., 55,000 reasoning tokens
+out of 57,000 total), a behavior unique to Nano that demonstrates reasoning inefficiency rather than capability. These models demonstrate OpenAI's comprehensive approach to software engineering AI,
+with GPT-5.1 providing benchmark-leading excellence, GPT-5 providing category-leading code translation, GPT-5 Codex offering specialized capabilities, GPT-5 Mini providing mid-tier cost-effective
+performance, and GPT-5 Nano serving budget-conscious deployments with limited LCIF capability.
 
 **Anthropic's Model Evolution**
 The Claude model family shows remarkable evolution across both flagship and smaller model tiers. Claude Sonnet 4.5 (82.19%) represents a significant leap over Claude 4 Sonnet (75.68%), with
@@ -186,16 +202,16 @@ gpt-oss-120b provides faster execution and lower costs, demonstrating that open-
 
 - **Speed Champions**: gpt-oss-120b (555.99 T/S), Gemini 2.5 Flash Preview (200.57 T/S), Claude Haiku 4.5 (180.66 T/S), Grok Code Fast (165.54 T/S), Gemini 2.5 Flash (166.51 T/S)
 - **Cost-Effectiveness Leaders**: Grok 4 Fast ($0.22), gpt-oss-120b ($0.23), GPT-5 Nano ($0.33), Grok Code Fast ($0.33), Amazon Nova Premier ($1.12), Gemini 2.5 Flash Preview ($1.37)
-- **LCIF Excellence**: Grok Code Fast (98.5%), Claude Sonnet models (96.25%), Claude Haiku 4.5 (90.0%), Grok 4 (92.5%), GPT-5 Codex (86.25%)
-- **Code Translation Leaders**: GPT-5 (84.79%), Claude Haiku 4.5 (82.63%), GPT-5 Codex (81.67%), MiniMax M2 (81.63%), GPT-5 Mini (80.92%), Claude Sonnet 4 (79.08%)
-- **Code Generation Leaders**: GPT-5 Codex (81.42%), Grok 4 Fast (80.38%), GPT-5 (78.92%), Claude Sonnet 4.5 (75.92%), Claude Sonnet 4 (74.65%), Claude Haiku 4.5 (74.04%)
-- **Code Documentation Leaders**: Claude Haiku 4.5 (80.64%), GPT-5 (79.81%), Claude Sonnet 4.5 (79.53%), GPT-5 Mini (78.64%), Grok 4 Fast (78.39%)
+- **LCIF Excellence**: Grok Code Fast (98.5%), Claude Sonnet models (96.25%), Grok 4 (92.5%), GPT-5.1 (11-13) (91.25%), Claude Haiku 4.5 (90.0%), GPT-5 Codex (86.25%)
+- **Code Translation Leaders**: GPT-5 (08-07) (84.79%), GPT-5.1 (11-13) (high) (84.71%), GPT-5.1 (11-13) (84.17%), Claude Haiku 4.5 (82.63%), GPT-5 Codex (81.67%), MiniMax M2 (81.63%)
+- **Code Generation Leaders**: GPT-5 Codex (81.42%), Grok 4 Fast (80.38%), GPT-5 (08-07) (78.92%), GPT-5.1 (11-13) (high) (78.96%), GPT-5.1 (11-13) (77.65%), Claude Sonnet 4.5 (75.92%)
+- **Code Documentation Leaders**: GPT-5.1 (11-13) (high) (80.92%), Claude Haiku 4.5 (80.64%), GPT-5.1 (11-13) (80.39%), GPT-5 (08-07) (79.81%), Claude Sonnet 4.5 (79.53%), GPT-5 Mini (78.64%)
 
 **Organizations Recommendations**
 
-- **Maximum Quality**: Claude Sonnet 4.5 for top overall coding performance (82.19%), GPT-5 for best code translation (84.79%), GPT-5 Codex for specialized agentic software engineering
-- **High-Performance Budget Option**: Claude Haiku 4.5 for premium performance at mid-tier pricing (81.83%), excellent for high-volume coding applications with first-place code documentation
-- **Balanced Performance**: Claude Sonnet 4.5 offers the best balance of quality and capability across all coding categories
+- **Maximum Quality**: GPT-5.1 (11-13) for top overall coding performance (83.36% with excellent cost/speed balance at $3.64), Claude Sonnet 4.5 for strong balanced performance (82.19%)
+- **High-Performance Budget Option**: Claude Haiku 4.5 for premium performance at mid-tier pricing (81.83%), excellent for high-volume coding applications with second-place code documentation
+- **Balanced Performance**: GPT-5.1 (11-13) offers the best balance of quality and capability across all coding categories (83.36%), Claude Sonnet 4.5 for strong balanced performance (82.19%)
 - **Cost-Effective Excellence**: Grok 4 Fast for outstanding performance with exceptional cost efficiency ($0.22), GPT-5 Mini ($1.38) for mid-tier cost-effective
 - **Speed & Budget**: Grok Code Fast for rapid development cycles with minimal expenses, Gemini 2.5 Flash Preview for improved agentic reasoning, Claude Haiku 4.5 for speed with quality
 - **Open-Source**: MiniMax M2 for quality-focused applications (71.14%, strong code translation and agentic tasks), gpt-oss-120b for speed-critical and budget-constrained deployments
