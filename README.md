@@ -54,7 +54,7 @@ We've developed a multi-faceted approach to assess capabilities and performance 
 
 For more detailed information about our Code Assistants benchmark methodology, please refer to
 the following page  [Code Assistants](pages/sandbox-test/code-assistants-benchmark-approach.md).
-On the methodology of agentic tests refer to this page https://github.com/epam/AIRUN-Engineering-Benchmark/blob/main/pages/sandbox-test/code-assistants-agent-leaderboard-2025.md
+On the methodology of agentic tests refer to this page https://github.com/epam/AIRUN-Engineering-Benchmark/blob/main/pages/sandbox-test/coding-agent-testing-methodology.md.
 
 ### LLMs Benchmark 🧠
 
