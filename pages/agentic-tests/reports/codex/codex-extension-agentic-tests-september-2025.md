@@ -7,7 +7,7 @@
     - [Environment](#environment)
     - [Code Generation Findings](#code-generation-findings)
     - [Test Report](#test-report)
-- [Agent’s Final Rating](#agents-final-rating)
+- [Agent’s Final Grade](#agents-final-grade)
 
 ## Summary
 

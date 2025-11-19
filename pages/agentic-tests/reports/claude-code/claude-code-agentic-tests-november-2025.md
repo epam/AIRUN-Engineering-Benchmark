@@ -7,9 +7,11 @@
     - [Environment](#environment)
     - [Code Generation Findings](#code-generation-findings)
     - [Test Report](#test-report)
+- [Agent’s Final Grade](#agents-final-grade)
+- [Plan Mode Examination](#plan-mode-examination)
 
 # Summary
-> **Anthropic Claude Code** is a command line coding agent working in a terminal.
+Anthropic Claude Code is a command line coding agent working in a terminal.
 
 The new version of the agent showed better results than the May version and took a position among the leaders in agentic tests. The agent is now supported on Windows systems. Work with external tools has been improved. The user interface has also become more user-friendly. The interactive developer-manageable powerful and flexible plan mode allows to cope with large and complex tasks.
 
