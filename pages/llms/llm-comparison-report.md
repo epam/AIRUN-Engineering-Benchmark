@@ -13,27 +13,22 @@ For detailed information about our approach and evaluation methodology, please r
 - [LLMs Benchmark Approach](llm-approach.md)
 - [Automated Evaluation with LLMs](automated-evaluation-with-llms.md)
 
-| Model                    | Benchmark model ID              | Execution Date | Code Translation | Code Generation | Code Document | LCIF   | Total Score |
-|--------------------------|---------------------------------|----------------|------------------|-----------------|---------------|--------|-------------|
-| GPT51_1113_high          | GPT-5.1 (11-13) (high)          | 2025-11-14     | 84.71%           | 78.96%          | 80.92%        | 91.25% | 83.96%      |
-| GPT51_1113               | GPT-5.1 (11-13)                 | 2025-11-14     | 84.17%           | 77.65%          | 80.39%        | 91.25% | 83.36%      |
-| Claude_Sonnet_45         | Claude Sonnet 4.5               | 2025-09-30     | 77.04%           | 75.92%          | 79.53%        | 96.25% | 82.19%      |
-| GPT5_0807                | GPT-5 (08-07)                   | 2025-09-05     | 84.79%           | 78.92%          | 79.81%        | 85.00% | 82.13%      |
-| Claude_Haiku_45          | Claude Haiku 4.5                | 2025-10-16     | 82.63%           | 74.04%          | 80.64%        | 90.00% | 81.83%      |
-| Grok4FastReasoning       | Grok 4 Fast                     | 2025-09-26     | 77.79%           | 80.38%          | 78.39%        | 81.25% | 79.45%      |
-| GPT5_Codex               | GPT-5 Codex                     | 2025-09-26     | 81.67%           | 81.42%          | 59.67%        | 86.25% | 77.25%      |
-| Claude_Sonnet_4          | Claude Sonnet 4                 | 2025-09-11     | 79.08%           | 74.65%          | 52.72%        | 96.25% | 75.68%      |
-| Claude_Sonnet_4_Thinking | Claude Sonnet 4 (Thinking)      | 2025-09-11     | 72.25%           | 72.81%          | 53.61%        | 96.25% | 73.73%      |
-| Grok4_0709               | Grok 4 (07-09)                  | 2025-09-11     | 70.63%           | 65.23%          | 64.94%        | 92.50% | 73.33%      |
-| Grok_Code_0825           | Grok Code Fast                  | 2025-09-11     | 71.13%           | 56.50%          | 60.83%        | 98.50% | 71.74%      |
-| GPT5_Mini_high           | GPT-5 Mini                      | 2025-10-24     | 80.92%           | 70.58%          | 78.64%        | 55.00% | 71.28%      |
-| MiniMaxM2                | MiniMax M2                      | 2025-11-05     | 81.63%           | 73.92%          | 67.78%        | 61.25% | 71.14%      |
-| Gemini_25_Flash_0925     | Gemini 2.5 Flash Preview (0925) | 2025-09-26     | 74.71%           | 55.00%          | 62.78%        | 85.00% | 69.37%      |
-| Gemini_25_Pro            | Gemini 2.5 Pro                  | 2025-09-11     | 78.38%           | 55.15%          | 51.67%        | 77.50% | 65.67%      |
-| GPT_OSS_120B             | gpt-oss-120b                    | 2025-09-11     | 76.88%           | 71.54%          | 67.86%        | 32.50% | 62.19%      |
-| Gemini_25_Flash          | Gemini 2.5 Flash                | 2025-09-11     | 77.96%           | 70.81%          | 53.06%        | 40.00% | 60.46%      |
-| GPT5_Nano_high           | GPT-5 Nano                      | 2025-10-24     | 72.08%           | 52.92%          | 66.92%        | 42.50% | 58.61%      |
-| AmazonNovaPremier        | Amazon Nova Premier             | 2025-09-11     | 24.54%           | 26.88%          | 22.39%        | 33.75% | 26.89%      |
+| Model                | Benchmark model ID     | Reasoning  | Execution Date | Code Translation | Code Generation | Code Document | LCIF   | Total Score |
+|----------------------|------------------------|------------|----------------|------------------|-----------------|---------------|--------|-------------|
+| GPT51_1113_high      | GPT-5.1 (11-13) (high) | Yes (high) | 2025-11-14     | 84.71%           | 78.96%          | 80.92%        | 91.25% | 83.96%      |
+| GPT51_1113           | GPT-5.1 (11-13)        | No         | 2025-11-14     | 84.17%           | 77.65%          | 80.39%        | 91.25% | 83.36%      |
+| Claude_Sonnet_45     | Claude Sonnet 4.5      | No         | 2025-09-30     | 77.04%           | 75.92%          | 79.53%        | 96.25% | 82.19%      |
+| Claude_Haiku_45      | Claude Haiku 4.5       | No         | 2025-10-16     | 82.63%           | 74.04%          | 80.64%        | 90.00% | 81.83%      |
+| Grok4FastReasoning   | Grok 4 Fast            | Yes        | 2025-09-26     | 77.79%           | 80.38%          | 78.39%        | 81.25% | 79.45%      |
+| GPT5_Codex           | GPT-5 Codex            | Yes (low)  | 2025-09-26     | 81.67%           | 81.42%          | 59.67%        | 86.25% | 77.25%      |
+| Grok4_0709           | Grok 4 (07-09)         | Yes        | 2025-09-11     | 70.63%           | 65.23%          | 64.94%        | 92.50% | 73.33%      |
+| Grok_Code_0825       | Grok Code Fast         | Yes        | 2025-09-11     | 71.13%           | 56.50%          | 60.83%        | 98.50% | 71.74%      |
+| GPT5_Mini_high       | GPT-5 Mini             | Yes (high) | 2025-10-24     | 80.92%           | 70.58%          | 78.64%        | 55.00% | 71.28%      |
+| MiniMaxM2            | MiniMax M2             | Yes        | 2025-11-05     | 81.63%           | 73.92%          | 67.78%        | 61.25% | 71.14%      |
+| Gemini_3_Pro_Preview | Gemini 3 Pro Preview   | Yes (high) | 2025-11-19     | 74.42%           | 58.23%          | 52.08%        | 96.25% | 70.25%      |
+| GPT_OSS_120B         | gpt-oss-120b           | Yes (low)  | 2025-09-11     | 76.88%           | 71.54%          | 67.86%        | 32.50% | 62.19%      |
+| GPT5_Nano_high       | GPT-5 Nano             | Yes (high) | 2025-10-24     | 72.08%           | 52.92%          | 66.92%        | 42.50% | 58.61%      |
+| AmazonNovaPremier    | Amazon Nova Premier    | No         | 2025-09-11     | 24.54%           | 26.88%          | 22.39%        | 33.75% | 26.89%      |
 
 _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 
@@ -41,105 +36,85 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 
 ### Code Translation
 
-| Model                    | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
-|--------------------------|--------------|------------------|----------|-----------|-------------------|---------|
-| GPT5_0807                | 0.828        | 0.868            | 178.40   | 8836.92   | 49.53             | 0.8479  |
-| GPT51_1113_high          | 0.810        | 0.884            | 310.50   | 24514.67  | 78.95             | 0.8471  |
-| GPT51_1113               | 0.808        | 0.876            | 100.42   | 8736.00   | 87.00             | 0.8417  |
-| Claude_Haiku_45          | 0.811        | 0.842            | 70.16    | 14007.83  | 199.65            | 0.8263  |
-| GPT5_Codex               | 0.778        | 0.856            | 161.51   | 10175.17  | 63.00             | 0.8167  |
-| MiniMaxM2                | 0.803        | 0.829            | 183.60   | 10530.50  | 57.36             | 0.8163  |
-| GPT5_Mini_high           | 0.772        | 0.847            | 262.90   | 16592.33  | 63.11             | 0.8092  |
-| Claude_Sonnet_4          | 0.771        | 0.811            | 103.56   | 9547.42   | 92.19             | 0.7908  |
-| Gemini_25_Pro            | 0.737        | 0.831            | 135.12   | 15917.25  | 117.80            | 0.7838  |
-| Gemini_25_Flash          | 0.749        | 0.810            | 96.89    | 19269.33  | 198.88            | 0.7796  |
-| Grok4FastReasoning       | 0.755        | 0.801            | 76.51    | 9506.33   | 124.25            | 0.7779  |
-| Claude_Sonnet_45         | 0.763        | 0.778            | 104.68   | 9619.83   | 91.89             | 0.7704  |
-| GPT_OSS_120B             | 0.753        | 0.785            | 9.64     | 6600.25   | 684.50            | 0.7688  |
-| Gemini_25_Flash_0925     | 0.720        | 0.774            | 97.16    | 21659.92  | 222.93            | 0.7471  |
-| Claude_Sonnet_4_Thinking | 0.706        | 0.739            | 90.78    | 8085.17   | 89.06             | 0.7225  |
-| GPT5_Nano_high           | 0.725        | 0.717            | 253.90   | 22961.83  | 90.44             | 0.7208  |
-| Grok_Code_0825           | 0.738        | 0.684            | 27.02    | 5852.08   | 216.62            | 0.7113  |
-| Grok4_0709               | 0.667        | 0.746            | 188.24   | 9413.75   | 50.01             | 0.7063  |
-| AmazonNovaPremier        | 0.303        | 0.188            | 18.65    | 1065.92   | 57.17             | 0.2454  |
+| Model                | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
+|----------------------|--------------|------------------|----------|-----------|-------------------|---------|
+| GPT51_1113_high      | 0.810        | 0.884            | 310.50   | 24514.67  | 78.95             | 0.8471  |
+| GPT51_1113           | 0.808        | 0.876            | 100.42   | 8736.00   | 87.00             | 0.8417  |
+| Claude_Haiku_45      | 0.811        | 0.842            | 70.16    | 14007.83  | 199.65            | 0.8263  |
+| GPT5_Codex           | 0.778        | 0.856            | 161.51   | 10175.17  | 63.00             | 0.8167  |
+| MiniMaxM2            | 0.803        | 0.829            | 183.60   | 10530.50  | 57.36             | 0.8163  |
+| GPT5_Mini_high       | 0.772        | 0.847            | 262.90   | 16592.33  | 63.11             | 0.8092  |
+| Grok4FastReasoning   | 0.755        | 0.801            | 76.51    | 9506.33   | 124.25            | 0.7779  |
+| Claude_Sonnet_45     | 0.763        | 0.778            | 104.68   | 9619.83   | 91.89             | 0.7704  |
+| GPT_OSS_120B         | 0.753        | 0.785            | 9.64     | 6600.25   | 684.50            | 0.7688  |
+| Gemini_3_Pro_Preview | 0.699        | 0.789            | 84.18    | 8472.25   | 100.64            | 0.7442  |
+| GPT5_Nano_high       | 0.725        | 0.717            | 253.90   | 22961.83  | 90.44             | 0.7208  |
+| Grok_Code_0825       | 0.738        | 0.684            | 27.02    | 5852.08   | 216.62            | 0.7113  |
+| Grok4_0709           | 0.667        | 0.746            | 188.24   | 9413.75   | 50.01             | 0.7063  |
+| AmazonNovaPremier    | 0.303        | 0.188            | 18.65    | 1065.92   | 57.17             | 0.2454  |
 
 _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 
 ### Code Generation
 
-| Model                    | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
-|--------------------------|--------------|------------------|----------|-----------|-------------------|---------|
-| GPT5_Codex               | 0.819        | 0.809            | 106.15   | 7123.23   | 67.11             | 0.8142  |
-| Grok4FastReasoning       | 0.812        | 0.796            | 53.90    | 7660.62   | 142.13            | 0.8038  |
-| GPT51_1113_high          | 0.789        | 0.790            | 272.64   | 18210.62  | 66.79             | 0.7896  |
-| GPT5_0807                | 0.840        | 0.738            | 115.78   | 7745.23   | 66.90             | 0.7892  |
-| GPT51_1113               | 0.779        | 0.774            | 90.13    | 7352.23   | 81.58             | 0.7765  |
-| Claude_Sonnet_45         | 0.758        | 0.760            | 173.16   | 16989.00  | 98.11             | 0.7592  |
-| Claude_Sonnet_4          | 0.728        | 0.765            | 130.09   | 12419.15  | 95.46             | 0.7465  |
-| Claude_Haiku_45          | 0.718        | 0.762            | 88.17    | 18798.62  | 213.22            | 0.7404  |
-| MiniMaxM2                | 0.732        | 0.747            | 432.02   | 9330.92   | 21.60             | 0.7392  |
-| Claude_Sonnet_4_Thinking | 0.742        | 0.715            | 129.55   | 12058.62  | 93.08             | 0.7281  |
-| GPT_OSS_120B             | 0.723        | 0.708            | 8.89     | 4849.08   | 545.55            | 0.7154  |
-| Gemini_25_Flash          | 0.722        | 0.695            | 88.52    | 16725.69  | 188.95            | 0.7081  |
-| GPT5_Mini_high           | 0.732        | 0.680            | 288.81   | 15851.31  | 54.88             | 0.7058  |
-| Grok4_0709               | 0.705        | 0.600            | 83.24    | 3994.92   | 47.99             | 0.6523  |
-| Grok_Code_0825           | 0.640        | 0.490            | 21.92    | 3548.92   | 161.89            | 0.5650  |
-| Gemini_25_Pro            | 0.592        | 0.511            | 76.70    | 8157.85   | 106.36            | 0.5515  |
-| Gemini_25_Flash_0925     | 0.557        | 0.543            | 47.93    | 9678.92   | 201.93            | 0.5500  |
-| GPT5_Nano_high           | 0.595        | 0.464            | 210.25   | 19960.23  | 94.94             | 0.5292  |
-| AmazonNovaPremier        | 0.324        | 0.214            | 20.18    | 1229.85   | 60.94             | 0.2688  |
+| Model                | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
+|----------------------|--------------|------------------|----------|-----------|-------------------|---------|
+| GPT5_Codex           | 0.819        | 0.809            | 106.15   | 7123.23   | 67.11             | 0.8142  |
+| Grok4FastReasoning   | 0.812        | 0.796            | 53.90    | 7660.62   | 142.13            | 0.8038  |
+| GPT51_1113_high      | 0.789        | 0.790            | 272.64   | 18210.62  | 66.79             | 0.7896  |
+| GPT51_1113           | 0.779        | 0.774            | 90.13    | 7352.23   | 81.58             | 0.7765  |
+| Claude_Sonnet_45     | 0.758        | 0.760            | 173.16   | 16989.00  | 98.11             | 0.7592  |
+| Claude_Haiku_45      | 0.718        | 0.762            | 88.17    | 18798.62  | 213.22            | 0.7404  |
+| MiniMaxM2            | 0.732        | 0.747            | 432.02   | 9330.92   | 21.60             | 0.7392  |
+| GPT_OSS_120B         | 0.723        | 0.708            | 8.89     | 4849.08   | 545.55            | 0.7154  |
+| GPT5_Mini_high       | 0.732        | 0.680            | 288.81   | 15851.31  | 54.88             | 0.7058  |
+| Grok4_0709           | 0.705        | 0.600            | 83.24    | 3994.92   | 47.99             | 0.6523  |
+| Gemini_3_Pro_Preview | 0.595        | 0.570            | 62.74    | 5953.62   | 94.90             | 0.5823  |
+| Grok_Code_0825       | 0.640        | 0.490            | 21.92    | 3548.92   | 161.89            | 0.5650  |
+| GPT5_Nano_high       | 0.595        | 0.464            | 210.25   | 19960.23  | 94.94             | 0.5292  |
+| AmazonNovaPremier    | 0.324        | 0.214            | 20.18    | 1229.85   | 60.94             | 0.2688  |
 
 _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 
 ### Code Documentation
 
-| Model                    | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
-|--------------------------|--------------|------------------|----------|-----------|-------------------|---------|
-| GPT51_1113_high          | 0.792        | 0.827            | 167.69   | 12038.94  | 71.79             | 0.8092  |
-| Claude_Haiku_45          | 0.797        | 0.816            | 87.10    | 12775.56  | 146.67            | 0.8064  |
-| GPT51_1113               | 0.798        | 0.810            | 96.18    | 6880.94   | 71.54             | 0.8039  |
-| GPT5_0807                | 0.754        | 0.842            | 105.88   | 5149.94   | 48.64             | 0.7981  |
-| Claude_Sonnet_45         | 0.789        | 0.801            | 144.31   | 8927.11   | 61.86             | 0.7953  |
-| GPT5_Mini_high           | 0.752        | 0.821            | 254.90   | 13588.78  | 53.31             | 0.7864  |
-| Grok4FastReasoning       | 0.742        | 0.826            | 47.47    | 5420.00   | 114.18            | 0.7839  |
-| GPT_OSS_120B             | 0.671        | 0.687            | 9.53     | 4538.89   | 476.33            | 0.6786  |
-| MiniMaxM2                | 0.642        | 0.714            | 139.60   | 4420.17   | 31.66             | 0.6778  |
-| GPT5_Nano_high           | 0.646        | 0.693            | 179.79   | 13767.06  | 76.57             | 0.6692  |
-| Grok4_0709               | 0.671        | 0.628            | 83.55    | 3292.06   | 39.40             | 0.6494  |
-| Gemini_25_Flash_0925     | 0.631        | 0.624            | 39.77    | 6480.56   | 162.97            | 0.6278  |
-| Grok_Code_0825           | 0.586        | 0.631            | 25.03    | 3281.06   | 131.09            | 0.6083  |
-| GPT5_Codex               | 0.553        | 0.640            | 47.30    | 2754.94   | 58.25             | 0.5967  |
-| Claude_Sonnet_4_Thinking | 0.519        | 0.553            | 59.27    | 3520.78   | 59.40             | 0.5361  |
-| Gemini_25_Flash          | 0.491        | 0.570            | 104.69   | 13906.56  | 132.84            | 0.5306  |
-| Claude_Sonnet_4          | 0.517        | 0.537            | 51.15    | 3065.00   | 59.92             | 0.5272  |
-| Gemini_25_Pro            | 0.501        | 0.533            | 67.08    | 6329.89   | 94.36             | 0.5167  |
-| AmazonNovaPremier        | 0.238        | 0.210            | 25.93    | 865.61    | 33.39             | 0.2239  |
+| Model                | Avg Accuracy | Avg Completeness | Avg Time | Avg token | Avg Tokens/second | Score ↓ |
+|----------------------|--------------|------------------|----------|-----------|-------------------|---------|
+| GPT51_1113_high      | 0.792        | 0.827            | 167.69   | 12038.94  | 71.79             | 0.8092  |
+| Claude_Haiku_45      | 0.797        | 0.816            | 87.10    | 12775.56  | 146.67            | 0.8064  |
+| GPT51_1113           | 0.798        | 0.810            | 96.18    | 6880.94   | 71.54             | 0.8039  |
+| Claude_Sonnet_45     | 0.789        | 0.801            | 144.31   | 8927.11   | 61.86             | 0.7953  |
+| GPT5_Mini_high       | 0.752        | 0.821            | 254.90   | 13588.78  | 53.31             | 0.7864  |
+| Grok4FastReasoning   | 0.742        | 0.826            | 47.47    | 5420.00   | 114.18            | 0.7839  |
+| GPT_OSS_120B         | 0.671        | 0.687            | 9.53     | 4538.89   | 476.33            | 0.6786  |
+| MiniMaxM2            | 0.642        | 0.714            | 139.60   | 4420.17   | 31.66             | 0.6778  |
+| GPT5_Nano_high       | 0.646        | 0.693            | 179.79   | 13767.06  | 76.57             | 0.6692  |
+| Grok4_0709           | 0.671        | 0.628            | 83.55    | 3292.06   | 39.40             | 0.6494  |
+| Grok_Code_0825       | 0.586        | 0.631            | 25.03    | 3281.06   | 131.09            | 0.6083  |
+| GPT5_Codex           | 0.553        | 0.640            | 47.30    | 2754.94   | 58.25             | 0.5967  |
+| Gemini_3_Pro_Preview | 0.496        | 0.546            | 46.29    | 3895.83   | 84.16             | 0.5208  |
+| AmazonNovaPremier    | 0.238        | 0.210            | 25.93    | 865.61    | 33.39             | 0.2239  |
 
 _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 
 ### LCIF (Large Context Instruction Following)
 
-| Model                    | Hard Accuracy | Hard Completeness | Light Accuracy | Light Completeness | Score ↓ |
-|--------------------------|---------------|-------------------|----------------|--------------------|---------|
-| Grok_Code_0825           | 3.8           | 4                 | 4              | 4                  | 0.985   |
-| Claude_Sonnet_4          | 3.5           | 4                 | 4              | 4                  | 0.9625  |
-| Claude_Sonnet_4_Thinking | 3.5           | 4                 | 4              | 4                  | 0.9625  |
-| Claude_Sonnet_45         | 3.5           | 4                 | 4              | 4                  | 0.9625  |
-| Grok4_0709               | 3             | 4                 | 4              | 4                  | 0.925   |
-| GPT51_1113_high          | 3             | 4                 | 4              | 3.75               | 0.9125  |
-| GPT51_1113               | 3             | 4                 | 4              | 3.75               | 0.9125  |
-| Claude_Haiku_45          | 3             | 4                 | 3.5            | 4                  | 0.9     |
-| GPT5_Codex               | 3             | 3.5               | 3.75           | 3.75               | 0.8625  |
-| GPT5_0807                | 3             | 3                 | 4              | 4                  | 0.85    |
-| Gemini_25_Flash_0925     | 3             | 3                 | 4              | 4                  | 0.85    |
-| Grok4FastReasoning       | 2.5           | 3                 | 4              | 4                  | 0.8125  |
-| Gemini_25_Pro            | 3             | 2                 | 4              | 4                  | 0.775   |
-| MiniMaxM2                | 2             | 1.5               | 3.5            | 3.5                | 0.6125  |
-| GPT5_Mini_high           | 1             | 1                 | 4              | 4                  | 0.55    |
-| GPT5_Nano_high           | 0             | 1                 | 3.5            | 3.5                | 0.425   |
-| Gemini_25_Flash          | 0             | 0                 | 4              | 4                  | 0.4     |
-| AmazonNovaPremier        | 0             | 1                 | 2.5            | 2.75               | 0.3375  |
-| GPT_OSS_120B             | 0             | 0                 | 3.5            | 3                  | 0.325   |
+| Model                | Hard Accuracy | Hard Completeness | Light Accuracy | Light Completeness | Score ↓ |
+|----------------------|---------------|-------------------|----------------|--------------------|---------|
+| Grok_Code_0825       | 3.8           | 4                 | 4              | 4                  | 0.985   |
+| Claude_Sonnet_45     | 3.5           | 4                 | 4              | 4                  | 0.9625  |
+| Gemini_3_Pro_Preview | 3.5           | 4                 | 4              | 4                  | 0.9625  |
+| Grok4_0709           | 3             | 4                 | 4              | 4                  | 0.925   |
+| GPT51_1113           | 3             | 4                 | 4              | 3.75               | 0.9125  |
+| GPT51_1113_high      | 3             | 4                 | 4              | 3.75               | 0.9125  |
+| Claude_Haiku_45      | 3             | 4                 | 3.5            | 4                  | 0.9     |
+| GPT5_Codex           | 3             | 3.5               | 3.75           | 3.75               | 0.8625  |
+| Grok4FastReasoning   | 2.5           | 3                 | 4              | 4                  | 0.8125  |
+| MiniMaxM2            | 2             | 1.5               | 3.5            | 3.5                | 0.6125  |
+| GPT5_Mini_high       | 1             | 1                 | 4              | 4                  | 0.55    |
+| GPT5_Nano_high       | 0             | 1                 | 3.5            | 3.5                | 0.425   |
+| AmazonNovaPremier    | 0             | 1                 | 2.5            | 2.75               | 0.3375  |
+| GPT_OSS_120B         | 0             | 0                 | 3.5            | 3                  | 0.325   |
 
 _Table 5. LCIF results of LLMs in EPAM's LLMs Benchmark._
 
@@ -161,13 +136,13 @@ Claude Haiku 4.5 emerges as a remarkable achievement, securing fifth place with 
 code documentation (80.64%), strong code translation (82.63%), and solid code generation (74.04%). With exceptional speed (180.66 T/S) and competitive pricing ($1/$5 per MTok), Claude Haiku 4.5 offers
 premium performance at mid-tier cost, making it an excellent choice for high-volume coding applications.
 
-OpenAI maintains strong presence across multiple model tiers. GPT-5.1 provides new benchmark-leading performance, GPT-5 (08-07) achieves the best code translation performance (84.79%) and strong code
-generation (78.92%), while GPT-5 Codex (77.25% total score) serves as a specialized agentic coding model that excels in code generation (81.42%) and code translation (81.67%). GPT-5 Mini (71.28%)
-demonstrates strong code translation (80.92%) and documentation (78.64%) despite weak LCIF performance (55%), while GPT-5 Nano (58.61%) offers ultra-low-cost operations ($0.33) but with significant
-performance limitations. GPT-5 Nano's LCIF failure (42.50%) reveals a unique pathology: the model dedicates ~95% of output tokens to reasoning rather than actual output (e.g., 55,000 reasoning tokens
-out of 57,000 total), a behavior unique to Nano that demonstrates reasoning inefficiency rather than capability. These models demonstrate OpenAI's comprehensive approach to software engineering AI,
-with GPT-5.1 providing benchmark-leading excellence, GPT-5 providing category-leading code translation, GPT-5 Codex offering specialized capabilities, GPT-5 Mini providing mid-tier cost-effective
-performance, and GPT-5 Nano serving budget-conscious deployments with limited LCIF capability.
+OpenAI maintains strong presence across multiple model tiers. GPT-5.1 provides new benchmark-leading performance with best code translation (84.71% high reasoning, 84.17% regular) while GPT-5 Codex (
+77.25% total score) serves as a specialized agentic coding model that excels in code generation (81.42%) and code translation (81.67%). GPT-5 Mini (71.28%) demonstrates strong code translation (
+80.92%) and documentation (78.64%) despite weak LCIF performance (55%), while GPT-5 Nano (58.61%) offers ultra-low-cost operations ($0.33) but with significant performance limitations. GPT-5 Nano's
+LCIF failure (42.50%) reveals a unique pathology: the model dedicates ~95% of output tokens to reasoning rather than actual output (e.g., 55,000 reasoning tokens out of 57,000 total), a behavior
+unique to Nano that demonstrates reasoning inefficiency rather than capability. These models demonstrate OpenAI's comprehensive approach to software engineering AI, with GPT-5.1 providing
+benchmark-leading excellence, GPT-5 Codex offering specialized capabilities, GPT-5 Mini providing mid-tier cost-effective performance, and GPT-5 Nano serving budget-conscious deployments with limited
+LCIF capability.
 
 **Anthropic's Model Evolution**
 The Claude model family shows remarkable evolution across both flagship and smaller model tiers. Claude Sonnet 4.5 (82.19%) represents a significant leap over Claude 4 Sonnet (75.68%), with
@@ -184,11 +159,15 @@ score with solid performance, while Grok Code Fast delivers 71.74% score with ex
 excels in LCIF tasks (98.5% score), making xAI's models excellent choices for budget-conscious organizations requiring fast development cycles. Grok 4 Fast's 2M token context window and
 state-of-the-art cost-efficiency make it ideal for large-scale software engineering projects.
 
-**Google's Mixed Results and Preview Improvements**
-Gemini models show varying performance in coding tasks: Gemini 2.5 Pro achieves 65.67% with high token generation (410,997 tokens) but struggles with accuracy, while Gemini 2.5 Flash scores 60.46%
-despite impressive speed (166.51 tokens/sec). The new Gemini 2.5 Flash Preview (0925) shows improvement with 69.37% score, demonstrating enhanced agentic reasoning capabilities with faster execution
-time (41.75 min) and impressive token generation speed (200.57 T/S). The preview version achieves better cost-efficiency ($1.37) compared to higher-tier models, though Google's models continue to
-demonstrate stronger capabilities in multimodal tasks than pure coding scenarios.
+**Google's Mixed Coding Results with Gemini 3**
+Gemini 3 Pro Preview achieves 70.25% in coding tasks, showing improvement over earlier Gemini models but reveals severe token generation limitations that critically impact performance. Despite being
+allowed 60K token output, the model maxes out at ~12K tokens per response, severely affecting one-shot prompt tasks requiring 20K+ token outputs. This constraint causes weak performance in code
+documentation (52.08%) and code generation (58.23%), where large outputs are essential. However, the model excels in code translation (74.42%) and demonstrates exceptional LCIF performance (96.25%,
+tied 2nd place) where smaller outputs suffice. The model achieves fast execution (44.32 min, 93.72 T/S) but at higher cost ($3.74), with Google increasing pricing to $
+2/$12 for <200K context (up from previous $1.25/$10). Total token generation (249K output, 75K reasoning) remains significantly below Gemini 2.5 Pro's capacity (410K+ output, 150K reasoning), likely
+due to preview status restrictions.
+
+The model demonstrates Google's focus on multimodal capabilities, where Gemini 3 Pro Preview achieves 82.54% (top position), significantly outperforming its coding results.
 
 **Open-Source Models**
 MiniMax M2 achieves 71.14% as the top-performing open-source model, utilizing an efficient MoE architecture (230B total parameters with 10B active) that excels in code translation (81.63%, 4th place
@@ -200,12 +179,12 @@ gpt-oss-120b provides faster execution and lower costs, demonstrating that open-
 
 **Key Performance Insights**
 
-- **Speed Champions**: gpt-oss-120b (555.99 T/S), Gemini 2.5 Flash Preview (200.57 T/S), Claude Haiku 4.5 (180.66 T/S), Grok Code Fast (165.54 T/S), Gemini 2.5 Flash (166.51 T/S)
-- **Cost-Effectiveness Leaders**: Grok 4 Fast ($0.22), gpt-oss-120b ($0.23), GPT-5 Nano ($0.33), Grok Code Fast ($0.33), Amazon Nova Premier ($1.12), Gemini 2.5 Flash Preview ($1.37)
-- **LCIF Excellence**: Grok Code Fast (98.5%), Claude Sonnet models (96.25%), Grok 4 (92.5%), GPT-5.1 (11-13) (91.25%), Claude Haiku 4.5 (90.0%), GPT-5 Codex (86.25%)
-- **Code Translation Leaders**: GPT-5 (08-07) (84.79%), GPT-5.1 (11-13) (high) (84.71%), GPT-5.1 (11-13) (84.17%), Claude Haiku 4.5 (82.63%), GPT-5 Codex (81.67%), MiniMax M2 (81.63%)
-- **Code Generation Leaders**: GPT-5 Codex (81.42%), Grok 4 Fast (80.38%), GPT-5 (08-07) (78.92%), GPT-5.1 (11-13) (high) (78.96%), GPT-5.1 (11-13) (77.65%), Claude Sonnet 4.5 (75.92%)
-- **Code Documentation Leaders**: GPT-5.1 (11-13) (high) (80.92%), Claude Haiku 4.5 (80.64%), GPT-5.1 (11-13) (80.39%), GPT-5 (08-07) (79.81%), Claude Sonnet 4.5 (79.53%), GPT-5 Mini (78.64%)
+- **Speed Champions**: gpt-oss-120b (555.99 T/S), Claude Haiku 4.5 (180.66 T/S), Grok Code Fast (165.54 T/S), Grok 4 Fast (125.84 T/S), Gemini 3 Pro Preview (93.72 T/S)
+- **Cost-Effectiveness Leaders**: Grok 4 Fast ($0.22), gpt-oss-120b ($0.23), GPT-5 Nano ($0.33), Grok Code Fast ($0.33), MiniMax M2 ($0.49)
+- **LCIF Excellence**: Grok Code Fast (98.5%), Claude Sonnet 4.5 (96.25%), Gemini 3 Pro Preview (96.25%), Grok 4 (92.5%), GPT-5.1 (11-13) (91.25%), Claude Haiku 4.5 (90.0%)
+- **Code Translation Leaders**: GPT-5.1 (11-13) (high) (84.71%), GPT-5.1 (11-13) (84.17%), Claude Haiku 4.5 (82.63%), GPT-5 Codex (81.67%), MiniMax M2 (81.63%), GPT-5 Mini (80.92%)
+- **Code Generation Leaders**: GPT-5 Codex (81.42%), Grok 4 Fast (80.38%), GPT-5.1 (11-13) (high) (78.96%), GPT-5.1 (11-13) (77.65%), Claude Sonnet 4.5 (75.92%), Claude Haiku 4.5 (74.04%)
+- **Code Documentation Leaders**: GPT-5.1 (11-13) (high) (80.92%), Claude Haiku 4.5 (80.64%), GPT-5.1 (11-13) (80.39%), Claude Sonnet 4.5 (79.53%), GPT-5 Mini (78.64%), Grok 4 Fast (78.39%)
 
 **Organizations Recommendations**
 
@@ -213,7 +192,7 @@ gpt-oss-120b provides faster execution and lower costs, demonstrating that open-
 - **High-Performance Budget Option**: Claude Haiku 4.5 for premium performance at mid-tier pricing (81.83%), excellent for high-volume coding applications with second-place code documentation
 - **Balanced Performance**: GPT-5.1 (11-13) offers the best balance of quality and capability across all coding categories (83.36%), Claude Sonnet 4.5 for strong balanced performance (82.19%)
 - **Cost-Effective Excellence**: Grok 4 Fast for outstanding performance with exceptional cost efficiency ($0.22), GPT-5 Mini ($1.38) for mid-tier cost-effective
-- **Speed & Budget**: Grok Code Fast for rapid development cycles with minimal expenses, Gemini 2.5 Flash Preview for improved agentic reasoning, Claude Haiku 4.5 for speed with quality
+- **Speed & Budget**: Grok Code Fast for rapid development cycles with minimal expenses, Claude Haiku 4.5 for speed with quality, gpt-oss-120b for fastest execution
 - **Open-Source**: MiniMax M2 for quality-focused applications (71.14%, strong code translation and agentic tasks), gpt-oss-120b for speed-critical and budget-constrained deployments
 - **Specialized Coding**: GPT-5 Codex for complex software engineering tasks requiring iterative problem-solving and dynamic thinking adjustment
 
