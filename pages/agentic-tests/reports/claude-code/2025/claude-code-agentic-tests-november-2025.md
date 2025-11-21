@@ -52,7 +52,7 @@ The agent's final grade is 80%.
 ## Plan Mode Examination
 Claude Code agent recommends using Plan Mode to prepare for a complex request before making changes.
 
-The task-solving with the Plan mode has been examined on [agentic test 0007. Migrate Golf application to reactive stack](https://github.com/epam/AIRUN-Assistants-Benchmark-TestInstructions/blob/main/agentic-workflow-tests/0007/README.md).
+The task-solving with the Plan mode has been examined on [agentic test 0007. Migrate Golf application to reactive stack](https://github.com/epam/AIRUN-Assistants-Benchmark-TestInstructions/tree/main/agentic-workflow-tests/0007).
 
 The agent planning mode is powerful and flexible. A separate subagent is launched to create an implementation plan for the given task. The task is being broken down into manageable phases. The generated plan is suggested to the developer for review. The developer can ask to adjust the plan and pass it to the implementation.
 
