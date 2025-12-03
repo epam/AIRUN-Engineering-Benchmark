@@ -1,6 +1,26 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0NSLWH3XT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-V0NSLWH3XT');
+    </script>
+    <!-- Theme initialization - must run before page render to prevent flash -->
+    <script>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const isDark = stored === 'dark' ||
+          (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/AIRUN-Engineering-Benchmark/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,8 +42,8 @@
     <meta name="twitter:title" content="EPAM AI/RUN™ Engineering Benchmark" />
     <meta name="twitter:description" content="Comprehensive evaluation and comparison of Large Language Models across multiple metrics including accuracy, speed, cost, and reasoning capabilities." />
     <meta name="twitter:image" content="https://raw.githubusercontent.com/epam/AIRUN-Engineering-Benchmark/main/images/llms/coding/llm-score.png" />
-    <script type="module" crossorigin src="/AIRUN-Engineering-Benchmark/assets/index-CPmJbg8b.js"></script>
-    <link rel="stylesheet" crossorigin href="/AIRUN-Engineering-Benchmark/assets/index-DnIYLxlF.css">
+    <script type="module" crossorigin src="/AIRUN-Engineering-Benchmark/assets/index-Dp9qrAZU.js"></script>
+    <link rel="stylesheet" crossorigin href="/AIRUN-Engineering-Benchmark/assets/index-CQpFu-XG.css">
   </head>
   <body>
     <div id="root"></div>
