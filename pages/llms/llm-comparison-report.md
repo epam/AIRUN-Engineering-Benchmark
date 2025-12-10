@@ -23,12 +23,14 @@ For detailed information about our approach and evaluation methodology, please r
 | Grok4FastReasoning   | Grok 4 Fast             | Yes        | 2025-09-26     | 77.79%           | 80.38%          | 78.39%        | 81.25% | 79.45%      |
 | GPT51_Codex          | GPT-5.1 Codex           | Yes (high) | 2025-11-21     | 76.00%           | 79.15%          | 63.47%        | 96.25% | 78.72%      |
 | GPT5_Codex           | GPT-5 Codex             | Yes (low)  | 2025-09-26     | 81.67%           | 81.42%          | 59.67%        | 86.25% | 77.25%      |
+| Kimi_K2              | Kimi K2 Thinking        | Yes        | 2025-12-09     | 80.58%           | 69.35%          | 69.25%        | 80.00% | 74.79%      |
 | Grok4_0709           | Grok 4 (07-09)          | Yes        | 2025-09-11     | 70.63%           | 65.23%          | 64.94%        | 92.50% | 73.33%      |
 | Grok_Code_0825       | Grok Code Fast          | Yes        | 2025-09-11     | 71.13%           | 56.50%          | 60.83%        | 98.50% | 71.74%      |
 | GPT5_Mini_high       | GPT-5 Mini              | Yes (high) | 2025-10-24     | 80.92%           | 70.58%          | 78.64%        | 55.00% | 71.28%      |
 | MiniMaxM2            | MiniMax M2              | Yes        | 2025-11-05     | 81.63%           | 73.92%          | 67.78%        | 61.25% | 71.14%      |
 | Gemini_3_Pro_Preview | Gemini 3 Pro Preview    | Yes (high) | 2025-11-19     | 74.42%           | 58.23%          | 52.08%        | 96.25% | 70.25%      |
 | Grok41_FastReasoning | Grok 4.1 Fast Reasoning | Yes        | 2025-11-21     | 38.08%           | 71.42%          | 70.83%        | 91.25% | 67.90%      |
+| DeepSeek_v32         | DeepSeek V3.2           | Yes        | 2025-12-09     | 70.25%           | 64.92%          | 53.53%        | 75.00% | 65.93%      |
 | GPT_OSS_120B         | gpt-oss-120b            | Yes (low)  | 2025-09-11     | 76.88%           | 71.54%          | 67.86%        | 32.50% | 62.19%      |
 | GPT51_Codex_mini     | GPT-5.1 Codex mini      | Yes (high) | 2025-11-21     | 70.50%           | 53.38%          | 57.42%        | 65.00% | 61.58%      |
 | Grok41_Fast          | Grok 4.1 Fast           | No         | 2025-11-21     | 67.17%           | 59.29%          | 57.64%        | 56.25% | 60.09%      |
@@ -50,6 +52,7 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | GPT5_Codex           | 0.778        | 0.856            | 161.51   | 10175.17  | 63.00             | 0.8167  |
 | MiniMaxM2            | 0.803        | 0.829            | 183.60   | 10530.50  | 57.36             | 0.8163  |
 | GPT5_Mini_high       | 0.772        | 0.847            | 262.90   | 16592.33  | 63.11             | 0.8092  |
+| Kimi_K2              | 0.770        | 0.842            | 97.60    | 17700.50  | 181.36            | 0.8058  |
 | Grok4FastReasoning   | 0.755        | 0.801            | 76.51    | 9506.33   | 124.25            | 0.7779  |
 | Claude_Sonnet_45     | 0.763        | 0.778            | 104.68   | 9619.83   | 91.89             | 0.7704  |
 | GPT_OSS_120B         | 0.753        | 0.785            | 9.64     | 6600.25   | 684.50            | 0.7688  |
@@ -59,6 +62,7 @@ _Table 1. Results of evaluation LLMs in EPAM's LLMs Benchmark._
 | Grok_Code_0825       | 0.738        | 0.684            | 27.02    | 5852.08   | 216.62            | 0.7113  |
 | Grok4_0709           | 0.667        | 0.746            | 188.24   | 9413.75   | 50.01             | 0.7063  |
 | GPT51_Codex_mini     | 0.704        | 0.706            | 156.10   | 21590.92  | 138.31            | 0.7050  |
+| DeepSeek_v32         | 0.685        | 0.720            | 267.59   | 6318.58   | 23.61             | 0.7025  |
 | Grok41_Fast          | 0.680        | 0.663            | 51.49    | 5469.50   | 106.22            | 0.6717  |
 | Grok41_FastReasoning | 0.330        | 0.432            | 119.26   | 2397.58   | 20.10             | 0.3808  |
 | AmazonNovaPremier    | 0.303        | 0.188            | 18.65    | 1065.92   | 57.17             | 0.2454  |
@@ -81,7 +85,9 @@ _Table 2. Code Translation results of LLMs in EPAM's LLMs Benchmark._
 | GPT_OSS_120B         | 0.723        | 0.708            | 8.89     | 4849.08   | 545.55            | 0.7154  |
 | Grok41_FastReasoning | 0.737        | 0.692            | 97.55    | 5163.54   | 52.93             | 0.7142  |
 | GPT5_Mini_high       | 0.732        | 0.680            | 288.81   | 15851.31  | 54.88             | 0.7058  |
+| Kimi_K2              | 0.678        | 0.708            | 129.74   | 15785.69  | 121.67            | 0.6935  |
 | Grok4_0709           | 0.705        | 0.600            | 83.24    | 3994.92   | 47.99             | 0.6523  |
+| DeepSeek_v32         | 0.655        | 0.644            | 124.14   | 6298.92   | 50.74             | 0.6492  |
 | Grok41_Fast          | 0.623        | 0.563            | 41.83    | 4341.85   | 103.81            | 0.5929  |
 | Gemini_3_Pro_Preview | 0.595        | 0.570            | 62.74    | 5953.62   | 94.90             | 0.5823  |
 | Grok_Code_0825       | 0.640        | 0.490            | 21.92    | 3548.92   | 161.89            | 0.5650  |
@@ -103,6 +109,7 @@ _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 | Grok4FastReasoning   | 0.742        | 0.826            | 47.47    | 5420.00   | 114.18            | 0.7839  |
 | Claude_Opus_45       | 0.739        | 0.809            | 162.00   | 10124.11  | 62.49             | 0.7742  |
 | Grok41_FastReasoning | 0.704        | 0.713            | 37.37    | 2592.17   | 69.37             | 0.7083  |
+| Kimi_K2              | 0.687        | 0.698            | 49.54    | 5363.06   | 108.26            | 0.6925  |
 | GPT_OSS_120B         | 0.671        | 0.687            | 9.53     | 4538.89   | 476.33            | 0.6786  |
 | MiniMaxM2            | 0.642        | 0.714            | 139.60   | 4420.17   | 31.66             | 0.6778  |
 | GPT5_Nano_high       | 0.646        | 0.693            | 179.79   | 13767.06  | 76.57             | 0.6692  |
@@ -112,6 +119,7 @@ _Table 3. Code Generation results of LLMs in EPAM's LLMs Benchmark._
 | GPT5_Codex           | 0.553        | 0.640            | 47.30    | 2754.94   | 58.25             | 0.5967  |
 | Grok41_Fast          | 0.552        | 0.601            | 22.38    | 2054.22   | 91.81             | 0.5764  |
 | GPT51_Codex_mini     | 0.536        | 0.613            | 22.76    | 2861.39   | 125.71            | 0.5742  |
+| DeepSeek_v32         | 0.512        | 0.559            | 174.16   | 2769.89   | 15.90             | 0.5353  |
 | Gemini_3_Pro_Preview | 0.496        | 0.546            | 46.29    | 3895.83   | 84.16             | 0.5208  |
 | AmazonNovaPremier    | 0.238        | 0.210            | 25.93    | 865.61    | 33.39             | 0.2239  |
 
@@ -133,6 +141,8 @@ _Table 4. Code Documentation results of LLMs in EPAM's LLMs Benchmark._
 | Claude_Haiku_45      | 3             | 4                 | 3.5            | 4                  | 0.9     |
 | GPT5_Codex           | 3             | 3.5               | 3.75           | 3.75               | 0.8625  |
 | Grok4FastReasoning   | 2.5           | 3                 | 4              | 4                  | 0.8125  |
+| Kimi_K2              | 3             | 3                 | 3.5            | 3.5                | 0.8     |
+| DeepSeek_v32         | 2             | 3                 | 3.75           | 3.75               | 0.75    |
 | GPT51_Codex_mini     | 3             | 2                 | 2.5            | 3                  | 0.65    |
 | MiniMaxM2            | 2             | 1.5               | 3.5            | 3.5                | 0.6125  |
 | Grok41_Fast          | 2             | 1.5               | 3              | 3                  | 0.5625  |
@@ -210,12 +220,20 @@ due to preview status restrictions.
 The model demonstrates Google's focus on multimodal capabilities, where Gemini 3 Pro Preview achieves 82.54% (top position), significantly outperforming its coding results.
 
 **Open-Source Models**
-MiniMax M2 achieves 71.14% as the top-performing open-source model, utilizing an efficient MoE architecture (230B total parameters with 10B active) that excels in code translation (81.63%, 4th place
+Kimi K2 Thinking achieves 74.79% (9th place) as the top-performing open-source model, demonstrating strong code translation (80.58%) and solid LCIF performance (80.00%). The model delivers excellent
+execution speed (137.12 T/S) and reasonable execution time (62.49 min) with mid-tier pricing ($1.48), representing a balanced approach to open-source reasoning models. While it shows strength in code
+translation, performance drops in code generation (69.35%) and documentation (69.25%).
+
+MiniMax M2 achieves 71.14% as the second-best open-source model, utilizing an efficient MoE architecture (230B total parameters with 10B active) that excels in code translation (81.63%, 4th place
 overall) and agentic tasks with active tool usage. While it demonstrates strong performance in structured coding tasks, the model struggles with LCIF (61.25%) and large content generation, operating
 with slower execution (172.20 min, 31.67 T/S) but reasonable cost ($0.49).
 
-gpt-oss-120b achieves 62.19% score with extraordinary speed (555.99 tokens/sec) and ultra-low cost ($0.23), completing all tasks in just 6.71 minutes. While MiniMax M2 offers better quality (+14.4%),
-gpt-oss-120b provides faster execution and lower costs, demonstrating that open-source alternatives can deliver competitive performance for organizations seeking cost-effective solutions.
+DeepSeek V3.2 achieves 65.93% (15th place) with the slowest execution in the benchmark (132.66 min, 26.08 T/S), though it maintains ultra-low cost ($0.53). The model shows moderate performance across
+categories (code translation: 70.25%, code generation: 64.92%, documentation: 53.53%, LCIF: 75.00%), with weak documentation being a particular limitation. Despite slow execution, the model offers
+cost-effective operations for organizations with less time-sensitive requirements.
+
+gpt-oss-120b achieves 62.19% score with extraordinary speed (555.99 tokens/sec) and ultra-low cost ($0.23), completing all tasks in just 6.71 minutes. While Kimi K2 and MiniMax M2 offer better
+quality, gpt-oss-120b provides fastest execution and lowest costs, demonstrating that open-source alternatives can deliver competitive performance for organizations seeking cost-effective solutions.
 
 **Key Performance Insights**
 
@@ -233,7 +251,8 @@ gpt-oss-120b provides faster execution and lower costs, demonstrating that open-
 - **Balanced Performance**: GPT-5.1 (11-13) offers the best balance of quality and capability across all coding categories (83.36%), Claude Sonnet 4.5 for strong balanced performance (82.19%)
 - **Cost-Effective Excellence**: Grok 4 Fast for outstanding performance with exceptional cost efficiency ($0.22), GPT-5 Mini ($1.38) for mid-tier cost-effective
 - **Speed & Budget**: Grok Code Fast for rapid development cycles with minimal expenses, Claude Haiku 4.5 for speed with quality, gpt-oss-120b for fastest execution
-- **Open-Source**: MiniMax M2 for quality-focused applications (71.14%, strong code translation and agentic tasks), gpt-oss-120b for speed-critical and budget-constrained deployments
+- **Open-Source**: Kimi K2 Thinking for top open-source performance (74.79%, strong code translation), MiniMax M2 for agentic tasks (71.14%, excellent code translation), gpt-oss-120b for
+  speed-critical and budget-constrained deployments
 - **Specialized Coding**: GPT-5 Codex for complex software engineering tasks requiring iterative problem-solving and dynamic thinking adjustment
 
 <p align="center">
