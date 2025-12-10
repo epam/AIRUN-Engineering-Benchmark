@@ -1,4 +1,4 @@
-# LLMs Leaderboard (Benchmark v3, last update 2025-11-26)
+# LLMs Leaderboard (Benchmark v3, last update 2025-12-10)
 
 > 📊 **Interactive Leaderboard**: View live results with charts at Our [LLM Leaderboard](https://epam.github.io/AIRUN-Engineering-Benchmark/llm)
 
@@ -35,11 +35,13 @@ General insights:
 - Grok 4 Fast delivers 79.45% with best cost-efficiency ($0.22)
 - GPT-5.1 Codex achieves 78.72%, specialized coding model with extremely slow LCIF execution (~90 min vs typical 10 min), frequent tool call errors with repeated file reads/writes
 - GPT-5 Codex achieves 77.25%, specialized for complex software engineering with code generation leadership (81.42%)
+- Kimi K2 Thinking scores 74.79% (62.49 min, 137.12 T/S, $1.48), open-source reasoning model with strong code translation (80.58%)
 - Grok 4.1 Fast Reasoning scores 67.90%, affected by truncation bug: generates reasoning tokens, then truncates output after 50 tokens, causing low results on large contexts in code generation
 - MiniMax M2 leads open-source models at 71.14%, strong code translation (81.63%) but struggles with LCIF (61.25%)
 - Gemini 3 Pro Preview scores 70.25% with excellent LCIF (96.25%, tied 2nd) but limited by severe token generation constraints (~12K max vs 60K allowed), weak code documentation (52.08%)
 - GPT-5.1 Codex mini achieves 61.58% (58.99 min, $1.04, 135.56 T/S), experiences similar tool handling issues as full Codex
 - gpt-oss-120b achieves 62.19% with the fastest execution (6.71 min, 555.99 T/S) and ultra-low cost ($0.23)
+- DeepSeek V3.2 achieves 65.93% with the slowest execution (132.66 min, 26.08 T/S) but ultra-low cost ($0.53), open-source reasoning model
 - Grok 4.1 Fast scores 60.09%, performs below Grok 4 Fast (79.45%) despite version upgrade, required multiple LCIF attempts to achieve passing results
 
 **Multimodal Benchmark Leaders:**
@@ -166,12 +168,14 @@ multimodal instruction following capabilities.
 | Grok 4 Fast             | Yes        | 0.767    | 0.810        | 41.22            | 125.84      | 315508      | 65852          | 311224       | 0.22   | 79.45%      |
 | GPT-5.1 Codex           | Yes (high) | 0.711    | 0.723        | 197.44           | 50.29       | 314149      | 413568         | 595740       | 6.35   | 78.72%      |
 | GPT-5 Codex             | Yes (low)  | 0.696    | 0.751        | 69.49            | 63.39       | 314149      | 61760          | 264293       | 3.04   | 77.25%      |
+| Kimi K2 Thinking        | Yes        | 0.708    | 0.741        | 62.49            | 137.12      | 316717      | N/A            | 514155       | 1.48   | 74.79%      |
 | Grok 4 (07-09)          | Yes        | 0.680    | 0.652        | 80.75            | 46.27       | 339997      | 57357          | 224156       | 4.38   | 73.33%      |
 | Grok Code Fast          | Yes        | 0.645    | 0.603        | 17.66            | 165.54      | 319314      | 16584          | 175420       | 0.33   | 71.74%      |
 | GPT-5 Mini              | Yes (high) | 0.751    | 0.785        | 191.62           | 56.51       | 314149      | 339968         | 649773       | 1.38   | 71.28%      |
 | MiniMax M2              | Yes        | 0.714    | 0.756        | 172.20           | 31.67       | 320258      | N/A            | 327231       | 0.49   | 71.14%      |
 | Gemini 3 Pro Preview    | Yes (high) | 0.583    | 0.621        | 44.32            | 93.72       | 374616      | 75652          | 249189       | 3.74   | 70.25%      |
 | Grok 4.1 Fast Reasoning | Yes        | 0.610    | 0.628        | 56.20            | 42.28       | 317185      | 171344         | 142556       | 0.13   | 67.90%      |
+| DeepSeek V3.2           | Yes        | 0.603    | 0.630        | 132.66           | 26.08       | 327602      | N/A            | 207567       | 0.53   | 65.93%      |
 | gpt-oss-120b            | Yes (low)  | 0.709    | 0.720        | 6.71             | 555.99      | 316966      | N/A            | 223941       | 0.23   | 62.19%      |
 | GPT-5.1 Codex mini      | Yes (high) | 0.591    | 0.606        | 58.99            | 135.56      | 314149      | 341632         | 479773       | 1.04   | 61.58%      |
 | Grok 4.1 Fast           | No         | 0.609    | 0.608        | 26.07            | 101.67      | 317701      | -              | 159054       | 0.14   | 60.09%      |
@@ -220,12 +224,14 @@ _Table 2. Overview of the multimodal benchmark results._
 | [Grok 4 Fast Reasoning](https://docs.x.ai/docs/models/grok-4-fast-reasoning)                                                                             | xAI                                                                                   | 2M             | $0.20 / $0.50                                    | N/A        | N/A              |
 | [GPT-5.1-codex](https://platform.openai.com/docs/models/gpt-5.1-codex)                                                                                   | OpenAI                                                                                | 400K           | $1.25 / $10.00                                   | 128K       | Sep 30, 2024     |
 | [GPT-5-codex](https://platform.openai.com/docs/models/gpt-5-codex)                                                                                       | OpenAI                                                                                | 400K           | $1.25 / $10.00                                   | 128K       | Sep 30, 2024     |
+| [Kimi K2](https://github.com/MoonshotAI/Kimi-K2)                                                                                                         | [Fireworks.ai](https://fireworks.ai/models/fireworks/kimi-k2-thinking)                | 200K           | 0.6 2.5                                          |            |                  |
 | [Grok 4 (07-09)](https://docs.x.ai/docs/models/grok-4-0709)                                                                                              | xAI Console                                                                           | 256K           | $3.00 / $15.00 <= 128K and $6.00 / $30.00 > 128K | N/A        | N/A              |
 | [Grok Code Fast](https://x.ai/news/grok-code-fast-1)                                                                                                     | xAI                                                                                   | 256K           | $0.20 / $1.50                                    | N/A        | N/A              |
 | [GPT-5 Mini (08-07)](https://platform.openai.com/docs/models/gpt-5-mini)                                                                                 | OpenAI                                                                                | 400K           | $0.25 / $2.00                                    | 128K       | May 31, 2024     |
 | [MiniMax M2](https://github.com/MiniMax-AI/MiniMax-M2)                                                                                                   | [Fireworks.ai](https://fireworks.ai/models/fireworks/minimax-m2)                      | 200K           | $0.30 / $1.20                                    | 131K       | N/A              |
 | [Gemini 3 Pro Preview](https://ai.google.dev/gemini-api/docs/models#gemini-3-pro)                                                                        | Google AI Studio                                                                      | 1M             | $2.00 / $12.00 <= 200K<br>$4 / $18.00 > 200K     | 65K        | Jan, 2025        |
 | [Grok 4.1 Fast Reasoning/Nonreasoning](https://docs.x.ai/docs/models/grok-4-1-fast-reasoning)                                                            | xAI                                                                                   | 2M             | $0.20 / $0.50 <= 128K / $0.40 / $1.00 > 128K     | N/A        | N/A              |
+| [DeepSeek V3.2](https://huggingface.co/deepseek-ai/DeepSeek-V3.2)                                                                                        | [Fireworks.ai](https://fireworks.ai/models/fireworks/deepseek-v3p2)                   |                | 0.56 1.68                                        |            |                  |
 | [gpt-oss-120b](https://platform.openai.com/docs/models/gpt-oss-120b)                                                                                     | [Cerebras](https://www.cerebras.ai/blog/openai-gpt-oss-120b-runs-fastest-on-cerebras) | 131K           | $0.25 / $0.69                                    | 33K        | Jun 01, 2024     |
 | [GPT-5 Nano (08-07)](https://platform.openai.com/docs/models/gpt-5-nano)                                                                                 | OpenAI                                                                                | 400K           | $0.05 / $0.40                                    | 128K       | May 31, 2024     |
 | [Amazon Nova Premier](https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/) | AWS Bedrock                                                                           | 1M             | $2.5 / $12.5                                     | 10K        | N/A              |
