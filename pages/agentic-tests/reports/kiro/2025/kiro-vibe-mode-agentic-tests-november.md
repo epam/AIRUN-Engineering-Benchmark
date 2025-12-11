@@ -1,6 +1,6 @@
 # Kiro (Vibe Mode) Agent Tests - November 2025
 
-## Table of Contents
+# Table of Contents
 
 - [Summary](#summary)
 - [Testing](#testing)
@@ -9,7 +9,7 @@
     - [Test Report](#test-report)
     - [Agent's Final Grade](#agents-final-grade)
 
-# Summary
+## Summary
 
 Kiro is an LLM-backed IDE developed on VSCode basement. Kiro provides actual list Anthropic developed LLM including Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 4.5 to help with software development.
 
@@ -21,9 +21,9 @@ In Vibe mode the agent showed mediocre performance. Most often, the initial solu
 
 The agent has been examined with tasks belonging to various categories such as solution-or-component-generation, solution-migration, code-refactoring, code-bugfixing.
 
-# Testing
+## Testing
 
-## Environment
+### Environment
 
 |                | Version                             |
 |----------------|-------------------------------------|
@@ -31,7 +31,7 @@ The agent has been examined with tasks belonging to various categories such as s
 | Default Model  | Claude Sonnet 4.5                   |
 | Run Mode       | Vibe                                |
 
-## Code Generation Findings
+### Code Generation Findings
 
 - May duplicate solution approaches.
 - May generate unrequested debug code.
@@ -48,7 +48,7 @@ The agent has been examined with tasks belonging to various categories such as s
 - May miss some instructions while completing the task.
 - Can suggest a simplified straightforward solution. It is laborious and time-consuming to force the agent to rework the solution following a better approach. A developer has to provide a lot of granular instructions how to improve and/or fix the solution code.
 
-## Test Report
+### Test Report
 
 | # | Sourcecode Repository | Task Summary (Name/Category/Complexity) | Task Description (Initial Prompt) | First-Shot Effort | First-Shot Completeness | First-Shot Accuracy | Subsequent Prompts (Feedback, Comments) | Final Completeness | Final Accuracy | Final Test Grade | Statistics | Comments |
 |---|------------------------|------------------------------------------|-----------------------------------|--------------------|-------------------------|---------------------|------------------------------------------|--------------------|---------------|------------------|-----------|----------|
@@ -60,7 +60,7 @@ The agent has been examined with tasks belonging to various categories such as s
 | 6 | <https://github.com/PolinaTolkachova/golf-application> | **Id:** 0014<br>**Name**: User Account Menu in Golf application<br>**Category**: solution-or-component-generation<br>**Complexity**: Low | See <https://github.com/epam/AIRUN-Assistants-Benchmark-TestInstructions/blob/main/agentic-workflow-tests/0014/README.md> | N/A | 54%<br>- thymeleaf-extras-springsecurity6 dependency is not added to pom.xml.<br>- Bootstrap bundle is not imported on pages with account menu.<br>- The account menu is not expandable.<br>- A username is not displayed in the account menu. | 88%<br>- The intended functionality is not fully accomplished.<br>- Custom code is used to implement the functionality instead of Bootstrap adopted in the project. | 1) `thymeleaf-extras-springsecurity6` dependency is not added to pom.xml.<br>2) Custom code is used to implement the functionality instead of Bootstrap adopted in the project.<br>3) Make the account menu expandable.<br>4) I see a username duplicate in the account menu. Keep only the first item, remove the duplicate.<br>5) The account menu does not expand downwards on all pages except main one.<br>6) The account menu still does not expand down on ADD PLAYER page, PLAYER DETAILS page, EDIT PLAYER page, "Enter Your Round score" page, Your Round Score Page, ADD COMPETITION page, COMPETITION DETAILS page, EDIT COMPETITION page, ADD COMPETITION ROUND page, ADD COURSE page. | 100% | 100% | 54% | Files:<br>19 modified(M)<br>2 added(A)<br>0 deleted(D)<br><br>Lines:<br>98 insertions(+)<br>15 deletions(-) |  |
 | 7 | <https://github.com/PolinaTolkachova/golf-application> | **Id:** 0016<br>**Name**: Fix an issue with competition removing in Golf application<br>**Category**: code-bugfixing<br>**Complexity**: Medium | See <https://github.com/epam/AIRUN-Assistants-Benchmark-TestInstructions/blob/main/agentic-workflow-tests/0016/README.md> | N/A | 83%<br>- The implementation uses POST method instead of DELETE HTTP method for competition deletion. | 100% | 1) The deletion endpoint uses the `POST` HTTP method instead of the more semantically appropriate `DELETE` method.<br>2) There was an unexpected error (type=Not Found, status=404): No static resource competition/4/remove. `NoResourceFoundException` for `competition/4/remove`.<br>3) The competition deletion form was not changed to use `@DeleteMapping("/{id}")`.<br>4) Use hidden DELETE method instead of JavaScript. | 100% | 100% | 73% | Files:<br>3 modified(M)<br>0 added(A)<br>0 deleted(D)<br><br>Lines:<br>15 insertions(+)<br>2 deletions(-) |  |
 
-## Agent's Final Grade
+### Agent's Final Grade
 
 The agent's final grade is **61%**.
 
