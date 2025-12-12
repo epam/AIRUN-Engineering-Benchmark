@@ -1,4 +1,4 @@
-# LLMs Leaderboard (Benchmark v3, last update 2025-12-10)
+# LLMs Leaderboard (Benchmark v3, last update 2025-12-12)
 
 > 📊 **Interactive Leaderboard**: View live results with charts at Our [LLM Leaderboard](https://epam.github.io/AIRUN-Engineering-Benchmark/llm)
 
