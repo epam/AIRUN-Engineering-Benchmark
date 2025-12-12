@@ -14,12 +14,11 @@ For detailed information about our approach and evaluation methodology, please r
 | Benchmark model ID   | Name                    | Reasoning  | Date       | Accuracy | Completeness | Total Time | Speed (T/S) | Total input | Total Thinking | Total output | Total Price $ | Score in % |
 |----------------------|-------------------------|------------|------------|----------|--------------|------------|-------------|-------------|----------------|--------------|---------------|------------|
 | Gemini_3_Pro_Preview | Gemini 3 Pro Preview    | Yes (high) | 2025-11-19 | 0.809    | 0.973        | 25.70      | 81.67       | 743882      | 107774         | 125944       | 3.00          | 82.54%     |
+| GPT52_1211_high      | GPT-5.2 (12-11) (high)  | No         | 2025-12-12 | 0.807    | 0.992        | 33.85      | 38.35       | 636192      | 39035          | 77897        | 2.20          | 82.52%     |
 | GPT51_Codex          | GPT-5.1 Codex           | Yes (high) | 2025-11-21 | 0.778    | 0.992        | 31.97      | 38.29       | 610241      | 60480          | 73432        | 1.50          | 79.94%     |
 | GPT5_Mini_high       | GPT-5 Mini              | Yes (high) | 2025-10-24 | 0.769    | 0.997        | 51.23      | 52.28       | 636192      | 124352         | 160700       | 0.48          | 79.21%     |
+| GPT52_1211           | GPT-5.2 (12-11)         | Yes (high) | 2025-12-12 | 0.754    | 1.000        | 16.71      | 39.44       | 636192      | -              | 39537        | 1.67          | 77.89%     |
 | GPT51_Codex_mini     | GPT-5.1 Codex mini      | Yes (high) | 2025-11-21 | 0.756    | 0.974        | 9.83       | 125.00      | 636192      | 60800          | 73687        | 0.31          | 77.75%     |
-| GPT51_1113           | GPT-5.1 (11-13)         | No         | 2025-11-14 | 0.713    | 1.000        | 20.05      | 39.70       | 610241      | -              | 47761        | 1.24          | 74.17%     |
-| GPT5_Codex           | GPT-5 Codex             | Yes (low)  | 2025-09-26 | 0.704    | 0.970        | 11.67      | 49.14       | 610301      | 23232          | 34411        | 1.11          | 73.06%     |
-| GPT51_1113_high      | GPT-5.1 (11-13) (high)  | Yes (high) | 2025-11-14 | 0.672    | 0.992        | 64.07      | 39.27       | 610241      | 97171          | 150970       | 2.27          | 70.43%     |
 | GPT5_Nano_high       | GPT-5 Nano              | Yes (high) | 2025-10-24 | 0.627    | 0.994        | 46.74      | 86.49       | 649510      | 208768         | 242562       | 0.13          | 66.34%     |
 | Claude_Opus_45       | Claude Opus 4.5         | No         | 2025-11-25 | 0.622    | 0.982        | 10.43      | 38.32       | 801240      | -              | 23977        | 4.61          | 65.80%     |
 | Claude_Haiku_45      | Claude Haiku 4.5        | No         | 2025-10-16 | 0.571    | 0.971        | 4.64       | 74.89       | 801240      | -              | 20831        | 0.91          | 61.13%     |
@@ -34,25 +33,26 @@ _Table 1. Results of evaluation LLMs in EPAM's Multimodal LLMs Benchmark._
 
 ## Conclusion
 
-Gemini 3 Pro Preview establishes new multimodal leadership with 82.54% score, surpassing all previous models with excellent accuracy (80.9%), fast execution (25.70 min, 81.67 T/S), and reasonable
+Gemini 3 Pro Preview maintains multimodal leadership with 82.54% score, demonstrating excellent accuracy (80.9%), fast execution (25.70 min, 81.67 T/S), and reasonable
 cost ($3.00). This represents Google's strongest multimodal performance, though pricing increased to $2/$12 for <200K context (up from $1.25/$10). Unlike its constrained coding performance (70.25%)
 where token generation limits severely impact results, the model excels in multimodal tasks where output requirements remain moderate.
 
-GPT-5.1 Codex achieves 79.94% in second place, dramatically exceeding its coding performance (78.72%, 7th place). With excellent completeness (99.2%), good accuracy (77.8%), and reasonable
+GPT-5.2 (12-11) (high) achieves 82.52% in second place, nearly tied with Gemini for the top position. With excellent accuracy (80.7%), near-perfect completeness (99.2%), and reasonable
+cost ($2.20, 33.85 min), GPT-5.2 demonstrates consistent cross-domain excellence - also ranking first in coding benchmark (85.05%). The regular variant achieves 77.89% (16.71 min, $1.67) with perfect
+completeness (100%), offering faster execution for cost-conscious deployments.
+
+GPT-5.1 Codex achieves 79.94% in third place, dramatically exceeding its coding performance (78.72%). With excellent completeness (99.2%), good accuracy (77.8%), and reasonable
 cost ($1.50, 31.97 min), the model demonstrates that its tool handling limitations in coding tasks do not impact multimodal performance where tool usage requirements are minimal.
-GPT-5 Mini achieves 79.21% in third place with excellent cost-effectiveness ($0.48), significantly outperforming its coding results (71.28%) and demonstrating strong multimodal capabilities. GPT-5.1
-Codex mini scores 77.75% in fourth place (9.83 min, 125.00 T/S, $0.31), dramatically surpassing its coding performance (61.58%, 16th place) and confirming that Codex variants excel in visual reasoning
-tasks despite coding limitations.
+GPT-5 Mini achieves 79.21% in fourth place with excellent cost-effectiveness ($0.48), significantly outperforming its coding results (71.28%) and demonstrating strong multimodal capabilities. GPT-5.1
+Codex mini scores 77.75% in sixth place (9.83 min, 125.00 T/S, $0.31), dramatically surpassing its coding performance (61.58%) and confirming that Codex variants excel in visual reasoning tasks
+despite coding limitations.
 
-GPT-5.1 (11-13) achieves 74.17% in fifth position with moderate execution time (20.05 min, 39.70 T/S, $1.24), notably outperforming its high reasoning variant (70.43%), contrasting with coding
-performance where both variants achieve top positions (83.96% and 83.36%).
-
-GPT-5 Codex (73.06%) shows strong cross-domain performance. GPT-5 Nano (66.34%) achieves best cost ($0.13) while outperforming its coding results (58.61%), following the same pattern as GPT-5 Mini
-where multimodal performance exceeds coding performance. Claude Opus 4.5 achieves 65.80% (10.43 min, $4.61), significantly underperforming compared to its coding excellence (83.18%, 3rd place),
-demonstrating Anthropic's optimization for text-based programming over visual reasoning. Claude Haiku 4.5 achieves 61.13% with ultrafast execution (4.64 min) and excellent cost-efficiency ($0.91),
-though significantly behind its coding performance (81.83%). Claude Sonnet 4.5 (54.76%) underperforms in multimodal despite coding excellence (82.19%), confirming the Claude family's specialization in
-text-based coding tasks. Grok models show consistent multimodal weakness: Grok 4 Fast (50.74% vs 79.45% coding), Grok 4.1 Fast Reasoning (43.46%), and Grok 4.1 Fast (42.52%, lowest among tested
-models), confirming xAI's specialization in text-based programming with limited visual reasoning capabilities.
+GPT-5 Nano (66.34%) achieves best cost ($0.13) while outperforming its coding results (58.61%), following the same pattern as GPT-5 Mini where multimodal performance exceeds coding performance. Claude
+Opus 4.5 achieves 65.80% (10.43 min, $4.61), significantly underperforming compared to its coding excellence (83.18%, 3rd place), demonstrating Anthropic's optimization for text-based programming over
+reasoning. Claude Haiku 4.5 achieves 61.13% with ultrafast execution (4.64 min) and excellent cost-efficiency ($0.91), though significantly behind its coding performance (81.83%). Claude Sonnet 4.5 (
+54.76%) underperforms in multimodal despite coding excellence (82.19%), confirming the Claude family's specialization in text-based coding tasks. Grok models show consistent multimodal weakness: Grok
+4 Fast (50.74% vs 79.45% coding), Grok 4.1 Fast Reasoning (43.46%), and Grok 4.1 Fast (42.52%, lowest among tested models), confirming xAI's specialization in text-based programming with limited
+visual reasoning capabilities.
 
 <p align="center">
     © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>
