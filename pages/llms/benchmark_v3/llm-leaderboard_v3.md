@@ -1,0 +1,252 @@
+# LLMs Leaderboard (Benchmark v3, last update 2025-12-19)
+
+> 📊 **Interactive Leaderboard**: View live results with charts at our [LLM Leaderboard](https://epam.github.io/AIRUN-Engineering-Benchmark/llm)
+
+## Coding Leaderboard Rating
+
+![llm-rating.png](/images/llms/benchmark_v3/coding/llm-score.png)
+
+### Multimodal Leaderboard Rating
+
+![llm-rating.png](/images/llms/benchmark_v3/multimodal/llm-score.png)
+
+## Introduction to EPAM AI/RUN LLMs Engineering Benchmark
+
+This page presents the results of LLMs engineering benchmark v3 including a leaderboard that compares the effectiveness of Anthropic, Amazon, Google DeepMind, Meta, xAI, OpenAI, and other companies'
+LLMs (Large Language Models) and SMLs (Small Language Models) in executing both coding and multimodal tasks, including code translation, code generation, documentation generation, large context
+instruction following (LCIF), and multimodal reasoning.
+
+This leaderboard will be updated regularly to reflect the latest developments in the field of large language models.
+
+
+> Previous results for benchmark v1 were moved to [llm-leaderboard-v1.md](/pages/llms/benchmark_v1/llm-leaderboard_v1.md) for reference.<br />
+> Benchmark v2 results moved to [llm-leaderboard-v2.md](/pages/llms/benchmark_v2/llm-leaderboard_v2.md)
+
+## Benchmark Key Findings
+
+General insights:
+
+**Coding Benchmark Leaders:**
+
+- GPT-5.2 (12-11) achieves new benchmark record with 85.05% (high reasoning) and 82.29% (regular), surpassing all previous models with most recent knowledge cutoff (Aug 31, 2025)
+- Claude Opus 4.5 scores 83.18%, first model by Anthropic available on all major cloud providers (Vertex AI, Azure, AWS, Anthropic API), price reduced from $15/$75 to $5/$25 per MTok
+- Claude Sonnet 4.5 achieves 82.19%, strong balanced performance without reasoning mode
+- Claude Haiku 4.5 scores 81.83% with exceptional speed (180.66 T/S) and mid-tier pricing ($3.61), first place in code documentation (80.64%)
+- Grok 4 Fast delivers 79.45% with best cost-efficiency ($0.22)
+- GPT-5.1 Codex achieves 78.72%, specialized coding model with extremely slow LCIF execution (~90 min vs typical 10 min), frequent tool call errors with repeated file reads/writes
+- Kimi K2 Thinking scores 74.79% (62.49 min, 137.12 T/S, $1.48), open-source reasoning model with strong code translation (80.58%)
+- Gemini 3 Pro Preview scores 73.52% with excellent LCIF (96.25%, tied 2nd) and code translation (76.04%), trained by Google for token efficiency requiring prompt tuning for verbose coding outputs
+- MiniMax M2 leads open-source models at 71.14%, strong code translation (81.63%) but struggles with LCIF (61.25%)
+- Grok 4.1 Fast Reasoning scores 67.90%, affected by truncation bug: generates reasoning tokens, then truncates output after 50 tokens, causing low results on large contexts in code generation
+- GPT-5.1 Codex mini achieves 61.58% (58.99 min, $1.04, 135.56 T/S), experiences similar tool handling issues as full Codex
+- gpt-oss-120b achieves 62.19% with the fastest execution (6.71 min, 555.99 T/S) and ultra-low cost ($0.23)
+- DeepSeek V3.2 achieves 65.93% with the slowest execution (132.66 min, 26.08 T/S) but ultra-low cost ($0.53), open-source reasoning model
+- Grok 4.1 Fast scores 60.09%, performs below Grok 4 Fast (79.45%) despite version upgrade, required multiple LCIF attempts to achieve passing results
+
+**Multimodal Benchmark Leaders:**
+
+- Gemini 3 Flash Preview leads with 83.35% (13.32 min, 116.32 T/S, $0.65), achieving perfect completeness (100%) with exceptional speed and cost-efficiency, outperforming its coding results (72.47%)
+- Gemini 3 Pro Preview achieves 82.54% (25.70 min, 81.67 T/S, $3.00), nearly tied for first place - token-efficient design excels in multimodal (82.54%) vs moderate coding performance (73.52%)
+- GPT-5.2 (12-11) (high) achieves 82.52% (33.85 min, $2.20), nearly tied for second place with consistent cross-domain excellence (coding: 85.05% #1)
+- GPT-5.1 Codex achieves 79.94% (31.97 min, $1.50), third place overall - significantly outperforms coding benchmark (78.72%)
+- GPT-5 Mini scores 79.21%, significantly outperforming coding (71.28%) with excellent cost-efficiency ($0.48)
+- GPT-5.2 (12-11) regular achieves 77.89% (16.71 min, $1.67), fast execution with perfect completeness (100%)
+- GPT-5.1 Codex mini scores 77.75% (9.83 min, $0.31, 125.00 T/S) - dramatically exceeds coding performance (61.58%)
+- Claude Opus 4.5 scores 65.80% (10.43 min, $4.61), significantly below coding performance (83.18%)
+- Claude Haiku 4.5 scores 61.13% with the fastest execution (4.64 min, $0.91), significantly behind coding performance (81.83%)
+- Grok 4 Fast achieves 50.74% vs strong coding (79.45%), confirming xAI specialization in text-based programming
+- Grok 4.1 Fast Reasoning/Nonreasoning scores 43.46% and 42.52% accordingly, lowest among Grok models
+
+Performance metrics highlights:
+
+**Coding Benchmark:**
+
+- **Fastest token generation**: gpt-oss-120b (555.99 T/S), Claude Haiku 4.5 (180.66 T/S), Grok Code Fast (165.54 T/S), GPT-5.1 Codex mini (135.56 T/S), Grok 4 Fast (125.84 T/S)
+- **Shortest execution time**: gpt-oss-120b (6.71 min), Grok Code Fast (17.66 min), Grok 4.1 Fast (26.07 min), Grok 4 Fast (41.22 min), Gemini 3 Pro Preview (44.32 min)
+- **Most tokens generated**: GPT-5 Mini (649,773 tokens), Claude Haiku 4.5 (642,436 tokens), Claude Opus 4.5 (603,412 tokens), GPT-5.2 (12-11) (high) (484,867 tokens)
+- **Best cost-effectiveness**: Grok 4.1 Fast Reasoning ($0.13), Grok 4.1 Fast ($0.14), Grok 4 Fast ($0.22), gpt-oss-120b ($0.23), GPT-5 Nano ($0.33), Grok Code Fast ($0.33)
+
+**Multimodal Benchmark:**
+
+- **Fastest token generation**: GPT-5.1 Codex mini (125.00 T/S), Gemini 3 Flash Preview (116.32 T/S), Grok 4 Fast (91.42 T/S), GPT-5 Nano (86.49 T/S), Gemini 3 Pro Preview (81.67 T/S)
+- **Shortest execution time**: Claude Haiku 4.5 (4.64 min), Grok 4.1 Fast (5.15 min), Claude Sonnet 4.5 (8.46 min), GPT-5.1 Codex mini (9.83 min), Claude Opus 4.5 (10.43 min)
+- **Best cost-effectiveness**: GPT-5 Nano ($0.13), Grok 4.1 Fast ($0.13), Grok 4.1 Fast Reasoning ($0.13), Grok 4 Fast ($0.16), GPT-5.1 Codex mini ($0.31), GPT-5 Mini ($0.48)
+
+Best results by category:
+
+**Coding Benchmark:**
+
+- **Code Translation**: GPT-5.2 (12-11) (high) (87.33%), GPT-5.2 (12-11) (84.88%), Claude Opus 4.5 (82.83%), Claude Haiku 4.5 (82.63%), MiniMax M2 (81.63%)
+- **Code Generation**: Grok 4 Fast (80.38%), GPT-5.1 Codex (79.15%), GPT-5.2 (12-11) (high) (78.46%), Claude Sonnet 4.5 (75.92%), Claude Haiku 4.5 (74.04%)
+- **Code Documentation**: GPT-5.2 (12-11) (high) (81.89%), Claude Haiku 4.5 (80.64%), GPT-5.2 (12-11) (78.94%), Claude Sonnet 4.5 (79.53%), GPT-5 Mini (78.64%), Grok 4 Fast (78.39%)
+- **LCIF**: Claude Opus 4.5 (98.50%), Grok Code Fast (98.50%), Gemini 3 Flash Preview (98.50%), Claude Sonnet 4.5 (96.25%), Gemini 3 Pro Preview (96.25%), GPT-5.1 Codex (96.25%)
+
+**Multimodal Benchmark:**
+
+- **Overall Multimodal Performance**: Gemini 3 Flash Preview (83.35%), Gemini 3 Pro Preview (82.54%), GPT-5.2 (12-11) (high) (82.52%), GPT-5.1 Codex (79.94%), GPT-5 Mini (79.21%)
+
+## Additional Views
+
+<details>
+<summary>Other metrics from coding leaderboard</summary>
+
+![llm-type.png](/images/llms/benchmark_v3/coding/llm-reasoning.png)
+![llm-type.png](/images/llms/benchmark_v3/coding/llm-license.png)
+![llm-price.png](/images/llms/benchmark_v3/coding/llm-price.png)
+![llm-tokens.png](/images/llms/benchmark_v3/coding/llm-tokens.png)
+![llm-cost.png](/images/llms/benchmark_v3/coding/llm-cost.png)
+![llm-time.png](/images/llms/benchmark_v3/coding/llm-time.png)
+![llm-speed.png](/images/llms/benchmark_v3/coding/llm-speed.png)
+
+</details>
+
+<details>
+<summary>Other metrics from multimodal leaderboard</summary>
+
+![llm-type.png](/images/llms/benchmark_v3/multimodal/llm-reasoning.png)
+![llm-type.png](/images/llms/benchmark_v3/multimodal/llm-license.png)
+![llm-price.png](/images/llms/benchmark_v3/multimodal/llm-price.png)
+![llm-tokens.png](/images/llms/benchmark_v3/multimodal/llm-tokens.png)
+![llm-cost.png](/images/llms/benchmark_v3/multimodal/llm-cost.png)
+![llm-time.png](/images/llms/benchmark_v3/multimodal/llm-time.png)
+![llm-speed.png](/images/llms/benchmark_v3/multimodal/llm-speed.png)
+
+</details>
+
+### Observations
+
+**Reasoning Mode Impact**
+
+- GPT-5.2 high reasoning: +2.76% coding improvement (85.05% vs 82.29%) with faster execution (114.74 min vs GPT-5.1 high's 171.48 min), +4.63% in multimodal
+- Claude Sonnet 4.5: achieves top coding results without reasoning mode, suggesting integrated reasoning architecture
+
+**Domain Specialization**
+
+- OpenAI GPT-5.2: consistent cross-domain excellence (coding: 85.05% #1, multimodal: 82.52% #3), most recent knowledge cutoff (Aug 31, 2025)
+- Google Gemini: multimodal leaders with Flash Preview (83.35% #1) and Pro Preview (82.54% #2), moderate coding performance (Flash: 72.47%, Pro: 73.52%) - Google trained Gemini 3 for token efficiency
+  with concise outputs by default, requiring system prompt tuning to achieve current coding results
+- OpenAI Codex variants show inverted performance: GPT-5.1 Codex/mini weaker in coding (78.72%, 61.58%) but excel in multimodal (79.94%, 77.75%)
+- xAI Grok: coding-focused (79.45%), multimodal struggles (50.74%), Grok 4.1 regression in both domains
+- Claude: coding-optimized (83.18% Opus, 82.19% Sonnet), multimodal regression (65.80%, 54.76%)
+
+**Key Limitations**
+
+- GPT-5.1 Codex/mini: tool handling issues with repeated file reads/writes, extremely slow LCIF execution (~90 min vs typical 10 min)
+- Grok 4.1 Fast Reasoning: truncation bug on large contexts - generates reasoning tokens then truncates output after 50 tokens
+- GPT-5 Nano: reasoning inefficiency - 95% tokens spent on thinking vs actual output
+- Grok 4.1 Fast: regression vs Grok 4 Fast (60.09% vs 79.45%)
+
+**Top Performers by Use Case**
+
+- Coding: GPT-5.2 (12-11) for maximum quality (85.05%), GPT-5.2 regular for performance/cost balance (82.29%, $4.87), Claude Opus 4.5 for cross-platform availability (83.18%)
+- Multimodal: Gemini 3 Flash Preview for top performance with speed and cost efficiency (83.35%, 13.32 min, $0.65), Gemini 3 Pro Preview for high accuracy (82.54%, $3.00), GPT-5.2 (high) for balanced
+  excellence (82.52%, $2.20)
+- Budget: Grok 4.1 models for lowest cost ($0.13 both benchmarks), Grok 4 Fast for coding quality ($0.22), Gemini 3 Flash Preview for multimodal ($0.65)
+- Open-source: Kimi K2 Thinking (74.79%), MiniMax M2 (71.14%), gpt-oss-120b for speed (555.99 T/S, $0.23)
+
+### Detailed Results
+
+All categories, except Large Context Instructions Following (LCIF), are evaluated automatically using the Large Language Model<sup>1</sup>.
+You can read [llm-comparison-report.md](llm-comparison-report_v3.md) for detailed coding benchmark analysis and [llm-comparison-report-multimodal.md](llm-comparison-report-multimodal_v3.md) for multimodal
+benchmark results. These reports include all experiment scores, performance breakdowns by category, and comprehensive analysis.
+
+The tables below provide an overview of both coding and multimodal benchmark experiments. For coding tasks, you can review the average accuracy and completeness across all categories, total execution
+time, generation token speed (token per second), the total number of input and output tokens, the cost of the experiment, and the final score. The multimodal benchmark focuses on visual reasoning and
+multimodal instruction following capabilities.
+
+<details>
+<summary>Detailed Results and Observations</summary>
+
+### Coding Benchmark Results
+
+| Name                    | Reasoning  | Accuracy | Completeness | Total Time (min) | Speed (T/S) | Total input | Total Thinking | Total output | Cost $ | Total Score |
+|-------------------------|------------|----------|--------------|------------------|-------------|-------------|----------------|--------------|--------|-------------|
+| GPT-5.2 (12-11) (high)  | Yes (high) | 0.804    | 0.843        | 114.74           | 70.43       | 314149      | 137944         | 484867       | 7.34   | 85.05%      |
+| Claude Opus 4.5         | No         | 0.761    | 0.796        | 142.09           | 70.78       | 399778      | -              | 603412       | 17.08  | 83.18%      |
+| GPT-5.2 (12-11)         | No         | 0.777    | 0.799        | 64.96            | 79.19       | 314149      | -              | 308666       | 4.87   | 82.29%      |
+| Claude Sonnet 4.5       | No         | 0.773    | 0.782        | 101.75           | 81.41       | 399735      | -              | 496983       | 8.65   | 82.19%      |
+| Claude Haiku 4.5        | No         | 0.777    | 0.807        | 59.27            | 180.66      | 399778      | -              | 642436       | 3.61   | 81.83%      |
+| Grok 4 Fast             | Yes        | 0.767    | 0.810        | 41.22            | 125.84      | 315508      | 65852          | 311224       | 0.22   | 79.45%      |
+| GPT-5.1 Codex           | Yes (high) | 0.711    | 0.723        | 197.44           | 50.29       | 314149      | 413568         | 595740       | 6.35   | 78.72%      |
+| Kimi K2 Thinking        | Yes        | 0.708    | 0.741        | 62.49            | 137.12      | 316717      | N/A            | 514155       | 1.48   | 74.79%      |
+| Gemini 3 Pro Preview    | Yes (high) | 0.636    | 0.665        | 59.55            | 103.40      | 391352      | 94752          | 369450       | 5.22   | 73.52%      |
+| Grok 4 (07-09)          | Yes        | 0.680    | 0.652        | 80.75            | 46.27       | 339997      | 57357          | 224156       | 4.38   | 73.33%      |
+| Gemini 3 Flash Preview  | Yes        | 0.605    | 0.640        | 32.01            | 141.06      | 391352      | 38687          | 270951       | 1.01   | 72.47%      |
+| Grok Code Fast          | Yes        | 0.645    | 0.603        | 17.66            | 165.54      | 319314      | 16584          | 175420       | 0.33   | 71.74%      |
+| GPT-5 Mini              | Yes (high) | 0.751    | 0.785        | 191.62           | 56.51       | 314149      | 339968         | 649773       | 1.38   | 71.28%      |
+| MiniMax M2              | Yes        | 0.714    | 0.756        | 172.20           | 31.67       | 320258      | N/A            | 327231       | 0.49   | 71.14%      |
+| Grok 4.1 Fast Reasoning | Yes        | 0.610    | 0.628        | 56.20            | 42.28       | 317185      | 171344         | 142556       | 0.13   | 67.90%      |
+| DeepSeek V3.2           | Yes        | 0.603    | 0.630        | 132.66           | 26.08       | 327602      | N/A            | 207567       | 0.53   | 65.93%      |
+| gpt-oss-120b            | Yes (low)  | 0.709    | 0.720        | 6.71             | 555.99      | 316966      | N/A            | 223941       | 0.23   | 62.19%      |
+| GPT-5.1 Codex mini      | Yes (high) | 0.591    | 0.606        | 58.99            | 135.56      | 314149      | 341632         | 479773       | 1.04   | 61.58%      |
+| Grok 4.1 Fast           | No         | 0.609    | 0.608        | 26.07            | 101.67      | 317701      | -              | 159054       | 0.14   | 60.09%      |
+| GPT-5 Nano              | Yes (high) | 0.652    | 0.630        | 150.27           | 86.83       | 314149      | 541824         | 782832       | 0.33   | 58.61%      |
+| Amazon Nova Premier     | No         | 0.282    | 0.205        | 15.88            | 46.56       | 224223      | -              | 44360        | 1.12   | 26.89%      |
+
+_Table 1. Overview of the coding benchmark results._
+
+### Multimodal Benchmark Results
+
+| Name                    | Reasoning  | Accuracy | Completeness | Total Time (min) | Speed (T/S) | Total input | Total Thinking | Total output | Cost $ | Total Score |
+|-------------------------|------------|----------|--------------|------------------|-------------|-------------|----------------|--------------|--------|-------------|
+| Gemini 3 Flash Preview  | Yes        | 0.815    | 1.000        | 13.32            | 116.32      | 743882      | 77035          | 92991        | 0.65   | 83.35%      |
+| Gemini 3 Pro Preview    | Yes (high) | 0.809    | 0.973        | 25.70            | 81.67       | 743882      | 107774         | 125944       | 3.00   | 82.54%      |
+| GPT-5.2 (12-11) (high)  | Yes (high) | 0.807    | 0.992        | 33.85            | 38.35       | 636192      | 39035          | 77897        | 2.20   | 82.52%      |
+| GPT-5.1 Codex           | Yes (high) | 0.778    | 0.992        | 31.97            | 38.29       | 610241      | 60480          | 73432        | 1.50   | 79.94%      |
+| GPT-5 Mini              | Yes (high) | 0.769    | 0.997        | 51.23            | 52.28       | 636192      | 124352         | 160700       | 0.48   | 79.21%      |
+| GPT-5.2 (12-11)         | No         | 0.754    | 1.000        | 16.71            | 39.44       | 636192      | -              | 39537        | 1.67   | 77.89%      |
+| GPT-5.1 Codex mini      | Yes (high) | 0.756    | 0.974        | 9.83             | 125.00      | 636192      | 60800          | 73687        | 0.31   | 77.75%      |
+| GPT-5 Nano              | Yes (high) | 0.627    | 0.994        | 46.74            | 86.49       | 649510      | 208768         | 242562       | 0.13   | 66.34%      |
+| Claude Opus 4.5         | No         | 0.622    | 0.982        | 10.43            | 38.32       | 801240      | -              | 23977        | 4.61   | 65.80%      |
+| Claude Haiku 4.5        | No         | 0.571    | 0.971        | 4.64             | 74.89       | 801240      | -              | 20831        | 0.91   | 61.13%      |
+| Claude Sonnet 4.5       | No         | 0.503    | 0.949        | 8.46             | 37.12       | 801210      | -              | 18843        | 2.69   | 54.76%      |
+| Amazon Nova Premier     | No         | 0.489    | 0.928        | 14.85            | 16.78       | 767489      | -              | 14954        | 2.11   | 53.26%      |
+| Grok 4 Fast             | Yes        | 0.455    | 0.982        | 14.22            | 91.42       | 586517      | 32902          | 77976        | 0.16   | 50.74%      |
+| Grok 4 (07-09)          | Yes        | 0.380    | 0.958        | 66.46            | 42.72       | 606242      | 138102         | 170368       | 4.37   | 43.75%      |
+| Grok 4.1 Fast Reasoning | Yes        | 0.375    | 0.974        | 18.69            | 25.58       | 587687      | 65856          | 28675        | 0.13   | 43.46%      |
+| Grok 4.1 Fast           | No         | 0.366    | 0.955        | 5.15             | 70.27       | 588047      | -              | 21694        | 0.13   | 42.52%      |
+
+_Table 2. Overview of the multimodal benchmark results._
+
+> Additional info:  
+> Evaluation of benchmark results were performed automatically with the help of evaluation tools based on the LLMs.
+> Please refer to the page [LLMs Benchmark Approach](llm-approach.md) for more details on the evaluation methodology.
+
+</details>
+
+## Models specification
+
+| LLM Name                                                                                                                                                 | API Provider used in benchmark                                                        | Context Window | Cost (Input / Output per MTok)                   | Max Output | Knowledge Cutoff |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|----------------|--------------------------------------------------|------------|------------------|
+| [GPT-5.2 (12-11)](https://platform.openai.com/docs/models/gpt-5.2)                                                                                       | OpenAI                                                                                | 400K           | $1.75 / $14.00                                   | 128K       | Aug 31, 2025     |
+| [Claude 4.5 Opus](https://www.anthropic.com/news/claude-opus-4-5)                                                                                        | Google Vertex AI                                                                      | 200K           | $5.00 / $25.00                                   | 64K        | July, 2025       |
+| [Claude 4.5 Sonnet](https://www.anthropic.com/news/claude-sonnet-4-5)                                                                                    | Google Vertex AI                                                                      | 200K           | $3.00 / $15.00                                   | 64K        | July, 2025       |
+| [Claude Haiku 4.5](https://www.anthropic.com/news/claude-haiku-4-5)                                                                                      | Google Vertex AI                                                                      | 200K           | $1.00 / $5.00                                    | 64K        | July, 2025       |
+| [Grok 4 Fast Reasoning](https://docs.x.ai/docs/models/grok-4-fast-reasoning)                                                                             | xAI                                                                                   | 2M             | $0.20 / $0.50                                    | N/A        | N/A              |
+| [GPT-5.1-codex](https://platform.openai.com/docs/models/gpt-5.1-codex)                                                                                   | OpenAI                                                                                | 400K           | $1.25 / $10.00                                   | 128K       | Sep 30, 2024     |
+| [Kimi K2](https://github.com/MoonshotAI/Kimi-K2)                                                                                                         | [Fireworks.ai](https://fireworks.ai/models/fireworks/kimi-k2-thinking)                | 200K           | $0.60 / $2.50                                    | N/A        | N/A              |
+| [Gemini 3 Pro Preview](https://ai.google.dev/gemini-api/docs/models#gemini-3-pro)                                                                        | Google AI Studio                                                                      | 1M             | $2.00 / $12.00 <= 200K<br>$4 / $18.00 > 200K     | 65K        | Jan, 2025        |
+| [Grok 4 (07-09)](https://docs.x.ai/docs/models/grok-4-0709)                                                                                              | xAI Console                                                                           | 256K           | $3.00 / $15.00 <= 128K and $6.00 / $30.00 > 128K | N/A        | N/A              |
+| [Grok Code Fast](https://x.ai/news/grok-code-fast-1)                                                                                                     | xAI                                                                                   | 256K           | $0.20 / $1.50                                    | N/A        | N/A              |
+| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models#gemini-3-flash)                                                                    | Google AI Studio                                                                      | 1M             | $0.50 / $3.00                                    | 65K        | Jan, 2025        |
+| [GPT-5 Mini (08-07)](https://platform.openai.com/docs/models/gpt-5-mini)                                                                                 | OpenAI                                                                                | 400K           | $0.25 / $2.00                                    | 128K       | May 31, 2024     |
+| [MiniMax M2](https://github.com/MiniMax-AI/MiniMax-M2)                                                                                                   | [Fireworks.ai](https://fireworks.ai/models/fireworks/minimax-m2)                      | 200K           | $0.30 / $1.20                                    | 131K       | N/A              |
+| [Grok 4.1 Fast Reasoning/Nonreasoning](https://docs.x.ai/docs/models/grok-4-1-fast-reasoning)                                                            | xAI                                                                                   | 2M             | $0.20 / $0.50 <= 128K / $0.40 / $1.00 > 128K     | N/A        | N/A              |
+| [DeepSeek V3.2](https://huggingface.co/deepseek-ai/DeepSeek-V3.2)                                                                                        | [Fireworks.ai](https://fireworks.ai/models/fireworks/deepseek-v3p2)                   | 128K           | $0.56 / $1.68                                    | N/A        | N/A              |
+| [gpt-oss-120b](https://platform.openai.com/docs/models/gpt-oss-120b)                                                                                     | [Cerebras](https://www.cerebras.ai/blog/openai-gpt-oss-120b-runs-fastest-on-cerebras) | 131K           | $0.25 / $0.69                                    | 33K        | Jun 01, 2024     |
+| [GPT-5 Nano (08-07)](https://platform.openai.com/docs/models/gpt-5-nano)                                                                                 | OpenAI                                                                                | 400K           | $0.05 / $0.40                                    | 128K       | May 31, 2024     |
+| [Amazon Nova Premier](https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/) | AWS Bedrock                                                                           | 1M             | $2.50 / $12.5                                    | 10K        | N/A              |
+
+_Table 3. Description of LLMs, their versions, amount of information to process, and the length of the response._
+
+## Notes
+
+- To learn more about our methodology for evaluating LLMs, please read [LLMs Benchmark Approach](llm-approach.md).
+- To submit your model for evaluation, please refer to the [Large Language Model Benchmark Submission](submissions/llm-benchmark-submission.md) page.
+- Previous charts with ratings and other scores can be found in the [LLMs Charts archive](/images/llms/llm-charts-archive).
+
+<p align="center">
+    © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>
+    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>
+    This report is licensed under CC BY-SA 4.0
+</p>

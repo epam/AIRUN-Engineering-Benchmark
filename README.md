@@ -53,8 +53,8 @@ We've developed a multi-faceted approach to assess capabilities and performance 
 - In 2025, we added agentic tests recognizing importance and popularity of this modality
 
 For more detailed information about our Code Assistants benchmark methodology, please refer to
-the following page  [Code Assistants](pages/sandbox-test/code-assistants-benchmark-approach.md).
-On the methodology of agentic tests refer to this page https://github.com/epam/AIRUN-Engineering-Benchmark/blob/main/pages/sandbox-test/coding-agent-testing-methodology.md.
+the following page [Code Assistants](pages/sandbox-test/code-assistants-benchmark-approach.md).
+On the methodology of agentic tests refer to this page [Agentic Tests](https://github.com/epam/AIRUN-Engineering-Benchmark/blob/main/pages/sandbox-test/coding-agent-testing-methodology.md).
 
 ### LLMs Benchmark 🧠
 
@@ -128,7 +128,7 @@ Our tests use third-party opensource repositories (licensed under MIT, BSD 3-Cla
 ---
 
 <p align="center">
-    © 2025 EPAM Systems, Inc.  All Rights Reserved.<br/>
+    © 2026 EPAM Systems, Inc.  All Rights Reserved.<br/>
     EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>
     All reports in this repository are licensed under CC BY-SA 4.0
 </p>
