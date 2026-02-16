@@ -61,7 +61,7 @@
 
 ## Summary
 
-If we compare the results of the tests conducted in [June](../gemini-copilot-amazon-q-sandbox-tests-june-2024.md) and August, the number of failed tests is the same, totaling 21. However, the number and types of failed tests differ slightly by category. 
+If we compare the results of the tests conducted in [June](../zencoder/2024/gemini-copilot-amazon-q-sandbox-tests-june-2024.md) and August, the number of failed tests is the same, totaling 21. However, the number and types of failed tests differ slightly by category. 
 Based on the results of the test run in August, Copilot generally showed the same performance as in June.
 
 ---

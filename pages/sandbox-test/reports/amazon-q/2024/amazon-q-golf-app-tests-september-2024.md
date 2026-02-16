@@ -6,7 +6,7 @@
 
 ## Test Execution Results
 
-[GolfAppTestsAmazonQSeptember.xlsx](../../../../reports/GolfAppTestsAmazonQSeptember.xlsx)
+[GolfAppTestsAmazonQSeptember.xlsx](../../../../../reports/GolfAppTestsAmazonQSeptember.xlsx)
 
 ### Overall Results
 
@@ -18,7 +18,7 @@
 
 ## Summary
 
-- Amazon Q showed better results compared to the results of running the same tests in [April](../gemini-copilot-amazon-q-golf-app-tests-april-2024.md). The April result was 60%, meaning Amazon Q increased its efficiency by 21.82%.
+- Amazon Q showed better results compared to the results of running the same tests in [April](../../zencoder/2024/gemini-copilot-amazon-q-golf-app-tests-april-2024.md). The April result was 60%, meaning Amazon Q increased its efficiency by 21.82%.
 - Responses to chat window questions are generated quite slowly.
 
 ---

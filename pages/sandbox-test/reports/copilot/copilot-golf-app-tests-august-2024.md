@@ -16,7 +16,7 @@
 
 ## Summary
 
-If we compare the results of the tests conducted in [April](../gemini-copilot-amazon-q-golf-app-tests-april-2024.md) and August, the number of failed tests is the same, totaling 4. However, the types of failed tests differ slightly by category.
+If we compare the results of the tests conducted in [April](../zencoder/2024/gemini-copilot-amazon-q-golf-app-tests-april-2024.md) and August, the number of failed tests is the same, totaling 4. However, the types of failed tests differ slightly by category.
 Based on the results of the test run in August, Copilot generally showed the same performance as in April.
 
 ---

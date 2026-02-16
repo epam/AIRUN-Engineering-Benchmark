@@ -80,9 +80,9 @@
 
 ## Reports:
 
-- [ReportGeminiApril2024.xlsx](../../../reports/ReportGeminiApril2024.xlsx)
-- [ReportCopilotApril2024.xlsx](../../../reports/ReportCopilotApril2024.xlsx)
-- [ReportCodeWhisperApril2024.xlsx](../../../reports/ReportCodeWhisperApril2024.xlsx)
+- [ReportGeminiApril2024.xlsx](../../../../../reports/ReportGeminiApril2024.xlsx)
+- [ReportCopilotApril2024.xlsx](../../../../../reports/ReportCopilotApril2024.xlsx)
+- [ReportCodeWhisperApril2024.xlsx](../../../../../reports/ReportCodeWhisperApril2024.xlsx)
 
 ## General Comments:
 
