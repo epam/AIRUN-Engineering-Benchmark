@@ -12,7 +12,7 @@
     - [TypeScript](#typescript-code-completion)
 
 ## Test Execution Results:
-[SandboxTestsJune2024.xlsx](../../../reports/SandboxTestsJune2024.xlsx)
+[SandboxTestsJune2024.xlsx](../../../../../reports/SandboxTestsJune2024.xlsx)
 
 ## Summary:
 **Overall Score:**

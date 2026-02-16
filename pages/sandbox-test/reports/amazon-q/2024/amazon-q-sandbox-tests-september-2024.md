@@ -14,7 +14,7 @@
 
 ## Test Execution Results
 
-[SandboxTestsAmazonQSeptember2024.xlsx](../../../../reports/SandboxTestsAmazonQSeptember2024.xlsx)
+[SandboxTestsAmazonQSeptember2024.xlsx](../../../../../reports/SandboxTestsAmazonQSeptember2024.xlsx)
 
 ### Overall Score
 **80.17 = 23 / 116**
@@ -63,7 +63,7 @@
 
 ## UX Summary
 
-- Amazon Q showed better results compared to the results of running the same tests in [June](../gemini-copilot-amazon-q-sandbox-tests-june-2024.md). The June result was 70.8%, meaning Amazon Q increased its efficiency by 9.37%.
+- Amazon Q showed better results compared to the results of running the same tests in [June](../../zencoder/2024/gemini-copilot-amazon-q-sandbox-tests-june-2024.md). The June result was 70.8%, meaning Amazon Q increased its efficiency by 9.37%.
 - Responses to chat window questions and autocompletion prompts are generated quite slowly.
 
 ---
