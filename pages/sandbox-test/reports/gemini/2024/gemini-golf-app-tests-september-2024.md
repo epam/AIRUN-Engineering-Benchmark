@@ -4,7 +4,7 @@
 - [UX Summary](#ux-summary)
 
 ## Test Execution Results:
-[GolfAppTestsGeminiSeptember.xlsx](../../../../reports/GolfAppTestsGeminiSeptember.xlsx)
+[GolfAppTestsGeminiSeptember.xlsx](../../../../../reports/GolfAppTestsGeminiSeptember.xlsx)
 
 
 | Pass Rate, % | Overall Tests | Failed Tests |
@@ -12,7 +12,7 @@
 | 68.18        | 22            | 7            |
 
 ## UX Summary:
-- Gemini showed better results compared to the results of running the same tests in [April](../zencoder/2024/gemini-copilot-amazon-q-golf-app-tests-april-2024.md). The April result was 55%, meaning Gemini increased its efficiency by 13.18%.
+- Gemini showed better results compared to the results of running the same tests in [April](../../zencoder/2024/gemini-copilot-amazon-q-golf-app-tests-april-2024.md). The April result was 55%, meaning Gemini increased its efficiency by 13.18%.
 - Responses to chat window questions are generated quite slowly.
 
 ---

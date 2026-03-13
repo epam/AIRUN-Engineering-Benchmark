@@ -39,7 +39,7 @@ By default, Cursor has these models ready to use:
   - `cursor-small` is Cursor’s custom model that isn’t as smart as `GPT-4`, but is faster and users have unlimited access to it.
 
 You can add additional models under `Cursor Settings` > `Models` > `Model Names`.
-![cursor-settings-models.png](../../../../images/sandbox-test/cursor/cursor-settings-models.png)
+![cursor-settings-models.png](../../../../../images/sandbox-test/cursor/cursor-settings-models.png)
 
 In long context chat, the model selection is limited to the models that support long context:
 - [gpt-4o-128k](https://platform.openai.com/docs/models)
@@ -66,7 +66,7 @@ Copilot++ can:
 
 Copilot++ uses a custom model. You can choose to use our `legacy` Copilot++ model, which may work better in foreign languages and generating new code, but it is much slower. For most users, Cursor recommends staying on the default model.
 
-![cursor-settings-copilot.png](../../../../images/sandbox-test/cursor/cursor-settings-copilot.png)
+![cursor-settings-copilot.png](../../../../../images/sandbox-test/cursor/cursor-settings-copilot.png)
 
 
 Copilot++ suggestions will appear as ghost texts in the editor when Copilot++ is only adding additional text. If the suggestion modifies existing code, it will appear as a diff popup to the right of your current line.
@@ -152,7 +152,7 @@ With `Privacy Mode`, none of your code will ever be stored by us or any third-pa
 You can enable `Privacy Mode` under `Cursor Settings` > `General` > `Privacy Mode`.
 
 ## UX Summary
-- It takes longer to index the [AIRUN Assistants Benchmark CodeBase](https://github.com/epam/AIRUN-Assistants-Benchmark-CodeBase) project compared to [Continue AI code assistant](../continue/continue-july-2024.md). It took 40 minutes while Continue took 5 minutes (Continue can loads the embedded code locally and Cursor into the remote database).
+- It takes longer to index the [AIRUN Assistants Benchmark CodeBase](https://github.com/epam/AIRUN-Assistants-Benchmark-CodeBase) project compared to [Continue AI code assistant](../../continue/continue-july-2024.md). It took 40 minutes while Continue took 5 minutes (Continue can loads the embedded code locally and Cursor into the remote database).
 - Code completion works slower and less efficient than Continue and Copilot.
 
 ## Test Results
@@ -166,14 +166,14 @@ VSCode version:
 
 Cursor configuration:
 
-![cursor-configuration1.png](../../../../images/sandbox-test/cursor/cursor-configuration1.png)
+![cursor-configuration1.png](../../../../../images/sandbox-test/cursor/cursor-configuration1.png)
 
 Indexing:
 
 The tests were run after the base code was indexed by Cursor
 
 ### Sandbox Tests
-[SandboxTestsCursorJuly2024.xlsx](../../../../reports/SandboxTestsCursorJuly2024.xlsx)
+[SandboxTestsCursorJuly2024.xlsx](../../../../../reports/SandboxTestsCursorJuly2024.xlsx)
 
 **Chat based tests (GPT-4o model):**
 
@@ -219,7 +219,7 @@ The tests were run after the base code was indexed by Cursor
 Cursor: 80.53 = 22 / 113
 
 ### Golf App Tests
-[GolfAppTestsCursorJuly2024.xlsx](../../../../reports/GolfAppTestsCursorJuly2024.xlsx)
+[GolfAppTestsCursorJuly2024.xlsx](../../../../../reports/GolfAppTestsCursorJuly2024.xlsx)
 
 **Chat based tests (GPT-4o model):**
 
