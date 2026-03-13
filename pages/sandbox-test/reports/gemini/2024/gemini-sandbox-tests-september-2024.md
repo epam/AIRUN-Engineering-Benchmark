@@ -13,7 +13,7 @@
 - [UX Summary](#ux-summary)
 
 ## Test Execution Results:
-[SandboxTestsGeminiSeptember2024.xlsx](../../../../reports/SandboxTestsGeminiSeptember2024.xlsx)
+[SandboxTestsGeminiSeptember2024.xlsx](../../../../../reports/SandboxTestsGeminiSeptember2024.xlsx)
 
 ## Summary:
 **Overall Score: 86.21 = 16 / 116**
@@ -56,7 +56,7 @@ Gemini version:
 2.17.0
 
 ## UX Summary:
-- Gemini showed better results compared to the results of running the same tests in [June](../zencoder/2024/gemini-copilot-amazon-q-sandbox-tests-june-2024.md). The June result was 67.3%, meaning Gemini increased its efficiency by 18.91%.
+- Gemini showed better results compared to the results of running the same tests in [June](../../zencoder/2024/gemini-copilot-amazon-q-sandbox-tests-june-2024.md). The June result was 67.3%, meaning Gemini increased its efficiency by 18.91%.
 - Responses to chat window questions and autocompletion prompts are generated quite slowly.
 - For autocompletion, applied Control + Enter keys.
 

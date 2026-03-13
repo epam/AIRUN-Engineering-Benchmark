@@ -6,7 +6,7 @@
 
 ## Test Execution Results ([Anthropic Claude-v3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet) LLM)
 
-[GolfAppTestsCursorSonnetSeptember.xlsx](../../../../reports/GolfAppTestsCursorSonnetSeptember.xlsx)
+[GolfAppTestsCursorSonnetSeptember.xlsx](../../../../../reports/GolfAppTestsCursorSonnetSeptember.xlsx)
 
 | Pass Rate (%) | Overall | Failed Tests |
 | ------------- | ------- | ------------ |
