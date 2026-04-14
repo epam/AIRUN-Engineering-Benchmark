@@ -57,3 +57,5 @@ The agent has been examined with tasks belonging to various categories such as s
 ### Agent's Final Grade
 
 The agent's final grade is 82%.
+
+<p style="text-align: center;">    © 2025 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
