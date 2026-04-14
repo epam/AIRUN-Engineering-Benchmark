@@ -47,3 +47,6 @@ The tests were conducted using the Claude agent. The agent was instructed to sug
 ## Configuration
 
 - **JetBrains Air version:** 261.311.47
+
+<p style="text-align: center;">    © 2026 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
+
