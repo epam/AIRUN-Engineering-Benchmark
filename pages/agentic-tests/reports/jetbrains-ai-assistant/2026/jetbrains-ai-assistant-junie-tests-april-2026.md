@@ -6,12 +6,7 @@ Junie is a coding agent developed by JetBrains bundled with the IDE AI Assistant
 
 The agent has been tested with the Claude Opus 4.6 model and has shown one of the best performance among the examined agents. It successfully completed the tasks assigned to it. The agent responded reasonably to the feedback, which allowed it to successfully achieve a goal in a minimum number of steps. However, the agent may suggest plain straightforward solutions. The generated code should be supervised by an experienced developer to prevent defects and technical debt introduction.
 
-The agent has been examined with tasks belonging to various categories such as:
-
-- solution-or-component-generation
-- solution-migration
-- code-refactoring
-- code-bugfixing
+The agent has been examined with tasks belonging to various categories such as solution-or-component-generation, solution-migration, code-refactoring, code-bugfixing.
 
 In response, the agent generated solutions affecting from 3 files and 20 code lines to 11 files and 338 code lines. It took from 1 to 7 iterations to complete the given development either successfully or to prove that further agent-assisted development was not reasonable.
 
@@ -87,11 +82,5 @@ The agent's final grade is **79%**.
 | 0011 | Local | 1 | 1.00 | 0.88 | 0.77 | 1.00 | 1.00 | 0.91 |
 | 0014 | Local | 2 | 0.82 | 0.92 | 0.90 | 1.00 | 1.00 | 0.86 |
 | 0016 | Local | 2 | 0.82 | 1.00 | 0.83 | 1.00 | 1.00 | 0.87 |
-
-## Links
-
-- JetBrains AI Assistant Documentation
-- Testing report
-- Testing summary
 
 <p style="text-align: center;">    © 2026 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>

@@ -85,10 +85,4 @@ The agent's final grade is **76%**.
 | 0014 | Local | 5 | 0.45 | 0.92 | 0.85 | 1.00 | 1.00 | 0.67 |
 | 0016 | Local | 2 | 0.82 | 1.00 | 0.83 | 1.00 | 1.00 | 0.87 |
 
-## Links
-
-- JetBrains AI Assistant Documentation
-- Testing report
-- Testing summary
-
 <p style="text-align: center;">    © 2026 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
