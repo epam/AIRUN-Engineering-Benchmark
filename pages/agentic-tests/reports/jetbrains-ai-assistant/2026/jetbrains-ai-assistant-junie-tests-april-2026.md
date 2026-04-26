@@ -1,0 +1,97 @@
+# JetBrains IDEA Junie Agent Tests - April 2026
+
+## Summary
+
+Junie is a coding agent developed by JetBrains bundled with the IDE AI Assistant. The agent is powered by the most popular LLMs from Anthropic, Google, OpenAI, and xAI.
+
+The agent has been tested with the Claude Opus 4.6 model and has shown one of the best performance among the examined agents. It successfully completed the tasks assigned to it. The agent responded reasonably to the feedback, which allowed it to successfully achieve a goal in a minimum number of steps. However, the agent may suggest plain straightforward solutions. The generated code should be supervised by an experienced developer to prevent defects and technical debt introduction.
+
+The agent has been examined with tasks belonging to various categories such as:
+
+- solution-or-component-generation
+- solution-migration
+- code-refactoring
+- code-bugfixing
+
+In response, the agent generated solutions affecting from 3 files and 20 code lines to 11 files and 338 code lines. It took from 1 to 7 iterations to complete the given development either successfully or to prove that further agent-assisted development was not reasonable.
+
+## Details
+
+Junie is an AI coding agent developed by JetBrains and runs in JetBrains IDEs, in terminal, or headless in CI/CD scripts.
+
+The agent can interact with Chat or Agents mode.
+
+The agent allows choosing a model best suited for the task from a list of supported LLMs, models from configured third-party providers, or locally running models.
+
+The models available with JetBrains AI subscription include the most recent models from leading LLM providers:
+
+- Anthropic Claude Opus
+- Anthropic Claude Sonnet
+- Anthropic Claude Haiku
+- Google Gemini Pro
+- Google Gemini Flash
+- OpenAI GPT
+- OpenAI GPT Codex
+- OpenAI GPT Codex-Max
+- OpenAI GPT Codex-Mini
+- xAI Grok-4.1 Fast
+
+The agent permissions UI allows approving agent actions either one by one or approving all actions altogether. Alternatively, the agent operations can be configured via an action allowlist.
+
+## Testing
+
+### Environment
+
+| Component | Version |
+|---|---|
+| IDE | JetBrains IntelliJ IDEA 2026.1 |
+| JetBrains AI Assistant | 261.22158.366 |
+| Junie | 261.1218.96 |
+| Default Model | Claude Opus 4.6 |
+| LLM mode | Think More |
+
+## Code Generation Findings
+
+- Can show inaccurate diff for the modified files. It can confuse the developer.
+- Can create tests to verify the developed solution.
+- The user interface for granting agent permissions is unfriendly and inflexible. It either allows the agent to perform all actions or asks permission to perform each action.
+- Can suggest simplified straightforward solutions, preferring to make rash decisions rather than probe deeply into the problem.
+- May miss some project setup details and generate a non-optimal solution for the project ignoring the project tech stack.
+
+## Testing Customization
+
+General golf-application rules for agents are added as file `.junie/AGENTS.md`.
+
+## Test Report
+
+| # | Run | Sourcecode Repository | Task Summary | Task Description / Initial Prompt | First-Shot Effort | First-Shot Completeness | First-Shot Accuracy | Subsequent Prompts / Feedback | Final Completeness | Final Accuracy | Statistics | Comments |
+|---:|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Local | <https://github.com/PolinaTolkachova/golf-application> | **Id:** 0001<br><br>**Name:** Make reverse engineering of DB schema and make it manageable with Flyway<br><br>**Category:** code-refactoring<br><br>**Complexity:** Medium | See `agentic-workflow-tests/0001/README.md` | N/A | 85%<br><br>Hibernate configuration is not changed from updating database schema to validating database schema. | 94%<br><br>Exposes sensitive data in sources. | 1. Prevent user credentials expose in `docker-compose.yml`, `flyway.conf`.<br><br>2. Using the root user as the application database user leads to security risks.<br><br>3. Hibernate configuration is kept to update the database schema while the database schema is going to be managed by Flyway. | 100% | 100% | **Files:**<br>2 modified (M)<br>3 added (A)<br>0 deleted (D)<br><br>**Lines:**<br>334 insertions (+)<br>4 deletions (-) |  |
+| 2 | Local | <https://github.com/PolinaTolkachova/golf-application> | **Id:** 0003<br><br>**Name:** Refactor Golf application access-control layer, replace Basic Authentication with Oauth2 Authorization<br><br>**Category:** code-refactoring<br><br>**Complexity:** High | See `agentic-workflow-tests/0003/README.md` | N/A | 100% | 100% | Not required | 100% | 100% | **Files:**<br>3 modified (M)<br>1 added (A)<br>3 deleted (D)<br><br>**Lines:**<br>93 insertions (+)<br>121 deletions (-) |  |
+| 3 | Local | <https://github.com/PolinaTolkachova/golf-application> | **Id:** 0004<br><br>**Name:** Return round scores in CSV format in Golf application<br><br>**Category:** solution-or-component-generation<br><br>**Complexity:** Low | See `agentic-workflow-tests/0004/README.md` | N/A | 37%<br><br>- The default `RoundScoreController` GET endpoint was not preserved, but restricted to `"text/html"`.<br>- `null` values are represented as `null` rather than empty strings.<br>- The data field containing the comma is not enclosed in double quotes.<br>- The double quote contained in the data field is not escaped by doubling it.<br>- Incorrect CSV text encoding.<br>- Spring HTTP Message Conversion is not utilized.<br>- The code uses raw `PrintWriter` and `StringBuilder` concatenation instead of a proven CSV processing library. | 63%<br><br>- The intended functionality is not accomplished.<br>- Custom CSV generation code does not handle edge cases or exceptions.<br>- CSV generation is embedded in the controller.<br>- The CSV generation logic lacks necessary documentation. | 1. Spring's message conversion mechanism is not utilized.<br><br>2. Using `StringBuilder` is a poor and error-prone choice for CSV generation.<br><br>3. Regression: the default `RoundScoreController` GET endpoint is narrowed to `"text/html"` media type only. | 100% | 83%<br><br>The CSV generation logic lacks necessary documentation. | **Files:**<br>2 modified (M)<br>3 added (A)<br>0 deleted (D)<br><br>**Lines:**<br>242 insertions (+)<br>0 deletions (-) |  |
+| 4 | Local | <https://github.com/PolinaTolkachova/golf-application> | **Id:** 0008<br><br>**Name:** Refactor Golf application, replace logback logging with Log4j 2.x logging framework and SLF4J as logging facade<br><br>**Category:** solution-migration<br><br>**Complexity:** Medium | See `agentic-workflow-tests/0008/README.md` | N/A | 60%<br><br>- `spring-boot-starter-logging` is not fully excluded from Spring Boot starter dependencies.<br>- `spring-boot-starter-logging`, and hence Logback, is still present.<br>- LMAX Disruptor is not added as dependency and it is not utilized.<br>- `application.properties` still contains logging level configurations.<br>- Logging is not asynchronous in Log4j2 configuration.<br>- The configuration uses a `<File>` appender rather than a `<RollingRandomAccessFile>` appender.<br>- The application log file is not created. | 88%<br><br>- The intended functionality is not accomplished.<br>- Logging within loop degrades performance. | 1. SLF4J: Class path contains multiple SLF4J providers.<br><br>Found provider `[ch.qos.logback.classic.spi.LogbackServiceProvider@6bc168e5]`<br><br>Found provider `[org.apache.logging.slf4j.SLF4JServiceProvider@7b3300e5]`<br><br>Actual provider is of type `[ch.qos.logback.classic.spi.LogbackServiceProvider@6bc168e5]`<br><br>2. Configure Log4j2 for maximum performance as requested.<br><br>3. Would `RollingRandomAccessFile` be better for performance?<br><br>4. `logging.level.*` properties are not removed from `application.properties`. The created loggers are synchronous by default. It affects logging performance.<br><br>5. Setting the `log4j2.contextSelector` property in `application.properties` generally does not work for its primary intended use, such as enabling Asynchronous Loggers.<br><br>6. Fix the issue, but keep ability to configure log dir externally:<br><br>`WARN StatusConsoleListener Infinite loop in property interpolation of LOG_DIR->sys:LOG_DIR`<br><br>7. Prevent performance degradation due to logging inside a loop. | 100% | 100% | **Files:**<br>7 modified (M)<br>2 added (A)<br>2 deleted (D)<br><br>**Lines:**<br>114 insertions (+)<br>83 deletions (-) |  |
+| 5 | Local | <https://github.com/PolinaTolkachova/golf-application> | **Id:** 0011<br><br>**Name:** Migrate in-memory user and role definitions to database in Golf application<br><br>**Category:** code-refactoring<br><br>**Complexity:** Low | See `agentic-workflow-tests/0011/README.md` | N/A | 77%<br><br>- The application launch fails due to a SQL syntax error.<br>- Tests could not be performed due to the failed app launch. | 88%<br><br>- The intended functionality is not accomplished.<br>- SQL syntax error. | 1. Failed to execute SQL script statement #3 of file `[D:\work.epam\EPM-AIRD\gittst\golfapp-idea-junie-20260410-00\target\classes\schema.sql]`:<br><br>`CREATE UNIQUE INDEX IF NOT EXISTS ix_auth_username ON authorities (username, authority)` | 100% | 100% | **Files:**<br>2 modified (M)<br>2 added (A)<br>0 deleted (D)<br><br>**Lines:**<br>31 insertions (+)<br>24 deletions (-) |  |
+| 6 | Local | <https://github.com/PolinaTolkachova/golf-application> | **Id:** 0014<br><br>**Name:** User Account Menu in Golf application<br><br>**Category:** solution-or-component-generation<br><br>**Complexity:** Low | See `agentic-workflow-tests/0014/README.md` | N/A | 90%<br><br>- Bootstrap bundle is not utilized to create the account menu.<br>- The account menu is not expandable sub-menu but just raw main menu elements. | 92%<br><br>The intended functionality is not fully accomplished. | 1. Make the account menu an expandable sub-menu, rather than just a few main menu items.<br><br>2. Try to rework the account menu using Bootstrap adopted in the project instead of custom JavaScript and CSS. | 100% | 100% | **Files:**<br>3 modified (M)<br>0 added (A)<br>0 deleted (D)<br><br>**Lines:**<br>19 insertions (+)<br>1 deletion (-) |  |
+| 7 | Local | <https://github.com/PolinaTolkachova/golf-application> | **Id:** 0016<br><br>**Name:** Fix an issue with competition removing in Golf application<br><br>**Category:** code-bugfixing<br><br>**Complexity:** Medium | See `agentic-workflow-tests/0016/README.md` | N/A | 83%<br><br>The solution uses POST HTTP method for competition deletion instead of DELETE. | 100% | 1. The deletion endpoint uses the `POST` HTTP method instead of the more semantically appropriate `DELETE` method.<br><br>2. Please rewrite deletion using `@DeleteMapping("/{id}")` instead of `@DeleteMapping("/{id}/remove")`. | 100% | 100% | **Files:**<br>6 modified (M)<br>0 added (A)<br>0 deleted (D)<br><br>**Lines:**<br>18 insertions (+)<br>3 deletions (-) |  |
+
+## Agent's Final Grade
+
+The agent's final grade is **79%**.
+
+| Number | Tag | Subsequent Prompts Count | Performance | accuracy.first | completeness.first | accuracy.final | completeness.final | Grade |
+|---:|---|---:|---:|---:|---:|---:|---:|---:|
+| 0001 | Local | 3 | 0.67 | 0.94 | 0.85 | 1.00 | 1.00 | 0.78 |
+| 0003 | Local | 0 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+| 0004 | Local | 3 | 0.67 | 0.63 | 0.37 | 0.83 | 1.00 | 0.56 |
+| 0008 | Local | 7 | 0.30 | 0.88 | 0.60 | 1.00 | 1.00 | 0.52 |
+| 0011 | Local | 1 | 1.00 | 0.88 | 0.77 | 1.00 | 1.00 | 0.91 |
+| 0014 | Local | 2 | 0.82 | 0.92 | 0.90 | 1.00 | 1.00 | 0.86 |
+| 0016 | Local | 2 | 0.82 | 1.00 | 0.83 | 1.00 | 1.00 | 0.87 |
+
+## Links
+
+- JetBrains AI Assistant Documentation
+- Testing report
+- Testing summary
+
+<p style="text-align: center;">    © 2026 EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
