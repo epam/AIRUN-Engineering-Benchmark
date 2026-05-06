@@ -33,21 +33,6 @@ Here are some highlights:
 | Default Model | GLM-5.1 |
 | Thinking level | High |
 
-## Features Feedback
-
-| Category | Grade | Comments | Evaluation Criteria |
-|---|---|---|---|
-| Auto-discovery of task relevant source code | Excellent | | Agent must find all files related to task context. It is good when the agent can report on the exact context pieces that it used during task solving |
-| Implementation plan support | Mediocre | Creates the plan on the fly. There is not a separate Plan Mode. | Agent must generate an implementation plan consisting of steps with a clear detailed description of what change, why and how is made in each step. It is good when the developer is able to comment on the generated implementation plan and re-generate it according to the comments |
-| Apply generated changes to local files | Excellent | | Agent must apply generated changes to local files. The expectation is that changes can be made flexibly by a developer request: all files, files one by one, chosen code fragments. |
-| Iterative work on solution | Excellent | | Agent must allow a developer leave a feedback to generated solution and improve the solution following the developer comments. |
-| Feature usage instructions generation | Excellent | | Agent should generate a feature usage instructions describing how to use or test the feature. |
-| External tools support | Excellent | | Agent must be able to call external tools after permission of the developer |
-| Model Context Protocol (MCP) support | ? | MCP servers are considered as inefficient, users are advised to use CLI tools or extensions instead. | Agent should be able to use MCP to connect to external systems and data sources to get context from. |
-| Context/History retention | Bad | The functionality was broken at the testing time. | Agent should keep task solving sessions to allow a developer to recall details of agent/developer interactions. Agent may allow to continue development within the session after a time. |
-| UI usability | Excellent | | How easy agent user interfaces are to use. |
-| Code Lintering | Excellent | | |
-
 ## Code Generation Findings
 
 - Gives the most clean view and shows the most detailed log of interactions with the model between the evaluated coding agents.
