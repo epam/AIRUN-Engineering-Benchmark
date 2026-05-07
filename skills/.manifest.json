@@ -1,0 +1,21 @@
+{
+  "skills": {
+    "skill-creator": {
+      "name": "skill-creator",
+      "version": "7bd8fc459f09f0e14dcc2adbb4a5a58e60ea755c",
+      "source": "anthropics/skills@main:skills/skill-creator",
+      "contentHash": "983170c54ebd674cfd33cc0d3269e0cc2ec36163abfb0d292e36e4dfec9ff9cc",
+      "files": [
+        "LICENSE.txt",
+        "SKILL.md",
+        "references/output-patterns.md",
+        "references/workflows.md",
+        "scripts/init_skill.py",
+        "scripts/package_skill.py",
+        "scripts/quick_validate.py"
+      ],
+      "installedAt": "2026-02-22T11:09:45.701Z"
+    }
+  },
+  "bundledManifestHash": "1567f22060a890d4f3853ed0a2d819a53ede0fd8a7588b0224f4feac325432c5"
+}
