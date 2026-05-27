@@ -8,9 +8,7 @@ The agent has shown better results than in February 2026 and returned back to th
 
 The agent has been examined with tasks belonging to various categories such as solution-or-component-generation, solution-migration, code-refactoring, code-bugfixing. The agent responded reasonably to the feedback, which allowed to successfully achieve a goal in a minimum number of steps. However the agent may suggest plain straightforward solutions. The generated code should be supervised by an experienced developer to prevent defects and technical debt introduction.
 
-## Details
-
-Devin is a cloud-based coding agent from Cognition with distinctive features differentiating it from local coding agents.
+## Distinctive Features
 
 - Since beginning Devin is provided as Software as a Service. The agent works in cloud and generates solutions as pull requests to a client project GitHub repository. Also Devin is built directly into Windsurf IDE since 2.0 version so the work can be delegated to the cloud and the results are reviewed without leaving the IDE.
 - Devin cloud agent integrates into the repository as a GitHub App and can respond to pull request comments.
