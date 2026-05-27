@@ -6,10 +6,6 @@ This is a next round of agentic testing of Claude Code, a terminal-based coding 
 
 The agent has been examined with tasks belonging to various categories such as solution-or-component-generation, solution-migration, code-refactoring, code-bugfixing. The agent responded reasonably to the feedback, which allowed to successfully achieve a goal in a minimum number of steps. However the agent may suggest plain straightforward solutions. The generated code should be supervised by an experienced developer to prevent defects and technical debt introduction.
 
-## Details
-
-> ⚠️ The feedback is based on the assumption that the developer doesn't have discomfort using the command line in the terminal. It is worth noting that the latest version of the Claude Code adds IDE integration with a windowed interface.
-
 ## Testing
 
 ### Environment
