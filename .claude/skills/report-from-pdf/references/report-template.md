@@ -1,16 +1,25 @@
-# {AGENT_FULL_NAME} Tests{SEPARATOR}{MODEL_OR_VARIANT} — {MONTH} {YEAR}
+# {AGENT_FULL_NAME} Tests {MODEL_OR_VARIANT} — {MONTH} {YEAR}
 
 <!-- TITLE RULES:
-  - SEPARATOR is " — " (em-dash with spaces) if MODEL_OR_VARIANT is present, else just a space before the em-dash.
-  - MODEL_OR_VARIANT: model or agent variant name if named in the report (e.g. "on GLM-5.1", "Claude Agent", "Junie"). Omit if not applicable.
+  - Shape: "<agent name> Tests [<model or variant>] — <Month> <Year>".
+  - MODEL_OR_VARIANT: model or agent variant if the PDF names one (e.g. "on GLM-5.1", "Claude Agent", "Junie").
+    Omit it — together with the space before it — when the PDF names none.
+  - Use an em-dash " — " before the date. Existing reports use both "—" and "-"; new reports standardize on "—".
   - Example with model:    "Pi.Dev Coding Agent Tests on GLM-5.1 — April 2026"
+  - Example with variant:  "JetBrains IDEA Junie Agent Tests — April 2026"
   - Example without model: "Cursor AI Agent Tests — February 2026"
-  - Example with variant:  "JetBrains IDEA Junie Agent Tests - April 2026"
 -->
 
 ## Summary
 
 {SUMMARY_PARAGRAPHS}
+
+## Details
+
+{AGENT_DESCRIPTION_AND_FEATURE_HIGHLIGHTS}
+
+<!-- OPTIONAL SECTION. Keep only if the PDF describes the agent or lists its features.
+     Use the heading the PDF itself uses — "## Details" or "## Distinctive Features". Delete the whole section otherwise. -->
 
 ## Testing
 
@@ -43,16 +52,27 @@ General golf-application rules for agents are added as file:
 ```
 -->
 
+## Testing Approach
+
+### {APPROACH_SUBSECTION_1}
+
+{APPROACH_TEXT_1}
+
+<!-- OPTIONAL SECTION. Keep only if the PDF documents setup steps.
+     Typical subsections: Repository Initialization, Repository Indexing, Repository Setup.
+     Fenced code blocks (setup commands, config snippets) belong here. Delete the whole section otherwise. -->
+
 ## Test Report
 
 | # | Run | Sourcecode Repository | Task Summary | Task Description<br>(Initial Prompt) | First-Shot Effort | First-Shot Completeness | First-Shot Accuracy | Subsequent Prompts<br>(Feedback, Comments) | Final Completeness | Final Accuracy | Statistics | Comments |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | {RUN} | {REPO_URL} | **Id:** {TASK_ID}<br><br>**Name:** {TASK_NAME}<br><br>**Category:** {CATEGORY}<br><br>**Complexity:** {COMPLEXITY} | See {TASK_README_URL} | {FIRST_SHOT_EFFORT} | {FIRST_SHOT_COMPLETENESS_PCT}<br><br>- {COMPLETENESS_ITEM_1}<br>- {COMPLETENESS_ITEM_2} | {FIRST_SHOT_ACCURACY_PCT}<br><br>- {ACCURACY_ITEM_1}<br>- {ACCURACY_ITEM_2} | 1) {PROMPT_1}<br><br>2) {PROMPT_2} | {FINAL_COMPLETENESS} | {FINAL_ACCURACY} | Files:<br>{M} modified(M)<br>{A} added(A)<br>{D} deleted(D)<br><br>Lines:<br>{INS} insertions(+)<br>{DEL} deletions(-) | {COMMENTS} |
-<!-- Replicate the row pattern above for each test case. 
+<!-- Replicate the row pattern above for each test case — 13 cells per row, always.
      - When First-Shot Completeness / Accuracy / Final values have no sub-bullets, just put the percentage.
      - When Subsequent Prompts is "Not required", put that text; no numbered items needed.
      - When Final Accuracy has sub-bullets (e.g. a residual issue), include them after the percentage.
-     - When Statistics or Comments are empty, leave the cell blank. -->
+     - When Statistics or Comments are empty, leave the cell blank.
+     - Escape any literal "|" inside a cell as "\|". -->
 
 ## Agent's Final Grade
 
@@ -61,6 +81,13 @@ The agent's final grade is **{FINAL_GRADE_PCT}%**.
 | Number | Tag | Subsequent Prompts Count | Performance | accuracy.first | completeness.first | accuracy.final | completeness.final | Grade |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
 | {TASK_ID} | {TAG} | {SUBSEQUENT_COUNT} | {PERFORMANCE} | {ACC_FIRST} | {COMP_FIRST} | {ACC_FINAL} | {COMP_FINAL} | {GRADE} |
-<!-- Add a row per test case. All numeric columns right-aligned (---:). -->
+<!-- One row per test case, same order as the Test Report table.
+     Values here are decimals (0.67), not percentages. All numeric columns right-aligned (---:). -->
+
+## Links
+
+- [{LINK_TITLE}]({LINK_URL})
+
+<!-- OPTIONAL SECTION. Keep only if the PDF collects reference links. Delete the whole section otherwise. -->
 
 <p style="text-align: center;">    © {YEAR} EPAM Systems, Inc. All Rights Reserved.<br/>    EPAM, EPAM AI/RUN <sup>TM</sup> and the EPAM logo are registered trademarks of EPAM Systems, Inc.<br>    This report is licensed under CC BY-SA 4.0<br/></p>
