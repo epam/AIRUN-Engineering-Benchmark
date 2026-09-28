@@ -66,12 +66,13 @@ General golf-application rules for agents are added as file:
 
 | # | Run | Sourcecode Repository | Task Summary | Task Description<br>(Initial Prompt) | First-Shot Effort | First-Shot Completeness | First-Shot Accuracy | Subsequent Prompts<br>(Feedback, Comments) | Final Completeness | Final Accuracy | Statistics | Comments |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | {RUN} | {REPO_URL} | **Id:** {TASK_ID}<br><br>**Name:** {TASK_NAME}<br><br>**Category:** {CATEGORY}<br><br>**Complexity:** {COMPLEXITY} | See {TASK_README_URL} | {FIRST_SHOT_EFFORT} | {FIRST_SHOT_COMPLETENESS_PCT}<br><br>- {COMPLETENESS_ITEM_1}<br>- {COMPLETENESS_ITEM_2} | {FIRST_SHOT_ACCURACY_PCT}<br><br>- {ACCURACY_ITEM_1}<br>- {ACCURACY_ITEM_2} | 1) {PROMPT_1}<br><br>2) {PROMPT_2} | {FINAL_COMPLETENESS} | {FINAL_ACCURACY} | Files:<br>{M} modified(M)<br>{A} added(A)<br>{D} deleted(D)<br><br>Lines:<br>{INS} insertions(+)<br>{DEL} deletions(-) | {COMMENTS} |
+| 1 | {RUN} | {REPO_URL} | **Id:** {TASK_ID}<br><br>**Name:** {TASK_NAME}<br><br>**Category:** {CATEGORY}<br><br>**Complexity:** {COMPLEXITY} | See [agentic-workflow-tests/{TASK_ID}/README.md](https://github.com/epam/AIRUN-Assistants-Benchmark-TestInstructions/blob/main/agentic-workflow-tests/{TASK_ID}/README.md) | {FIRST_SHOT_EFFORT} | {FIRST_SHOT_COMPLETENESS_PCT}<br><br>- {COMPLETENESS_ITEM_1}<br>- {COMPLETENESS_ITEM_2} | {FIRST_SHOT_ACCURACY_PCT}<br><br>- {ACCURACY_ITEM_1}<br>- {ACCURACY_ITEM_2} | 1) {PROMPT_1}<br><br>2) {PROMPT_2} | {FINAL_COMPLETENESS} | {FINAL_ACCURACY} | Files:<br>{M} modified(M)<br>{A} added(A)<br>{D} deleted(D)<br><br>Lines:<br>{INS} insertions(+)<br>{DEL} deletions(-) | {COMMENTS} |
 <!-- Replicate the row pattern above for each test case — 13 cells per row, always.
      - When First-Shot Completeness / Accuracy / Final values have no sub-bullets, just put the percentage.
      - When Subsequent Prompts is "Not required", put that text; no numbered items needed.
      - When Final Accuracy has sub-bullets (e.g. a residual issue), include them after the percentage.
      - When Statistics or Comments are empty, leave the cell blank.
+     - Task Description is always a markdown link to the task README, never inline code.
      - Escape any literal "|" inside a cell as "\|". -->
 
 ## Agent's Final Grade

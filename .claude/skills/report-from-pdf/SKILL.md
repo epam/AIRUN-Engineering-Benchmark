@@ -66,8 +66,11 @@ Some older reports sit directly in `{agent-slug}/` without a year directory, or 
 | Agent description / feature highlights | `## Details` or `## Distinctive Features` — use the heading the PDF itself uses | optional, after `## Summary` |
 | Setup, indexing or repository-preparation notes | `## Testing Approach` (with `###` subsections) | optional, after `## Testing Customization` |
 | Reference links collected at the end | `## Links` | optional, last section before the footer |
+| Features Feedback table (Category / Grade / Comments / Evaluation Criteria) | — | **never include** |
 
 Include every optional section the PDF contains, and omit the ones it does not. Do not invent a section to fill the template.
+
+**Never carry over the PDF's "Features Feedback" table** — the per-feature grade matrix (Category / Grade / Comments / Evaluation Criteria) and any note attached to it are dropped, even though the PDF places them under `## Testing`. A few legacy reports still contain it; do not use them as a model.
 
 ## Test Report Table
 
@@ -79,6 +82,13 @@ The table has **13 columns** — emit all of them in every row, leaving a cell e
 
 - Use `<br>` for line breaks within a cell; use `<br><br>` to separate bullet-like items.
 - In the **Task Summary** column, bold field labels: `**Id:**`, `**Name:**`, `**Category:**`, `**Complexity:**`, each followed by `<br><br>` before the next field.
+- In the **Task Description (Initial Prompt)** column the README must be a **markdown link**, never inline code:
+
+  ```text
+  See [agentic-workflow-tests/0001/README.md](https://github.com/epam/AIRUN-Assistants-Benchmark-TestInstructions/blob/main/agentic-workflow-tests/0001/README.md)
+  ```
+
+  The URL is always `https://github.com/epam/AIRUN-Assistants-Benchmark-TestInstructions/blob/main/agentic-workflow-tests/{task-id}/README.md`. The PDF renders this as a hyperlink whose text is only the path, so the URL does not appear in extracted text — take it from the PDF's link annotations, or build it from the task id with the pattern above.
 - In **First-Shot Completeness / Accuracy** and their **Final** equivalents: start with the percentage (with the `%` sign), then `<br><br>`, then bullet items prefixed with `- `. When there are no bullets, the cell is just the percentage.
 - In the **Subsequent Prompts** column: number each prompt `1)`, `2)`, etc., separated by `<br><br>`. When the PDF says the agent needed none, write `Not required`.
 - In the **Statistics** column: `Files:<br>X modified(M)<br>Y added(A)<br>Z deleted(D)<br><br>Lines:<br>N insertions(+)<br>M deletions(-)`.
